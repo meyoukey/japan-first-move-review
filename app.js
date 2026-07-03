@@ -2289,6 +2289,53 @@ const foodFirstMoveCards = [
 ];
 const foodCardMap = Object.fromEntries(foodCards.map((card) => [card.id, card]));
 const app = document.querySelector("#app");
+const siteHeader = document.querySelector(".site-header");
+const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+const mobileSiteMenu = document.querySelector(".mobile-site-menu");
+
+function setMobileMenuOpen(isOpen) {
+  if (!mobileMenuToggle || !mobileSiteMenu) {
+    return;
+  }
+
+  mobileSiteMenu.hidden = !isOpen;
+  mobileMenuToggle.classList.toggle("is-open", isOpen);
+  mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+  mobileMenuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  document.body.classList.toggle("is-mobile-menu-open", isOpen);
+}
+
+function closeMobileMenu() {
+  setMobileMenuOpen(false);
+}
+
+mobileMenuToggle?.addEventListener("click", () => {
+  setMobileMenuOpen(mobileMenuToggle.getAttribute("aria-expanded") !== "true");
+});
+
+mobileSiteMenu?.addEventListener("click", (event) => {
+  if (event.target.closest?.("a")) {
+    closeMobileMenu();
+  }
+});
+
+document.addEventListener("click", (event) => {
+  if (mobileMenuToggle?.getAttribute("aria-expanded") === "true" && !siteHeader?.contains(event.target)) {
+    closeMobileMenu();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeMobileMenu();
+  }
+});
+
+window.matchMedia("(min-width: 641px)").addEventListener("change", (event) => {
+  if (event.matches) {
+    closeMobileMenu();
+  }
+});
 
 document.querySelector(".skip-link").addEventListener("click", (event) => {
   event.preventDefault();
@@ -3361,8 +3408,8 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       ingredientLabelJa: "アレルギーのあるもの",
       ingredientLabelEn: "Allergens",
       responses: [
-        { symbol: "○", ja: "対応できます", en: "CAN ACCOMMODATE" },
-        { symbol: "×", ja: "対応できません", en: "CANNOT ACCOMMODATE" },
+        { symbol: "○", ja: "対応できます", en: "CAN SERVE" },
+        { symbol: "×", ja: "対応できません", en: "CAN’T SERVE" },
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
       whatItSays: "I have a severe food allergy. Even a small amount or shared cooking tools can be dangerous.",
@@ -3380,8 +3427,8 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       ingredientLabelJa: "食べられないもの",
       ingredientLabelEn: "Items I cannot eat",
       responses: [
-        { symbol: "○", ja: "対応できます", en: "CAN ACCOMMODATE" },
-        { symbol: "×", ja: "対応できません", en: "CANNOT ACCOMMODATE" },
+        { symbol: "○", ja: "対応できます", en: "CAN SERVE" },
+        { symbol: "×", ja: "対応できません", en: "CAN’T SERVE" },
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
       whatItSays: "I have an allergy or intolerance and cannot eat the selected items.",
@@ -3399,8 +3446,8 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       ingredientLabelJa: "食べられないもの",
       ingredientLabelEn: "Items I cannot eat",
       responses: [
-        { symbol: "○", ja: "対応できます", en: "CAN ACCOMMODATE" },
-        { symbol: "×", ja: "対応できません", en: "CANNOT ACCOMMODATE" },
+        { symbol: "○", ja: "対応できます", en: "CAN SERVE" },
+        { symbol: "×", ja: "対応できません", en: "CAN’T SERVE" },
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
       whatItSays: "I have a dietary restriction and cannot eat the selected items.",
@@ -3550,7 +3597,7 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
               .join("")}
           </div>
           <footer class="custom-card-short-disclaimer">
-            <p>Communication aid only. Does not guarantee food safety.</p>
+            <p>Communication aid only. Does not guarantee food safety.<br>Staff still need to confirm ingredients and preparation.</p>
             ${sharedToolsNote}
           </footer>
         </section>
@@ -3640,6 +3687,13 @@ function customFoodCardStepThreeMarkup() {
         <strong>$4.99</strong>
         <p>Payment is not connected in this preview yet.</p>
       </div>
+      <aside class="custom-flow-safety-note" aria-label="Food safety note">
+        <p>Communication aid only. Does not guarantee food safety.</p>
+        <details class="custom-flow-safety-details">
+          <summary>Read safety note</summary>
+          <p>This card helps you communicate your food needs, but it does not guarantee food safety. Staff still need to confirm ingredients and preparation. If you have a severe allergy, always use your own judgment.</p>
+        </details>
+      </aside>
       <label class="custom-agreement-box">
         <input type="checkbox" data-custom-agreement ${customFoodCardState.agreed ? "checked" : ""}>
         <span>I understand that this card is a communication aid only and does not guarantee food safety.</span>
@@ -3731,8 +3785,8 @@ function customFoodCardTemplateMarkup() {
       `;
     }
     responses = [
-      { ja: "対応できます", en: "CAN ACCOMMODATE" },
-      { ja: "対応できません", en: "CANNOT ACCOMMODATE" },
+      { ja: "対応できます", en: "CAN SERVE" },
+      { ja: "対応できません", en: "CAN’T SERVE" },
       { ja: "確認します", en: "CHECK" },
     ];
   } else if (customFoodCardState.cardType === "ingredientCheck") {
@@ -4317,7 +4371,11 @@ function navSectionFromRoute(parts) {
     return "home";
   }
 
-  if (parts[0] === "food-cards" || parts[0] === "custom-food-card" || parts[0] === "food-card") {
+  if (parts[0] === "custom-food-card" || (parts[0] === "food-card" && parts[1] === "custom")) {
+    return "custom-food-card";
+  }
+
+  if (parts[0] === "food-cards") {
     return "food";
   }
 
@@ -4343,6 +4401,7 @@ function updateNavState(parts) {
 }
 
 function router() {
+  closeMobileMenu();
   document.body.classList.remove("is-custom-show-mode");
   document.body.classList.remove("is-custom-sample-mode");
   document.title = "Japan First Move";
