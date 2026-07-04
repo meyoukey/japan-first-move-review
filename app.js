@@ -3,31 +3,31 @@ const categories = [
     id: "food",
     name: "Food",
     icon: "🍜",
-    description: "Order, pay, wait, and handle food needs.",
+    description: "Order, pay, wait, and explain food needs.",
   },
   {
     id: "move",
     name: "Move",
     icon: "🚌",
-    description: "Stations, buses, taxis, lockers, and tickets.",
+    description: "Stations, trains, buses, IC cards, and lockers.",
   },
   {
     id: "relax",
     name: "Relax",
     icon: "♨",
-    description: "Onsen, hotels, luggage, shoes, and quiet spaces.",
+    description: "Rest, recover, onsen, and quiet spaces.",
   },
   {
     id: "culture",
     name: "Culture",
     icon: "⛩",
-    description: "Shrines, temples, local places, and manners.",
+    description: "Shrines, photos, entry rules, and local manners.",
   },
   {
     id: "help",
     name: "Get Help",
     icon: "＋",
-    description: "Medicine, lost items, payment trouble, and feeling sick.",
+    description: "Medicine, lost items, ticket machines, and feeling sick.",
   },
 ];
 
@@ -41,17 +41,17 @@ const guides = [
       "If you’re not sure whether to sit down, order, or wait, start here.",
       "Ramen shops move fast, but don’t worry—you only need to know what comes first.",
     ],
-    firstMove: "Look near the entrance for a ticket machine before you sit down.",
+    firstMove: "Look near the entrance for a meal ticket machine before you sit down.",
     steps: [
       "Pause near the entrance.",
-      "Look for a ticket machine.",
+      "Look for a meal ticket machine.",
       "If there is one, choose your ramen and pay first.",
       "Hand the ticket to staff and wait to be guided.",
     ],
     dont: [
       {
         title: "Don’t sit down before checking the system.",
-        body: "At many ramen shops, ordering happens before you take a seat. If you sit first, staff may point you back to the ticket machine.",
+        body: "At many ramen shops, ordering happens before you take a seat. If you sit first, staff may point you back to the meal ticket machine.",
       },
       {
         title: "Don’t block the entrance while deciding.",
@@ -63,7 +63,7 @@ const guides = [
         use: "Use when you can’t find the ticket machine.",
         romaji: "Kenbaiki wa doko desu ka?",
         japanese: "券売機はどこですか？",
-        english: "Where is the ticket machine?",
+        english: "Where is the meal ticket machine?",
       },
       {
         use: "Use when you don’t know how to use it.",
@@ -76,7 +76,7 @@ const guides = [
       {
         japanese: "券売機でお願いします。",
         romaji: "Kenbaiki de onegaishimasu.",
-        means: "Please use the ticket machine.",
+        means: "Please use the meal ticket machine.",
         move: "Buy your meal ticket first, then give it to staff.",
       },
       {
@@ -87,7 +87,7 @@ const guides = [
       },
     ],
     stuck:
-      "Look for photos on the machine. If there is no English, use camera translation. If the shop is busy and you want the safest choice, choose a basic ramen option instead of a complicated topping set.",
+      "Look for photos on the machine. If there is no English, use camera translation. If the shop is busy and you want the simplest choice, choose a basic ramen option instead of a complicated topping set.",
     note:
       "Ramen shops are often designed for quick meals. Staff may not explain everything slowly, especially during busy hours. This is normal.",
   },
@@ -98,9 +98,9 @@ const guides = [
     meta: "At an izakaya in Japan, staff may ask for your first drink before you are ready to order food. Learn what to do first, what otoshi means, and how to ask for the bill.",
     intro: [
       "If you just sat down at an izakaya and staff is already waiting for your order, don’t panic.",
-      "Your first move is not to choose every dish. Start with one drink.",
+      "Your first move is not to choose every dish. Start by choosing one drink.",
     ],
-    firstMove: "Order your first drink before choosing all your food.",
+    firstMove: "Choose your first drink before choosing all your food.",
     steps: [
       "Wait for staff to show you to a seat.",
       "Choose your first drink.",
@@ -111,7 +111,7 @@ const guides = [
     dont: [
       {
         title: "Don’t wait too long before ordering anything.",
-        body: "At many izakaya, staff expects the first drink order soon after you sit down. You can take more time with the food menu after that.",
+        body: "At many izakaya, staff may ask for your first drink soon after you sit down. You can take more time with the food menu after that.",
       },
       {
         title: "Don’t assume the small starter is free.",
@@ -149,13 +149,13 @@ const guides = [
         japanese: "お飲み物はいかがですか？",
         romaji: "Onomimono wa ikaga desu ka?",
         means: "What would you like to drink?",
-        move: "Order one drink first, even if you are still choosing food.",
+        move: "Choose one drink first, even if you are still choosing food.",
       },
       {
         japanese: "お通しです。",
         romaji: "Otoshi desu.",
         means: "This is the small starter or table charge dish.",
-        move: "Accept it unless you have a serious allergy or dietary restriction.",
+        move: "This is often part of the table charge. If you cannot eat it, tell staff before touching it.",
       },
       {
         japanese: "ラストオーダーです。",
@@ -165,7 +165,7 @@ const guides = [
       },
     ],
     stuck:
-      "If you drink alcohol, a draft beer is the easiest first order. If not, cola, ginger ale, or another non-alcoholic drink is fine. For food, choose two or three simple dishes first. You can order more later.",
+      "If you drink alcohol, a draft beer is an easy first order. If not, cola, ginger ale, or another non-alcoholic drink is fine. For food, start with two or three simple dishes. You can order more later.",
     note:
       "An izakaya is more like a casual drinking restaurant than a quiet dinner spot. It is normal to order in rounds.",
   },
@@ -176,20 +176,20 @@ const guides = [
     meta: "When a restaurant in Japan says it is full, it may not always be a simple invitation to wait. Learn what to do first, how to ask once, and when to move on.",
     intro: [
       "If a restaurant in Japan says it is full, it can be hard to know what they really mean.",
-      "Sometimes it means you can wait. Sometimes it means they cannot take you today. Sometimes the answer is indirect because staff does not want to sound too harsh.",
+      "Sometimes it means you can wait. Sometimes it means they cannot take more customers today. If the answer is unclear, it may be easier to look for another option nearby.",
     ],
     firstMove: "Ask once if waiting is possible, then move on if the answer is unclear.",
     steps: [
       "Step away from the entrance so you are not blocking others.",
       "Ask if waiting is possible.",
       "If staff gives you a clear wait time, decide if you want to wait.",
-      "If the answer is vague, treat it as a polite no.",
+      "If the answer is unclear, it may be easier to look for another option nearby.",
       "Thank them and find another option nearby.",
     ],
     dont: [
       {
         title: "Don’t keep asking again and again.",
-        body: "If staff avoids giving a wait time, says it is difficult, or looks uncomfortable, they may be politely telling you they cannot seat you.",
+        body: "If staff avoids giving a wait time or says it is difficult, they may not be able to seat you.",
       },
       {
         title: "Don’t stand directly in the doorway while deciding.",
@@ -221,7 +221,7 @@ const guides = [
         japanese: "ちょっと難しいです。",
         romaji: "Chotto muzukashii desu.",
         means: "It may be difficult.",
-        move: "Treat this as a polite no unless they clearly invite you to wait.",
+        move: "If they do not offer a wait time, it may be better to look for another option nearby.",
       },
       {
         japanese: "ご予約でいっぱいです。",
@@ -231,9 +231,9 @@ const guides = [
       },
     ],
     stuck:
-      "If staff gives a number like 20 minutes or 30 minutes, waiting is probably okay. If staff says something vague, apologizes repeatedly, or does not offer a waiting option, move on.",
+      "If staff gives a number like 20 minutes or 30 minutes, waiting is probably okay. If they do not give a wait time or offer a waiting option, it may be easier to look for another option nearby.",
     note:
-      "In Japan, people may avoid saying a direct no, especially in service situations. A soft or vague answer can still mean no.",
+      "At small restaurants, staff may use soft language when they cannot seat more customers. If the answer stays unclear, it is usually best to look for another option nearby.",
   },
   {
     slug: "how-to-pay",
@@ -242,7 +242,7 @@ const guides = [
     meta: "Not sure where to pay in Japan? Learn whether to pay at the register, at your seat, with a tray, by card, or in cash, and why you should not tip.",
     intro: [
       "If you finished eating or shopping in Japan and don’t know where to pay, look around before taking out your wallet.",
-      "In many places, payment happens at the register. In some restaurants, you bring a small bill slip from your table. In others, staff brings the bill to you.",
+      "In many places, payment happens at the register. Some restaurants use a bill slip from your table.",
     ],
     firstMove: "Look for the register before trying to pay at your seat.",
     steps: [
@@ -250,7 +250,7 @@ const guides = [
       "If there is one, take it to the register.",
       "If there is no bill slip, look for a register or ask staff.",
       "Place your cash or card on the payment tray if there is one.",
-      "Take your receipt and change, then leave without tipping.",
+      "Take your receipt and change before you leave.",
     ],
     dont: [
       {
@@ -303,26 +303,27 @@ const guides = [
       },
     ],
     stuck:
-      "Look for the small tray near the register. Many places use a tray for cash, coins, cards, and receipts. Put your payment there instead of handing it directly to staff.",
+      "Look for the small tray or payment terminal near the register. Many places use a tray for cash, coins, and receipts. If you pay by card, staff may ask you to insert or tap it yourself.",
     note:
       "Payment in Japan is often quiet and structured. The tray helps make the exchange clear and polite.",
   },
   {
     slug: "onsen-sento",
     title: "What to Do First at an Onsen or Sento",
+    categoryCardTitle: "Use an onsen or sento",
     category: "relax",
     meta: "At an onsen or sento in Japan, the order matters: shoes, payment, changing, washing, and bathing. Learn what to do first and what not to do.",
     intro: [
       "If you arrive at an onsen or sento in Japan and suddenly feel unsure, you are not alone.",
-      "The rules are simple once you know the order. The most important thing is to notice where shoes come off, where you pay, and where you wash before bathing.",
+      "The basic flow is easier once you know the order. The most important thing is to notice where shoes come off, where you pay, and where you wash before bathing.",
     ],
     firstMove: "Take off your shoes before entering the changing or bathing area.",
     steps: [
       "Remove your shoes where others do.",
       "Pay or show your ticket.",
-      "Enter the correct changing room.",
+      "Enter the correct changing room by checking the signs.",
       "Wash your body before entering the bath.",
-      "Enter the bath without a towel or swimsuit unless signs say otherwise.",
+      "Enter the bath without a towel or swimsuit unless the facility says otherwise.",
     ],
     dont: [
       {
@@ -331,7 +332,7 @@ const guides = [
       },
       {
         title: "Don’t put your towel in the bath water.",
-        body: "Keep your small towel outside the water. You can place it on your head or nearby.",
+        body: "Keep your small towel outside the water. You can place it on your head or leave it in a safe spot outside the bath.",
       },
       {
         title: "Don’t wear a swimsuit unless the facility clearly allows it.",
@@ -357,6 +358,12 @@ const guides = [
         japanese: "どこで靴を脱げばいいですか？",
         english: "Where do I take off my shoes?",
       },
+      {
+        use: "Use when you need a towel.",
+        romaji: "Taoru wa arimasu ka?",
+        japanese: "タオルはありますか？",
+        english: "Do you have towels?",
+      },
     ],
     staff: [
       {
@@ -380,6 +387,7 @@ const guides = [
   {
     slug: "short-break",
     title: "Where to Take a Short Break in Japan",
+    categoryCardTitle: "Take a short break",
     category: "relax",
     meta: "When Japan travel days get tiring, find a place to sit, cool down, and recover without blocking shops, paths, or entrances.",
     intro: [
@@ -389,14 +397,14 @@ const guides = [
     firstMove: "Look for a cafe, park, bench, or rest area where sitting is allowed.",
     steps: [
       "Step out of the main flow of people.",
-      "Look for a cafe, bench, park, station seating, or mall rest area.",
+      "Look for a cafe, bench, park, station seating area, or mall rest area.",
       "If it is a cafe, order before you sit unless signs show a different system.",
       "At shrines or temples, sit only where benches or rest areas are clearly provided.",
     ],
     dont: [
       {
-        title: "Don’t sit for a long time in front of convenience stores or shop entrances.",
-        body: "If you need a longer rest, look for a cafe, bench, park, station, or mall seating area.",
+        title: "Don’t sit for a long time in front of convenience stores or shop entrances unless seating is clearly provided.",
+        body: "If you need a longer rest, look for a cafe, bench, park, station seating area, or mall seating area.",
       },
       {
         title: "Don’t block doors, narrow paths, stairs, or ticket gates.",
@@ -444,26 +452,27 @@ const guides = [
       },
     ],
     stuck:
-      "Head for a station, department store, shopping mall, park, or cafe. On very hot days, indoor public areas are usually safer than resting outside. If you feel unwell, ask staff for help.",
+      "Look for a department store, shopping mall, park, cafe, or station seating area. On very hot days, a staffed indoor place may be safer than resting outside. If you feel unwell, ask staff for help.",
     note:
-      "In Japan, sitting places are often clearly marked. If a spot looks like an entrance, walkway, or private step, keep moving and look for a clearer rest area.",
+      "In Japan, it is usually best to sit only where seating is clearly provided. If a spot looks like an entrance, walkway, or private step, keep moving and look for a clearer rest area.",
   },
   {
     slug: "local-bus",
     title: "How to Ride a Local Bus in Japan",
+    categoryCardTitle: "Ride a local bus",
     category: "move",
     meta: "Local buses in Japan can be confusing because boarding doors and payment systems vary. Learn what to do first, when to take a ticket, and how to pay.",
     intro: [
       "If a local bus arrives in Japan and you don’t know whether to enter from the front or the back, pause for one second.",
       "The system can change depending on the city or bus company. Your best first move is to watch how other passengers board.",
     ],
-    firstMove: "Watch where other passengers board, then follow the same door.",
+    firstMove: "Watch where other passengers board, then use the same door.",
     steps: [
       "Check which door other passengers use.",
       "If you board from the back, take a numbered ticket if there is one.",
       "Press the stop button before your stop.",
       "Check the fare display near the driver.",
-      "Prepare coins or an IC card before you reach the front.",
+      "Prepare coins or an IC card before you pay.",
       "Pay when you get off, unless the local system is pay-first.",
     ],
     dont: [
@@ -478,7 +487,7 @@ const guides = [
     ],
     sayShow: [
       {
-        use: "Use when you want to confirm the destination. Replace Kyoto Station with your stop.",
+        use: "Use when you want to confirm the destination. Replace Kyoto Station with your destination or stop.",
         romaji: "Kono basu wa Kyoto-eki ni ikimasu ka?",
         japanese: "このバスは京都駅に行きますか？",
         english: "Does this bus go to Kyoto Station?",
@@ -517,7 +526,7 @@ const guides = [
       },
     ],
     stuck:
-      "Follow the passenger in front of you. If people tap an IC card when boarding, do the same. If they take a numbered ticket, take one too.",
+      "Watch what boarding passengers do. If people tap an IC card when boarding, do the same. If they take a numbered ticket, take one too.",
     note:
       "Local buses in Japan are practical, not always beginner-friendly. Even Japanese travelers can feel unsure in a new city.",
   },
@@ -528,7 +537,7 @@ const guides = [
     meta: "Find the right train platform in Japan by checking the line, destination, platform number, and train type before boarding.",
     intro: [
       "Use this when you are inside a station and need to know which platform or train to take.",
-      "Check the line name, destination, and platform number first. If you ask for help, keep the question short and show your destination on your phone.",
+      "Check the line name, destination, and platform number first. If you ask for help, keep the question short and say your destination clearly.",
     ],
     firstMove: "Check the train line name, destination, and platform number before boarding.",
     steps: [
@@ -597,7 +606,7 @@ const guides = [
       },
     ],
     stuck:
-      "If you cannot find station staff, ask someone nearby. Keep the question short and show your destination if possible.",
+      "If you cannot find station staff, ask someone nearby. Keep the question short and show or say your destination clearly.",
     note:
       "Large stations can have several train companies and platforms. The destination on the nearest sign is more useful than the platform color alone.",
   },
@@ -608,7 +617,7 @@ const guides = [
     meta: "Choose the right station exit in Japan by checking your map, exit name or number, and nearby signs before leaving the station.",
     intro: [
       "Use this when you are at a station and need to choose the right exit for your destination.",
-      "Check your map before leaving the station area. If you ask for help, show the place or map on your phone.",
+      "Check your map before leaving the station area. If you ask for help, show or say the place name clearly.",
     ],
     firstMove: "Look for the exit name or number before leaving the station.",
     steps: [
@@ -624,7 +633,7 @@ const guides = [
       },
       {
         title: "Don’t ask only ‘Is this right?’",
-        body: "Show the place or map on your phone so the person knows which destination you mean.",
+        body: "Say the place name or show a map so the person knows which destination you mean.",
       },
     ],
     sayShow: [
@@ -677,7 +686,7 @@ const guides = [
       },
     ],
     stuck:
-      "In large stations, the wrong exit can put you far from your destination. Check the exit before leaving the station area. If you cannot find station staff, ask someone nearby and show your map.",
+      "In large stations, the wrong exit can put you far from your destination. If you cannot find station staff, ask someone nearby. Say the place name clearly, or show a map if you can.",
     note:
       "Exit names and numbers are practical navigation tools in Japan. Save the exit in your map app before you start walking.",
   },
@@ -710,7 +719,7 @@ const guides = [
     ],
     sayShow: [
       {
-        use: "If you cannot find station staff, ask someone nearby or try a ticket machine with an English button.",
+        use: "Use when you need help charging your card.",
         romaji: "IC kaado ni chaaji shitai desu.",
         japanese: "ICカードにチャージしたいです。",
         english: "I want to charge my IC card.",
@@ -756,20 +765,22 @@ const guides = [
   {
     slug: "coin-lockers",
     title: "How to Use Coin Lockers in Japan",
+    categoryCardTitle: "Use coin lockers",
+    categoryCardDescription: "Store your bag and remember where the locker is.",
     category: "move",
     meta: "Coin lockers in Japan can use keys, coins, IC cards, or touch screens. Learn what to do first, how to pay, and how to find your locker again.",
     intro: [
       "If you find coin lockers in Japan but don’t know how the system works, start with the locker itself.",
-      "The real risk is not only locking your bag. It is forgetting where the locker area is later.",
+      "The hardest part is often finding the same locker area later.",
     ],
-    firstMove: "Before you walk away, take a photo of the locker number, nearby signs, and the station exit.",
+    firstMove: "Before you walk away, take a photo of the locker number, nearby signs, and the closest exit or landmark.",
     steps: [
       "Find an empty locker that fits your bag.",
       "Put your luggage inside before paying.",
       "Check whether it uses a key, coins, IC card, or touch screen.",
       "Pay, lock the door, and keep the key, receipt, QR code, or IC card safe.",
       "If you use an IC card, remember that the same card may be needed to reopen the locker.",
-      "Take photos of the locker number, locker area, and nearest exit sign.",
+      "Take photos of the locker number, locker area, and nearby signs.",
     ],
     dont: [
       {
@@ -777,8 +788,8 @@ const guides = [
         body: "Some lockers use a physical key. Some use a receipt or QR code. Some use the same IC card you paid with.",
       },
       {
-        title: "Don’t trust your memory in a large station.",
-        body: "Stations like Shinjuku, Tokyo, Osaka, Kyoto, and Ueno can have many locker areas that look similar.",
+        title: "Don’t trust your memory in a large station or big facility.",
+        body: "Large stations and shopping complexes can have many locker areas that look similar.",
       },
     ],
     sayShow: [
@@ -822,13 +833,14 @@ const guides = [
       },
     ],
     stuck:
-      "Search your photos first. Look for the locker number, station sign, exit name, shop sign, or floor map in the background. If you still cannot find it, show your locker key, receipt, or photo to station staff.",
+      "Search your photos first. Look for the locker number, nearby signs, exit name, shop sign, or floor map in the background. If you still cannot find it, show your locker key, receipt, or photo to staff nearby.",
     note:
       "The hard part is not always locking your bag. It is finding the same locker area again later.",
   },
   {
     slug: "shrine",
     title: "What to Do First at a Shrine in Japan",
+    categoryCardTitle: "Visit a shrine",
     category: "culture",
     meta: "Visiting a shrine in Japan? Learn what to do first at the torii gate, how to purify your hands, how to pray, and what not to do.",
     intro: [
@@ -846,7 +858,7 @@ const guides = [
     dont: [
       {
         title: "Don’t stand in the middle of the path for photos.",
-        body: "At many shrines, the center path is treated as special. Walking slightly to the side is a safer move.",
+        body: "At many shrines, walking slightly to the side is a safer, more respectful move.",
       },
       {
         title: "Don’t drink directly from the water basin.",
@@ -857,7 +869,7 @@ const guides = [
         body: "Some shrine areas, objects, or ceremonies may restrict photography.",
       },
       {
-        title: "Don’t treat the space like a theme park.",
+        title: "Don’t treat the space only as a photo spot.",
         body: "A shrine can be a tourist spot and a religious place at the same time.",
       },
     ],
@@ -897,6 +909,7 @@ const guides = [
   {
     slug: "photo-manners",
     title: "What to Do First Before Taking Photos in Japan",
+    categoryCardTitle: "Check before taking photos",
     category: "culture",
     meta: "Before taking photos in Japan, check signs, ask when unsure, avoid photographing people without permission, and stop quickly if staff says no.",
     intro: [
@@ -907,7 +920,7 @@ const guides = [
     steps: [
       "Look for no-photo or no-flash signs.",
       "Check before taking photos in shrines, temples, shops, or exhibitions.",
-      "If people are close to your camera, ask first or skip the photo.",
+      "If people are close to your camera, ask first or avoid taking the photo.",
       "If staff asks you to stop, lower your camera right away.",
     ],
     dont: [
@@ -965,22 +978,23 @@ const guides = [
       },
     ],
     stuck:
-      "If you are not sure, ask staff or skip the photo. If someone corrects you, stop right away and put your camera down.",
+      "If you are not sure, ask staff or skip the photo. If someone corrects you, stop right away and lower your camera.",
     note:
       "Photo rules can change by room, object, or ceremony. A nearby sign matters more than what other people are doing.",
   },
   {
     slug: "pharmacy",
     title: "How to Ask for Medicine at a Japanese Pharmacy",
+    categoryCardTitle: "Ask for medicine",
     category: "help",
     meta: "Need medicine in Japan but don’t know what to ask for? Learn how to show your symptoms, mention allergies, ask the pharmacist, and avoid guessing.",
     intro: [
       "If you feel unwell in Japan and need medicine, you do not need to know the Japanese brand name.",
-      "Your first move is to show your symptoms clearly and ask staff or a pharmacist what is suitable.",
+      "Your first move is to show your symptoms clearly and ask staff or a pharmacist for help choosing what is suitable.",
     ],
     firstMove: "Show your symptom, not a brand name.",
     steps: [
-      "Go to the counter or find a staff member.",
+      "Go to the counter or ask a staff member for help.",
       "Show your symptom on your phone.",
       "Mention allergies, pregnancy, or medicine you cannot take.",
       "Confirm how often to take it.",
@@ -1060,6 +1074,7 @@ const guides = [
   {
     slug: "ticket-machine-no-english",
     title: "What to Do When a Ticket Machine Has No English",
+    categoryCardTitle: "Use a ticket machine with no English",
     category: "help",
     meta: "No English on a Japanese ticket machine? Learn what to do first, how to use camera translation, when to ask staff, and how to avoid pressing random buttons.",
     intro: [
@@ -1070,7 +1085,7 @@ const guides = [
     steps: [
       "Check the corners of the screen for English or language settings.",
       "If there is no English, use camera translation.",
-      "Look for the basic or standard option.",
+      "Look for the simplest option that matches what you need.",
       "Ask staff before pressing random buttons.",
       "Keep the ticket or receipt if you make a mistake.",
       "After paying, check if there is a change button. Some machines do not return coins until you press it.",
@@ -1149,13 +1164,14 @@ const guides = [
   {
     slug: "feeling-sick",
     title: "What to Do First When You Feel Sick in Japan",
+    categoryCardTitle: "Get help when you feel sick",
     category: "help",
     meta: "Feeling sick while traveling in Japan? Learn how to tell nearby staff or your hotel, ask where to get help, and explain that you need assistance.",
     intro: [
       "If you feel sick during your trip, start by telling someone nearby instead of trying to handle everything alone.",
       "Staff at your hotel, a station, or a nearby facility may be able to help you find the right support.",
     ],
-    firstMove: "Tell staff or your hotel how you feel, then ask where to get help.",
+    firstMove: "Tell nearby staff or your hotel how you feel, then ask where to get help.",
     steps: [
       "Stop somewhere safe and tell nearby staff or your hotel that you feel sick.",
       "Use a short phrase and point to where you feel unwell if that helps.",
@@ -1201,12 +1217,12 @@ const guides = [
         japanese: "救急車を呼びますか？",
         romaji: "Kyuukyuusha o yobimasu ka?",
         means: "Should we call an ambulance?",
-        move: "If it feels serious, say yes or ask your hotel or travel insurance for help.",
+        move: "If it feels serious or urgent, say yes. If you are unsure, ask staff to help you get medical support.",
       },
       {
         japanese: "保険証はありますか？",
         romaji: "Hokenshou wa arimasu ka?",
-        means: "Do you have an insurance card?",
+        means: "Do you have health insurance information?",
         move: "Show your travel insurance information if you have it.",
       },
       {
@@ -1221,11 +1237,12 @@ const guides = [
     note:
       "Hotel, station, and facility staff may not provide medical advice, but they can often help you contact someone who can.",
     safetyNote:
-      "This guide is for general travel help only. If symptoms feel serious or urgent, ask staff, your hotel, travel insurance, or emergency services right away.",
+      "This guide is for general travel help only. If symptoms feel serious or urgent, ask nearby staff or emergency services for help right away.",
   },
   {
     slug: "lost-something",
-    title: "What to Do First When You Lost Something in Japan",
+    title: "What to Do First If You Lose Something in Japan",
+    categoryCardTitle: "Find a lost item",
     category: "help",
     meta: "Lost something while traveling in Japan? Learn what to do first, how to ask staff, and how to describe where and when you last had the item.",
     intro: [
@@ -1290,7 +1307,7 @@ const guides = [
         japanese: "届いていません。",
         romaji: "Todoite imasen.",
         means: "It has not been turned in.",
-        move: "Ask where else you can check, or come back later.",
+        move: "Ask where else you can check, or when to check again.",
       },
     ],
     stuck:
@@ -1298,7 +1315,7 @@ const guides = [
     note:
       "Lost items may stay at the shop or facility first, then move to another lost and found. Ask staff where and when to check again.",
     safetyNote:
-      "If you lost a passport, wallet, phone, or other important item, ask your hotel or local staff what to do next.",
+      "If you lost a passport, wallet, phone, or other important item, ask your hotel or local staff what to do next. You may also need to contact the police, your embassy, or your card company.",
   },
 ];
 
@@ -1341,12 +1358,12 @@ const placeChoices = [
   {
     label: "Ticket machine",
     slug: "ticket-machine-no-english",
-    description: "Limited English",
+    description: "No English option",
     iconSrc: "./assets/icons/place/icon-place-ticket-machine.png",
     largeIcon: true,
   },
   {
-    label: "Drugstore",
+    label: "Pharmacy",
     slug: "pharmacy",
     description: "Medicine help",
     iconSrc: "./assets/icons/place/icon-place-drugstore.png",
@@ -1383,18 +1400,18 @@ const needChoices = [
     href: "#/food-cards",
     iconName: "categoryicon-food",
     iconSrc: "./assets/icons/action/icon-action-explain-food-needs.png",
-    description: "Explain what you cannot eat.",
+    description: "Explain food needs before ordering.",
   },
   {
     label: "Store luggage",
     slug: "coin-lockers",
-    description: "Find the right storage option.",
+    description: "Find a coin locker or storage option.",
     iconSrc: "./assets/icons/action/icon-action-store-luggage.png",
   },
   {
     label: "Ask for medicine",
     slug: "pharmacy",
-    description: "Explain symptoms more clearly.",
+    description: "Find the right words at a pharmacy.",
     iconSrc: "./assets/icons/action/icon-action-ask-medicine.png",
   },
   {
@@ -1415,7 +1432,7 @@ const homeQuickPhrases = [
     href: "#/guides/how-to-pay",
   },
   {
-    title: "Where is the ticket machine?",
+    title: "Where is the meal ticket machine?",
     japanese: "券売機はどこですか？",
     href: "#/guides/ramen-shop",
   },
@@ -1437,9 +1454,9 @@ const foodCards = [
     title: "Severe allergy",
     label: "Severe",
     englishText: "I have a severe peanut allergy. Even a small amount or cross-contact may be dangerous.",
-    japaneseText: "重い食物アレルギーがあります。アレルギーのあるもの：落花生（ピーナッツ）。少量の混入や調理器具の共有でも危険です。対応が難しい場合は、無理に提供しなくて大丈夫です。",
+    japaneseText: "重度の食物アレルギーがあります。アレルギーのあるもの：落花生（ピーナッツ）。少量の混入や調理器具の共有でも危険です。対応が難しい場合は、無理に提供しなくて大丈夫です。",
     displayLines: [
-      "重い食物アレルギーがあります。",
+      "重度の食物アレルギーがあります。",
       "",
       "アレルギーのあるもの：",
       "落花生（ピーナッツ）",
@@ -1450,7 +1467,7 @@ const foodCards = [
       "対応が難しい場合は、",
       "無理に提供しなくて大丈夫です。",
     ],
-    summary: "For a severe peanut allergy when a small amount may be unsafe.",
+    summary: "For a severe peanut allergy or cross-contact risk.",
     note: "Use when: you have a severe peanut allergy and cross-contact may be unsafe.",
     access: "free",
   },
@@ -1458,7 +1475,7 @@ const foodCards = [
     id: "basic-food-allergy",
     title: "Basic food allergy",
     label: "Allergy",
-    englishText: "I have a food allergy. Could you please check whether this contains the ingredient I need to avoid?",
+    englishText: "I have a food allergy. Could you please check whether this contains the ingredient listed on the card?",
     japaneseText: "食物アレルギーがあります。避ける必要がある食材が入っていないか確認していただけますか？対応が難しい場合は、無理に提供しなくて大丈夫です。",
     summary: "For asking staff to check ingredients for an allergy.",
     note: "Use when: you need staff to check ingredients carefully.",
@@ -1478,9 +1495,9 @@ const foodCards = [
     id: "vegan",
     title: "Vegan",
     label: "Vegan",
-    englishText: "I do not eat meat, seafood, eggs, dairy, or honey. Could you please check dashi and hidden ingredients?",
-    japaneseText: "肉、魚介類、卵、乳製品、はちみつを食べません。だしや調味料に動物性のものが入っていないか確認していただけますか？対応が難しい場合は、無理に提供しなくて大丈夫です。",
-    summary: "For avoiding meat, seafood, eggs, dairy, and honey.",
+    englishText: "I do not eat meat, seafood, eggs, dairy, or animal-based dashi. Could you please check dashi and hidden ingredients?",
+    japaneseText: "肉、魚介類、卵、乳製品、動物性のだしを食べません。だしや調味料に動物性のものが入っていないか確認していただけますか？対応が難しい場合は、無理に提供しなくて大丈夫です。",
+    summary: "For avoiding meat, seafood, eggs, dairy, and animal-based dashi.",
     note: "Use when: you avoid all animal-derived ingredients.",
     access: "free",
   },
@@ -1518,10 +1535,10 @@ const foodCards = [
     id: "shared-oil-tools",
     title: "Shared oil or tools",
     label: "Shared tools",
-    englishText: "Is this cooked with shared oil or shared tools?",
+    englishText: "Is this cooked with shared oil or shared cooking tools?",
     japaneseText: "同じ油や調理器具を使っていますか？",
     summary: "For checking shared oil, pans, or cooking tools.",
-    note: "Use when: shared oil or tools may be unsafe for you.",
+    note: "Use when: you need to check shared oil or cooking tools.",
     access: "free",
   },
 ];
@@ -1531,9 +1548,9 @@ const popularFoodCards = popularFoodCardIds.map((id) => foodCards.find((card) =>
 
 const foodCardDisclaimer = {
   english:
-    "These cards help you communicate your dietary needs, but they cannot guarantee that food is safe. If you have a severe allergy, always confirm with staff and use your own judgment.",
+    "These cards help you communicate your food needs, but they do not guarantee food safety. Staff still need to confirm ingredients and preparation. If you have a severe allergy, please confirm carefully before eating.",
   japanese:
-    "このカードは食事制限やアレルギーを伝えるための補助です。アレルゲンの完全除去や安全性を保証するものではありません。",
+    "このカードは食事制限やアレルギーを伝えるための補助です。アレルゲンの完全除去や食品の安全性を保証するものではありません。食材や調理方法については、必ずお店の方にも確認してください。",
 };
 
 const foodCtaByGuide = {
@@ -1544,7 +1561,7 @@ const foodCtaByGuide = {
   "restaurant-full":
     "If you choose another restaurant, it helps to show your food needs before ordering. A short Japanese card can make the first check easier.",
   "how-to-pay":
-    "Before you pay, it may be too late to change your order. If you need to avoid ingredients, show a simple Japanese card before ordering.",
+    "After you order, it may be hard to change the dish. If you need to avoid ingredients, show a simple Japanese card before ordering.",
 };
 
 const foodPhraseCards = [
@@ -1561,7 +1578,7 @@ const foodPhraseCards = [
   {
     title: "Do you have an English menu?",
     japanese: "英語のメニューはありますか？",
-    english: "Use before or after you sit down.",
+    english: "Use before ordering.",
   },
   {
     title: "Is there a table charge?",
@@ -1627,7 +1644,7 @@ const customFoodCardTypes = [
   {
     id: "ingredientCheck",
     label: "Ask if these items are included",
-    subtext: "Ask whether the selected items are in the dish.",
+    subtext: "Ask if the dish contains these items.",
   },
   {
     id: "sharedTools",
@@ -2107,13 +2124,13 @@ const movePhraseCards = [
     english: "Show a map, address, hotel, or station.",
   },
   {
-    title: "Which exit should I use?",
-    japanese: "何番出口から出ればいいですか？",
-    english: "Use before leaving the station.",
+    title: "Which exit should I use for ___?",
+    japanese: "〇〇に行くには、どの出口が近いですか？",
+    english: "Use before leaving the station. Replace ___ with your destination.",
   },
   {
     title: "Is this the right platform for ___?",
-    japanese: "〇〇行きはこのホームで合っていますか？",
+    japanese: "〇〇に行くには、このホームで合っていますか？",
     english: "Check before boarding. Replace ___ with your destination.",
   },
   {
@@ -2272,12 +2289,12 @@ const foodFirstMoveCards = [
   {
     ...guideMap["restaurant-full"],
     cardTitle: "Restaurant full",
-    cardDescription: "Understand when staff says they are full.",
+    cardDescription: "Understand when a restaurant is full.",
   },
   {
     ...guideMap["how-to-pay"],
     cardTitle: "Pay correctly",
-    cardDescription: "Know how to pay, including cash, card, meal tickets, or table charges.",
+    cardDescription: "Check where and how to pay.",
   },
   {
     slug: "food-cards",
@@ -2424,12 +2441,14 @@ function guideIntroIconMarkup(guide) {
 
 function categoryTopGuideCard(guide) {
   const iconMarkup = categoryGuideIconMarkup(guide);
+  const title = guide.categoryCardTitle ?? guide.title;
+  const description = guide.categoryCardDescription ?? guide.firstMove;
   return `
     <a class="guide-card category-guide-card category-${guide.category} guide-${guide.slug}" href="#/guides/${guide.slug}">
       <span class="category-guide-card-icon" aria-hidden="true">${iconMarkup}</span>
-      <h3>${escapeHtml(guide.title)}</h3>
+      <h3>${escapeHtml(title)}</h3>
       <div class="category-guide-card-first-move">
-        <p>${escapeHtml(guide.firstMove)}</p>
+        <p>${escapeHtml(description)}</p>
       </div>
     </a>
   `;
@@ -2454,10 +2473,10 @@ function foodGuideCard(guide) {
 function categoryCard(category) {
   const count = guides.filter((guide) => guide.category === category.id).length;
   const homeDescriptions = {
-    food: "Food, ordering, allergies, and dining basics.",
+    food: "Ordering, allergies, payment, and dining basics.",
     move: "Trains, buses, taxis, lockers, and stations.",
-    relax: "Onsen, hotels, luggage, and quiet spaces.",
-    culture: "Shrines, temples, local places, and manners.",
+    relax: "Rest, recover, onsen, and quiet spaces.",
+    culture: "Shrines, photos, entry rules, and local manners.",
     help: "Simple help for confusing travel moments.",
   };
   return `
@@ -2489,10 +2508,10 @@ function foodCardCtaPanel({ context = "home", includeSamplesLink = true } = {}) 
         : "home_custom_food_card_create";
   const samplesTrack = isGuide ? "guide_food_card_samples" : isFoodCategory ? "food_sample_cards_view" : "home_custom_food_card_samples";
   const heading = isFoodCardsPage ? "Create your own card" : "Create a food card for Japan";
-  const description = isFoodCardsPage ? "Make a Japanese card for your exact food needs." : "Show your food needs clearly before ordering.";
+  const description = isFoodCardsPage ? "Make a card for your exact food needs." : "Show your food needs clearly before ordering.";
   return `
     <div class="food-card-cta-panel shared-food-card-cta">
-      <span class="food-card-ribbon">Food allergies &amp; restrictions</span>
+      <span class="food-card-ribbon">Food needs</span>
       <div class="food-card-cta-content">
         <h2${titleId}>${heading}</h2>
         <p>${description}</p>
@@ -2517,7 +2536,7 @@ function categoryExplorerSection(currentCategoryId) {
     <section class="category-explorer" aria-labelledby="category-explorer-title">
       <div class="section-header">
         <div>
-          <h2 id="category-explorer-title">Not this moment?</h2>
+          <h2 id="category-explorer-title">Need something else?</h2>
         </div>
       </div>
       <div class="category-grid category-explorer-grid">
@@ -2546,7 +2565,7 @@ function renderHome() {
         <div class="poster-cover">
           <div class="poster-meta">
             <span>2026</span>
-            <span>English guide / Travel moments / First move</span>
+            <span>English guide / Real-life Japan / First moves</span>
           </div>
           <p class="eyebrow">Japan First Move</p>
           <h1 class="hero-title" aria-label="What’s your first move?">
@@ -2616,7 +2635,7 @@ function renderHome() {
           <div>
             <h2 id="quick-phrases-title">Quick phrases</h2>
           </div>
-          <p>Small helpers for moments when words get stuck.</p>
+          <p>Short phrases for quick checks.</p>
         </div>
         <div class="quick-phrase-grid">
           ${homeQuickPhrases.map(homeQuickPhraseCard).join("")}
@@ -2736,7 +2755,7 @@ function renderFoodCategory() {
           <div>
             <h2 id="food-guides-title">First moves for food places</h2>
           </div>
-          <p>Choose what you need to do when ordering, eating, or explaining food needs.</p>
+          <p>Choose what you need before ordering or during a meal.</p>
         </div>
         <div class="guide-grid">
           ${foodFirstMoveCards.map(foodGuideCard).join("")}
@@ -2792,7 +2811,7 @@ function renderMoveCategory() {
           <div>
             <h2 id="move-guides-title">First moves for getting around</h2>
           </div>
-          <p>Stations, trains, buses, IC cards, lockers, and next steps.</p>
+          <p>Choose what you need at stations, on transport, or when storing luggage.</p>
         </div>
         <div class="guide-grid">
           ${categoryGuides.map(categoryTopGuideCard).join("")}
@@ -2804,7 +2823,7 @@ function renderMoveCategory() {
           <div>
             <h2 id="move-phrases-title">Useful move phrases</h2>
           </div>
-          <p>Ask staff while showing a map, ticket, or pass.</p>
+          <p>Ask staff or someone nearby while showing a map, ticket, or pass.</p>
         </div>
         <div class="move-phrase-grid">
           ${movePhraseCards.map(movePhraseCard).join("")}
@@ -2814,7 +2833,7 @@ function renderMoveCategory() {
       <section class="move-help-note" aria-label="When you are lost">
         <div>
           <h2>Need help from a person?</h2>
-          <p>If it feels bigger than transport, use Get Help.</p>
+          <p>If your problem is not just about transport, use Get Help.</p>
         </div>
         <a class="button secondary" href="#/help" ${trackAttr("move_to_help_lost")}>Go to Get Help</a>
       </section>
@@ -2845,7 +2864,7 @@ function renderRelaxCategory() {
           <div>
             <h2 id="relax-guides-title">First moves for resting and recharging</h2>
           </div>
-          <p>Find places to sit, bathe, cool down, or take a quiet break.</p>
+          <p>Find places to bathe, sit, or take a quiet break.</p>
         </div>
         <div class="guide-grid">
           ${categoryGuides.map(categoryTopGuideCard).join("")}
@@ -2891,7 +2910,7 @@ function renderCultureCategory() {
           <div>
             <h2 id="culture-guides-title">First moves for respectful visits</h2>
           </div>
-          <p>Check entry, photos, lines, and local rules.</p>
+          <p>Check entry, photos, and local rules before you act.</p>
         </div>
         <div class="guide-grid">
           ${categoryGuides.map(categoryTopGuideCard).join("")}
@@ -2903,7 +2922,7 @@ function renderCultureCategory() {
           <div>
             <h2 id="culture-phrases-title">Useful culture phrases</h2>
           </div>
-          <p>Ask once, then follow the answer.</p>
+          <p>Ask first, then follow the local rule.</p>
         </div>
         <div class="culture-phrase-grid">
           ${culturePhraseCards.map(culturePhraseCard).join("")}
@@ -2952,7 +2971,7 @@ function renderHelpCategory() {
           <div>
             <h2 id="help-guides-title">First moves for problems</h2>
           </div>
-          <p>Medicine, lost items, payment trouble, sickness, and staff help.</p>
+          <p>Medicine, lost items, ticket machines, and feeling sick.</p>
         </div>
         <div class="guide-grid">
           ${categoryGuides.map(categoryTopGuideCard).join("")}
@@ -2964,7 +2983,7 @@ function renderHelpCategory() {
           <div>
             <h2 id="help-phrases-title">Useful help phrases</h2>
           </div>
-          <p>Short phrases for when you need help fast.</p>
+          <p>Short phrases for common travel problems.</p>
         </div>
         <div class="help-phrase-grid">
           ${helpPhraseCards.map(helpPhraseCard).join("")}
@@ -3007,13 +3026,13 @@ function renderFoodCardsPage() {
           <span>Food cards</span>
         </nav>
         <h1>Show your food needs in Japanese</h1>
-        <p class="lead">Use a simple Japanese card before ordering. Choose a sample card, or create your own.</p>
+        <p class="lead">Show a simple card before ordering. Use a sample card or create your own.</p>
       </header>
 
       <section class="food-card-first-move content-container" aria-labelledby="food-card-first-move-title">
         <h2 id="food-card-first-move-title">First move</h2>
         <p><strong>Show a card before you order.</strong></p>
-        <p>These cards help communication, but they do not guarantee safety.</p>
+        <p>These cards help communication, but they do not guarantee food safety.</p>
       </section>
 
       <section class="section food-samples content-container" aria-labelledby="food-samples-title">
@@ -3021,7 +3040,7 @@ function renderFoodCardsPage() {
           <div>
             <h2 id="food-samples-title">Popular sample cards</h2>
           </div>
-          <p>Choose a sample and open the full card.</p>
+          <p>Choose a sample card to view it.</p>
         </div>
         <div class="food-card-grid">
           ${popularFoodCards.map(foodCard).join("")}
@@ -3091,7 +3110,7 @@ function foodCardCustomSampleConfig(card) {
     "basic-food-allergy": {
       type: "cannotEat",
       reason: "allergy",
-      ingredients: [{ labelJa: "避けたい食材", labelEn: "Ingredient to avoid" }],
+      ingredients: [{ labelJa: "避ける必要がある食材", labelEn: "Ingredient to avoid" }],
     },
     vegetarian: {
       type: "cannotEat",
@@ -3110,7 +3129,7 @@ function foodCardCustomSampleConfig(card) {
         { labelJa: "魚介類全般", labelEn: "All seafood" },
         { labelJa: "卵", labelEn: "Egg" },
         { labelJa: "乳製品・牛乳", labelEn: "Dairy / milk" },
-        { labelJa: "はちみつ", labelEn: "Honey" },
+        { labelJa: "動物性のだし", labelEn: "Animal-based dashi" },
       ],
     },
     "no-pork": {
@@ -3174,11 +3193,11 @@ function renderFoodCardDetail(cardId) {
         <div>
           <span>2</span>
           <strong>Let staff check</strong>
-          <p>Wait for staff to check.</p>
+          <p>Give staff time to confirm.</p>
         </div>
         <div>
           <span>3</span>
-          <strong>If unsure, do not risk it</strong>
+          <strong>If unsure, choose something else</strong>
           <p>Choose another dish or place.</p>
         </div>
       </section>
@@ -3199,7 +3218,7 @@ function renderFoodCardDetail(cardId) {
           </div>
           <div class="food-detail-safety">
             <p class="eyebrow">Use with care</p>
-            <p>This card helps you communicate the risk, but staff still need to confirm ingredients and preparation.</p>
+            <p>This card helps you communicate your food needs, but staff still need to confirm ingredients and preparation.</p>
           </div>
         </section>
 
@@ -3209,7 +3228,7 @@ function renderFoodCardDetail(cardId) {
       <section class="food-card-builder-panel food-detail-upgrade card-container" aria-labelledby="custom-card-title">
         <div>
           <h2 id="custom-card-title">Create your own card</h2>
-          <p>Make a Japanese card for your exact food needs.</p>
+          <p>Make a card for your exact food needs.</p>
         </div>
         <a class="button primary" href="#/food-card/custom" ${trackAttr(`food_card_detail_create_${card.id}`)}>Create my card</a>
       </section>
@@ -3267,9 +3286,9 @@ function customFoodCardStepOneMarkup() {
     <div class="custom-food-card-step" data-custom-step="1">
       <div class="custom-step-heading">
         <h2>Choose ingredients</h2>
-        <p class="custom-step-question">What ingredients or food items do you want to talk about?</p>
+        <p class="custom-step-question">Choose the items you need to mention.</p>
         <p>Choose up to 5 items.</p>
-        <p>Too many items can make the card hard for staff to read. If you need to show more items, please create another card.</p>
+        <p>A shorter card is easier for staff to read. Create another card if you need more items.</p>
       </div>
       <div class="custom-selected-count" aria-live="polite">Selected: <strong>${selectedCount} / 5</strong></div>
       ${customFoodCardState.error ? `<div class="custom-selection-error" role="alert">${escapeHtml(customFoodCardState.error)}</div>` : ""}
@@ -3329,7 +3348,7 @@ function customFoodCardStepTwoMarkup() {
   const selectedTypeIsAvailable = Boolean(customFoodCardState.cardType) && customFoodCardTypeIsAvailable(customFoodCardState.cardType);
   const canContinue = selectedTypeIsAvailable && (!needsReason || Boolean(customFoodCardState.reason));
   const severeNote = customFoodCardState.reason === "severe"
-    ? `<p class="custom-severe-note">For severe allergies, keep this card focused on the most important items. If you have several severe allergies, consider creating separate cards.</p>`
+    ? `<p class="custom-severe-note">For severe allergies, keep each card focused. Create separate cards if needed.</p>`
     : "";
 
   return `
@@ -3365,7 +3384,7 @@ function customFoodCardStepTwoMarkup() {
                   showReasonPanel
                     ? `
                       <fieldset class="custom-reason-panel">
-                        <legend>Why can’t you eat them?</legend>
+                        <legend>What is the reason?</legend>
                         <div class="custom-reason-list">
                           ${customFoodCardReasons
                             .map(
@@ -3402,14 +3421,14 @@ function customFoodCardLayoutContent(cardType, reason = "") {
   if (cardType === "cannotEat" && reason === "severe") {
     return {
       typeLabel: "SEVERE ALLERGY",
-      main: "重い食物アレルギーがあります。",
+      main: "重度の食物アレルギーがあります。",
       support: "少量の混入や調理器具の共有でも危険です。",
       closing: "対応が難しい場合は、無理に提供しなくて大丈夫です。",
       ingredientLabelJa: "アレルギーのあるもの",
       ingredientLabelEn: "Allergens",
       responses: [
-        { symbol: "○", ja: "対応できます", en: "CAN SERVE" },
-        { symbol: "×", ja: "対応できません", en: "CAN’T SERVE" },
+        { symbol: "○", ja: "提供できます", en: "CAN SERVE" },
+        { symbol: "×", ja: "提供できません", en: "CAN’T SERVE" },
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
       whatItSays: "I have a severe food allergy. Even a small amount or shared cooking tools can be dangerous.",
@@ -3427,8 +3446,8 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       ingredientLabelJa: "食べられないもの",
       ingredientLabelEn: "Items I cannot eat",
       responses: [
-        { symbol: "○", ja: "対応できます", en: "CAN SERVE" },
-        { symbol: "×", ja: "対応できません", en: "CAN’T SERVE" },
+        { symbol: "○", ja: "提供できます", en: "CAN SERVE" },
+        { symbol: "×", ja: "提供できません", en: "CAN’T SERVE" },
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
       whatItSays: "I have an allergy or intolerance and cannot eat the selected items.",
@@ -3446,8 +3465,8 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       ingredientLabelJa: "食べられないもの",
       ingredientLabelEn: "Items I cannot eat",
       responses: [
-        { symbol: "○", ja: "対応できます", en: "CAN SERVE" },
-        { symbol: "×", ja: "対応できません", en: "CAN’T SERVE" },
+        { symbol: "○", ja: "提供できます", en: "CAN SERVE" },
+        { symbol: "×", ja: "提供できません", en: "CAN’T SERVE" },
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
       whatItSays: "I have a dietary restriction and cannot eat the selected items.",
@@ -3478,7 +3497,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
   if (cardType === "sharedTools") {
     return {
       typeLabel: "SHARED TOOLS OR OIL",
-      main: "下記のものと同じ調理器具や油を使っていますか？",
+      main: "下記の食材と同じ調理器具や油を使っていますか？",
       support: "",
       closing: "",
       ingredientLabelJa: "確認したいもの",
@@ -3502,8 +3521,8 @@ function customFoodCardLayoutContent(cardType, reason = "") {
     ingredientLabelJa: "避けたいもの",
     ingredientLabelEn: "Items to avoid",
     responses: [
-      { symbol: "○", ja: "できます", en: "CAN" },
-      { symbol: "×", ja: "できません", en: "CANNOT" },
+      { symbol: "○", ja: "できます", en: "CAN AVOID" },
+      { symbol: "×", ja: "できません", en: "CAN’T AVOID" },
       { symbol: "?", ja: "確認します", en: "CHECK" },
     ],
     whatItSays: "It says I would prefer to avoid the selected items if possible.",
@@ -3541,6 +3560,14 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
   const sharedToolsNote = content.typeLabel === "SHARED TOOLS OR OIL"
     ? `<p class="custom-card-cross-contact-note">This does not guarantee zero cross-contact.</p>`
     : "";
+  const mainMarkup = content.typeLabel === "DIETARY RESTRICTION"
+    ? `食事制限のため、<br />食べられないものがあります。`
+    : content.typeLabel === "INGREDIENT CHECK"
+      ? `この料理に下記のものは<br />入っていますか？`
+      : escapeHtml(content.main);
+  const supportMarkup = content.typeLabel === "SEVERE ALLERGY"
+    ? `少量の混入や<br />調理器具の共有でも危険です。`
+    : escapeHtml(content.support);
   const closingMarkup = content.closing === "対応が難しい場合は、無理に提供しなくて大丈夫です。"
     ? `<span>対応が難しい場合は、</span><span>無理に提供しなくても大丈夫です。</span>`
     : escapeHtml(content.closing);
@@ -3550,8 +3577,8 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
         <section class="custom-card-message-sheet" aria-label="Japanese message for restaurant staff">
           <span class="custom-card-type-label" lang="en">${escapeHtml(content.typeLabel)}</span>
           <div class="custom-card-main-copy" lang="ja">
-            <p class="custom-card-main-line">${escapeHtml(content.main)}</p>
-            ${content.support ? `<p class="custom-card-support-line">${escapeHtml(content.support)}</p>` : ""}
+            <p class="custom-card-main-line">${mainMarkup}</p>
+            ${content.support ? `<p class="custom-card-support-line">${supportMarkup}</p>` : ""}
           </div>
           <section class="custom-card-ingredient-area" aria-label="Selected ingredients">
             <header>
@@ -3573,7 +3600,7 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
           <div class="custom-card-point-note">
             <img class="custom-card-point-icon" src="./assets/food-card/yubisashi.png" alt="" aria-hidden="true" />
             <div>
-              <strong lang="ja">該当するものを指さしてください。</strong>
+              <strong lang="ja">該当するものを指さしてください</strong>
               <small lang="en">Please point to one.</small>
             </div>
           </div>
@@ -3634,7 +3661,7 @@ function customFoodCardSampleModalMarkup() {
         <header class="custom-sample-modal-header">
           <div>
             <h2 id="custom-sample-modal-title">Sample card</h2>
-            <p id="custom-sample-modal-description">This is an example.<br>Your final card will use the ingredients you selected.</p>
+            <p id="custom-sample-modal-description">This is an example.<br>Your card will use the ingredients you selected.</p>
           </div>
           <button class="button secondary" type="button" data-custom-close-sample aria-label="Close sample card">Close</button>
         </header>
@@ -3654,7 +3681,7 @@ function customFoodCardStepThreeMarkup() {
     <div class="custom-food-card-step" data-custom-step="3">
       <div class="custom-step-heading">
         <h2>Confirm your card</h2>
-        <p>This creates a bilingual Japanese card you can show restaurant staff.</p>
+        <p>Review your card before creating it.</p>
       </div>
       <div class="custom-confirm-summary">
         <div class="custom-confirm-group custom-confirm-group-items">
@@ -3677,8 +3704,8 @@ function customFoodCardStepThreeMarkup() {
       </div>
       <section class="custom-sample-preview" aria-labelledby="custom-sample-preview-title">
         <div>
-          <h3 id="custom-sample-preview-title">Want to see what you’ll get?</h3>
-          <p>View a sample card before creating yours.</p>
+          <h3 id="custom-sample-preview-title">Want to see the card format?</h3>
+          <p>View a sample card.</p>
         </div>
         <button class="button secondary custom-sample-preview-button" type="button" data-custom-open-sample>View sample card</button>
       </section>
@@ -3686,19 +3713,13 @@ function customFoodCardStepThreeMarkup() {
         <span>Custom Food Card</span>
         <strong>$4.99</strong>
         <p>Payment is not connected in this preview yet.</p>
+        <p class="custom-digital-product-note">This is a digital product. Refunds are generally not available after purchase.</p>
       </div>
-      <aside class="custom-flow-safety-note" aria-label="Food safety note">
-        <p>Communication aid only. Does not guarantee food safety.</p>
-        <details class="custom-flow-safety-details">
-          <summary>Read safety note</summary>
-          <p>This card helps you communicate your food needs, but it does not guarantee food safety. Staff still need to confirm ingredients and preparation. If you have a severe allergy, always use your own judgment.</p>
-        </details>
-      </aside>
       <label class="custom-agreement-box">
         <input type="checkbox" data-custom-agreement ${customFoodCardState.agreed ? "checked" : ""}>
-        <span>I understand that this card is a communication aid only and does not guarantee food safety.</span>
+        <span>I understand this card does not guarantee food safety.</span>
       </label>
-      <p class="custom-terms-copy">By creating this card, you agree to the Disclaimer and Terms of Use.</p>
+      <p class="custom-terms-copy">By creating this card, you agree to the <a href="#/terms">Terms of Use</a> and understand the <a href="#/disclaimer">Disclaimer</a>.</p>
       <div class="custom-step-actions custom-step-actions-split">
         <button class="button secondary" type="button" data-custom-back>Back</button>
         <button class="button primary" type="button" data-custom-create ${customFoodCardState.agreed ? "" : "disabled"}>Create my card — $4.99</button>
@@ -3735,7 +3756,7 @@ function customFoodCardTemplateMarkup() {
       messageMarkup = `
         <div class="custom-card-copy-section">
           <span class="custom-card-section-label" lang="en">SEVERE ALLERGY</span>
-          <p>重い食物アレルギーがあります。</p>
+          <p>重度の食物アレルギーがあります。</p>
         </div>
         <div class="custom-card-copy-section">
           <span class="custom-card-section-label" lang="en">ALLERGENS</span>
@@ -3785,8 +3806,8 @@ function customFoodCardTemplateMarkup() {
       `;
     }
     responses = [
-      { ja: "対応できます", en: "CAN SERVE" },
-      { ja: "対応できません", en: "CAN’T SERVE" },
+      { ja: "提供できます", en: "CAN SERVE" },
+      { ja: "提供できません", en: "CAN’T SERVE" },
       { ja: "確認します", en: "CHECK" },
     ];
   } else if (customFoodCardState.cardType === "ingredientCheck") {
@@ -3810,7 +3831,7 @@ function customFoodCardTemplateMarkup() {
     messageMarkup = `
       <div class="custom-card-copy-section">
         <span class="custom-card-section-label" lang="en">SHARED TOOLS OR OIL</span>
-        <p>下記のものと同じ調理器具や油を<br>使っていますか？</p>
+        <p>下記の食材と同じ調理器具や油を<br>使っていますか？</p>
       </div>
       <div class="custom-card-copy-section">
         <span class="custom-card-section-label" lang="en">ITEMS TO CHECK</span>
@@ -3840,8 +3861,8 @@ function customFoodCardTemplateMarkup() {
       </div>
     `;
     responses = [
-      { ja: "できます", en: "CAN" },
-      { ja: "できません", en: "CANNOT" },
+      { ja: "できます", en: "CAN AVOID" },
+      { ja: "できません", en: "CAN’T AVOID" },
       { ja: "確認します", en: "CHECK" },
     ];
   }
@@ -3850,7 +3871,7 @@ function customFoodCardTemplateMarkup() {
     <div class="custom-generated-card-message" lang="ja">${messageMarkup}</div>
     <div class="custom-card-point-block">
       <span class="custom-card-section-label" lang="en">PLEASE POINT TO ONE</span>
-      <div class="custom-card-point-instruction" lang="ja"><span aria-hidden="true">☝</span><strong>該当するものを指さしてください。</strong></div>
+      <div class="custom-card-point-instruction" lang="ja"><span aria-hidden="true">☝</span><strong>該当するものを指さしてください</strong></div>
     </div>
     <div class="custom-card-response-grid" lang="ja">
       ${responses
@@ -3910,7 +3931,7 @@ function customFoodCardShowModeMarkup() {
     <div class="custom-show-overlay" role="dialog" aria-modal="true" aria-label="Show food card to staff">
       <div class="custom-show-controls">
         <button class="button secondary" type="button" data-custom-close-show>Close</button>
-        <button class="button primary" type="button" data-custom-save>Save image</button>
+        <button class="button primary" type="button" data-custom-save>Save as image</button>
       </div>
       ${customGeneratedCardMarkup("show")}
       ${customFoodCardState.saveMessage ? `<p class="custom-save-status" role="status">${escapeHtml(customFoodCardState.saveMessage)}</p>` : ""}
@@ -4293,6 +4314,254 @@ function staffCard(item) {
   `;
 }
 
+function disclaimerPageMarkup() {
+  return `
+    <p>Japan First Move provides general travel guidance for visitors in Japan. The site is designed to help travelers understand common situations and decide a practical first move.</p>
+    <p>The information on this site is provided for general informational and travel-support purposes only. It is not a substitute for professional advice, official information, local staff instructions, medical advice, legal advice, emergency support, or your own judgment.</p>
+    <p>By using Japan First Move, you understand that local rules, facility policies, services, prices, opening hours, staff responses, and available options may vary by location, time, season, facility, and situation.</p>
+
+    <section class="legal-section">
+      <h2>1. General travel guidance only</h2>
+      <p>Japan First Move is intended to help with common travel moments, such as ordering food, using transportation, visiting facilities, asking for help, or understanding basic signs and phrases.</p>
+      <p>We try to make the information practical, simple, and useful. However, Japan First Move cannot guarantee that every guide, phrase, translation, example, route, instruction, or suggestion will be accurate, complete, current, or suitable for every situation.</p>
+      <p>Always check the signs, notices, menus, posted rules, official websites, facility information, and staff instructions at the place you are visiting.</p>
+      <p>If the information on this site differs from official information or instructions given by staff, the official information or staff instructions should be followed.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>2. Local differences and facility policies</h2>
+      <p>Rules and systems in Japan can differ depending on the city, facility, restaurant, transport operator, store, event, or time of day.</p>
+      <p>For example, payment methods, ticket machines, seating rules, bus boarding systems, onsen or sento rules, photography rules, food ingredients, and staff support may not be the same everywhere.</p>
+      <p>Japan First Move may describe common patterns, but those patterns may not apply to every place.</p>
+      <p>You are responsible for checking the actual situation before acting.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>3. Food, allergies, and dietary needs</h2>
+      <p>Food-related guides, phrases, sample cards, and Custom Food Cards are communication aids only. They are designed to help you explain food allergies, dietary restrictions, religious dietary needs, food preferences, or ingredients you want to avoid.</p>
+      <p>They do not guarantee food safety.</p>
+      <p>They do not guarantee that a meal, drink, ingredient, dish, kitchen, cooking tool, oil, seasoning, soup stock, sauce, topping, or preparation area is free from allergens, restricted ingredients, animal products, alcohol, pork, seafood, gluten, dairy, eggs, nuts, or cross-contact.</p>
+      <p>Ingredients and preparation methods may vary by restaurant, branch, supplier, season, staff member, menu change, or kitchen condition.</p>
+      <p>Restaurants, shops, and facilities may use shared cooking tools, shared oil, shared preparation surfaces, shared storage areas, or shared equipment. Staff may not always be able to confirm every ingredient or every risk of cross-contact.</p>
+      <p>If you have a severe allergy, medical dietary need, religious dietary requirement, or any condition where eating the wrong ingredient could cause serious harm, you should confirm carefully with staff before ordering or eating.</p>
+      <p>If staff cannot confirm the details, or if the restaurant or facility cannot safely support your needs, do not order or eat the item.</p>
+      <p>Japan First Move cannot decide whether a food or place is safe for you. You are responsible for your own food choices and safety decisions.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>4. Medical, health, and emergency situations</h2>
+      <p>Japan First Move does not provide medical advice, diagnosis, treatment, emergency instructions, or professional health guidance.</p>
+      <p>Guides about feeling sick, asking for medicine, or getting help are general travel-support guides only.</p>
+      <p>If you feel seriously unwell, have severe pain, breathing trouble, an allergic reaction, injury, high fever, confusion, faintness, symptoms that feel urgent, or any condition that may require immediate care, seek help right away.</p>
+      <p>Depending on the situation, ask nearby staff, your hotel, travel insurance support, a medical professional, emergency services, the police, or your embassy or consulate.</p>
+      <p>Do not rely on Japan First Move as your only source of help in a medical, emergency, or safety situation.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>5. Legal, safety, and official matters</h2>
+      <p>Japan First Move does not provide legal advice, immigration advice, police advice, insurance advice, or official government guidance.</p>
+      <p>If you lose a passport, wallet, phone, credit card, residence document, travel document, or other important item, you may need to contact local staff, your hotel, the police, your embassy or consulate, your bank, your card company, your mobile carrier, or your travel insurance provider.</p>
+      <p>Japan First Move may suggest general first steps, but it cannot tell you what official procedure applies to your specific situation.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>6. Translations and phrases</h2>
+      <p>Japan First Move includes Japanese phrases, romaji, English meanings, and example sentences to help with communication.</p>
+      <p>These translations are intended to be practical and easy to understand, but they may not cover every nuance, dialect, situation, level of politeness, or staff response.</p>
+      <p>Showing a phrase does not guarantee that staff will understand, agree, or be able to help.</p>
+      <p>If something is important, sensitive, medical, legal, financial, or safety-related, confirm the details with an appropriate person or official source.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>7. Paid tools and digital content</h2>
+      <p>Some Japan First Move tools, including Custom Food Cards, may be paid digital tools.</p>
+      <p>Paid tools are provided as communication and travel-support aids. Purchasing or creating a paid tool does not guarantee a specific result, staff response, restaurant accommodation, food safety, medical outcome, refund from a third party, or successful resolution of a travel problem.</p>
+      <p>Payment processing may be handled by a third-party payment provider. Japan First Move is not responsible for errors, delays, or issues caused by third-party payment systems, internet connection problems, device settings, browser behavior, or user input errors.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>8. External services and third parties</h2>
+      <p>Japan First Move may mention or rely on general concepts involving restaurants, shops, transport operators, hotels, pharmacies, medical services, police, embassies, insurance providers, payment processors, or other third parties.</p>
+      <p>Japan First Move does not control these third parties and is not responsible for their services, policies, actions, availability, accuracy, prices, decisions, or responses.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>9. Availability and updates</h2>
+      <p>Japan First Move may be updated, changed, removed, interrupted, or unavailable at any time.</p>
+      <p>Information may become outdated or incomplete. We may update content to improve clarity, accuracy, safety, or usability, but we are not obligated to update every page immediately.</p>
+      <p>You should not rely on Japan First Move as your only source of current information.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>10. Your responsibility</h2>
+      <p>You are responsible for how you use Japan First Move.</p>
+      <p>You are responsible for checking the actual situation, following local rules, asking staff when needed, using your own judgment, and seeking appropriate help when a situation is serious, urgent, unclear, or beyond general travel guidance.</p>
+      <p>By using this site, you understand that Japan First Move is a support tool, not a guarantee of safety, accuracy, access, service, or outcome.</p>
+    </section>
+  `;
+}
+
+function termsPageMarkup() {
+  return `
+    <p>These Terms of Use apply to your use of Japan First Move, including the website, guides, phrases, sample food cards, Custom Food Card tools, and any related digital content or features.</p>
+    <p>By accessing or using Japan First Move, you agree to these Terms of Use. If you do not agree to these terms, please do not use the site.</p>
+
+    <section class="legal-section">
+      <h2>1. About Japan First Move</h2>
+      <p>Japan First Move provides general travel-support information for visitors in Japan.</p>
+      <p>The site is designed to help users understand common real-world situations and decide a practical first move, such as ordering food, using transportation, visiting facilities, explaining food needs, or asking for help.</p>
+      <p>Japan First Move is not a map service, translation service, emergency service, medical service, legal service, travel agency, restaurant booking service, food safety certification service, or official information provider.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>2. Eligibility and user responsibility</h2>
+      <p>You are responsible for how you use Japan First Move.</p>
+      <p>You agree to use the site only for lawful, personal, and reasonable travel-support purposes.</p>
+      <p>You are responsible for checking the actual situation around you, following local rules, reading posted signs, asking staff when needed, and using your own judgment.</p>
+      <p>If a situation is serious, urgent, unsafe, unclear, medical, legal, or otherwise beyond general travel guidance, you should seek appropriate help from local staff, emergency services, medical professionals, police, your hotel, your travel insurance provider, your embassy or consulate, or another appropriate source.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>3. No professional advice</h2>
+      <p>Japan First Move does not provide medical advice, legal advice, emergency instructions, immigration advice, insurance advice, religious dietary certification, food safety certification, or other professional advice.</p>
+      <p>Any guide, phrase, card, note, suggestion, or example on the site is provided for general informational and travel-support purposes only.</p>
+      <p>You should not rely on Japan First Move as your only source of information in any situation where safety, health, legal rights, travel documents, money, food allergies, dietary restrictions, or emergency response may be involved.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>4. Food cards and dietary communication tools</h2>
+      <p>Japan First Move may provide food-related guides, sample cards, and Custom Food Cards to help users communicate allergies, dietary restrictions, religious dietary needs, food preferences, or ingredients they want to avoid.</p>
+      <p>These tools are communication aids only.</p>
+      <p>They do not guarantee food safety, allergen-free meals, ingredient accuracy, religious compliance, vegetarian or vegan compliance, avoidance of cross-contact, or staff understanding.</p>
+      <p>Restaurants, shops, hotels, and other facilities may use different ingredients, shared cooking tools, shared oil, shared preparation areas, shared storage, shared equipment, or changing suppliers.</p>
+      <p>Staff may not always know or be able to confirm every ingredient, seasoning, broth, sauce, oil, topping, preparation method, or cross-contact risk.</p>
+      <p>If you have a severe allergy, medical dietary need, religious dietary requirement, or any condition where eating the wrong ingredient may cause harm, you must confirm carefully with staff and use your own judgment before ordering or eating.</p>
+      <p>If staff cannot confirm the details, or if a restaurant or facility cannot safely support your needs, you should not order or eat the item.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>5. Custom Food Card tools</h2>
+      <p>Japan First Move may offer a Custom Food Card feature that allows users to select ingredients, dietary needs, or food-related messages and generate a card to show to staff.</p>
+      <p>You are responsible for selecting the correct items, reviewing the card before use, and deciding whether the card is appropriate for your situation.</p>
+      <p>Japan First Move is not responsible for errors caused by incorrect user selections, misunderstanding of ingredients, incomplete information, device display issues, browser issues, internet connection problems, staff misunderstanding, or changes in restaurant ingredients or preparation methods.</p>
+      <p>Creating, saving, showing, purchasing, or using a Custom Food Card does not guarantee that staff will understand it, accept it, respond to it, accommodate your request, or provide safe food.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>6. Paid digital tools and payments</h2>
+      <p>Some features of Japan First Move may be offered as paid digital tools or paid digital content.</p>
+      <p>Prices, features, availability, payment methods, and access conditions may change at any time.</p>
+      <p>Payments may be processed by a third-party payment provider such as Stripe or another payment service. By making a purchase, you may also be subject to the payment provider’s own terms, privacy policy, fees, security procedures, and processing rules.</p>
+      <p>Japan First Move is not responsible for payment failures, processing delays, card declines, third-party payment errors, internet connection problems, device issues, browser issues, or user input errors.</p>
+      <p>Unless otherwise stated at the time of purchase, paid digital tools are provided for personal travel-support use only and do not guarantee any specific outcome, staff response, restaurant accommodation, food safety, medical outcome, refund from a third party, or successful resolution of a travel problem.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>7. Refunds and cancellations</h2>
+      <p>Custom Food Cards and other paid digital tools are digital products that may be created, displayed, saved, or used immediately after purchase.</p>
+      <p>Because digital products cannot usually be returned, and because use or non-use cannot be reliably confirmed, all purchases are final unless otherwise required by applicable law.</p>
+      <p>We do not generally provide refunds for reasons such as changing your mind, selecting the wrong item, no longer needing the card, being unable to use the card due to your device, browser, internet connection, screenshot settings, storage settings, or similar user-side issues.</p>
+      <p>If you believe you were charged incorrectly, or if there is a clear payment processing issue, please contact us. We may review the situation at our discretion, but this does not guarantee a refund.</p>
+      <p>Nothing in this section limits any rights you may have under applicable consumer protection laws.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>8. Accuracy and availability</h2>
+      <p>We try to make Japan First Move practical, clear, and useful, but we do not guarantee that the site or its content will always be accurate, complete, current, error-free, uninterrupted, secure, or available.</p>
+      <p>Travel conditions, facility rules, store policies, prices, opening hours, signs, transport systems, food ingredients, staff responses, and local procedures may change without notice.</p>
+      <p>Japan First Move may update, modify, suspend, remove, or discontinue any content, feature, page, route, price, tool, or service at any time.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>9. Translations, phrases, and language support</h2>
+      <p>Japan First Move may include Japanese phrases, romaji, English meanings, example translations, and show-to-staff text.</p>
+      <p>These are provided for practical communication support only.</p>
+      <p>We do not guarantee that every phrase or translation is perfect, complete, legally precise, medically precise, culturally appropriate for every situation, or understood by every person.</p>
+      <p>If a phrase or translation is used in a serious, sensitive, medical, legal, financial, food allergy, dietary restriction, safety, or emergency situation, you should confirm the details with an appropriate person or official source.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>10. Third-party services and external links</h2>
+      <p>Japan First Move may refer to, link to, mention, or interact with third-party services, including restaurants, shops, hotels, transport operators, pharmacies, medical services, police, embassies, insurance providers, payment providers, map services, browser services, or device features.</p>
+      <p>Japan First Move does not control third-party services and is not responsible for their content, availability, accuracy, prices, actions, policies, decisions, security, privacy practices, or service quality.</p>
+      <p>Your use of third-party services is at your own risk and may be subject to their own terms and policies.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>11. Prohibited use</h2>
+      <p>You agree not to misuse Japan First Move.</p>
+      <p>You must not:</p>
+      <ul>
+        <li>use the site for unlawful, harmful, fraudulent, abusive, or misleading purposes;</li>
+        <li>copy, scrape, reproduce, resell, redistribute, or commercially exploit the site or its content without permission;</li>
+        <li>interfere with, damage, overload, reverse engineer, or attempt to gain unauthorized access to the site or its systems;</li>
+        <li>use the site to create content that misrepresents Japan First Move or falsely suggests endorsement;</li>
+        <li>remove copyright notices, brand marks, safety notes, disclaimers, or terms from any content;</li>
+        <li>use food cards, phrases, or guides in a way that creates false certainty about food safety, medical safety, legal status, religious compliance, or official approval.</li>
+      </ul>
+    </section>
+
+    <section class="legal-section">
+      <h2>12. Intellectual property</h2>
+      <p>Japan First Move, including its text, guides, layouts, design, graphics, icons, card formats, phrases, tools, and other content, is owned by or licensed to the operator of Japan First Move, unless otherwise stated.</p>
+      <p>You may use the site and its generated content for your own personal travel-support purposes.</p>
+      <p>You may not copy, modify, sell, license, publish, distribute, or create derivative works from Japan First Move content for commercial purposes without written permission.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>13. User input and generated cards</h2>
+      <p>If you enter or select information to create a Custom Food Card or similar tool, you are responsible for the accuracy and completeness of that input.</p>
+      <p>You should not enter sensitive personal information unless it is necessary for your own use of the tool.</p>
+      <p>Japan First Move may process your selections or inputs only for the purpose of providing the feature, improving the service, operating the site, or as otherwise described in any applicable privacy policy.</p>
+      <p>You should review any generated card before showing it to staff.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>14. Limitation of liability</h2>
+      <p>To the fullest extent permitted by applicable law, Japan First Move and its operators will not be liable for any direct, indirect, incidental, consequential, special, exemplary, or punitive damages, losses, costs, injuries, claims, or expenses arising from or related to your use of the site.</p>
+      <p>This includes, but is not limited to, issues involving travel disruption, incorrect decisions, staff misunderstanding, food allergies, cross-contact, illness, injury, lost items, missed transportation, payment problems, device problems, data loss, third-party services, or inability to access the site.</p>
+      <p>Japan First Move is provided on an “as is” and “as available” basis.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>15. No warranties</h2>
+      <p>Japan First Move makes no warranties or representations, express or implied, about the site or its content.</p>
+      <p>We do not warrant that the site will meet your needs, that the content will be accurate or complete, that a phrase or card will be understood, that a facility will provide support, that food will be safe, or that any problem will be resolved.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>16. Changes to these terms</h2>
+      <p>We may update these Terms of Use from time to time.</p>
+      <p>When we update the terms, we may change the “Last updated” date at the top of this page.</p>
+      <p>Your continued use of Japan First Move after the terms are updated means that you accept the updated terms.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>17. Contact</h2>
+      <p>If you have questions about these Terms of Use, please contact:</p>
+      <p>[Contact email or contact form URL]</p>
+    </section>
+  `;
+}
+
+function renderLegalPage(pageId) {
+  const isTerms = pageId === "terms";
+  const title = isTerms ? "Terms of Use" : "Disclaimer";
+  document.title = `${title} | Japan First Move`;
+  app.innerHTML = `
+    <div class="page-shell legal-page layout-container">
+      <header class="legal-page-header content-container">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>${title}</span></nav>
+        <h1>${title}</h1>
+        <p class="legal-page-updated">Last updated: [Month Day, Year]</p>
+      </header>
+      <article class="legal-page-content content-container">
+        ${isTerms ? termsPageMarkup() : disclaimerPageMarkup()}
+      </article>
+    </div>
+  `;
+}
+
 function renderHeaderOptions() {
   document.title = "Header Options | Japan First Move";
   app.innerHTML = `
@@ -4421,6 +4690,8 @@ function router() {
     }
   } else if (route[0] === "header-options") {
     renderHeaderOptions();
+  } else if (route[0] === "disclaimer" || route[0] === "terms") {
+    renderLegalPage(route[0]);
   } else if (route[0] === "guides") {
     renderGuide(route[1]);
   } else {
