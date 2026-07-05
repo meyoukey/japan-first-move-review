@@ -4731,55 +4731,145 @@ function renderLegalPage(pageId) {
   `;
 }
 
+const legalNoticeItems = [
+  { label: "Seller", value: "[To be confirmed before launch]" },
+  { label: "Operator", value: "[To be confirmed before launch]" },
+  {
+    label: "Address",
+    value: "[To be confirmed before launch. We would like to confirm whether this can be disclosed by email upon request.]",
+  },
+  {
+    label: "Phone number",
+    value: "[To be confirmed before launch. We would like to confirm whether this can be disclosed by email upon request.]",
+  },
+  { label: "Contact", value: "[Contact email to be added before launch]" },
+  {
+    label: "Sales price",
+    value: "Displayed on the purchase page. The Custom Food Card is planned to be priced at USD $4.99.",
+  },
+  {
+    label: "Additional fees",
+    value: "Internet connection fees and other communication charges are the responsibility of the user.",
+  },
+  {
+    label: "Payment method",
+    value: "Credit card and other payment methods available through Stripe Checkout.",
+  },
+  { label: "Payment timing", value: "Payment is completed at the time of purchase." },
+  {
+    label: "Product delivery",
+    value: "After purchase, the Custom Food Card can be created, viewed, and saved as an image in the browser.",
+  },
+  {
+    label: "Refunds and cancellations",
+    value: "Because this is a digital product, refunds are generally not available after purchase. If there is a payment error or duplicate charge, please contact us.",
+  },
+  {
+    label: "Operating environment",
+    value: "A modern web browser on a smartphone or desktop device is required. Saving or downloading images may vary depending on the device or browser.",
+  },
+  { label: "Last updated", value: "[To be added before launch]" },
+];
+
+// Draft only: paid sales must not begin before final legal review and replacement of every placeholder.
+function renderLegalNoticePage() {
+  const title = "Legal Notice";
+  document.title = `${title} | Japan First Move`;
+  app.innerHTML = `
+    <div class="page-shell legal-page legal-notice-page layout-container">
+      <header class="legal-page-header content-container">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>${title}</span></nav>
+        <h1>${title}</h1>
+        <p class="legal-notice-subtitle">Information required under Japan’s Specified Commercial Transactions Act</p>
+        <p class="legal-notice-japanese" lang="ja">特定商取引法に基づく表記</p>
+        <p class="legal-notice-draft-note">Draft for legal review. This page will be finalized before paid sales begin.</p>
+      </header>
+      <article class="legal-notice-content content-container">
+        <dl class="legal-notice-list">
+          ${legalNoticeItems
+            .map(
+              (item) => `
+                <div class="legal-notice-row">
+                  <dt>${escapeHtml(item.label)}</dt>
+                  <dd>${escapeHtml(item.value)}</dd>
+                </div>
+              `,
+            )
+            .join("")}
+        </dl>
+      </article>
+    </div>
+  `;
+}
+
 const faqItems = [
   {
+    category: "about",
     question: "What is Japan First Move?",
     answer: "Japan First Move is a simple travel guide that helps you know what to do first in common situations in Japan.",
   },
   {
+    category: "about",
     question: "Is this a translation app?",
     answer: "No. It is not a live translation app. It gives short, practical steps and phrases for common travel moments.",
   },
   {
+    category: "about",
     question: "Is this an official travel service?",
     answer: "No. Japan First Move is an independent guide and is not affiliated with public transport, restaurants, shrines, government services, or other organizations.",
   },
   {
+    category: "using",
     question: "Can I use it offline?",
     answer: "Not fully. Please save important cards, images, or screenshots before you need them.",
   },
   {
+    category: "using",
     question: "Is the information always up to date?",
     answer: "We try to keep the guide useful, but rules, prices, services, opening hours, and local procedures can change. Always check local signs or ask staff when needed.",
   },
   {
+    category: "food-card",
     question: "What is a Custom Food Card?",
     answer: "A Custom Food Card helps you show allergies, dietary needs, ingredients to check, shared tools or oil, or foods you prefer to avoid in Japanese.",
   },
   {
+    category: "food-card",
     question: "Is this an allergy safety card?",
     answer: "No. This card is a communication aid. It helps you show your food needs in Japanese, but it does not guarantee food safety.",
   },
   {
+    category: "food-card",
     question: "Can restaurants always follow this card?",
     answer: "No. Some restaurants may not be able to confirm ingredients or avoid cross-contact. If they cannot help safely, they may say they cannot serve the dish.",
   },
   {
+    category: "food-card",
     question: "Does this replace asking the staff?",
     answer: "No. Please still ask the staff to confirm ingredients and preparation.",
   },
   {
+    category: "food-card",
     question: "Do I need an app to use the Food Card?",
     answer: "No. You can use it in your browser. After creating a card, you can save it as an image.",
   },
   {
+    category: "saving",
     question: "I can’t save the image on my phone. What should I do?",
     answer: "Press and hold the card image, then choose “Save to Photos” or a similar option. If your browser does not save it, try “Download PNG.” You can also take a screenshot and show that to staff.",
   },
   {
+    category: "saving",
     question: "Can I share the card by email or message?",
     answer: "We recommend saving the image to your phone first, then sharing the saved image if needed. Some browsers may not share temporary preview images correctly.",
   },
+];
+
+const faqCategories = [
+  { id: "food-card", title: "Custom Food Card" },
+  { id: "saving", title: "Saving images" },
+  { id: "about", title: "About Japan First Move" },
+  { id: "using", title: "Using the guide" },
 ];
 
 function renderFaqPage() {
@@ -4793,12 +4883,30 @@ function renderFaqPage() {
         <p class="faq-page-lead">Find answers about Japan First Move, Custom Food Cards, saving images, and using the guide while traveling in Japan.</p>
       </header>
       <div class="faq-list content-container">
-        ${faqItems
+        ${faqCategories
           .map(
-            (item) => `
-              <section class="faq-item">
-                <h2>${escapeHtml(item.question)}</h2>
-                <p>${escapeHtml(item.answer)}</p>
+            (category) => `
+              <section class="faq-category" aria-labelledby="faq-category-${category.id}">
+                <h2 id="faq-category-${category.id}">${escapeHtml(category.title)}</h2>
+                <div class="faq-category-items">
+                  ${faqItems
+                    .filter((item) => item.category === category.id)
+                    .map(
+                      (item) => `
+                        <article class="faq-item">
+                          <div class="faq-question">
+                            <span class="faq-label faq-label-question" aria-hidden="true">Q.</span>
+                            <h3>${escapeHtml(item.question)}</h3>
+                          </div>
+                          <div class="faq-answer">
+                            <span class="faq-label faq-label-answer" aria-hidden="true">A.</span>
+                            <p>${escapeHtml(item.answer)}</p>
+                          </div>
+                        </article>
+                      `,
+                    )
+                    .join("")}
+                </div>
               </section>
             `,
           )
@@ -4944,6 +5052,8 @@ function router() {
     renderHeaderOptions();
   } else if (route[0] === "disclaimer" || route[0] === "terms") {
     renderLegalPage(route[0]);
+  } else if (route[0] === "legal-notice") {
+    renderLegalNoticePage();
   } else if (route[0] === "faq") {
     renderFaqPage();
   } else if (route[0] === "guides") {
