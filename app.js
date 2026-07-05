@@ -1400,7 +1400,7 @@ const needChoices = [
     href: "#/food-cards",
     iconName: "categoryicon-food",
     iconSrc: "./assets/icons/action/icon-action-explain-food-needs.png",
-    description: "Explain food needs before ordering.",
+    description: "Show allergies, dietary needs, or ingredients to check before ordering.",
   },
   {
     label: "Store luggage",
@@ -1559,7 +1559,7 @@ const foodCtaByGuide = {
   izakaya:
     "Small dishes such as otoshi may contain fish, egg, meat, or alcohol. Use a simple Japanese card to explain what you need to avoid.",
   "restaurant-full":
-    "If you choose another restaurant, it helps to show your food needs before ordering. A short Japanese card can make the first check easier.",
+    "If you choose another restaurant, show allergies, dietary needs, or ingredients to check before ordering. A short Japanese card can make the first check easier.",
   "how-to-pay":
     "After you order, it may be hard to change the dish. If you need to avoid ingredients, show a simple Japanese card before ordering.",
 };
@@ -2114,6 +2114,8 @@ const customFoodCardState = {
   showMode: false,
   error: "",
   saveMessage: "",
+  imagePreviewUrl: "",
+  imagePreviewFile: null,
   openCategoryIds: ["popular"],
 };
 
@@ -2300,7 +2302,7 @@ const foodFirstMoveCards = [
     slug: "food-cards",
     category: "food",
     cardTitle: "Explain food needs",
-    cardDescription: "Show allergies, dietary restrictions, or ingredients to avoid.",
+    cardDescription: "Show allergies, dietary needs, or ingredients to check before ordering.",
     href: "#/food-cards",
   },
 ];
@@ -2508,7 +2510,7 @@ function foodCardCtaPanel({ context = "home", includeSamplesLink = true } = {}) 
         : "home_custom_food_card_create";
   const samplesTrack = isGuide ? "guide_food_card_samples" : isFoodCategory ? "food_sample_cards_view" : "home_custom_food_card_samples";
   const heading = isFoodCardsPage ? "Create your own card" : "Create a food card for Japan";
-  const description = isFoodCardsPage ? "Make a card for your exact food needs." : "Show your food needs clearly before ordering.";
+  const description = "Show allergies, dietary needs, or ingredients to check before ordering.";
   return `
     <div class="food-card-cta-panel shared-food-card-cta">
       <span class="food-card-ribbon">Food needs</span>
@@ -3005,7 +3007,7 @@ function foodCardsPromo() {
       <div>
         <p class="eyebrow">Food in Japan</p>
         <h2 id="food-promo-title">Explain food needs</h2>
-        <p>Have allergies or dietary restrictions? Choose a sample Japanese card before you order.</p>
+        <p>Show allergies, dietary needs, or ingredients to check before ordering. Choose a sample card or create your own.</p>
       </div>
       <div class="section-actions">
         <a class="button primary" href="#/food-cards" ${trackAttr("food_sample_cards_view")}>See sample cards</a>
@@ -3026,7 +3028,7 @@ function renderFoodCardsPage() {
           <span>Food cards</span>
         </nav>
         <h1>Show your food needs in Japanese</h1>
-        <p class="lead">Show a simple card before ordering. Use a sample card or create your own.</p>
+        <p class="lead">Show allergies, dietary needs, or ingredients to check before ordering. Use a sample card or create your own.</p>
       </header>
 
       <section class="food-card-first-move content-container" aria-labelledby="food-card-first-move-title">
@@ -3228,7 +3230,7 @@ function renderFoodCardDetail(cardId) {
       <section class="food-card-builder-panel food-detail-upgrade card-container" aria-labelledby="custom-card-title">
         <div>
           <h2 id="custom-card-title">Create your own card</h2>
-          <p>Make a card for your exact food needs.</p>
+          <p>Show allergies, dietary needs, or ingredients to check before ordering.</p>
         </div>
         <a class="button primary" href="#/food-card/custom" ${trackAttr(`food_card_detail_create_${card.id}`)}>Create my card</a>
       </section>
@@ -3241,6 +3243,9 @@ function renderFoodCardDetail(cardId) {
 }
 
 function resetCustomFoodCardState() {
+  if (customFoodCardState.imagePreviewUrl) {
+    URL.revokeObjectURL(customFoodCardState.imagePreviewUrl);
+  }
   Object.assign(customFoodCardState, {
     step: 1,
     cardType: "",
@@ -3251,6 +3256,8 @@ function resetCustomFoodCardState() {
     showMode: false,
     error: "",
     saveMessage: "",
+    imagePreviewUrl: "",
+    imagePreviewFile: null,
     openCategoryIds: ["popular"],
   });
 }
@@ -3582,8 +3589,16 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
           </div>
           <section class="custom-card-ingredient-area" aria-label="Selected ingredients">
             <header>
-              <strong lang="ja">${escapeHtml(content.ingredientLabelJa)}</strong>
-              <small lang="en">${escapeHtml(content.ingredientLabelEn)}</small>
+              <span class="custom-card-capture-heading-bg" aria-hidden="true">
+                <svg class="custom-card-capture-heading-svg" viewBox="0 0 600 132" preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <path d="M0 0H600V72C492 105 395 124 300 124C205 124 108 105 0 72V0Z" fill="#f8e9ed" />
+                  <path d="M22 71C132 103 216 116 300 116C384 116 468 103 578 71" fill="none" stroke="#fffafb" stroke-width="1" stroke-opacity="0.68" vector-effect="non-scaling-stroke" />
+                </svg>
+              </span>
+              <span class="custom-card-ingredient-heading-copy">
+                <strong lang="ja">${escapeHtml(content.ingredientLabelJa)}</strong>
+                <small lang="en">${escapeHtml(content.ingredientLabelEn)}</small>
+              </span>
             </header>
             ${customFoodCardIngredientTilesMarkup(selectedIngredients)}
           </section>
@@ -3892,6 +3907,150 @@ function customGeneratedCardMarkup(mode = "review") {
   );
 }
 
+function customFoodCardSaveTarget(button) {
+  const showOverlay = button.closest(".custom-show-overlay");
+  if (showOverlay) {
+    return showOverlay.querySelector(".custom-generated-card.is-show-mode > .custom-card-paper");
+  }
+
+  const readyStep = button.closest(".custom-ready-step");
+  return readyStep?.querySelector(".custom-generated-card > .custom-card-paper") || null;
+}
+
+function customFoodCardSetSaveStatus(message) {
+  customFoodCardState.saveMessage = message;
+  document.querySelectorAll("[data-custom-save-status]").forEach((status) => {
+    status.textContent = message;
+    status.hidden = !message;
+  });
+}
+
+async function customFoodCardWaitForImage(image) {
+  if (!image.complete) {
+    await Promise.race([
+      new Promise((resolve) => {
+        image.addEventListener("load", resolve, { once: true });
+        image.addEventListener("error", resolve, { once: true });
+      }),
+      new Promise((resolve) => window.setTimeout(resolve, 5000)),
+    ]);
+  }
+
+  if (!image.naturalWidth) {
+    throw new Error("Food Card image asset did not load.");
+  }
+
+  if (typeof image.decode === "function") {
+    await image.decode().catch(() => {});
+  }
+}
+
+async function customFoodCardWaitForAssets(card) {
+  if (document.fonts?.ready) {
+    await document.fonts.ready;
+  }
+  await Promise.all(Array.from(card.querySelectorAll("img")).map(customFoodCardWaitForImage));
+}
+
+function customFoodCardCanvasBlob(canvas) {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (blob) {
+        resolve(blob);
+      } else {
+        reject(new Error("PNG creation failed."));
+      }
+    }, "image/png");
+  });
+}
+
+async function customFoodCardCreateImage(button) {
+  const card = customFoodCardSaveTarget(button);
+  const saveButtons = Array.from(document.querySelectorAll("[data-custom-save]"));
+  let captureClassApplied = false;
+
+  saveButtons.forEach((saveButton) => {
+    saveButton.disabled = true;
+    saveButton.setAttribute("aria-busy", "true");
+  });
+  const originalLabel = button.textContent;
+  button.textContent = "Creating image...";
+  customFoodCardSetSaveStatus("Creating image...");
+
+  try {
+    if (!card || typeof window.html2canvas !== "function") {
+      throw new Error("html2canvas is unavailable.");
+    }
+
+    await customFoodCardWaitForAssets(card);
+    card.classList.add("is-capturing-card");
+    captureClassApplied = true;
+    await new Promise((resolve) => window.requestAnimationFrame(() => window.requestAnimationFrame(resolve)));
+    const canvas = await window.html2canvas(card, {
+      backgroundColor: "#f8f7f8",
+      scale: 2,
+      useCORS: true,
+      logging: false,
+      imageTimeout: 5000,
+      width: card.scrollWidth,
+      height: card.scrollHeight,
+      windowWidth: Math.max(document.documentElement.clientWidth, card.scrollWidth),
+      windowHeight: Math.max(document.documentElement.clientHeight, card.scrollHeight),
+    });
+    const blob = await customFoodCardCanvasBlob(canvas);
+    const filename = "japan-first-move-food-card.png";
+
+    if (customFoodCardState.imagePreviewUrl) {
+      URL.revokeObjectURL(customFoodCardState.imagePreviewUrl);
+    }
+    customFoodCardState.imagePreviewUrl = URL.createObjectURL(blob);
+    customFoodCardState.imagePreviewFile = typeof File === "function"
+      ? new File([blob], filename, { type: "image/png" })
+      : null;
+    customFoodCardState.saveMessage = "Image ready. Press and hold the image, then choose “Save to Photos.”";
+    renderCustomFoodCard();
+  } catch (error) {
+    console.error("Could not create Food Card image.", error);
+    customFoodCardSetSaveStatus("Could not create image. Please try again.");
+    button.textContent = originalLabel;
+  } finally {
+    if (captureClassApplied) {
+      card.classList.remove("is-capturing-card");
+    }
+    saveButtons.forEach((saveButton) => {
+      saveButton.disabled = false;
+      saveButton.removeAttribute("aria-busy");
+    });
+  }
+}
+
+function customFoodCardImagePreviewMarkup() {
+  if (!customFoodCardState.imagePreviewUrl) {
+    return "";
+  }
+
+  const previewUrl = escapeHtml(customFoodCardState.imagePreviewUrl);
+  return `
+    <div class="custom-image-preview-backdrop">
+      <section class="custom-image-preview-modal" role="dialog" aria-modal="true" aria-labelledby="custom-image-preview-title">
+        <header class="custom-image-preview-header">
+          <div>
+            <h2 id="custom-image-preview-title">Image ready</h2>
+            <p>Press and hold the image, then choose “Save to Photos.”</p>
+          </div>
+          <button class="button secondary" type="button" data-custom-close-image-preview>Close</button>
+        </header>
+        <div class="custom-image-preview-frame">
+          <img src="${previewUrl}" alt="Generated Japan First Move Food Card" draggable="false" />
+        </div>
+        <div class="custom-image-preview-actions">
+          <a class="button secondary custom-image-preview-download" href="${previewUrl}" download="japan-first-move-food-card.png">Download PNG</a>
+        </div>
+      </section>
+    </div>
+  `;
+}
+
 function customFoodCardStepFourMarkup() {
   return `
     <div class="custom-food-card-step custom-ready-step" data-custom-step="4">
@@ -3905,7 +4064,7 @@ function customFoodCardStepFourMarkup() {
         <button class="button secondary" type="button" data-custom-save>Save as image</button>
         <button class="button secondary" type="button" data-custom-restart>Create another card</button>
       </div>
-      ${customFoodCardState.saveMessage ? `<p class="custom-save-status" role="status">${escapeHtml(customFoodCardState.saveMessage)}</p>` : ""}
+      <p class="custom-save-status" data-custom-save-status role="status" aria-live="polite" ${customFoodCardState.saveMessage ? "" : "hidden"}>${escapeHtml(customFoodCardState.saveMessage)}</p>
     </div>
   `;
 }
@@ -3928,13 +4087,13 @@ function customFoodCardShowModeMarkup() {
     return "";
   }
   return `
-    <div class="custom-show-overlay" role="dialog" aria-modal="true" aria-label="Show food card to staff">
+    <div class="custom-show-overlay" role="dialog" aria-modal="true" aria-label="Show food card to staff" ${customFoodCardState.imagePreviewUrl ? 'aria-hidden="true" inert' : ""}>
       <div class="custom-show-controls">
         <button class="button secondary" type="button" data-custom-close-show>Close</button>
         <button class="button primary" type="button" data-custom-save>Save as image</button>
       </div>
       ${customGeneratedCardMarkup("show")}
-      ${customFoodCardState.saveMessage ? `<p class="custom-save-status" role="status">${escapeHtml(customFoodCardState.saveMessage)}</p>` : ""}
+      <p class="custom-save-status" data-custom-save-status role="status" aria-live="polite" ${customFoodCardState.saveMessage ? "" : "hidden"}>${escapeHtml(customFoodCardState.saveMessage)}</p>
     </div>
   `;
 }
@@ -3943,8 +4102,9 @@ function renderCustomFoodCard() {
   document.title = "Custom Food Card | Japan First Move";
   document.body.classList.toggle("is-custom-show-mode", customFoodCardState.showMode);
   document.body.classList.toggle("is-custom-sample-mode", customFoodCardState.sampleMode);
+  document.body.classList.toggle("is-custom-image-preview-mode", Boolean(customFoodCardState.imagePreviewUrl));
   app.innerHTML = `
-    <div class="page-shell food-card-page custom-food-card-page custom-food-card-mvp-page layout-container" ${customFoodCardState.showMode || customFoodCardState.sampleMode ? 'aria-hidden="true" inert' : ""}>
+    <div class="page-shell food-card-page custom-food-card-page custom-food-card-mvp-page layout-container" ${customFoodCardState.showMode || customFoodCardState.sampleMode || customFoodCardState.imagePreviewUrl ? 'aria-hidden="true" inert' : ""}>
       <header class="guide-page-header content-container">
         <nav class="crumbs" aria-label="Breadcrumb">
           <a href="#/">Home</a><span>/</span>
@@ -3965,10 +4125,13 @@ function renderCustomFoodCard() {
     </div>
     ${customFoodCardSampleModalMarkup()}
     ${customFoodCardShowModeMarkup()}
+    ${customFoodCardImagePreviewMarkup()}
   `;
   wireCustomFoodCardEvents();
   if (customFoodCardState.sampleMode) {
     document.querySelector("[data-custom-close-sample]")?.focus();
+  } else if (customFoodCardState.imagePreviewUrl) {
+    document.querySelector("[data-custom-close-image-preview]")?.focus();
   }
 }
 
@@ -4094,11 +4257,17 @@ function wireCustomFoodCardEvents() {
   });
 
   document.querySelectorAll("[data-custom-save]").forEach((button) => {
-    button.addEventListener("click", () => {
-      // TODO(custom-food-card-export): Connect this action to a DOM-to-image export utility when one is added to the project.
-      customFoodCardState.saveMessage = "Save as image is coming soon.";
-      renderCustomFoodCard();
-    });
+    button.addEventListener("click", () => customFoodCardCreateImage(button));
+  });
+
+  document.querySelector("[data-custom-close-image-preview]")?.addEventListener("click", () => {
+    if (customFoodCardState.imagePreviewUrl) {
+      URL.revokeObjectURL(customFoodCardState.imagePreviewUrl);
+    }
+    customFoodCardState.imagePreviewUrl = "";
+    customFoodCardState.imagePreviewFile = null;
+    customFoodCardState.saveMessage = "";
+    renderCustomFoodCard();
   });
 
   document.querySelector("[data-custom-restart]")?.addEventListener("click", () => {
@@ -4562,6 +4731,83 @@ function renderLegalPage(pageId) {
   `;
 }
 
+const faqItems = [
+  {
+    question: "What is Japan First Move?",
+    answer: "Japan First Move is a simple travel guide that helps you know what to do first in common situations in Japan.",
+  },
+  {
+    question: "Is this a translation app?",
+    answer: "No. It is not a live translation app. It gives short, practical steps and phrases for common travel moments.",
+  },
+  {
+    question: "Is this an official travel service?",
+    answer: "No. Japan First Move is an independent guide and is not affiliated with public transport, restaurants, shrines, government services, or other organizations.",
+  },
+  {
+    question: "Can I use it offline?",
+    answer: "Not fully. Please save important cards, images, or screenshots before you need them.",
+  },
+  {
+    question: "Is the information always up to date?",
+    answer: "We try to keep the guide useful, but rules, prices, services, opening hours, and local procedures can change. Always check local signs or ask staff when needed.",
+  },
+  {
+    question: "What is a Custom Food Card?",
+    answer: "A Custom Food Card helps you show allergies, dietary needs, ingredients to check, shared tools or oil, or foods you prefer to avoid in Japanese.",
+  },
+  {
+    question: "Is this an allergy safety card?",
+    answer: "No. This card is a communication aid. It helps you show your food needs in Japanese, but it does not guarantee food safety.",
+  },
+  {
+    question: "Can restaurants always follow this card?",
+    answer: "No. Some restaurants may not be able to confirm ingredients or avoid cross-contact. If they cannot help safely, they may say they cannot serve the dish.",
+  },
+  {
+    question: "Does this replace asking the staff?",
+    answer: "No. Please still ask the staff to confirm ingredients and preparation.",
+  },
+  {
+    question: "Do I need an app to use the Food Card?",
+    answer: "No. You can use it in your browser. After creating a card, you can save it as an image.",
+  },
+  {
+    question: "I can’t save the image on my phone. What should I do?",
+    answer: "Press and hold the card image, then choose “Save to Photos” or a similar option. If your browser does not save it, try “Download PNG.” You can also take a screenshot and show that to staff.",
+  },
+  {
+    question: "Can I share the card by email or message?",
+    answer: "We recommend saving the image to your phone first, then sharing the saved image if needed. Some browsers may not share temporary preview images correctly.",
+  },
+];
+
+function renderFaqPage() {
+  const title = "FAQ";
+  document.title = `${title} | Japan First Move`;
+  app.innerHTML = `
+    <div class="page-shell legal-page faq-page layout-container">
+      <header class="legal-page-header content-container">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>${title}</span></nav>
+        <h1>${title}</h1>
+        <p class="faq-page-lead">Find answers about Japan First Move, Custom Food Cards, saving images, and using the guide while traveling in Japan.</p>
+      </header>
+      <div class="faq-list content-container">
+        ${faqItems
+          .map(
+            (item) => `
+              <section class="faq-item">
+                <h2>${escapeHtml(item.question)}</h2>
+                <p>${escapeHtml(item.answer)}</p>
+              </section>
+            `,
+          )
+          .join("")}
+      </div>
+    </div>
+  `;
+}
+
 function renderHeaderOptions() {
   document.title = "Header Options | Japan First Move";
   app.innerHTML = `
@@ -4673,6 +4919,12 @@ function router() {
   closeMobileMenu();
   document.body.classList.remove("is-custom-show-mode");
   document.body.classList.remove("is-custom-sample-mode");
+  document.body.classList.remove("is-custom-image-preview-mode");
+  if (customFoodCardState.imagePreviewUrl) {
+    URL.revokeObjectURL(customFoodCardState.imagePreviewUrl);
+    customFoodCardState.imagePreviewUrl = "";
+    customFoodCardState.imagePreviewFile = null;
+  }
   document.title = "Japan First Move";
   const hash = window.location.hash.replace(/^#\/?/, "");
   const parts = hash.split("/").filter(Boolean);
@@ -4692,6 +4944,8 @@ function router() {
     renderHeaderOptions();
   } else if (route[0] === "disclaimer" || route[0] === "terms") {
     renderLegalPage(route[0]);
+  } else if (route[0] === "faq") {
+    renderFaqPage();
   } else if (route[0] === "guides") {
     renderGuide(route[1]);
   } else {
