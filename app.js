@@ -2333,8 +2333,23 @@ mobileMenuToggle?.addEventListener("click", () => {
 });
 
 mobileSiteMenu?.addEventListener("click", (event) => {
-  if (event.target.closest?.("a")) {
-    closeMobileMenu();
+  const link = event.target.closest?.("a");
+  if (!link) {
+    return;
+  }
+
+  closeMobileMenu();
+
+  if (!link.matches(".mobile-site-menu-custom")) {
+    return;
+  }
+
+  event.preventDefault();
+  const targetHash = link.getAttribute("href");
+  if (window.location.hash === targetHash) {
+    router();
+  } else {
+    window.location.hash = targetHash;
   }
 });
 
