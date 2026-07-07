@@ -12174,10 +12174,19 @@ body:has(.guide-page) .site-footer p {
 }
 
 body:has(#app) .site-footer .site-footer-legal a {
-  color: #69717b;
+  color: #556274;
   font-size: 0.74rem;
   font-weight: 500;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: rgba(85, 98, 116, 0.28);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.16em;
+}
+
+body:has(#app) .site-footer .site-footer-legal a:hover,
+body:has(#app) .site-footer .site-footer-legal a:focus-visible {
+  color: #3f4d63;
+  text-decoration-color: rgba(63, 77, 99, 0.58);
 }
 
 body:has(#app) .site-footer .site-footer-legal a + a::before {
@@ -12250,19 +12259,20 @@ body:has(#app) .site-footer .site-footer-legal a + a::before {
 }
 
 .legal-contact-link {
-  color: #626b76;
+  color: #536176;
   font-size: inherit;
   font-weight: 400;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: rgba(83, 97, 118, 0.3);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.16em;
   overflow-wrap: anywhere;
 }
 
 .legal-contact-link:hover,
 .legal-contact-link:focus-visible {
-  color: #4a5a75;
-  text-decoration: underline;
-  text-decoration-color: rgba(74, 90, 117, 0.28);
-  text-underline-offset: 0.16em;
+  color: #3f4d63;
+  text-decoration-color: rgba(63, 77, 99, 0.58);
 }
 
 .legal-section {
