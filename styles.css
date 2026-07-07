@@ -12533,10 +12533,10 @@ body:has(#app) .site-footer {
   width: min(calc(100% - var(--content-gutter)), var(--content-max));
   margin-inline: auto;
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: 3rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.55rem;
   align-items: start;
-  padding: 1.5rem 0 calc(5.25rem + env(safe-area-inset-bottom));
+  padding: 1.35rem 0 calc(1.5rem + env(safe-area-inset-bottom));
 }
 
 body:has(#app) .site-footer strong {
@@ -12555,7 +12555,11 @@ body:has(#app) .site-footer p {
 }
 
 body:has(#app) .site-footer .site-footer-note {
+  max-width: 760px;
   margin-top: 0 !important;
+  color: #757d87 !important;
+  font-size: 0.76rem;
+  line-height: 1.45;
 }
 
 @media (max-width: 620px) {
