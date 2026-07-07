@@ -12165,18 +12165,26 @@ body:has(.guide-page) .site-footer p {
 /* Legal pages and understated legal links. */
 .site-footer-legal {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 1rem;
-  margin-top: 0.75rem;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0;
+  margin-top: 0.55rem;
+  line-height: 1.4;
+  white-space: nowrap;
 }
 
 body:has(#app) .site-footer .site-footer-legal a {
-  color: #555e69;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: rgba(85, 94, 105, 0.35);
-  text-underline-offset: 0.18em;
+  color: #69717b;
+  font-size: 0.74rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+body:has(#app) .site-footer .site-footer-legal a + a::before {
+  content: "·";
+  margin: 0 0.42rem;
+  color: rgba(105, 113, 123, 0.55);
+  font-weight: 400;
 }
 
 .custom-digital-product-note {
@@ -12242,12 +12250,19 @@ body:has(#app) .site-footer .site-footer-legal a {
 }
 
 .legal-contact-link {
-  color: #8f455f;
-  font-weight: 650;
-  text-decoration: underline;
-  text-decoration-color: rgba(143, 69, 95, 0.35);
-  text-underline-offset: 0.16em;
+  color: #626b76;
+  font-size: inherit;
+  font-weight: 400;
+  text-decoration: none;
   overflow-wrap: anywhere;
+}
+
+.legal-contact-link:hover,
+.legal-contact-link:focus-visible {
+  color: #4a5a75;
+  text-decoration: underline;
+  text-decoration-color: rgba(74, 90, 117, 0.28);
+  text-underline-offset: 0.16em;
 }
 
 .legal-section {
@@ -12554,6 +12569,13 @@ body:has(#app) .site-footer .site-footer-note {
     grid-template-columns: 1fr;
     gap: 0.85rem;
     padding: 1.25rem 0 calc(5.1rem + env(safe-area-inset-bottom));
+  }
+
+  .site-footer-legal {
+    flex-wrap: wrap;
+    row-gap: 0.12rem;
+    margin-top: 0.45rem;
+    white-space: normal;
   }
 }
 
