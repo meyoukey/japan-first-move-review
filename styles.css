@@ -12241,6 +12241,15 @@ body:has(#app) .site-footer .site-footer-legal a {
   margin: 0.85rem 0 0;
 }
 
+.legal-contact-link {
+  color: #8f455f;
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: rgba(143, 69, 95, 0.35);
+  text-underline-offset: 0.16em;
+  overflow-wrap: anywhere;
+}
+
 .legal-section {
   margin-top: clamp(2rem, 5vw, 3rem);
   padding-top: clamp(1.4rem, 3vw, 2rem);

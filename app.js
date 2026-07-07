@@ -4498,6 +4498,12 @@ function staffCard(item) {
   `;
 }
 
+const supportEmail = "support@japanfirstmove.com";
+
+function supportEmailLinkMarkup() {
+  return `<a class="legal-contact-link" href="mailto:${supportEmail}">${supportEmail}</a>`;
+}
+
 function disclaimerPageMarkup() {
   return `
     <p>Japan First Move provides general travel guidance for visitors in Japan. The site is designed to help travelers understand common situations and decide a practical first move.</p>
@@ -4581,6 +4587,7 @@ function disclaimerPageMarkup() {
       <p>You are responsible for how you use Japan First Move.</p>
       <p>You are responsible for checking the actual situation, following local rules, asking staff when needed, using your own judgment, and seeking appropriate help when a situation is serious, urgent, unclear, or beyond general travel guidance.</p>
       <p>By using this site, you understand that Japan First Move is a support tool, not a guarantee of safety, accuracy, access, service, or outcome.</p>
+      <p>If you have questions about this Disclaimer, contact: ${supportEmailLinkMarkup()}</p>
     </section>
   `;
 }
@@ -4723,7 +4730,7 @@ function termsPageMarkup() {
     <section class="legal-section">
       <h2>17. Contact</h2>
       <p>If you have questions about these Terms of Use, please contact:</p>
-      <p>[Contact email or contact form URL]</p>
+      <p>${supportEmailLinkMarkup()}</p>
     </section>
   `;
 }
@@ -4803,7 +4810,7 @@ function privacyPageMarkup() {
 
     <section class="legal-section">
       <h2>7. Contact</h2>
-      <p>[Contact email or contact form URL]</p>
+      <p>${supportEmailLinkMarkup()}</p>
     </section>
 
     <section class="legal-section">
@@ -4842,7 +4849,7 @@ const legalNoticeItems = [
     label: "Phone number",
     value: "[To be confirmed before launch. We would like to confirm whether this can be disclosed by email upon request.]",
   },
-  { label: "Contact", value: "[Contact email to be added before launch]" },
+  { label: "Contact", value: supportEmail, isEmail: true },
   {
     label: "Sales price",
     value: "Displayed on the purchase page. The Custom Food Card is planned to be priced at USD $4.99.",
@@ -4891,7 +4898,7 @@ function renderLegalNoticePage() {
               (item) => `
                 <div class="legal-notice-row">
                   <dt>${escapeHtml(item.label)}</dt>
-                  <dd>${escapeHtml(item.value)}</dd>
+                  <dd>${item.isEmail ? supportEmailLinkMarkup() : escapeHtml(item.value)}</dd>
                 </div>
               `,
             )
