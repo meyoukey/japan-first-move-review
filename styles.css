@@ -12264,7 +12264,8 @@ body:has(#app) .site-footer .site-footer-legal a {
   margin-top: 0.55rem;
 }
 
-.legal-notice-subtitle {
+.legal-notice-subtitle,
+.privacy-page-subtitle {
   max-width: 650px;
   margin: 1rem 0 0;
   color: #4a5a75;
@@ -12280,7 +12281,8 @@ body:has(#app) .site-footer .site-footer-legal a {
   line-height: 1.55;
 }
 
-.legal-notice-draft-note {
+.legal-notice-draft-note,
+.privacy-draft-note {
   max-width: 650px;
   margin: 1rem 0 0;
   padding: 0.7rem 0.85rem;
@@ -12429,11 +12431,13 @@ body:has(#app) .site-footer .site-footer-legal a {
     line-height: 1.75;
   }
 
-  .legal-notice-subtitle {
+  .legal-notice-subtitle,
+  .privacy-page-subtitle {
     font-size: 1rem;
   }
 
-  .legal-notice-draft-note {
+  .legal-notice-draft-note,
+  .privacy-draft-note {
     padding: 0.65rem 0.75rem;
     font-size: 0.78rem;
   }

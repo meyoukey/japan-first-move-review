@@ -4746,6 +4746,91 @@ function renderLegalPage(pageId) {
   `;
 }
 
+function privacyPageMarkup() {
+  return `
+    <section class="legal-section">
+      <h2>1. Information we collect</h2>
+      <ul>
+        <li>We do not require users to create an account.</li>
+        <li>We do not collect payment information on this site at this stage.</li>
+        <li>If users contact us, we may receive the information they choose to send.</li>
+      </ul>
+    </section>
+
+    <section class="legal-section">
+      <h2>2. Google Analytics</h2>
+      <ul>
+        <li>We use Google Analytics to understand how visitors use this website.</li>
+        <li>Google Analytics may collect information such as pages viewed, device or browser information, approximate location, and referral sources.</li>
+        <li>Google Analytics uses cookies or similar technologies to distinguish users and sessions.</li>
+        <li>We use this information to improve the website and user experience.</li>
+      </ul>
+    </section>
+
+    <section class="legal-section">
+      <h2>3. Cookies</h2>
+      <ul>
+        <li>This site may use cookies for analytics purposes.</li>
+        <li>Users can disable cookies in their browser settings, but some features may not work as expected.</li>
+      </ul>
+    </section>
+
+    <section class="legal-section">
+      <h2>4. Third-party services</h2>
+      <ul>
+        <li>Google Analytics is used to understand site usage.</li>
+        <li>Google Fonts is currently used to load website fonts.</li>
+        <li>Stripe Checkout is planned for future payments, but payment processing is not live yet.</li>
+        <li>When payment becomes live, Stripe will process payment information according to its own privacy policy.</li>
+      </ul>
+    </section>
+
+    <section class="legal-section">
+      <h2>5. Food Card information</h2>
+      <p>Custom Food Card selections are used to generate the card display.</p>
+      <p>The current implementation keeps these selections temporarily in browser memory while you use the builder. They are not saved to a user account and are reset when the builder is restarted or the page is reloaded.</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>6. Data use</h2>
+      <p>We may use the information described above:</p>
+      <ul>
+        <li>to understand site usage;</li>
+        <li>to improve content and usability; and</li>
+        <li>to maintain and troubleshoot the website.</li>
+      </ul>
+    </section>
+
+    <section class="legal-section">
+      <h2>7. Contact</h2>
+      <p>[Contact email or contact form URL]</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>8. Last updated</h2>
+      <p>[Month Day, Year]</p>
+    </section>
+  `;
+}
+
+function renderPrivacyPage() {
+  const title = "Privacy Policy";
+  document.title = `${title} | Japan First Move`;
+  app.innerHTML = `
+    <div class="page-shell legal-page privacy-page layout-container">
+      <header class="legal-page-header content-container">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>${title}</span></nav>
+        <h1>${title}</h1>
+        <p class="privacy-page-subtitle">How Japan First Move handles basic access and usage information.</p>
+        <p class="privacy-draft-note">Draft for review. This page will be finalized before public launch.</p>
+      </header>
+      <article class="legal-page-content content-container">
+        ${privacyPageMarkup()}
+      </article>
+    </div>
+  `;
+}
+
 const legalNoticeItems = [
   { label: "Seller", value: "[To be confirmed before launch]" },
   { label: "Operator", value: "[To be confirmed before launch]" },
@@ -5069,6 +5154,8 @@ function router() {
     renderLegalPage(route[0]);
   } else if (route[0] === "legal-notice") {
     renderLegalNoticePage();
+  } else if (route[0] === "privacy") {
+    renderPrivacyPage();
   } else if (route[0] === "faq") {
     renderFaqPage();
   } else if (route[0] === "guides") {
