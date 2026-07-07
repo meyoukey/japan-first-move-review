@@ -13,9 +13,14 @@ assets/*
 !assets/food-card/**
 !assets/icons/
 !assets/icons/**
+!assets/favicon/
+!assets/favicon/**
+!assets/ogp/
+!assets/ogp/**
 !assets/section-icons/
 !assets/section-icons/**
 !assets/japanese-motifs.png
+!favicon.ico
 
 !design/
 design/*
