@@ -1671,6 +1671,7 @@ const customFoodCardCategoryMeta = {
   dairyEgg: "Dairy & egg",
   grains: "Grains & gluten",
   nutsSeeds: "Nuts & seeds",
+  fruit: "Fruit",
   seasonings: "Seasonings & alcohol",
   preferences: "Preferences",
 };
@@ -1682,6 +1683,7 @@ const customFoodCardIngredientCategories = [
   "dairyEgg",
   "grains",
   "nutsSeeds",
+  "fruit",
   "seasonings",
   "preferences",
 ];
@@ -1699,6 +1701,7 @@ const customFoodCardPopularIngredientIds = [
   "sesame",
   "gelatin",
   "lard",
+  "japanese-yam",
 ];
 
 const ingredients = [
@@ -1991,6 +1994,62 @@ const ingredients = [
     allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
   },
   {
+    id: "fruit",
+    labelEn: "Fruit",
+    labelJa: "果物",
+    category: "fruit",
+    popular: false,
+    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+  },
+  {
+    id: "peach",
+    labelEn: "Peach",
+    labelJa: "もも",
+    category: "fruit",
+    popular: false,
+    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+  },
+  {
+    id: "apple",
+    labelEn: "Apple",
+    labelJa: "りんご",
+    category: "fruit",
+    popular: false,
+    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+  },
+  {
+    id: "kiwi",
+    labelEn: "Kiwi",
+    labelJa: "キウイ",
+    category: "fruit",
+    popular: false,
+    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+  },
+  {
+    id: "banana",
+    labelEn: "Banana",
+    labelJa: "バナナ",
+    category: "fruit",
+    popular: false,
+    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+  },
+  {
+    id: "orange",
+    labelEn: "Orange",
+    labelJa: "オレンジ",
+    category: "fruit",
+    popular: false,
+    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+  },
+  {
+    id: "mango",
+    labelEn: "Mango",
+    labelJa: "マンゴー",
+    category: "fruit",
+    popular: false,
+    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+  },
+  {
     id: "soy",
     labelEn: "Soy",
     labelJa: "大豆",
@@ -2069,6 +2128,14 @@ const ingredients = [
     category: "preferences",
     popular: false,
     allowedTypes: ["ingredientCheck", "preference"],
+  },
+  {
+    id: "japanese-yam",
+    labelEn: "Japanese yam",
+    labelJa: "山芋・長芋",
+    category: "popular",
+    popular: false,
+    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools", "preference"],
   },
   {
     id: "raw-onion",
