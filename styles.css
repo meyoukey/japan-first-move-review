@@ -120,7 +120,7 @@ button {
   height: 44px;
   place-items: center;
   color: transparent;
-  background: url("./design/parts/SVG/logo.svg") center / contain no-repeat;
+  background: url("./assets/ui/SVG/logo.svg") center / contain no-repeat;
   border: 0;
   border-radius: 0;
   box-shadow: none;
@@ -217,8 +217,8 @@ button {
   height: 34px;
   background:
     image-set(
-      url("./design/parts/PNG/logo.png") 1x,
-      url("./design/parts/PNG/logo@2x.png") 2x
+      url("./assets/ui/PNG/logo.png") 1x,
+      url("./assets/ui/PNG/logo@2x.png") 2x
     ) center / cover no-repeat;
 }
 
@@ -238,13 +238,13 @@ button {
   height: 4.6rem;
   opacity: 0.18;
   pointer-events: none;
-  background: url("./design/parts/SVG/mizuhiki-red.svg") center / contain no-repeat;
+  background: url("./assets/ui/SVG/mizuhiki-red.svg") center / contain no-repeat;
 }
 
 .header-mock-knot {
   width: 44px;
   height: 26px;
-  background: url("./design/parts/SVG/mizuhiki-red.svg") center / 220% auto no-repeat;
+  background: url("./assets/ui/SVG/mizuhiki-red.svg") center / 220% auto no-repeat;
 }
 
 .header-mock-stamp {
@@ -2120,7 +2120,7 @@ h3 {
     height: 38px;
     border: 0;
     border-radius: 0;
-    background: url("./design/parts/SVG/logo.svg") center / contain no-repeat;
+    background: url("./assets/ui/SVG/logo.svg") center / contain no-repeat;
     box-shadow: none;
     color: transparent;
     font-size: 0;
@@ -2210,7 +2210,7 @@ h3 {
     width: 120vw;
     height: clamp(104px, 29.2vw, 124px);
     margin: 0.46rem 0 0.12rem calc(-10vw - 0.9rem);
-    background: url("./design/parts/SVG/mizuhiki-red.svg") center / 100% auto no-repeat;
+    background: url("./assets/ui/SVG/mizuhiki-red.svg") center / 100% auto no-repeat;
     box-shadow: none;
   }
 
@@ -2338,7 +2338,7 @@ h3 {
     top: 50%;
     width: 3.35rem;
     height: 3.35rem;
-    background: url("./design/parts/SVG/illust-daruma.svg") center / contain no-repeat;
+    background: url("./assets/ui/SVG/illust-daruma.svg") center / contain no-repeat;
     animation: jfm-daruma-goron 2.8s ease-in-out infinite;
     transform: translateY(-50%);
     transform-origin: 50% 72%;
@@ -2446,7 +2446,7 @@ h3 {
     top: 50%;
     width: 4.15rem;
     height: 2.45rem;
-    background: url("./design/parts/SVG/illust-cloud.svg") center / contain no-repeat;
+    background: url("./assets/ui/SVG/illust-cloud.svg") center / contain no-repeat;
     animation: jfm-cloud-fuwa 4.6s ease-in-out infinite;
     transform: translateY(-50%);
     will-change: transform;
@@ -2579,7 +2579,7 @@ h3 {
     top: 50%;
     width: 4rem;
     height: 3.45rem;
-    background: url("./design/parts/SVG/illust-fish.svg") center / contain no-repeat;
+    background: url("./assets/ui/SVG/illust-fish.svg") center / contain no-repeat;
     animation: jfm-fish-puru 1.35s ease-in-out infinite;
     transform: translateY(-50%);
     transform-origin: 50% 55%;
@@ -2741,8 +2741,8 @@ h3 {
     color: transparent;
     background:
       image-set(
-        url("./design/parts/PNG/pdf-btn.png") 1x,
-        url("./design/parts/PNG/pdf-btn@2x.png") 2x
+        url("./assets/ui/PNG/pdf-btn.png") 1x,
+        url("./assets/ui/PNG/pdf-btn@2x.png") 2x
       ) center / contain no-repeat;
     box-shadow: none;
     font-size: 0.72rem;

@@ -2285,7 +2285,7 @@ const culturePhraseCards = [
   },
 ];
 
-const partPngPath = "./design/parts/PNG/";
+const partPngPath = "./assets/ui/PNG/";
 
 const placeIconBySlug = {
   "ramen-shop": "icon-ramen",
