@@ -16777,7 +16777,6 @@ body:has(#app) .site-footer .site-footer-note {
 }
 
 .custom-ready-actions [data-custom-share],
-.custom-ready-actions [data-custom-show],
 .custom-ready-actions [data-custom-restart] {
   border-color: #e68ba3;
   color: #fff;
@@ -17131,8 +17130,7 @@ input[type="reset"] {
   background: #536783;
 }
 
-.custom-food-card-mvp-page .custom-ready-actions [data-custom-share],
-.custom-food-card-mvp-page .custom-ready-actions [data-custom-show] {
+.custom-food-card-mvp-page .custom-ready-actions [data-custom-share] {
   border-color: #e0b7c3;
   color: #8f4058;
   background: #f2dce3;

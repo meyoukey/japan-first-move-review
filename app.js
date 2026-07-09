@@ -4226,7 +4226,6 @@ function customFoodCardStepFourMarkup() {
       <div class="custom-ready-actions">
         <button class="button primary" type="button" data-custom-save>Save as image</button>
         ${shareButtonMarkup}
-        <button class="button secondary" type="button" data-custom-show>Show to staff</button>
         <button class="button secondary" type="button" data-custom-restart>Create another card</button>
       </div>
       <p class="custom-save-status" data-custom-save-status role="status" aria-live="polite" ${customFoodCardState.saveMessage ? "" : "hidden"}>${escapeHtml(customFoodCardState.saveMessage)}</p>
