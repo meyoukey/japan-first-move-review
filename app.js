@@ -2090,6 +2090,14 @@ const ingredients = [
     allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
+    id: "honey",
+    labelEn: "Honey",
+    labelJa: "はちみつ",
+    category: "seasonings",
+    popular: false,
+    allowedTypes: ["cannotEat", "ingredientCheck", "preference"],
+  },
+  {
     id: "vinegar",
     labelEn: "Vinegar",
     labelJa: "酢",
@@ -4046,18 +4054,26 @@ function customFoodCardCanvasBlob(canvas) {
   });
 }
 
-async function customFoodCardCreateImage(button) {
-  const card = customFoodCardSaveTarget(button);
-  const saveButtons = Array.from(document.querySelectorAll("[data-custom-save]"));
-  let captureClassApplied = false;
+function customFoodCardShareIsAvailable(file) {
+  if (typeof navigator === "undefined" || typeof navigator.share !== "function" || typeof navigator.canShare !== "function" || typeof File !== "function") {
+    return false;
+  }
 
-  saveButtons.forEach((saveButton) => {
-    saveButton.disabled = true;
-    saveButton.setAttribute("aria-busy", "true");
-  });
-  const originalLabel = button.textContent;
-  button.textContent = "Creating image...";
-  customFoodCardSetSaveStatus("Creating image...");
+  try {
+    const shareFile = file || new File([""], "custom-food-card.png", { type: "image/png" });
+    return navigator.canShare({ files: [shareFile] });
+  } catch (error) {
+    return false;
+  }
+}
+
+function customFoodCardActionButtons() {
+  return Array.from(document.querySelectorAll("[data-custom-save], [data-custom-share]"));
+}
+
+async function customFoodCardCreateImageFile(button, filename) {
+  const card = customFoodCardSaveTarget(button);
+  let captureClassApplied = false;
 
   try {
     if (!card || typeof window.html2canvas !== "function") {
@@ -4080,15 +4096,38 @@ async function customFoodCardCreateImage(button) {
       windowHeight: Math.max(document.documentElement.clientHeight, card.scrollHeight),
     });
     const blob = await customFoodCardCanvasBlob(canvas);
+    const file = typeof File === "function"
+      ? new File([blob], filename, { type: "image/png" })
+      : null;
+
+    return { blob, file };
+  } finally {
+    if (captureClassApplied) {
+      card.classList.remove("is-capturing-card");
+    }
+  }
+}
+
+async function customFoodCardCreateImage(button) {
+  const actionButtons = customFoodCardActionButtons();
+
+  actionButtons.forEach((actionButton) => {
+    actionButton.disabled = true;
+    actionButton.setAttribute("aria-busy", "true");
+  });
+  const originalLabel = button.textContent;
+  button.textContent = "Creating image...";
+  customFoodCardSetSaveStatus("Creating image...");
+
+  try {
     const filename = "japan-first-move-food-card.png";
+    const { blob, file } = await customFoodCardCreateImageFile(button, filename);
 
     if (customFoodCardState.imagePreviewUrl) {
       URL.revokeObjectURL(customFoodCardState.imagePreviewUrl);
     }
     customFoodCardState.imagePreviewUrl = URL.createObjectURL(blob);
-    customFoodCardState.imagePreviewFile = typeof File === "function"
-      ? new File([blob], filename, { type: "image/png" })
-      : null;
+    customFoodCardState.imagePreviewFile = file;
     customFoodCardState.saveMessage = "Image ready. Press and hold the image, then choose “Save to Photos.”";
     renderCustomFoodCard();
   } catch (error) {
@@ -4096,12 +4135,51 @@ async function customFoodCardCreateImage(button) {
     customFoodCardSetSaveStatus("Could not create image. Please try again.");
     button.textContent = originalLabel;
   } finally {
-    if (captureClassApplied) {
-      card.classList.remove("is-capturing-card");
+    actionButtons.forEach((actionButton) => {
+      actionButton.disabled = false;
+      actionButton.removeAttribute("aria-busy");
+    });
+  }
+}
+
+async function customFoodCardShareImage(button) {
+  const unsupportedMessage = "Sharing is not supported on this browser. Please use Save as image.";
+  if (!customFoodCardShareIsAvailable()) {
+    customFoodCardSetSaveStatus(unsupportedMessage);
+    return;
+  }
+
+  const actionButtons = customFoodCardActionButtons();
+  actionButtons.forEach((actionButton) => {
+    actionButton.disabled = true;
+    actionButton.setAttribute("aria-busy", "true");
+  });
+  const originalLabel = button.textContent;
+  button.textContent = "Creating image...";
+  customFoodCardSetSaveStatus("Creating image...");
+
+  try {
+    const { file } = await customFoodCardCreateImageFile(button, "custom-food-card.png");
+    if (!file || !customFoodCardShareIsAvailable(file)) {
+      customFoodCardSetSaveStatus(unsupportedMessage);
+      button.textContent = originalLabel;
+      return;
     }
-    saveButtons.forEach((saveButton) => {
-      saveButton.disabled = false;
-      saveButton.removeAttribute("aria-busy");
+
+    await navigator.share({ files: [file] });
+    customFoodCardSetSaveStatus("");
+  } catch (error) {
+    if (error?.name !== "AbortError") {
+      console.error("Could not share Food Card image.", error);
+      customFoodCardSetSaveStatus("Could not create image. Please try again.");
+    } else {
+      customFoodCardSetSaveStatus("");
+    }
+  } finally {
+    button.textContent = originalLabel;
+    actionButtons.forEach((actionButton) => {
+      actionButton.disabled = false;
+      actionButton.removeAttribute("aria-busy");
     });
   }
 }
@@ -4134,6 +4212,10 @@ function customFoodCardImagePreviewMarkup() {
 }
 
 function customFoodCardStepFourMarkup() {
+  const shareButtonMarkup = customFoodCardShareIsAvailable()
+    ? '<button class="button secondary" type="button" data-custom-share>Share card</button>'
+    : "";
+
   return `
     <div class="custom-food-card-step custom-ready-step" data-custom-step="4">
       <div class="custom-step-heading">
@@ -4142,8 +4224,9 @@ function customFoodCardStepFourMarkup() {
       </div>
       ${customGeneratedCardMarkup()}
       <div class="custom-ready-actions">
-        <button class="button primary" type="button" data-custom-show>Show card</button>
-        <button class="button secondary" type="button" data-custom-save>Save as image</button>
+        <button class="button primary" type="button" data-custom-save>Save as image</button>
+        ${shareButtonMarkup}
+        <button class="button secondary" type="button" data-custom-show>Show to staff</button>
         <button class="button secondary" type="button" data-custom-restart>Create another card</button>
       </div>
       <p class="custom-save-status" data-custom-save-status role="status" aria-live="polite" ${customFoodCardState.saveMessage ? "" : "hidden"}>${escapeHtml(customFoodCardState.saveMessage)}</p>
@@ -4172,7 +4255,7 @@ function customFoodCardShowModeMarkup() {
     <div class="custom-show-overlay" role="dialog" aria-modal="true" aria-label="Show food card to staff" ${customFoodCardState.imagePreviewUrl ? 'aria-hidden="true" inert' : ""}>
       <div class="custom-show-controls">
         <button class="button secondary" type="button" data-custom-close-show>Close</button>
-        <button class="button primary" type="button" data-custom-save>Save as image</button>
+        <button class="button secondary" type="button" data-custom-save>Save as image</button>
       </div>
       ${customGeneratedCardMarkup("show")}
       <p class="custom-save-status" data-custom-save-status role="status" aria-live="polite" ${customFoodCardState.saveMessage ? "" : "hidden"}>${escapeHtml(customFoodCardState.saveMessage)}</p>
@@ -4340,6 +4423,10 @@ function wireCustomFoodCardEvents() {
 
   document.querySelectorAll("[data-custom-save]").forEach((button) => {
     button.addEventListener("click", () => customFoodCardCreateImage(button));
+  });
+
+  document.querySelectorAll("[data-custom-share]").forEach((button) => {
+    button.addEventListener("click", () => customFoodCardShareImage(button));
   });
 
   document.querySelector("[data-custom-close-image-preview]")?.addEventListener("click", () => {

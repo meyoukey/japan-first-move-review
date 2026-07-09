@@ -16770,13 +16770,14 @@ body:has(#app) .site-footer .site-footer-note {
   min-height: 0;
 }
 
-.custom-ready-actions [data-custom-show] {
+.custom-ready-actions [data-custom-save] {
   border-color: var(--custom-card-navy, #536783);
   color: #fff;
   background: var(--custom-card-navy, #536783);
 }
 
-.custom-ready-actions [data-custom-save],
+.custom-ready-actions [data-custom-share],
+.custom-ready-actions [data-custom-show],
 .custom-ready-actions [data-custom-restart] {
   border-color: #e68ba3;
   color: #fff;
@@ -17119,6 +17120,19 @@ input[type="reset"] {
 
 .custom-food-card-mvp-page [data-custom-save],
 .custom-food-card-mvp-page [data-custom-restart] {
+  border-color: #e0b7c3;
+  color: #8f4058;
+  background: #f2dce3;
+}
+
+.custom-food-card-mvp-page .custom-ready-actions [data-custom-save] {
+  border-color: #536783;
+  color: #fff;
+  background: #536783;
+}
+
+.custom-food-card-mvp-page .custom-ready-actions [data-custom-share],
+.custom-food-card-mvp-page .custom-ready-actions [data-custom-show] {
   border-color: #e0b7c3;
   color: #8f4058;
   background: #f2dce3;
