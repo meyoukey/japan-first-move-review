@@ -16753,6 +16753,10 @@ body:has(#app) .site-footer .site-footer-note {
   align-self: center;
 }
 
+.custom-card-capture-brand-footer {
+  display: none;
+}
+
 .custom-card-cross-contact-note {
   color: #8e5362;
 }
@@ -17640,6 +17644,32 @@ input[type="reset"] {
 
 .custom-card-paper.is-capturing-card .custom-card-point-icon {
   margin-right: 0.05rem;
+}
+
+.custom-card-paper.is-capturing-card .custom-card-capture-brand-footer {
+  width: fit-content;
+  max-width: 100%;
+  display: inline-flex;
+  gap: 0.28rem;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  margin-top: 1.6rem;
+  padding-top: 0.1rem;
+  color: rgba(74, 90, 117, 0.58);
+  font-size: 0.56rem;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  line-height: 1;
+}
+
+.custom-card-paper.is-capturing-card .custom-card-capture-brand-footer img {
+  width: 0.86rem;
+  height: 0.76rem;
+  display: block;
+  object-fit: contain;
+  opacity: 0.58;
+  filter: grayscale(0.2);
 }
 
 /* Keep Show card controls and content below iPhone display cutouts. */

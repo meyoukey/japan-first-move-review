@@ -3733,6 +3733,10 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
             ${sharedToolsNote}
           </footer>
         </section>
+        <footer class="custom-card-capture-brand-footer" aria-hidden="true">
+          <img src="./assets/brand/bird-logo.png" alt="" />
+          <span>Japan First Move · japanfirstmove.com</span>
+        </footer>
       </div>
     </section>
   `;
