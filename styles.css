@@ -17708,12 +17708,16 @@ input[type="reset"] {
 }
 
 /* Generated Food Card image preview. */
-.is-custom-image-preview-mode {
-  overflow: hidden;
+html.is-custom-image-preview-mode,
+body.is-custom-image-preview-mode {
+  height: 100%;
+  overflow: hidden !important;
+  overscroll-behavior: none;
 }
 
 .is-custom-image-preview-mode .site-header,
 .is-custom-image-preview-mode .bottom-nav,
+.is-custom-image-preview-mode .site-footer,
 .is-custom-image-preview-mode .skip-link {
   display: none !important;
 }
@@ -17721,14 +17725,19 @@ input[type="reset"] {
 .custom-image-preview-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 120;
+  z-index: 2140;
   display: grid;
   place-items: center;
+  overflow: hidden;
   padding: calc(1.35rem + env(safe-area-inset-top, 0px)) 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
   background: rgba(31, 36, 47, 0.7);
+  isolation: isolate;
+  overscroll-behavior: contain;
 }
 
 .custom-image-preview-modal {
+  position: relative;
+  z-index: 1;
   width: min(100%, 720px);
   max-height: calc(100vh - 2.35rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
   max-height: calc(100dvh - 2.35rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
@@ -17740,6 +17749,7 @@ input[type="reset"] {
   background: #f8f5f5;
   box-shadow: 0 24px 64px rgba(25, 29, 38, 0.3);
   overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .custom-image-preview-header {
@@ -17773,6 +17783,8 @@ input[type="reset"] {
   padding: 0.65rem;
   border-radius: 12px;
   background: #e9e5e6;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .custom-image-preview-frame img {

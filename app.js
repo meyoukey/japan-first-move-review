@@ -4270,9 +4270,11 @@ function customFoodCardShowModeMarkup() {
 
 function renderCustomFoodCard() {
   document.title = "Custom Food Card | Japan First Move";
+  const imagePreviewMode = Boolean(customFoodCardState.imagePreviewUrl);
   document.body.classList.toggle("is-custom-show-mode", customFoodCardState.showMode);
   document.body.classList.toggle("is-custom-sample-mode", customFoodCardState.sampleMode);
-  document.body.classList.toggle("is-custom-image-preview-mode", Boolean(customFoodCardState.imagePreviewUrl));
+  document.body.classList.toggle("is-custom-image-preview-mode", imagePreviewMode);
+  document.documentElement.classList.toggle("is-custom-image-preview-mode", imagePreviewMode);
   app.innerHTML = `
     <div class="page-shell food-card-page custom-food-card-page custom-food-card-mvp-page layout-container" ${customFoodCardState.showMode || customFoodCardState.sampleMode || customFoodCardState.imagePreviewUrl ? 'aria-hidden="true" inert' : ""}>
       <header class="guide-page-header content-container">
@@ -5294,6 +5296,7 @@ function router() {
   document.body.classList.remove("is-custom-show-mode");
   document.body.classList.remove("is-custom-sample-mode");
   document.body.classList.remove("is-custom-image-preview-mode");
+  document.documentElement.classList.remove("is-custom-image-preview-mode");
   if (customFoodCardState.imagePreviewUrl) {
     URL.revokeObjectURL(customFoodCardState.imagePreviewUrl);
     customFoodCardState.imagePreviewUrl = "";
