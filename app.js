@@ -3735,7 +3735,9 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
         </section>
         <footer class="custom-card-capture-brand-footer" aria-hidden="true">
           <img src="./assets/brand/bird-logo.png" alt="" />
-          <span>Japan First Move · japanfirstmove.com</span>
+          <span class="custom-card-capture-brand-text">Japan First Move</span>
+          <span class="custom-card-capture-brand-separator">·</span>
+          <span class="custom-card-capture-brand-url">japanfirstmove.com</span>
         </footer>
       </div>
     </section>

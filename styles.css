@@ -17658,9 +17658,11 @@ input[type="reset"] {
   padding-top: 0.1rem;
   color: rgba(74, 90, 117, 0.58);
   font-size: 0.56rem;
-  font-weight: 650;
-  letter-spacing: 0.03em;
+  font-weight: 560;
+  letter-spacing: 0.035em;
   line-height: 1;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "kern" 1;
 }
 
 .custom-card-paper.is-capturing-card .custom-card-capture-brand-footer img {
@@ -17670,6 +17672,22 @@ input[type="reset"] {
   object-fit: contain;
   opacity: 0.58;
   filter: grayscale(0.2);
+}
+
+.custom-card-paper.is-capturing-card .custom-card-capture-brand-text,
+.custom-card-paper.is-capturing-card .custom-card-capture-brand-url {
+  min-width: 0;
+  white-space: nowrap;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "kern" 1;
+}
+
+.custom-card-paper.is-capturing-card .custom-card-capture-brand-separator {
+  opacity: 0.5;
+}
+
+.custom-card-paper.is-capturing-card .custom-card-capture-brand-url {
+  letter-spacing: 0.045em;
 }
 
 /* Keep Show card controls and content below iPhone display cutouts. */
