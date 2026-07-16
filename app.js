@@ -4999,47 +4999,165 @@ function renderPrivacyPage() {
   `;
 }
 
-const legalNoticeItems = [
-  { label: "Seller", value: "[To be confirmed before launch]" },
-  { label: "Operator", value: "[To be confirmed before launch]" },
+const legalNoticeEnglishSections = [
   {
-    label: "Address",
-    value: "[To be confirmed before launch. We would like to confirm whether this can be disclosed by email upon request.]",
+    heading: "Service provider:",
+    paragraphs: ["Japan First Move"],
   },
   {
-    label: "Phone number",
-    value: "[To be confirmed before launch. We would like to confirm whether this can be disclosed by email upon request.]",
-  },
-  { label: "Contact", value: supportEmail, isEmail: true },
-  {
-    label: "Sales price",
-    value: "Displayed on the purchase page. The Custom Food Card is planned to be priced at USD $4.99.",
+    heading: "Seller’s name, address, and phone number:",
+    paragraphs: [
+      "In accordance with Japan’s Act on Specified Commercial Transactions, the seller’s name, address, and phone number will be disclosed without delay by email upon request before purchase.",
+    ],
   },
   {
-    label: "Additional fees",
-    value: "Internet connection fees and other communication charges are the responsibility of the user.",
+    heading: "Please contact us at:",
+    paragraphs: ["[Support email address]"],
   },
   {
-    label: "Payment method",
-    value: "Credit card and other payment methods available through Stripe Checkout.",
-  },
-  { label: "Payment timing", value: "Payment is completed at the time of purchase." },
-  {
-    label: "Product delivery",
-    value: "After purchase, the Custom Food Card can be created, viewed, and saved as an image in the browser.",
+    heading: "Product:",
+    paragraphs: ["Custom Food Card"],
   },
   {
-    label: "Refunds and cancellations",
-    value: "Because this is a digital product, refunds are generally not available after purchase. If there is a payment error or duplicate charge, please contact us.",
+    heading: "Product description:",
+    paragraphs: [
+      "Custom Food Card is a browser-based digital product that helps travelers create a simple Japanese food communication card for food restrictions, allergies, dietary needs, or preferences.",
+    ],
   },
   {
-    label: "Operating environment",
-    value: "A modern web browser on a smartphone or desktop device is required. Saving or downloading images may vary depending on the device or browser.",
+    heading: "Selling price:",
+    paragraphs: ["USD $4.99, tax included."],
   },
-  { label: "Last updated", value: "[To be added before launch]" },
+  {
+    heading: "Additional fees:",
+    paragraphs: [
+      "No shipping fees apply because this is a digital product.",
+      "Users are responsible for any internet connection fees, data charges, currency conversion fees, foreign transaction fees, or other fees charged by their device, internet provider, card issuer, payment provider, or financial institution.",
+    ],
+  },
+  {
+    heading: "Payment method:",
+    paragraphs: [
+      "Payment is processed through Stripe Checkout.",
+      "Available payment methods are shown on the checkout screen.",
+    ],
+  },
+  {
+    heading: "Payment timing:",
+    paragraphs: ["Payment is charged at the time of purchase."],
+  },
+  {
+    heading: "Delivery timing:",
+    paragraphs: ["After payment is completed and verified, the digital product becomes available immediately in the browser."],
+  },
+  {
+    heading: "Refunds and cancellations:",
+    paragraphs: [
+      "Custom Food Card is a digital product that can be created, displayed, saved, and used immediately after purchase.",
+      "Due to the nature of digital products, refunds and cancellations are generally not available after purchase, except where required by applicable law or where there is a clear payment processing error.",
+      "Please review your selected ingredients, card purpose, and purchase details carefully before completing your purchase.",
+    ],
+  },
+  {
+    heading: "System requirements:",
+    paragraphs: [
+      "Custom Food Card is a browser-based digital product. A smartphone, tablet, or computer with an internet connection and a modern web browser is required.",
+      "Image saving and sharing features may depend on your device, browser, operating system, and settings.",
+    ],
+  },
+  {
+    heading: "Notes:",
+    paragraphs: [
+      "Custom Food Card is a communication aid only. It does not guarantee food safety, allergy safety, ingredient accuracy, allergen-free meals, or restaurant acceptance, or that restaurant staff will understand or follow the card.",
+      "Please also review our Terms of Use, Disclaimer, and Privacy Policy before purchase.",
+    ],
+  },
 ];
 
-// Draft only: paid sales must not begin before final legal review and replacement of every placeholder.
+const legalNoticeJapaneseSections = [
+  {
+    heading: "サービス提供者：",
+    paragraphs: ["Japan First Move"],
+  },
+  {
+    heading: "販売事業者の氏名・住所・電話番号：",
+    paragraphs: [
+      "特定商取引法に基づき、販売事業者の氏名、住所および電話番号については、購入前に請求があった場合、遅滞なく電子メールにて開示いたします。",
+    ],
+  },
+  {
+    heading: "お問い合わせ先：",
+    paragraphs: ["[サポート用メールアドレス]"],
+  },
+  {
+    heading: "商品名：",
+    paragraphs: ["Custom Food Card"],
+  },
+  {
+    heading: "商品内容：",
+    paragraphs: [
+      "Custom Food Cardは、食事制限、アレルギー、食事上の希望などを日本語で伝えるためのカードを作成できる、ブラウザ上で利用するデジタル商品です。",
+    ],
+  },
+  {
+    heading: "販売価格：",
+    paragraphs: ["4.99米ドル、税込。"],
+  },
+  {
+    heading: "販売価格以外に必要な料金：",
+    paragraphs: [
+      "本商品はデジタル商品のため、送料はかかりません。",
+      "ただし、インターネット接続料、通信料、為替換算手数料、海外取引手数料、カード発行会社・決済事業者・金融機関等が定める手数料等は、利用者の負担となります。",
+    ],
+  },
+  {
+    heading: "支払方法：",
+    paragraphs: [
+      "Stripe Checkoutを通じて決済を行います。",
+      "利用可能な支払方法は、決済画面に表示されます。",
+    ],
+  },
+  {
+    heading: "支払時期：",
+    paragraphs: ["購入時に決済されます。"],
+  },
+  {
+    heading: "商品の提供時期：",
+    paragraphs: ["決済完了および確認後、ブラウザ上で直ちに利用可能となります。"],
+  },
+  {
+    heading: "返金・キャンセルについて：",
+    paragraphs: [
+      "Custom Food Cardは、購入後すぐに作成・表示・保存・利用できるデジタル商品です。",
+      "デジタル商品の性質上、購入後の返金・キャンセルは原則としてお受けできません。ただし、適用法令により必要な場合、または明らかな決済処理上の誤りがある場合を除きます。",
+      "購入前に、選択した食材、カードの用途、および購入内容を必ずご確認ください。",
+    ],
+  },
+  {
+    heading: "動作環境：",
+    paragraphs: [
+      "Custom Food Cardは、ブラウザ上で利用するデジタル商品です。インターネット接続が可能なスマートフォン、タブレット、またはパソコンと、最新のWebブラウザが必要です。",
+      "画像の保存・共有機能は、端末、ブラウザ、OS、設定等により利用できない場合があります。",
+    ],
+  },
+  {
+    heading: "注意事項：",
+    paragraphs: [
+      "Custom Food Cardは、コミュニケーションを補助するためのツールです。食品の安全性、アレルギー対応、食材情報の正確性、アレルゲン不使用の食事、飲食店での受け入れ、店舗スタッフがカードを理解または対応することを保証するものではありません。",
+      "購入前に、利用規約、免責事項、プライバシーポリシーもあわせてご確認ください。",
+    ],
+  },
+];
+
+function legalNoticeSectionMarkup(section) {
+  return `
+    <section class="legal-notice-entry">
+      <h3>${escapeHtml(section.heading)}</h3>
+      ${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+    </section>
+  `;
+}
+
 function renderLegalNoticePage() {
   const title = "Legal Notice";
   document.title = `${title} | Japan First Move`;
@@ -5048,23 +5166,20 @@ function renderLegalNoticePage() {
       <header class="legal-page-header content-container">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>${title}</span></nav>
         <h1>${title}</h1>
-        <p class="legal-notice-subtitle">Information required under Japan’s Specified Commercial Transactions Act</p>
-        <p class="legal-notice-japanese" lang="ja">特定商取引法に基づく表記</p>
-        <p class="legal-notice-draft-note">Draft for legal review. This page will be finalized before paid sales begin.</p>
       </header>
       <article class="legal-notice-content content-container">
-        <dl class="legal-notice-list">
-          ${legalNoticeItems
-            .map(
-              (item) => `
-                <div class="legal-notice-row">
-                  <dt>${escapeHtml(item.label)}</dt>
-                  <dd>${item.isEmail ? supportEmailLinkMarkup() : escapeHtml(item.value)}</dd>
-                </div>
-              `,
-            )
-            .join("")}
-        </dl>
+        <section class="legal-notice-language" aria-labelledby="legal-notice-english-title">
+          <h2 id="legal-notice-english-title">Legal Notice under Japan’s Act on Specified Commercial Transactions</h2>
+          <p class="legal-page-updated">Last updated: [Month Day, Year]</p>
+          <p>This page provides information required under Japan’s Act on Specified Commercial Transactions for the paid Custom Food Card service provided by Japan First Move.</p>
+          ${legalNoticeEnglishSections.map(legalNoticeSectionMarkup).join("")}
+        </section>
+        <section class="legal-notice-language" lang="ja" aria-labelledby="legal-notice-japanese-title">
+          <h2 id="legal-notice-japanese-title">特定商取引法に基づく表記</h2>
+          <p class="legal-page-updated">最終更新日：[年月日]</p>
+          <p>本ページは、Japan First Moveが提供する有料サービス「Custom Food Card」について、特定商取引法に基づき必要な事項を表示するものです。</p>
+          ${legalNoticeJapaneseSections.map(legalNoticeSectionMarkup).join("")}
+        </section>
       </article>
     </div>
   `;
