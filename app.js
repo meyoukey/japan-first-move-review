@@ -5016,7 +5016,7 @@ const legalNoticeEnglishSections = [
   },
   {
     heading: "Please contact us at:",
-    paragraphs: ["[Support email address]"],
+    paragraphs: ["support@japanfirstmove.com"],
   },
   {
     heading: "Product:",
@@ -5091,7 +5091,7 @@ const legalNoticeJapaneseSections = [
   },
   {
     heading: "お問い合わせ先：",
-    paragraphs: ["[サポート用メールアドレス]"],
+    paragraphs: ["support@japanfirstmove.com"],
   },
   {
     heading: "商品名：",
@@ -5153,11 +5153,15 @@ const legalNoticeJapaneseSections = [
   },
 ];
 
+function legalNoticeParagraphMarkup(paragraph) {
+  return paragraph === supportEmail ? supportEmailLinkMarkup() : escapeHtml(paragraph);
+}
+
 function legalNoticeSectionMarkup(section) {
   return `
     <section class="legal-notice-entry">
       <h3>${escapeHtml(section.heading)}</h3>
-      ${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+      ${section.paragraphs.map((paragraph) => `<p>${legalNoticeParagraphMarkup(paragraph)}</p>`).join("")}
     </section>
   `;
 }
@@ -5174,13 +5178,13 @@ function renderLegalNoticePage() {
       <article class="legal-notice-content content-container">
         <section class="legal-notice-language" aria-labelledby="legal-notice-english-title">
           <h2 id="legal-notice-english-title">Legal Notice under Japan’s Act on Specified Commercial Transactions</h2>
-          <p class="legal-page-updated">Last updated: [Month Day, Year]</p>
+          <p class="legal-page-updated">Last updated: July 16, 2026</p>
           <p>This page provides information required under Japan’s Act on Specified Commercial Transactions for the paid Custom Food Card service provided by Japan First Move.</p>
           ${legalNoticeEnglishSections.map(legalNoticeSectionMarkup).join("")}
         </section>
         <section class="legal-notice-language" lang="ja" aria-labelledby="legal-notice-japanese-title">
           <h2 id="legal-notice-japanese-title">特定商取引法に基づく表記</h2>
-          <p class="legal-page-updated">最終更新日：[年月日]</p>
+          <p class="legal-page-updated">最終更新日：2026年7月16日</p>
           <p>本ページは、Japan First Moveが提供する有料サービス「Custom Food Card」について、特定商取引法に基づき必要な事項を表示するものです。</p>
           ${legalNoticeJapaneseSections.map(legalNoticeSectionMarkup).join("")}
         </section>
