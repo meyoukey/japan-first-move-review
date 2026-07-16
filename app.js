@@ -4886,14 +4886,14 @@ function termsPageMarkup() {
   return `
     <section class="terms-of-use-language" aria-labelledby="terms-of-use-english-title">
       <h2 id="terms-of-use-english-title">Terms of Use</h2>
-      <p class="legal-page-updated">Last updated: [Month Day, Year]</p>
+      <p class="legal-page-updated">Last updated: July 16, 2026</p>
       ${termsOfUseEnglishIntro.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
       ${termsOfUseEnglishSections.map(termsOfUseSectionMarkup).join("")}
     </section>
 
     <section class="terms-of-use-language" lang="ja" aria-labelledby="terms-of-use-japanese-title">
       <h2 id="terms-of-use-japanese-title">利用規約</h2>
-      <p class="legal-page-updated">最終更新日：[年月日]</p>
+      <p class="legal-page-updated">最終更新日：2026年7月16日</p>
       ${termsOfUseJapaneseIntro.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
       ${termsOfUseJapaneseSections.map(termsOfUseSectionMarkup).join("")}
     </section>
