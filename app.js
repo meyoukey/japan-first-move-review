@@ -4753,145 +4753,149 @@ function disclaimerPageMarkup() {
   `;
 }
 
+const termsOfUseEnglishIntro = [
+  "These Terms of Use apply to your use of Japan First Move, including the website, guides, phrases, sample cards, Custom Food Card, and any related digital content.",
+  "By using Japan First Move or purchasing Custom Food Card, you agree to these Terms of Use, our Disclaimer, Privacy Policy, and Legal Notice.",
+];
+
+const termsOfUseEnglishSections = [
+  {
+    heading: "Custom Food Card",
+    paragraphs: [
+      "Custom Food Card is a browser-based digital communication aid that helps users create a simple Japanese food communication card for food restrictions, allergies, dietary needs, or preferences.",
+      "Custom Food Card is not medical advice, food safety advice, allergy safety advice, or professional advice. It does not replace direct confirmation with restaurant staff, medical professionals, or other qualified persons.",
+      "Users are responsible for reviewing their selected ingredients, card content, and intended use before completing the purchase and before showing the card to any third party.",
+    ],
+  },
+  {
+    heading: "Refunds and cancellations",
+    paragraphs: [
+      "Custom Food Card is a digital product that can be created, displayed, saved, and used immediately after purchase.",
+      "Due to the nature of digital products, refunds and cancellations are generally not available after purchase, except where required by applicable law or where there is a clear payment processing error.",
+      "We do not generally provide refunds for reasons such as changing your mind, selecting the wrong ingredient, no longer needing the card, being unable to use the card due to your device, browser, internet connection, screenshot settings, storage settings, or similar user-side issues.",
+      "Please review your selected ingredients, card purpose, and purchase details carefully before completing your purchase.",
+    ],
+  },
+  {
+    heading: "No guarantees",
+    paragraphs: [
+      "Japan First Move does not guarantee that the site, guides, phrases, translations, sample cards, Custom Food Card, or any related digital content will be accurate, complete, current, error-free, understood by restaurant staff, accepted by restaurants, or suitable for your specific situation.",
+      "Japan First Move does not guarantee food safety, allergy safety, allergen-free meals, ingredient accuracy, religious dietary compliance, vegetarian or vegan suitability, or that a restaurant can or will accommodate your request.",
+    ],
+  },
+  {
+    heading: "Limitation of liability",
+    paragraphs: [
+      "To the fullest extent permitted by applicable law, Japan First Move is not liable for any damage, loss, injury, illness, allergic reaction, food-related issue, travel problem, misunderstanding, missed opportunity, payment issue, device issue, browser issue, internet connection issue, or other trouble arising from or related to your use of the site, guides, phrases, sample cards, Custom Food Card, or any related digital content.",
+      "Nothing in these Terms excludes or limits any liability that cannot be excluded or limited under applicable law, including liability arising from intentional misconduct or gross negligence.",
+    ],
+  },
+  {
+    heading: "Third-party services",
+    paragraphs: [
+      "Japan First Move may use third-party services such as Stripe for payment processing and Google Analytics for access analysis.",
+      "Payment processing is handled by Stripe. Japan First Move does not store your credit card information.",
+      "Your use of third-party services may be subject to the terms, privacy policies, and rules of those third-party providers.",
+    ],
+  },
+  {
+    heading: "Governing law and jurisdiction",
+    paragraphs: [
+      "These Terms of Use, the Disclaimer, the Privacy Policy, the Legal Notice, and any use of Japan First Move are governed by the laws of Japan, unless otherwise required by applicable law.",
+      "Any disputes arising from or related to Japan First Move shall be handled under the laws of Japan and by the competent courts of Japan, unless otherwise required by applicable law.",
+    ],
+  },
+  {
+    heading: "Language",
+    paragraphs: [
+      "These Terms of Use may be provided in English and Japanese. In the event of any inconsistency between the English and Japanese versions, the Japanese version shall prevail to the extent permitted by applicable law.",
+    ],
+  },
+];
+
+const termsOfUseJapaneseIntro = [
+  "本利用規約は、Japan First Moveのウェブサイト、ガイド、フレーズ、サンプルカード、Custom Food Card、その他関連するデジタルコンテンツの利用に適用されます。",
+  "Japan First Moveを利用すること、またはCustom Food Cardを購入することにより、利用者は本利用規約、免責事項、プライバシーポリシー、特定商取引法に基づく表記に同意したものとします。",
+];
+
+const termsOfUseJapaneseSections = [
+  {
+    heading: "Custom Food Cardについて",
+    paragraphs: [
+      "Custom Food Cardは、食事制限、アレルギー、食事上の希望などを日本語で伝えるためのカードを作成できる、ブラウザ上で利用するコミュニケーション補助ツールです。",
+      "Custom Food Cardは、医療上の助言、食品安全に関する助言、アレルギー安全に関する助言、または専門的な助言ではありません。飲食店スタッフ、医療専門家、その他適切な専門家への直接確認に代わるものではありません。",
+      "利用者は、購入前および第三者にカードを提示する前に、選択した食材、カードの内容、利用目的を自ら確認する責任を負います。",
+    ],
+  },
+  {
+    heading: "返金・キャンセルについて",
+    paragraphs: [
+      "Custom Food Cardは、購入後すぐに作成・表示・保存・利用できるデジタル商品です。",
+      "デジタル商品の性質上、購入後の返金・キャンセルは原則としてお受けできません。ただし、適用法令により必要な場合、または明らかな決済処理上の誤りがある場合を除きます。",
+      "気が変わった、誤った食材を選択した、カードが不要になった、端末・ブラウザ・インターネット接続・スクリーンショット設定・保存設定その他利用者側の事情によりカードを利用できなかった等の理由による返金は、原則としてお受けできません。",
+      "購入前に、選択した食材、カードの用途、および購入内容を必ずご確認ください。",
+    ],
+  },
+  {
+    heading: "保証しない事項",
+    paragraphs: [
+      "Japan First Moveは、本サイト、ガイド、フレーズ、翻訳、サンプルカード、Custom Food Card、その他関連するデジタルコンテンツが、正確、完全、最新、エラーがない、飲食店スタッフに理解される、飲食店に受け入れられる、または利用者の個別の状況に適していることを保証しません。",
+      "Japan First Moveは、食品の安全性、アレルギー対応、アレルゲン不使用の食事、食材情報の正確性、宗教上の食事制限への適合、ベジタリアンまたはヴィーガンへの適合、飲食店が利用者の要望に対応できること、または対応することを保証しません。",
+    ],
+  },
+  {
+    heading: "サービス提供者の責任範囲",
+    paragraphs: [
+      "適用法令により認められる範囲において、Japan First Moveは、本サイト、ガイド、フレーズ、サンプルカード、Custom Food Card、その他関連するデジタルコンテンツの利用に関連して生じた損害、損失、けが、体調不良、アレルギー反応、食に関する問題、旅行上の問題、誤解、機会損失、決済上の問題、端末・ブラウザ・インターネット接続の問題、その他のトラブルについて責任を負いません。",
+      "本利用規約は、故意または重大な過失による責任など、適用法令上免除または制限できない責任を免除または制限するものではありません。",
+    ],
+  },
+  {
+    heading: "第三者サービスについて",
+    paragraphs: [
+      "Japan First Moveは、決済処理のためにStripe、アクセス解析のためにGoogle Analyticsなどの第三者サービスを利用する場合があります。",
+      "決済処理はStripeによって行われます。Japan First Moveは、利用者のクレジットカード情報を保存しません。",
+      "第三者サービスの利用には、各提供者が定める利用規約、プライバシーポリシー、その他のルールが適用される場合があります。",
+    ],
+  },
+  {
+    heading: "準拠法および管轄",
+    paragraphs: [
+      "本利用規約、免責事項、プライバシーポリシー、特定商取引法に基づく表記、およびJapan First Moveの利用には、適用法令に別段の定めがある場合を除き、日本法が適用されます。",
+      "Japan First Moveに関連して生じる紛争については、適用法令に別段の定めがある場合を除き、日本法に基づき、日本の管轄裁判所において取り扱われるものとします。",
+    ],
+  },
+  {
+    heading: "言語",
+    paragraphs: [
+      "本利用規約は、英語および日本語で提供される場合があります。英語版と日本語版の内容に相違がある場合、適用法令上認められる範囲で日本語版を優先します。",
+    ],
+  },
+];
+
+function termsOfUseSectionMarkup(section) {
+  return `
+    <section class="terms-of-use-entry">
+      <h3>${escapeHtml(section.heading)}</h3>
+      ${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+    </section>
+  `;
+}
+
 function termsPageMarkup() {
   return `
-    <p>These Terms of Use apply to your use of Japan First Move, including the website, guides, phrases, sample food cards, Custom Food Card tools, and any related digital content or features.</p>
-    <p>By accessing or using Japan First Move, you agree to these Terms of Use. If you do not agree to these terms, please do not use the site.</p>
-
-    <section class="legal-section">
-      <h2>1. About Japan First Move</h2>
-      <p>Japan First Move provides general travel-support information for visitors in Japan.</p>
-      <p>The site is designed to help users understand common real-world situations and decide a practical first move, such as ordering food, using transportation, visiting facilities, explaining food needs, or asking for help.</p>
-      <p>Japan First Move is not a map service, translation service, emergency service, medical service, legal service, travel agency, restaurant booking service, food safety certification service, or official information provider.</p>
+    <section class="terms-of-use-language" aria-labelledby="terms-of-use-english-title">
+      <h2 id="terms-of-use-english-title">Terms of Use</h2>
+      <p class="legal-page-updated">Last updated: [Month Day, Year]</p>
+      ${termsOfUseEnglishIntro.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+      ${termsOfUseEnglishSections.map(termsOfUseSectionMarkup).join("")}
     </section>
 
-    <section class="legal-section">
-      <h2>2. Eligibility and user responsibility</h2>
-      <p>You are responsible for how you use Japan First Move.</p>
-      <p>You agree to use the site only for lawful, personal, and reasonable travel-support purposes.</p>
-      <p>You are responsible for checking the actual situation around you, following local rules, reading posted signs, asking staff when needed, and using your own judgment.</p>
-      <p>If a situation is serious, urgent, unsafe, unclear, medical, legal, or otherwise beyond general travel guidance, you should seek appropriate help from local staff, emergency services, medical professionals, police, your hotel, your travel insurance provider, your embassy or consulate, or another appropriate source.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>3. No professional advice</h2>
-      <p>Japan First Move does not provide medical advice, legal advice, emergency instructions, immigration advice, insurance advice, religious dietary certification, food safety certification, or other professional advice.</p>
-      <p>Any guide, phrase, card, note, suggestion, or example on the site is provided for general informational and travel-support purposes only.</p>
-      <p>You should not rely on Japan First Move as your only source of information in any situation where safety, health, legal rights, travel documents, money, food allergies, dietary restrictions, or emergency response may be involved.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>4. Food cards and dietary communication tools</h2>
-      <p>Japan First Move may provide food-related guides, sample cards, and Custom Food Cards to help users communicate allergies, dietary restrictions, religious dietary needs, food preferences, or ingredients they want to avoid.</p>
-      <p>These tools are communication aids only.</p>
-      <p>They do not guarantee food safety, allergen-free meals, ingredient accuracy, religious compliance, vegetarian or vegan compliance, avoidance of cross-contact, or staff understanding.</p>
-      <p>Restaurants, shops, hotels, and other facilities may use different ingredients, shared cooking tools, shared oil, shared preparation areas, shared storage, shared equipment, or changing suppliers.</p>
-      <p>Staff may not always know or be able to confirm every ingredient, seasoning, broth, sauce, oil, topping, preparation method, or cross-contact risk.</p>
-      <p>If you have a severe allergy, medical dietary need, religious dietary requirement, or any condition where eating the wrong ingredient may cause harm, you must confirm carefully with staff and use your own judgment before ordering or eating.</p>
-      <p>If staff cannot confirm the details, or if a restaurant or facility cannot safely support your needs, you should not order or eat the item.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>5. Custom Food Card tools</h2>
-      <p>Japan First Move may offer a Custom Food Card feature that allows users to select ingredients, dietary needs, or food-related messages and generate a card to show to staff.</p>
-      <p>You are responsible for selecting the correct items, reviewing the card before use, and deciding whether the card is appropriate for your situation.</p>
-      <p>Japan First Move is not responsible for errors caused by incorrect user selections, misunderstanding of ingredients, incomplete information, device display issues, browser issues, internet connection problems, staff misunderstanding, or changes in restaurant ingredients or preparation methods.</p>
-      <p>Creating, saving, showing, purchasing, or using a Custom Food Card does not guarantee that staff will understand it, accept it, respond to it, accommodate your request, or provide safe food.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>6. Paid digital tools and payments</h2>
-      <p>Some features of Japan First Move may be offered as paid digital tools or paid digital content.</p>
-      <p>Prices, features, availability, payment methods, and access conditions may change at any time.</p>
-      <p>Payments may be processed by a third-party payment provider such as Stripe or another payment service. By making a purchase, you may also be subject to the payment provider’s own terms, privacy policy, fees, security procedures, and processing rules.</p>
-      <p>Japan First Move is not responsible for payment failures, processing delays, card declines, third-party payment errors, internet connection problems, device issues, browser issues, or user input errors.</p>
-      <p>Unless otherwise stated at the time of purchase, paid digital tools are provided for personal travel-support use only and do not guarantee any specific outcome, staff response, restaurant accommodation, food safety, medical outcome, refund from a third party, or successful resolution of a travel problem.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>7. Refunds and cancellations</h2>
-      <p>Custom Food Cards and other paid digital tools are digital products that may be created, displayed, saved, or used immediately after purchase.</p>
-      <p>Because digital products cannot usually be returned, and because use or non-use cannot be reliably confirmed, all purchases are final unless otherwise required by applicable law.</p>
-      <p>We do not generally provide refunds for reasons such as changing your mind, selecting the wrong item, no longer needing the card, being unable to use the card due to your device, browser, internet connection, screenshot settings, storage settings, or similar user-side issues.</p>
-      <p>If you believe you were charged incorrectly, or if there is a clear payment processing issue, please contact us. We may review the situation at our discretion, but this does not guarantee a refund.</p>
-      <p>Nothing in this section limits any rights you may have under applicable consumer protection laws.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>8. Accuracy and availability</h2>
-      <p>We try to make Japan First Move practical, clear, and useful, but we do not guarantee that the site or its content will always be accurate, complete, current, error-free, uninterrupted, secure, or available.</p>
-      <p>Travel conditions, facility rules, store policies, prices, opening hours, signs, transport systems, food ingredients, staff responses, and local procedures may change without notice.</p>
-      <p>Japan First Move may update, modify, suspend, remove, or discontinue any content, feature, page, route, price, tool, or service at any time.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>9. Translations, phrases, and language support</h2>
-      <p>Japan First Move may include Japanese phrases, romaji, English meanings, example translations, and show-to-staff text.</p>
-      <p>These are provided for practical communication support only.</p>
-      <p>We do not guarantee that every phrase or translation is perfect, complete, legally precise, medically precise, culturally appropriate for every situation, or understood by every person.</p>
-      <p>If a phrase or translation is used in a serious, sensitive, medical, legal, financial, food allergy, dietary restriction, safety, or emergency situation, you should confirm the details with an appropriate person or official source.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>10. Third-party services and external links</h2>
-      <p>Japan First Move may refer to, link to, mention, or interact with third-party services, including restaurants, shops, hotels, transport operators, pharmacies, medical services, police, embassies, insurance providers, payment providers, map services, browser services, or device features.</p>
-      <p>Japan First Move does not control third-party services and is not responsible for their content, availability, accuracy, prices, actions, policies, decisions, security, privacy practices, or service quality.</p>
-      <p>Your use of third-party services is at your own risk and may be subject to their own terms and policies.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>11. Prohibited use</h2>
-      <p>You agree not to misuse Japan First Move.</p>
-      <p>You must not:</p>
-      <ul>
-        <li>use the site for unlawful, harmful, fraudulent, abusive, or misleading purposes;</li>
-        <li>copy, scrape, reproduce, resell, redistribute, or commercially exploit the site or its content without permission;</li>
-        <li>interfere with, damage, overload, reverse engineer, or attempt to gain unauthorized access to the site or its systems;</li>
-        <li>use the site to create content that misrepresents Japan First Move or falsely suggests endorsement;</li>
-        <li>remove copyright notices, brand marks, safety notes, disclaimers, or terms from any content;</li>
-        <li>use food cards, phrases, or guides in a way that creates false certainty about food safety, medical safety, legal status, religious compliance, or official approval.</li>
-      </ul>
-    </section>
-
-    <section class="legal-section">
-      <h2>12. Intellectual property</h2>
-      <p>Japan First Move, including its text, guides, layouts, design, graphics, icons, card formats, phrases, tools, and other content, is owned by or licensed to the operator of Japan First Move, unless otherwise stated.</p>
-      <p>You may use the site and its generated content for your own personal travel-support purposes.</p>
-      <p>You may not copy, modify, sell, license, publish, distribute, or create derivative works from Japan First Move content for commercial purposes without written permission.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>13. User input and generated cards</h2>
-      <p>If you enter or select information to create a Custom Food Card or similar tool, you are responsible for the accuracy and completeness of that input.</p>
-      <p>You should not enter sensitive personal information unless it is necessary for your own use of the tool.</p>
-      <p>Japan First Move may process your selections or inputs only for the purpose of providing the feature, improving the service, operating the site, or as otherwise described in any applicable privacy policy.</p>
-      <p>You should review any generated card before showing it to staff.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>14. Limitation of liability</h2>
-      <p>To the fullest extent permitted by applicable law, Japan First Move and its operators will not be liable for any direct, indirect, incidental, consequential, special, exemplary, or punitive damages, losses, costs, injuries, claims, or expenses arising from or related to your use of the site.</p>
-      <p>This includes, but is not limited to, issues involving travel disruption, incorrect decisions, staff misunderstanding, food allergies, cross-contact, illness, injury, lost items, missed transportation, payment problems, device problems, data loss, third-party services, or inability to access the site.</p>
-      <p>Japan First Move is provided on an “as is” and “as available” basis.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>15. No warranties</h2>
-      <p>Japan First Move makes no warranties or representations, express or implied, about the site or its content.</p>
-      <p>We do not warrant that the site will meet your needs, that the content will be accurate or complete, that a phrase or card will be understood, that a facility will provide support, that food will be safe, or that any problem will be resolved.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>16. Changes to these terms</h2>
-      <p>We may update these Terms of Use from time to time.</p>
-      <p>When we update the terms, we may change the “Last updated” date at the top of this page.</p>
-      <p>Your continued use of Japan First Move after the terms are updated means that you accept the updated terms.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>17. Contact</h2>
-      <p>If you have questions about these Terms of Use, please contact:</p>
-      <p>${supportEmailLinkMarkup()}</p>
+    <section class="terms-of-use-language" lang="ja" aria-labelledby="terms-of-use-japanese-title">
+      <h2 id="terms-of-use-japanese-title">利用規約</h2>
+      <p class="legal-page-updated">最終更新日：[年月日]</p>
+      ${termsOfUseJapaneseIntro.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+      ${termsOfUseJapaneseSections.map(termsOfUseSectionMarkup).join("")}
     </section>
   `;
 }
@@ -4901,13 +4905,13 @@ function renderLegalPage(pageId) {
   const title = isTerms ? "Terms of Use" : "Disclaimer";
   document.title = `${title} | Japan First Move`;
   app.innerHTML = `
-    <div class="page-shell legal-page layout-container">
+    <div class="page-shell legal-page ${isTerms ? "terms-of-use-page" : ""} layout-container">
       <header class="legal-page-header content-container">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>${title}</span></nav>
         <h1>${title}</h1>
-        <p class="legal-page-updated">Last updated: [Month Day, Year]</p>
+        ${isTerms ? "" : '<p class="legal-page-updated">Last updated: [Month Day, Year]</p>'}
       </header>
-      <article class="legal-page-content content-container">
+      <article class="${isTerms ? "terms-of-use-content" : "legal-page-content"} content-container">
         ${isTerms ? termsPageMarkup() : disclaimerPageMarkup()}
       </article>
     </div>
