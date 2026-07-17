@@ -6695,13 +6695,17 @@ function router() {
   document.title = "Japan First Move";
   const parts = routePartsFromPathname();
   const route = parts;
+  const params = new URLSearchParams(window.location.search);
 
-  if (route.length === 0) {
+  if (route.length === 0 && params.get("checkout") === "cancelled") {
+    window.history.replaceState({}, "", "/food-card/custom?checkout=cancelled");
+    startCustomFoodCardCancelled();
+  } else if (route.length === 0) {
     renderHome();
   } else if (route[0] === "food-card" && route[1] === "custom") {
     if (route[2] === "success") {
       startCustomFoodCardSuccess();
-    } else if (new URLSearchParams(window.location.search).get("checkout") === "cancelled") {
+    } else if (params.get("checkout") === "cancelled") {
       startCustomFoodCardCancelled();
     } else {
       startCustomFoodCard();
