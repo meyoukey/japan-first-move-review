@@ -2198,6 +2198,7 @@ const customFoodCardState = {
   openCategoryIds: ["popular"],
 };
 
+const customFoodCardDraftStorageKey = "jfmCustomFoodCardDraft";
 const customFoodCardCheckoutStorageKey = "jfmCustomFoodCardCheckoutDraft";
 
 const movePhraseCards = [
@@ -3407,8 +3408,20 @@ function resetCustomFoodCardState() {
   });
 }
 
+function customFoodCardEnsureBuilderRoute() {
+  const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+  if (pathname !== "/food-card/custom") {
+    window.history.replaceState({}, "", "/food-card/custom");
+  }
+}
+
 function startCustomFoodCard() {
   resetCustomFoodCardState();
+  customFoodCardEnsureBuilderRoute();
+  const draft = customFoodCardLoadDraft();
+  if (draft) {
+    customFoodCardRestoreDraft(draft);
+  }
   renderCustomFoodCard();
 }
 
@@ -3427,6 +3440,106 @@ function customFoodCardCheckoutSnapshot() {
     safetyAgreed: customFoodCardState.safetyAgreed,
     purchaseReviewAgreed: customFoodCardState.purchaseReviewAgreed,
   };
+}
+
+function customFoodCardDraftSnapshot() {
+  return {
+    ...customFoodCardCheckoutSnapshot(),
+    step: customFoodCardState.step,
+    openCategoryIds: [...customFoodCardState.openCategoryIds],
+  };
+}
+
+function customFoodCardShouldSaveDraft() {
+  return customFoodCardState.step < 4 && customFoodCardState.selectedIngredientIds.length > 0;
+}
+
+function customFoodCardSaveDraft() {
+  if (!customFoodCardShouldSaveDraft()) {
+    customFoodCardClearDraft();
+    return;
+  }
+
+  try {
+    window.sessionStorage.setItem(
+      customFoodCardDraftStorageKey,
+      JSON.stringify({
+        snapshot: customFoodCardDraftSnapshot(),
+        savedAt: Date.now(),
+      }),
+    );
+  } catch {
+    // Ignore storage errors. The form can still be used in memory.
+  }
+}
+
+function customFoodCardLoadDraft() {
+  try {
+    const rawDraft = window.sessionStorage.getItem(customFoodCardDraftStorageKey);
+    if (!rawDraft) {
+      return null;
+    }
+    const draft = JSON.parse(rawDraft);
+    if (!draft || !draft.snapshot) {
+      return null;
+    }
+    return draft;
+  } catch {
+    return null;
+  }
+}
+
+function customFoodCardClearDraft() {
+  try {
+    window.sessionStorage.removeItem(customFoodCardDraftStorageKey);
+  } catch {
+    // Ignore storage errors.
+  }
+}
+
+function customFoodCardRestoreDraft(draft) {
+  const snapshot = draft?.snapshot;
+  if (!snapshot || typeof snapshot !== "object") {
+    return false;
+  }
+
+  const selectedIngredientIds = Array.isArray(snapshot.selectedIngredientIds)
+    ? snapshot.selectedIngredientIds.filter((id) => ingredients.some((ingredient) => ingredient.id === id))
+    : [];
+  if (!selectedIngredientIds.length) {
+    return false;
+  }
+
+  customFoodCardState.selectedIngredientIds = selectedIngredientIds;
+  customFoodCardState.cardType = typeof snapshot.cardType === "string" ? snapshot.cardType : "";
+  if (!customFoodCardTypeIsAvailable(customFoodCardState.cardType)) {
+    customFoodCardState.cardType = "";
+  }
+
+  customFoodCardState.reason = typeof snapshot.reason === "string" ? snapshot.reason : "";
+  if (customFoodCardState.reason && !customFoodCardReasons.some((reason) => reason.id === customFoodCardState.reason)) {
+    customFoodCardState.reason = "";
+  }
+
+  customFoodCardState.safetyAgreed = Boolean(snapshot.safetyAgreed);
+  customFoodCardState.purchaseReviewAgreed = Boolean(snapshot.purchaseReviewAgreed);
+  customFoodCardState.openCategoryIds = Array.isArray(snapshot.openCategoryIds)
+    ? snapshot.openCategoryIds.filter((categoryId) => customFoodCardIngredientCategories.includes(categoryId))
+    : ["popular"];
+  if (!customFoodCardState.openCategoryIds.length) {
+    customFoodCardState.openCategoryIds = ["popular"];
+  }
+
+  const savedStep = Number.isInteger(snapshot.step) ? snapshot.step : 1;
+  customFoodCardState.step = Math.min(Math.max(savedStep, 1), 3);
+  if (customFoodCardState.step > 1 && !customFoodCardState.cardType) {
+    customFoodCardState.step = 1;
+  }
+  if (customFoodCardState.step > 2 && customFoodCardState.cardType === "cannotEat" && !customFoodCardState.reason) {
+    customFoodCardState.step = 2;
+  }
+
+  return true;
 }
 
 function customFoodCardSaveCheckoutDraft(purchaseAttemptId) {
@@ -3503,6 +3616,8 @@ async function customFoodCardBeginCheckout() {
   }
 
   const purchaseAttemptId = customFoodCardCheckoutAttemptId();
+  customFoodCardEnsureBuilderRoute();
+  customFoodCardSaveDraft();
   if (!customFoodCardSaveCheckoutDraft(purchaseAttemptId)) {
     customFoodCardSetCheckoutFeedback(
       "error",
@@ -3575,6 +3690,7 @@ async function startCustomFoodCardSuccess() {
     if (!response.ok || !result.paid || !result.price_ok || !referenceMatches) {
       throw new Error(result.error || "Payment could not be verified.");
     }
+    customFoodCardClearDraft();
     customFoodCardClearCheckoutDraft();
     customFoodCardSetCheckoutFeedback("verified");
     customFoodCardState.step = 4;
@@ -4561,6 +4677,7 @@ function customFoodCardShowModeMarkup() {
 
 function renderCustomFoodCard() {
   document.title = "Custom Food Card | Japan First Move";
+  customFoodCardSaveDraft();
   const imagePreviewMode = Boolean(customFoodCardState.imagePreviewUrl);
   document.body.classList.toggle("is-custom-show-mode", customFoodCardState.showMode);
   document.body.classList.toggle("is-custom-sample-mode", customFoodCardState.sampleMode);
@@ -4659,6 +4776,7 @@ function wireCustomFoodCardEvents() {
         openCategories.delete(categoryId);
       }
       customFoodCardState.openCategoryIds = [...openCategories];
+      customFoodCardSaveDraft();
     });
   });
 
@@ -4747,6 +4865,7 @@ function wireCustomFoodCardEvents() {
   });
 
   document.querySelector("[data-custom-restart]")?.addEventListener("click", () => {
+    customFoodCardClearDraft();
     customFoodCardClearCheckoutDraft();
     resetCustomFoodCardState();
     renderCustomFoodCard();
