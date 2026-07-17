@@ -2525,7 +2525,7 @@ function navigateToUrl(url) {
   if (nextPath !== currentPath) {
     window.history.pushState({}, "", nextPath);
   }
-  router();
+  router({ restoreCustomFoodCardDraft: false });
 }
 
 function pngImage(name, className, alt = "") {
@@ -3415,12 +3415,16 @@ function customFoodCardEnsureBuilderRoute() {
   }
 }
 
-function startCustomFoodCard() {
+function startCustomFoodCard({ restoreDraft = false } = {}) {
   resetCustomFoodCardState();
   customFoodCardEnsureBuilderRoute();
-  const draft = customFoodCardLoadDraft();
-  if (draft) {
-    customFoodCardRestoreDraft(draft);
+  if (restoreDraft) {
+    const draft = customFoodCardLoadDraft();
+    if (draft) {
+      customFoodCardRestoreDraft(draft);
+    }
+  } else {
+    customFoodCardClearDraft();
   }
   renderCustomFoodCard();
 }
@@ -6681,7 +6685,7 @@ function updateNavState(parts) {
   });
 }
 
-function router() {
+function router({ restoreCustomFoodCardDraft = false } = {}) {
   closeMobileMenu();
   document.body.classList.remove("is-custom-show-mode");
   document.body.classList.remove("is-custom-sample-mode");
@@ -6708,7 +6712,7 @@ function router() {
     } else if (params.get("checkout") === "cancelled") {
       startCustomFoodCardCancelled();
     } else {
-      startCustomFoodCard();
+      startCustomFoodCard({ restoreDraft: restoreCustomFoodCardDraft });
     }
   } else if (route[0] === "food-cards") {
     if (route[1]) {
@@ -6737,5 +6741,7 @@ function router() {
   window.scrollTo(0, 0);
 }
 
-window.addEventListener("popstate", router);
-router();
+window.addEventListener("popstate", () => {
+  router({ restoreCustomFoodCardDraft: false });
+});
+router({ restoreCustomFoodCardDraft: true });
