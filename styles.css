@@ -15340,6 +15340,14 @@ body:has(#app) .site-footer .site-footer-note {
   line-height: 1.35;
 }
 
+.custom-checkout-status {
+  margin: 0;
+  color: #8b596a;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
 .custom-food-card-step[data-custom-step="3"] {
   gap: 0.58rem;
 }

@@ -12,6 +12,13 @@
 scripts/*
 !scripts/generate-seo-pages.js
 
+!functions/
+functions/*
+!functions/api/
+functions/api/*
+!functions/api/create-checkout-session.js
+!functions/api/verify-checkout-session.js
+
 !food/
 !food/index.html
 !move/

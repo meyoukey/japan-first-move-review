@@ -2190,10 +2190,15 @@ const customFoodCardState = {
   showMode: false,
   error: "",
   saveMessage: "",
+  checkoutStatus: "",
+  checkoutMessage: "",
+  checkoutError: "",
   imagePreviewUrl: "",
   imagePreviewFile: null,
   openCategoryIds: ["popular"],
 };
+
+const customFoodCardCheckoutStorageKey = "jfmCustomFoodCardCheckoutDraft";
 
 const movePhraseCards = [
   {
@@ -3393,6 +3398,9 @@ function resetCustomFoodCardState() {
     showMode: false,
     error: "",
     saveMessage: "",
+    checkoutStatus: "",
+    checkoutMessage: "",
+    checkoutError: "",
     imagePreviewUrl: "",
     imagePreviewFile: null,
     openCategoryIds: ["popular"],
@@ -3402,6 +3410,185 @@ function resetCustomFoodCardState() {
 function startCustomFoodCard() {
   resetCustomFoodCardState();
   renderCustomFoodCard();
+}
+
+function customFoodCardCheckoutAttemptId() {
+  if (window.crypto?.randomUUID) {
+    return window.crypto.randomUUID();
+  }
+  return `jfm_${Date.now()}_${Math.random().toString(36).slice(2, 12)}`;
+}
+
+function customFoodCardCheckoutSnapshot() {
+  return {
+    selectedIngredientIds: [...customFoodCardState.selectedIngredientIds],
+    cardType: customFoodCardState.cardType,
+    reason: customFoodCardState.reason,
+    safetyAgreed: customFoodCardState.safetyAgreed,
+    purchaseReviewAgreed: customFoodCardState.purchaseReviewAgreed,
+  };
+}
+
+function customFoodCardSaveCheckoutDraft(purchaseAttemptId) {
+  const draft = {
+    purchaseAttemptId,
+    snapshot: customFoodCardCheckoutSnapshot(),
+    savedAt: Date.now(),
+  };
+  try {
+    window.sessionStorage.setItem(customFoodCardCheckoutStorageKey, JSON.stringify(draft));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function customFoodCardLoadCheckoutDraft() {
+  try {
+    const rawDraft = window.sessionStorage.getItem(customFoodCardCheckoutStorageKey);
+    if (!rawDraft) {
+      return null;
+    }
+    const draft = JSON.parse(rawDraft);
+    if (!draft || typeof draft.purchaseAttemptId !== "string" || !draft.snapshot) {
+      return null;
+    }
+    return draft;
+  } catch {
+    return null;
+  }
+}
+
+function customFoodCardClearCheckoutDraft() {
+  try {
+    window.sessionStorage.removeItem(customFoodCardCheckoutStorageKey);
+  } catch {
+    // Ignore storage errors.
+  }
+}
+
+function customFoodCardRestoreCheckoutSnapshot(snapshot) {
+  if (!snapshot || typeof snapshot !== "object") {
+    return false;
+  }
+  const selectedIngredientIds = Array.isArray(snapshot.selectedIngredientIds)
+    ? snapshot.selectedIngredientIds.filter((id) => ingredients.some((ingredient) => ingredient.id === id))
+    : [];
+  if (!selectedIngredientIds.length) {
+    return false;
+  }
+  customFoodCardState.selectedIngredientIds = selectedIngredientIds;
+  customFoodCardState.cardType = typeof snapshot.cardType === "string" ? snapshot.cardType : "";
+  if (!customFoodCardTypeIsAvailable(customFoodCardState.cardType)) {
+    customFoodCardState.cardType = "";
+  }
+  customFoodCardState.reason = typeof snapshot.reason === "string" ? snapshot.reason : "";
+  if (customFoodCardState.reason && !customFoodCardReasons.some((reason) => reason.id === customFoodCardState.reason)) {
+    customFoodCardState.reason = "";
+  }
+  customFoodCardState.safetyAgreed = Boolean(snapshot.safetyAgreed);
+  customFoodCardState.purchaseReviewAgreed = Boolean(snapshot.purchaseReviewAgreed);
+  return Boolean(customFoodCardState.cardType);
+}
+
+function customFoodCardSetCheckoutFeedback(status, message = "", error = "") {
+  customFoodCardState.checkoutStatus = status;
+  customFoodCardState.checkoutMessage = message;
+  customFoodCardState.checkoutError = error;
+}
+
+async function customFoodCardBeginCheckout() {
+  if (!customFoodCardPurchaseReviewIsComplete() || customFoodCardState.checkoutStatus === "preparing") {
+    return;
+  }
+
+  const purchaseAttemptId = customFoodCardCheckoutAttemptId();
+  if (!customFoodCardSaveCheckoutDraft(purchaseAttemptId)) {
+    customFoodCardSetCheckoutFeedback(
+      "error",
+      "",
+      "Your browser could not keep the card selection for checkout. Please check browser storage settings and try again.",
+    );
+    renderCustomFoodCard();
+    return;
+  }
+  customFoodCardSetCheckoutFeedback("preparing", "Preparing secure payment...");
+  renderCustomFoodCard();
+
+  try {
+    const response = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        purchase_attempt_id: purchaseAttemptId,
+      }),
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok || !result.url) {
+      throw new Error(result.error || "Payment could not be started.");
+    }
+    window.location.assign(result.url);
+  } catch (error) {
+    customFoodCardSetCheckoutFeedback(
+      "error",
+      "",
+      error instanceof Error ? error.message : "Payment could not be started. Please try again.",
+    );
+    renderCustomFoodCard();
+  }
+}
+
+function startCustomFoodCardCancelled() {
+  resetCustomFoodCardState();
+  const draft = customFoodCardLoadCheckoutDraft();
+  if (draft && customFoodCardRestoreCheckoutSnapshot(draft.snapshot)) {
+    customFoodCardState.step = 3;
+    customFoodCardSetCheckoutFeedback("cancelled", "Payment was cancelled. You can review and try again.");
+  } else {
+    customFoodCardState.error = "Payment was cancelled. Please recreate your card to try again.";
+  }
+  renderCustomFoodCard();
+}
+
+async function startCustomFoodCardSuccess() {
+  resetCustomFoodCardState();
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get("session_id") || "";
+  const draft = customFoodCardLoadCheckoutDraft();
+
+  if (!sessionId || !draft || !customFoodCardRestoreCheckoutSnapshot(draft.snapshot)) {
+    customFoodCardState.error = "We could not find your card selection. Please recreate your card.";
+    renderCustomFoodCard();
+    return;
+  }
+
+  customFoodCardState.step = 3;
+  customFoodCardSetCheckoutFeedback("verifying", "Verifying payment...");
+  renderCustomFoodCard();
+
+  try {
+    const response = await fetch(`/api/verify-checkout-session?session_id=${encodeURIComponent(sessionId)}`);
+    const result = await response.json().catch(() => ({}));
+    const referenceMatches = result.client_reference_id === draft.purchaseAttemptId;
+    if (!response.ok || !result.paid || !result.price_ok || !referenceMatches) {
+      throw new Error(result.error || "Payment could not be verified.");
+    }
+    customFoodCardClearCheckoutDraft();
+    customFoodCardSetCheckoutFeedback("verified");
+    customFoodCardState.step = 4;
+    renderCustomFoodCard();
+    window.scrollTo(0, 0);
+  } catch (error) {
+    customFoodCardState.step = 3;
+    customFoodCardSetCheckoutFeedback(
+      "error",
+      "",
+      error instanceof Error ? error.message : "Payment could not be verified. Please contact support if you were charged.",
+    );
+    renderCustomFoodCard();
+  }
 }
 
 function customFoodCardType() {
@@ -3847,7 +4034,9 @@ function customFoodCardStepThreeMarkup() {
   const type = customFoodCardType();
   const reason = customFoodCardReason();
   const selectedIngredients = customFoodCardSelectedIngredients();
-  const canProceedToPayment = customFoodCardPurchaseReviewIsComplete();
+  const checkoutIsBusy = customFoodCardState.checkoutStatus === "preparing" || customFoodCardState.checkoutStatus === "verifying";
+  const canProceedToPayment = customFoodCardPurchaseReviewIsComplete() && !checkoutIsBusy;
+  const checkoutButtonText = customFoodCardState.checkoutStatus === "preparing" ? "Preparing payment..." : "Proceed to payment";
   return `
     <div class="custom-food-card-step" data-custom-step="3">
       <div class="custom-step-heading">
@@ -3916,9 +4105,11 @@ function customFoodCardStepThreeMarkup() {
       </label>
       <div class="custom-step-actions custom-step-actions-split">
         <button class="button secondary" type="button" data-custom-back>Back</button>
-        <button class="button primary" type="button" data-custom-create ${canProceedToPayment ? "" : "disabled"}>Proceed to payment</button>
+        <button class="button primary" type="button" data-custom-create ${canProceedToPayment ? "" : "disabled"}>${checkoutButtonText}</button>
       </div>
       <p class="custom-terms-copy">Payment is processed securely through Stripe.</p>
+      ${customFoodCardState.checkoutMessage ? `<p class="custom-checkout-status" role="status" aria-live="polite">${escapeHtml(customFoodCardState.checkoutMessage)}</p>` : ""}
+      ${customFoodCardState.checkoutError ? `<div class="custom-selection-error" role="alert">${escapeHtml(customFoodCardState.checkoutError)}</div>` : ""}
     </div>
   `;
 }
@@ -4405,6 +4596,7 @@ function wireCustomFoodCardEvents() {
         customFoodCardState.purchaseReviewAgreed = false;
       }
       customFoodCardState.error = "";
+      customFoodCardSetCheckoutFeedback("");
       renderCustomFoodCard();
     });
   });
@@ -4412,6 +4604,7 @@ function wireCustomFoodCardEvents() {
   document.querySelectorAll("[data-custom-reason]").forEach((button) => {
     button.addEventListener("click", () => {
       customFoodCardState.reason = button.dataset.customReason;
+      customFoodCardSetCheckoutFeedback("");
       renderCustomFoodCard();
     });
   });
@@ -4431,6 +4624,7 @@ function wireCustomFoodCardEvents() {
       }
       customFoodCardState.safetyAgreed = false;
       customFoodCardState.purchaseReviewAgreed = false;
+      customFoodCardSetCheckoutFeedback("");
       if (customFoodCardState.cardType && !customFoodCardTypeIsAvailable(customFoodCardState.cardType)) {
         customFoodCardState.cardType = "";
         customFoodCardState.reason = "";
@@ -4464,6 +4658,7 @@ function wireCustomFoodCardEvents() {
     }
     customFoodCardState.error = "";
     customFoodCardState.saveMessage = "";
+    customFoodCardSetCheckoutFeedback("");
     renderCustomFoodCard();
     window.scrollTo(0, 0);
   });
@@ -4472,6 +4667,7 @@ function wireCustomFoodCardEvents() {
     customFoodCardState.step = Math.max(1, customFoodCardState.step - 1);
     customFoodCardState.error = "";
     customFoodCardState.saveMessage = "";
+    customFoodCardSetCheckoutFeedback("");
     renderCustomFoodCard();
     window.scrollTo(0, 0);
   });
@@ -4500,10 +4696,7 @@ function wireCustomFoodCardEvents() {
     if (!customFoodCardPurchaseReviewIsComplete()) {
       return;
     }
-    // TODO(stripe-checkout): Replace this direct transition with Stripe Checkout and resume card creation after successful payment.
-    customFoodCardState.step = 4;
-    renderCustomFoodCard();
-    window.scrollTo(0, 0);
+    customFoodCardBeginCheckout();
   });
 
   document.querySelector("[data-custom-show]")?.addEventListener("click", () => {
@@ -4538,6 +4731,7 @@ function wireCustomFoodCardEvents() {
   });
 
   document.querySelector("[data-custom-restart]")?.addEventListener("click", () => {
+    customFoodCardClearCheckoutDraft();
     resetCustomFoodCardState();
     renderCustomFoodCard();
     window.scrollTo(0, 0);
@@ -6370,7 +6564,13 @@ function router() {
   if (route.length === 0) {
     renderHome();
   } else if (route[0] === "food-card" && route[1] === "custom") {
-    startCustomFoodCard();
+    if (route[2] === "success") {
+      startCustomFoodCardSuccess();
+    } else if (new URLSearchParams(window.location.search).get("checkout") === "cancelled") {
+      startCustomFoodCardCancelled();
+    } else {
+      startCustomFoodCard();
+    }
   } else if (route[0] === "food-cards") {
     if (route[1]) {
       renderFoodCardDetail(route[1]);
