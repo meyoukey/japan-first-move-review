@@ -12308,6 +12308,24 @@ body:has(#app) .site-footer .site-footer-legal a + a::before {
   margin-top: clamp(3rem, 7vw, 4.5rem);
 }
 
+.privacy-language:first-child .legal-section:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.privacy-language + .privacy-language {
+  margin-top: clamp(3rem, 7vw, 4.5rem);
+}
+
+.privacy-language .legal-section h3 {
+  margin: 1.2rem 0 0;
+  color: #4a5a75;
+  font-size: 1.02rem;
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
 .legal-notice-subtitle,
 .privacy-page-subtitle {
   max-width: 650px;
@@ -12325,8 +12343,7 @@ body:has(#app) .site-footer .site-footer-legal a + a::before {
   line-height: 1.55;
 }
 
-.legal-notice-draft-note,
-.privacy-draft-note {
+.legal-notice-draft-note {
   max-width: 650px;
   margin: 1rem 0 0;
   padding: 0.7rem 0.85rem;
@@ -12554,8 +12571,7 @@ body:has(#app) .site-footer .site-footer-legal a + a::before {
     font-size: 1rem;
   }
 
-  .legal-notice-draft-note,
-  .privacy-draft-note {
+  .legal-notice-draft-note {
     padding: 0.65rem 0.75rem;
     font-size: 0.78rem;
   }

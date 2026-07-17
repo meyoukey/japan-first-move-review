@@ -5125,70 +5125,307 @@ function renderLegalPage(pageId) {
   `;
 }
 
-function privacyPageMarkup() {
+const privacyEnglishIntro = [
+  "Japan First Move respects your privacy. This Privacy Policy explains how Japan First Move collects, uses, stores, and shares information when you use our website, guides, phrases, sample cards, Custom Food Card, or related digital content.",
+  "By using Japan First Move, you agree to the handling of information described in this Privacy Policy.",
+];
+
+const privacyEnglishSections = [
+  {
+    heading: "1. Information we may collect",
+    blocks: [
+      { type: "p", text: "Japan First Move may collect the following types of information." },
+      { type: "h3", text: "Information you provide to us" },
+      { type: "p", text: "When you contact us by email or another contact method, we may collect your email address, name, message content, and any information you choose to include." },
+      { type: "h3", text: "Payment-related information" },
+      { type: "p", text: "Payments are processed through Stripe. Japan First Move does not collect or store your full credit card number." },
+      { type: "p", text: "We may receive or access limited payment-related information necessary to confirm purchases, handle support, respond to payment issues, prevent fraud, or comply with legal obligations, such as payment status, transaction identifiers, purchase date, and payment provider records." },
+      { type: "h3", text: "Usage and access information" },
+      { type: "p", text: "We may collect technical and usage information such as IP address, browser type, device type, operating system, pages viewed, referring pages, access time, approximate location, and other analytics data." },
+      { type: "h3", text: "Custom Food Card information" },
+      { type: "p", text: "Custom Food Card is designed to create card content in the browser. Japan First Move does not provide user accounts and does not intentionally store your card content in a server-side database." },
+      { type: "p", text: "However, if you send card content to us when making an inquiry, we may handle that information as part of the inquiry." },
+    ],
+  },
+  {
+    heading: "2. How we use information",
+    blocks: [
+      { type: "p", text: "Japan First Move may use information for the following purposes:" },
+      {
+        type: "list",
+        items: [
+          "To provide, operate, maintain, and improve Japan First Move",
+          "To provide Custom Food Card and related digital content",
+          "To confirm purchases and payment status",
+          "To respond to inquiries and support requests",
+          "To analyze website usage and improve usability",
+          "To prevent fraud, abuse, unauthorized access, or security issues",
+          "To comply with legal obligations",
+          "To protect the rights, safety, and interests of users, Japan First Move, or third parties",
+        ],
+      },
+    ],
+  },
+  {
+    heading: "3. Payment processing",
+    blocks: [
+      { type: "p", text: "Payments for Custom Food Card are processed by Stripe." },
+      { type: "p", text: "When you make a purchase, payment information may be collected and processed directly by Stripe in accordance with Stripe’s terms and privacy policy." },
+      { type: "p", text: "Japan First Move does not collect or store your full credit card number." },
+    ],
+  },
+  {
+    heading: "4. Analytics and cookies",
+    blocks: [
+      { type: "p", text: "Japan First Move may use Google Analytics or similar analytics tools to understand how users use the website and to improve the service." },
+      { type: "p", text: "These tools may use cookies or similar technologies to collect information such as pages viewed, access time, device information, browser information, approximate location, and usage patterns." },
+      { type: "p", text: "You may be able to disable cookies through your browser settings. However, some parts of the website may not work properly if cookies or similar technologies are disabled." },
+    ],
+  },
+  {
+    heading: "5. Custom Food Card information",
+    blocks: [
+      { type: "p", text: "Custom Food Card is designed to create card content in the browser." },
+      { type: "p", text: "Japan First Move does not provide user accounts and does not intentionally store your card content in a server-side database." },
+      { type: "p", text: "The card content may be temporarily processed in your browser to create, display, save, or share the card." },
+      { type: "p", text: "If you send card content, screenshots, or related information to Japan First Move when making an inquiry, we may handle that information as part of the inquiry and support process." },
+    ],
+  },
+  {
+    heading: "6. Sharing information with third parties",
+    blocks: [
+      { type: "p", text: "Japan First Move may share or disclose information in the following cases:" },
+      {
+        type: "list",
+        items: [
+          "With service providers necessary to operate the website, process payments, provide analytics, host the website, or respond to inquiries",
+          "When required by law, regulation, legal process, or governmental request",
+          "When necessary to protect the rights, safety, property, or interests of users, Japan First Move, or third parties",
+          "With the user’s consent",
+        ],
+      },
+      { type: "p", text: "Japan First Move does not sell users’ personal information." },
+    ],
+  },
+  {
+    heading: "7. Data retention",
+    blocks: [
+      { type: "p", text: "Japan First Move keeps personal information only for as long as necessary for the purposes described in this Privacy Policy, unless a longer retention period is required or permitted by law." },
+      { type: "p", text: "Inquiry records, payment-related records, and legal or accounting records may be retained as necessary for support, dispute resolution, fraud prevention, legal compliance, and business recordkeeping." },
+    ],
+  },
+  {
+    heading: "8. Security",
+    blocks: [
+      { type: "p", text: "Japan First Move takes reasonable measures to protect information against unauthorized access, loss, misuse, alteration, or disclosure." },
+      { type: "p", text: "However, no method of transmission over the internet or electronic storage is completely secure. Japan First Move cannot guarantee absolute security." },
+    ],
+  },
+  {
+    heading: "9. Your rights",
+    blocks: [
+      { type: "p", text: "Depending on applicable law, you may have the right to request disclosure, correction, deletion, suspension of use, or other handling of your personal information." },
+      { type: "p", text: "If you wish to make a request regarding your personal information, please contact us using the contact information provided on this site." },
+    ],
+  },
+  {
+    heading: "10. International users",
+    blocks: [
+      { type: "p", text: "Japan First Move is operated from Japan. If you access the website from outside Japan, your information may be processed in Japan or in other countries where our service providers operate." },
+      { type: "p", text: "By using Japan First Move, you understand that your information may be processed outside your country or region of residence." },
+    ],
+  },
+  {
+    heading: "11. Changes to this Privacy Policy",
+    blocks: [
+      { type: "p", text: "Japan First Move may update this Privacy Policy from time to time. The updated version will be posted on this page with the updated date." },
+    ],
+  },
+  {
+    heading: "12. Contact",
+    blocks: [
+      { type: "p", text: "If you have any questions about this Privacy Policy or the handling of personal information, please contact us at:" },
+      { type: "p", text: supportEmail },
+    ],
+  },
+];
+
+const privacyJapaneseIntro = [
+  "Japan First Moveは、利用者のプライバシーを尊重します。本プライバシーポリシーは、Japan First Moveのウェブサイト、ガイド、フレーズ、サンプルカード、Custom Food Card、その他関連するデジタルコンテンツを利用する際に、Japan First Moveがどのような情報を取得、利用、保存、共有するかを説明するものです。",
+  "Japan First Moveを利用することにより、利用者は本プライバシーポリシーに記載された情報の取扱いに同意したものとします。",
+];
+
+const privacyJapaneseSections = [
+  {
+    heading: "1. 取得する情報",
+    blocks: [
+      { type: "p", text: "Japan First Moveは、以下の情報を取得する場合があります。" },
+      { type: "h3", text: "利用者が提供する情報" },
+      { type: "p", text: "利用者がメールその他の方法で問い合わせを行う場合、メールアドレス、氏名、問い合わせ内容、その他利用者が任意で記載した情報を取得する場合があります。" },
+      { type: "h3", text: "決済に関連する情報" },
+      { type: "p", text: "決済はStripeを通じて処理されます。Japan First Moveは、利用者のクレジットカード番号全体を取得または保存しません。" },
+      { type: "p", text: "Japan First Moveは、購入確認、サポート対応、決済上の問題への対応、不正防止、法令上の義務への対応のために必要な範囲で、決済状況、取引識別子、購入日時、決済事業者の記録など、限定的な決済関連情報を受領または確認する場合があります。" },
+      { type: "h3", text: "利用状況およびアクセス情報" },
+      { type: "p", text: "Japan First Moveは、IPアドレス、ブラウザの種類、端末の種類、OS、閲覧ページ、参照元ページ、アクセス日時、おおよその位置情報、その他のアクセス解析データなどの技術情報および利用状況に関する情報を取得する場合があります。" },
+      { type: "h3", text: "Custom Food Cardに関する情報" },
+      { type: "p", text: "Custom Food Cardは、ブラウザ上でカード内容を作成する設計です。Japan First Moveは、ユーザーアカウントを提供せず、カード内容をサーバー上のデータベースに意図的に保存しません。" },
+      { type: "p", text: "ただし、利用者が問い合わせ時にカード内容をJapan First Moveへ送信した場合、その情報を問い合わせ対応の一部として取り扱う場合があります。" },
+    ],
+  },
+  {
+    heading: "2. 情報の利用目的",
+    blocks: [
+      { type: "p", text: "Japan First Moveは、取得した情報を以下の目的で利用する場合があります。" },
+      {
+        type: "list",
+        items: [
+          "Japan First Moveの提供、運営、維持、改善のため",
+          "Custom Food Cardおよび関連するデジタルコンテンツを提供するため",
+          "購入および決済状況を確認するため",
+          "問い合わせおよびサポート依頼に対応するため",
+          "ウェブサイトの利用状況を分析し、利便性を改善するため",
+          "不正利用、権限のないアクセス、セキュリティ上の問題を防止するため",
+          "法令上の義務に対応するため",
+          "利用者、Japan First Move、または第三者の権利、安全、利益を保護するため",
+        ],
+      },
+    ],
+  },
+  {
+    heading: "3. 決済処理について",
+    blocks: [
+      { type: "p", text: "Custom Food Cardの決済はStripeによって処理されます。" },
+      { type: "p", text: "利用者が購入を行う場合、決済情報はStripeの利用規約およびプライバシーポリシーに従って、Stripeにより直接取得および処理される場合があります。" },
+      { type: "p", text: "Japan First Moveは、利用者のクレジットカード番号全体を取得または保存しません。" },
+    ],
+  },
+  {
+    heading: "4. アクセス解析およびCookieについて",
+    blocks: [
+      { type: "p", text: "Japan First Moveは、ウェブサイトの利用状況を把握し、サービスを改善するために、Google Analyticsその他類似のアクセス解析ツールを利用する場合があります。" },
+      { type: "p", text: "これらのツールは、Cookieその他類似の技術を使用して、閲覧ページ、アクセス日時、端末情報、ブラウザ情報、おおよその位置情報、利用傾向などの情報を取得する場合があります。" },
+      { type: "p", text: "利用者は、ブラウザの設定によりCookieを無効にできる場合があります。ただし、Cookieその他類似の技術を無効にした場合、ウェブサイトの一部が正常に動作しない場合があります。" },
+    ],
+  },
+  {
+    heading: "5. Custom Food Cardに関する情報",
+    blocks: [
+      { type: "p", text: "Custom Food Cardは、ブラウザ上でカード内容を作成する設計です。" },
+      { type: "p", text: "Japan First Moveは、ユーザーアカウントを提供せず、カード内容をサーバー上のデータベースに意図的に保存しません。" },
+      { type: "p", text: "カード内容は、カードの作成、表示、保存、共有のために、利用者のブラウザ上で一時的に処理される場合があります。" },
+      { type: "p", text: "利用者が問い合わせ時にカード内容、スクリーンショット、または関連情報をJapan First Moveへ送信した場合、その情報を問い合わせ対応およびサポート対応の一部として取り扱う場合があります。" },
+    ],
+  },
+  {
+    heading: "6. 第三者への情報提供",
+    blocks: [
+      { type: "p", text: "Japan First Moveは、以下の場合に情報を第三者に共有または開示する場合があります。" },
+      {
+        type: "list",
+        items: [
+          "ウェブサイトの運営、決済処理、アクセス解析、ホスティング、問い合わせ対応に必要なサービス提供者へ共有する場合",
+          "法令、規制、法的手続、公的機関からの要請に基づき必要な場合",
+          "利用者、Japan First Move、または第三者の権利、安全、財産、利益を保護するために必要な場合",
+          "利用者の同意がある場合",
+        ],
+      },
+      { type: "p", text: "Japan First Moveは、利用者の個人情報を販売しません。" },
+    ],
+  },
+  {
+    heading: "7. 情報の保存期間",
+    blocks: [
+      { type: "p", text: "Japan First Moveは、本プライバシーポリシーに記載された目的のために必要な期間、または法令上必要もしくは認められる期間に限り、個人情報を保存します。" },
+      { type: "p", text: "問い合わせ記録、決済関連記録、法務・会計上の記録は、サポート対応、紛争対応、不正防止、法令遵守、事業上の記録管理のために必要な範囲で保存する場合があります。" },
+    ],
+  },
+  {
+    heading: "8. 安全管理",
+    blocks: [
+      { type: "p", text: "Japan First Moveは、情報への不正アクセス、紛失、不正利用、改ざん、漏えい等を防止するため、合理的な安全管理措置を講じます。" },
+      { type: "p", text: "ただし、インターネット上の送信または電子的な保存方法に完全な安全性を保証できるものではありません。Japan First Moveは、絶対的な安全性を保証するものではありません。" },
+    ],
+  },
+  {
+    heading: "9. 利用者の権利",
+    blocks: [
+      { type: "p", text: "適用される法令に基づき、利用者は自身の個人情報について、開示、訂正、削除、利用停止、その他の取扱いに関する請求を行うことができる場合があります。" },
+      { type: "p", text: "個人情報に関する請求を希望する場合は、本サイトに記載のお問い合わせ先までご連絡ください。" },
+    ],
+  },
+  {
+    heading: "10. 国外からの利用について",
+    blocks: [
+      { type: "p", text: "Japan First Moveは日本から運営されています。利用者が日本国外から本サイトにアクセスする場合、利用者の情報は日本またはJapan First Moveが利用するサービス提供者の所在国において処理される場合があります。" },
+      { type: "p", text: "Japan First Moveを利用することにより、利用者は、自身の情報が居住国または地域の外で処理される場合があることを理解したものとします。" },
+    ],
+  },
+  {
+    heading: "11. 本プライバシーポリシーの変更",
+    blocks: [
+      { type: "p", text: "Japan First Moveは、本プライバシーポリシーを必要に応じて変更する場合があります。変更後の内容は、更新日とともに本ページに掲載します。" },
+    ],
+  },
+  {
+    heading: "12. お問い合わせ",
+    blocks: [
+      { type: "p", text: "本プライバシーポリシーまたは個人情報の取扱いに関するお問い合わせは、以下の連絡先までお願いいたします。" },
+      { type: "p", text: supportEmail },
+    ],
+  },
+];
+
+function privacyBlockMarkup(block) {
+  if (block.type === "h3") {
+    return `<h3>${escapeHtml(block.text)}</h3>`;
+  }
+
+  if (block.type === "list") {
+    return `<ul>${block.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+  }
+
+  return `<p>${block.text === supportEmail ? supportEmailLinkMarkup() : escapeHtml(block.text)}</p>`;
+}
+
+function privacySectionMarkup(section) {
   return `
     <section class="legal-section">
-      <h2>1. Information we collect</h2>
-      <ul>
-        <li>We do not require users to create an account.</li>
-        <li>We do not collect payment information on this site at this stage.</li>
-        <li>If users contact us, we may receive the information they choose to send.</li>
-      </ul>
+      <h2>${escapeHtml(section.heading)}</h2>
+      ${section.blocks.map(privacyBlockMarkup).join("")}
     </section>
+  `;
+}
 
-    <section class="legal-section">
-      <h2>2. Google Analytics</h2>
-      <ul>
-        <li>We use Google Analytics to understand how visitors use this website.</li>
-        <li>Google Analytics may collect information such as pages viewed, device or browser information, approximate location, and referral sources.</li>
-        <li>Google Analytics uses cookies or similar technologies to distinguish users and sessions.</li>
-        <li>We use this information to improve the website and user experience.</li>
-      </ul>
-    </section>
+function privacyLanguageMarkup({ title, titleId, lang, updated, intro, sections }) {
+  return `
+    <div class="privacy-language" ${lang ? `lang="${lang}" ` : ""}aria-labelledby="${titleId}">
+      <section class="legal-section">
+        <h2 id="${titleId}">${escapeHtml(title)}</h2>
+        <p class="legal-page-updated">${escapeHtml(updated)}</p>
+        ${intro.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+      </section>
+      ${sections.map(privacySectionMarkup).join("")}
+    </div>
+  `;
+}
 
-    <section class="legal-section">
-      <h2>3. Cookies</h2>
-      <ul>
-        <li>This site may use cookies for analytics purposes.</li>
-        <li>Users can disable cookies in their browser settings, but some features may not work as expected.</li>
-      </ul>
-    </section>
-
-    <section class="legal-section">
-      <h2>4. Third-party services</h2>
-      <ul>
-        <li>Google Analytics is used to understand site usage.</li>
-        <li>Google Fonts is currently used to load website fonts.</li>
-        <li>Stripe Checkout is planned for future payments, but payment processing is not live yet.</li>
-        <li>When payment becomes live, Stripe will process payment information according to its own privacy policy.</li>
-      </ul>
-    </section>
-
-    <section class="legal-section">
-      <h2>5. Food Card information</h2>
-      <p>Custom Food Card selections are used to generate the card display.</p>
-      <p>The current implementation keeps these selections temporarily in browser memory while you use the builder. They are not saved to a user account and are reset when the builder is restarted or the page is reloaded.</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>6. Data use</h2>
-      <p>We may use the information described above:</p>
-      <ul>
-        <li>to understand site usage;</li>
-        <li>to improve content and usability; and</li>
-        <li>to maintain and troubleshoot the website.</li>
-      </ul>
-    </section>
-
-    <section class="legal-section">
-      <h2>7. Contact</h2>
-      <p>${supportEmailLinkMarkup()}</p>
-    </section>
-
-    <section class="legal-section">
-      <h2>8. Last updated</h2>
-      <p>[Month Day, Year]</p>
-    </section>
+function privacyPageMarkup() {
+  return `
+    ${privacyLanguageMarkup({
+      title: "Privacy Policy",
+      titleId: "privacy-english-title",
+      updated: "Last updated: July 16, 2026",
+      intro: privacyEnglishIntro,
+      sections: privacyEnglishSections,
+    })}
+    ${privacyLanguageMarkup({
+      title: "プライバシーポリシー",
+      titleId: "privacy-japanese-title",
+      lang: "ja",
+      updated: "最終更新日：2026年7月16日",
+      intro: privacyJapaneseIntro,
+      sections: privacyJapaneseSections,
+    })}
   `;
 }
 
@@ -5200,8 +5437,6 @@ function renderPrivacyPage() {
       <header class="legal-page-header content-container">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>${title}</span></nav>
         <h1>${title}</h1>
-        <p class="privacy-page-subtitle">How Japan First Move handles basic access and usage information.</p>
-        <p class="privacy-draft-note">Draft for review. This page will be finalized before public launch.</p>
       </header>
       <article class="legal-page-content content-container">
         ${privacyPageMarkup()}
