@@ -1334,7 +1334,7 @@ const placeChoices = [
   },
   {
     label: "Station",
-    href: "#/move",
+    href: "/move",
     category: "move",
     iconName: "categoryicon-move",
     description: "First steps",
@@ -1382,7 +1382,7 @@ const needChoices = [
     label: "Order food",
     slug: "food",
     category: "food",
-    href: "#/food",
+    href: "/food",
     track: "need_card_order_food",
     description: "Know what to check before ordering.",
     iconSrc: "./assets/icons/action/icon-action-order-food.png",
@@ -1397,7 +1397,7 @@ const needChoices = [
     label: "Explain food needs",
     slug: "food-cards",
     category: "food",
-    href: "#/food-cards",
+    href: "/food-cards",
     iconName: "categoryicon-food",
     iconSrc: "./assets/icons/action/icon-action-explain-food-needs.png",
     description: "Show allergies, dietary needs, or ingredients to check before ordering.",
@@ -1418,7 +1418,7 @@ const needChoices = [
     label: "Use local transport",
     slug: "move",
     category: "move",
-    href: "#/move",
+    href: "/move",
     track: "need_card_use_local_transport",
     description: "Use IC cards, routes, and stops with confidence.",
     iconSrc: "./assets/icons/action/icon-action-local-transport.png",
@@ -1429,22 +1429,22 @@ const homeQuickPhrases = [
   {
     title: "Can I pay by card?",
     japanese: "カードで払えますか？",
-    href: "#/guides/how-to-pay",
+    href: "/guides/how-to-pay",
   },
   {
     title: "Where is the meal ticket machine?",
     japanese: "券売機はどこですか？",
-    href: "#/guides/ramen-shop",
+    href: "/guides/ramen-shop",
   },
   {
     title: "Do you have an English menu?",
     japanese: "英語のメニューはありますか？",
-    href: "#/food",
+    href: "/food",
   },
   {
     title: "I have a food allergy.",
     japanese: "食物アレルギーがあります。",
-    href: "#/food-cards",
+    href: "/food-cards",
   },
 ];
 
@@ -2379,7 +2379,7 @@ const foodFirstMoveCards = [
     category: "food",
     cardTitle: "Explain food needs",
     cardDescription: "Show allergies, dietary needs, or ingredients to check before ordering.",
-    href: "#/food-cards",
+    href: "/food-cards",
   },
 ];
 const foodCardMap = Object.fromEntries(foodCards.map((card) => [card.id, card]));
@@ -2415,21 +2415,16 @@ mobileSiteMenu?.addEventListener("click", (event) => {
   }
 
   closeMobileMenu();
-
-  if (!link.matches(".mobile-site-menu-custom")) {
-    return;
-  }
-
-  event.preventDefault();
-  const targetHash = link.getAttribute("href");
-  if (window.location.hash === targetHash) {
-    router();
-  } else {
-    window.location.hash = targetHash;
-  }
 });
 
 document.addEventListener("click", (event) => {
+  const link = event.target.closest?.("a");
+  if (link && shouldHandleAppLink(event, link)) {
+    event.preventDefault();
+    navigateToUrl(new URL(link.getAttribute("href"), window.location.href));
+    return;
+  }
+
   if (mobileMenuToggle?.getAttribute("aria-expanded") === "true" && !siteHeader?.contains(event.target)) {
     closeMobileMenu();
   }
@@ -2474,7 +2469,57 @@ function categoryIcon(id) {
 }
 
 function categoryHref(id) {
-  return `#/${id}`;
+  return `/${id}`;
+}
+
+function routePathFromUrl(url) {
+  const pathname = url.pathname.replace(/\/+$/, "") || "/";
+  return `${pathname}${url.search}`;
+}
+
+function routePartsFromPathname() {
+  const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+  if (pathname === "/") {
+    return [];
+  }
+
+  return pathname.replace(/^\/+/, "").split("/").filter(Boolean).map((part) => decodeURIComponent(part));
+}
+
+function shouldHandleAppLink(event, link) {
+  if (
+    event.defaultPrevented ||
+    event.button !== 0 ||
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey ||
+    link.hasAttribute("download")
+  ) {
+    return false;
+  }
+
+  const href = link.getAttribute("href");
+  if (!href || href.startsWith("#")) {
+    return false;
+  }
+
+  const target = link.getAttribute("target");
+  if (target && target !== "_self") {
+    return false;
+  }
+
+  const url = new URL(href, window.location.href);
+  return url.origin === window.location.origin;
+}
+
+function navigateToUrl(url) {
+  const nextPath = routePathFromUrl(url);
+  const currentPath = routePathFromUrl(window.location);
+  if (nextPath !== currentPath) {
+    window.history.pushState({}, "", nextPath);
+  }
+  router();
 }
 
 function pngImage(name, className, alt = "") {
@@ -2487,7 +2532,7 @@ function assetImage(src, className) {
 
 function guideCard(guide) {
   return `
-    <a class="guide-card category-${guide.category}" href="#/guides/${guide.slug}">
+    <a class="guide-card category-${guide.category}" href="/guides/${guide.slug}">
       <span class="category-chip">${escapeHtml(categoryName(guide.category))}</span>
       <h3>${escapeHtml(guide.title)}</h3>
       <div>
@@ -2537,7 +2582,7 @@ function categoryTopGuideCard(guide) {
   const title = guide.categoryCardTitle ?? guide.title;
   const description = guide.categoryCardDescription ?? guide.firstMove;
   return `
-    <a class="guide-card category-guide-card category-${guide.category} guide-${guide.slug}" href="#/guides/${guide.slug}">
+    <a class="guide-card category-guide-card category-${guide.category} guide-${guide.slug}" href="/guides/${guide.slug}">
       <span class="category-guide-card-icon" aria-hidden="true">${iconMarkup}</span>
       <h3>${escapeHtml(title)}</h3>
       <div class="category-guide-card-first-move">
@@ -2549,7 +2594,7 @@ function categoryTopGuideCard(guide) {
 
 function foodGuideCard(guide) {
   const iconMarkup = foodGuideIconMarkup(guide);
-  const href = guide.href ?? `#/guides/${guide.slug}`;
+  const href = guide.href ?? `/guides/${guide.slug}`;
   const title = guide.cardTitle ?? guide.title;
   const description = guide.cardDescription ?? guide.firstMove;
   return `
@@ -2614,8 +2659,8 @@ function foodCardCtaPanel({ context = "home", includeSamplesLink = true } = {}) 
           <span>Show in Japanese</span>
         </div>
         <div class="section-actions">
-          <a class="button primary" href="#/food-card/custom" ${trackAttr(createTrack)}>Create my card</a>
-          ${includeSamplesLink ? `<a class="food-card-sample-link" href="#/food-cards" ${trackAttr(samplesTrack)}>See sample cards</a>` : ""}
+          <a class="button primary" href="/food-card/custom" ${trackAttr(createTrack)}>Create my card</a>
+          ${includeSamplesLink ? `<a class="food-card-sample-link" href="/food-cards" ${trackAttr(samplesTrack)}>See sample cards</a>` : ""}
         </div>
       </div>
     </div>
@@ -2741,7 +2786,7 @@ function renderHome() {
 function choiceButton(choice) {
   const guide = guideMap[choice.slug];
   const category = choice.category ?? guide?.category ?? "move";
-  const href = choice.href ?? `#/guides/${choice.slug}`;
+  const href = choice.href ?? `/guides/${choice.slug}`;
   const iconName = choice.iconName ?? placeIconBySlug[choice.slug] ?? categoryIconById[category];
   const iconMarkup = choice.iconSrc ? assetImage(choice.iconSrc, "place-card-icon") : pngImage(iconName, "card-pict-img");
   const iconSizeClass = choice.largeIcon ? " is-place-icon-large" : "";
@@ -2757,7 +2802,7 @@ function choiceButton(choice) {
 function needCard(choice) {
   const category = choice.category ?? guideMap[choice.slug]?.category;
   const iconName = choice.iconName ?? needIconBySlug[choice.slug];
-  const href = choice.href ?? `#/guides/${choice.slug}`;
+  const href = choice.href ?? `/guides/${choice.slug}`;
   const track = choice.track ?? `need_card_${choice.slug}`;
   const label = choice.labelLines
     ? choice.labelLines.map((line) => `<span>${escapeHtml(line)}</span>`).join(" ")
@@ -2818,7 +2863,7 @@ function renderCategory(categoryId) {
   app.innerHTML = `
     <div class="page-shell layout-container">
       <header class="category-page-header">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>${escapeHtml(category.name)}</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>${escapeHtml(category.name)}</span></nav>
         <h1>${escapeHtml(category.name)}</h1>
         <p class="lead">${escapeHtml(category.description)}</p>
       </header>
@@ -2838,7 +2883,7 @@ function renderFoodCategory() {
   app.innerHTML = `
     <div class="page-shell food-page layout-container">
       <header class="category-page-header">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>Food</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Food</span></nav>
         <h1>Food in Japan</h1>
         <p class="lead">${escapeHtml(category.description)}</p>
       </header>
@@ -2894,7 +2939,7 @@ function renderMoveCategory() {
   app.innerHTML = `
     <div class="page-shell move-page layout-container">
       <header class="category-page-header">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>Move</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Move</span></nav>
         <h1>Move around Japan</h1>
         <p class="lead">${escapeHtml(category.description)}</p>
       </header>
@@ -2928,7 +2973,7 @@ function renderMoveCategory() {
           <h2>Need help from a person?</h2>
           <p>If your problem is not just about transport, use Get Help.</p>
         </div>
-        <a class="button secondary" href="#/help" ${trackAttr("move_to_help_lost")}>Go to Get Help</a>
+        <a class="button secondary" href="/help" ${trackAttr("move_to_help_lost")}>Go to Get Help</a>
       </section>
 
       ${categoryExplorerSection("move")}
@@ -2947,7 +2992,7 @@ function renderRelaxCategory() {
   app.innerHTML = `
     <div class="page-shell relax-page layout-container">
       <header class="category-page-header">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>Relax</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Relax</span></nav>
         <h1>Relax in Japan</h1>
         <p class="lead">Rest, recharge, and recover during long travel days.</p>
       </header>
@@ -2993,7 +3038,7 @@ function renderCultureCategory() {
   app.innerHTML = `
     <div class="page-shell culture-page layout-container">
       <header class="category-page-header">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>Culture</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Culture</span></nav>
         <h1>Culture in Japan</h1>
         <p class="lead">${escapeHtml(category.description)}</p>
       </header>
@@ -3049,7 +3094,7 @@ function renderHelpCategory() {
   app.innerHTML = `
     <div class="page-shell help-page layout-container">
       <header class="category-page-header">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>Get Help</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Get Help</span></nav>
         <h1>Get Help in Japan</h1>
         <p class="lead">${escapeHtml(category.description)}</p>
       </header>
@@ -3101,8 +3146,8 @@ function foodCardsPromo() {
         <p>Show allergies, dietary needs, or ingredients to check before ordering. Choose a sample card or create your own.</p>
       </div>
       <div class="section-actions">
-        <a class="button primary" href="#/food-cards" ${trackAttr("food_sample_cards_view")}>See sample cards</a>
-        <a class="button secondary" href="#/food-card/custom" ${trackAttr("food_custom_card_create")}>Create my card</a>
+        <a class="button primary" href="/food-cards" ${trackAttr("food_sample_cards_view")}>See sample cards</a>
+        <a class="button secondary" href="/food-card/custom" ${trackAttr("food_custom_card_create")}>Create my card</a>
       </div>
     </section>
   `;
@@ -3114,8 +3159,8 @@ function renderFoodCardsPage() {
     <div class="page-shell food-card-page layout-container">
       <header class="guide-page-header content-container">
         <nav class="crumbs" aria-label="Breadcrumb">
-          <a href="#/">Home</a><span>/</span>
-          <a href="#/food">Food</a><span>/</span>
+          <a href="/">Home</a><span>/</span>
+          <a href="/food">Food</a><span>/</span>
           <span>Food cards</span>
         </nav>
         <h1>Show your food needs in Japanese</h1>
@@ -3151,7 +3196,7 @@ function renderFoodCardsPage() {
 
 function foodCard(card) {
   return `
-    <a class="food-sample-card" href="#/food-cards/${card.id}" ${trackAttr(`food_card_open_${card.id}`)}>
+    <a class="food-sample-card" href="/food-cards/${card.id}" ${trackAttr(`food_card_open_${card.id}`)}>
       <div class="food-card-label">${escapeHtml(card.label)}</div>
       <h3>${escapeHtml(card.title)}</h3>
       <p class="food-list-preview jp">${escapeHtml(foodCardPreviewText(card))}</p>
@@ -3268,9 +3313,9 @@ function renderFoodCardDetail(cardId) {
     <div class="page-shell food-detail-page layout-container">
       <header class="guide-page-header content-container">
         <nav class="crumbs" aria-label="Breadcrumb">
-          <a href="#/">Home</a><span>/</span>
-          <a href="#/food">Food</a><span>/</span>
-          <a href="#/food-cards">Food cards</a><span>/</span>
+          <a href="/">Home</a><span>/</span>
+          <a href="/food">Food</a><span>/</span>
+          <a href="/food-cards">Food cards</a><span>/</span>
           <span>${escapeHtml(card.title)}</span>
         </nav>
         <h1>${escapeHtml(card.title)}</h1>
@@ -3323,11 +3368,11 @@ function renderFoodCardDetail(cardId) {
           <h2 id="custom-card-title">Create your own card</h2>
           <p>Show allergies, dietary needs, or ingredients to check before ordering.</p>
         </div>
-        <a class="button primary" href="#/food-card/custom" ${trackAttr(`food_card_detail_create_${card.id}`)}>Create my card</a>
+        <a class="button primary" href="/food-card/custom" ${trackAttr(`food_card_detail_create_${card.id}`)}>Create my card</a>
       </section>
 
       <div class="section-actions content-container">
-        <a class="button secondary" href="#/food-cards" ${trackAttr("food_card_detail_back_all")}>Back to sample cards</a>
+        <a class="button secondary" href="/food-cards" ${trackAttr("food_card_detail_back_all")}>Back to sample cards</a>
       </div>
     </div>
   `;
@@ -3791,7 +3836,7 @@ function customFoodCardPurchaseReviewLinkMarkup(label, href) {
 }
 
 function customFoodCardPurchaseReviewAgreementMarkup() {
-  return `I have reviewed my selected ingredients, card purpose, ${customFoodCardPurchaseReviewLinkMarkup("Terms of Use", "#/terms")}, ${customFoodCardPurchaseReviewLinkMarkup("Disclaimer", "#/disclaimer")}, ${customFoodCardPurchaseReviewLinkMarkup("Legal Notice", "#/legal-notice")}, and ${customFoodCardPurchaseReviewLinkMarkup("Privacy Policy", "#/privacy")}.`;
+  return `I have reviewed my selected ingredients, card purpose, ${customFoodCardPurchaseReviewLinkMarkup("Terms of Use", "/terms")}, ${customFoodCardPurchaseReviewLinkMarkup("Disclaimer", "/disclaimer")}, ${customFoodCardPurchaseReviewLinkMarkup("Legal Notice", "/legal-notice")}, and ${customFoodCardPurchaseReviewLinkMarkup("Privacy Policy", "/privacy")}.`;
 }
 
 function customFoodCardPurchaseReviewIsComplete() {
@@ -4318,9 +4363,9 @@ function renderCustomFoodCard() {
     <div class="page-shell food-card-page custom-food-card-page custom-food-card-mvp-page layout-container" ${customFoodCardState.showMode || customFoodCardState.sampleMode || customFoodCardState.imagePreviewUrl ? 'aria-hidden="true" inert' : ""}>
       <header class="guide-page-header content-container">
         <nav class="crumbs" aria-label="Breadcrumb">
-          <a href="#/">Home</a><span>/</span>
-          <a href="#/food">Food</a><span>/</span>
-          <a href="#/food-cards">Food cards</a><span>/</span>
+          <a href="/">Home</a><span>/</span>
+          <a href="/food">Food</a><span>/</span>
+          <a href="/food-cards">Food cards</a><span>/</span>
           <span>Custom Food Card</span>
         </nav>
         <h1>Custom Food Card</h1>
@@ -4552,7 +4597,7 @@ function relatedGuidesSection(guide) {
 
 function relatedGuideCard(guide, currentGuide) {
   return `
-    <a class="related-guide-card category-${guide.category}" href="#/guides/${guide.slug}" ${trackAttr(`guide_related_${currentGuide.slug}_${guide.slug}`)}>
+    <a class="related-guide-card category-${guide.category}" href="/guides/${guide.slug}" ${trackAttr(`guide_related_${currentGuide.slug}_${guide.slug}`)}>
       <h3>${escapeHtml(guide.title.replace(" in Japan", ""))}</h3>
     </a>
   `;
@@ -4580,7 +4625,7 @@ function renderGuide(slug) {
     <div class="page-shell guide-page layout-container category-${guide.category} guide-${guide.slug}">
       <header class="guide-page-header content-container">
         <nav class="crumbs" aria-label="Breadcrumb">
-          <a href="#/">Home</a><span>/</span>
+          <a href="/">Home</a><span>/</span>
           <a href="${categoryHref(guide.category)}">${escapeHtml(categoryName(guide.category))}</a>
         </nav>
         <h1>${escapeHtml(guide.title)}</h1>
@@ -4955,11 +5000,11 @@ function disclaimerParagraphMarkup(paragraph) {
   }
 
   if (paragraph === "Please also review our Terms of Use, Privacy Policy, and Legal Notice before using or purchasing Custom Food Card.") {
-    return `Please also review our ${legalPageLinkMarkup("#/terms", "Terms of Use")}, ${legalPageLinkMarkup("#/privacy", "Privacy Policy")}, and ${legalPageLinkMarkup("#/legal-notice", "Legal Notice")} before using or purchasing Custom Food Card.`;
+    return `Please also review our ${legalPageLinkMarkup("/terms", "Terms of Use")}, ${legalPageLinkMarkup("/privacy", "Privacy Policy")}, and ${legalPageLinkMarkup("/legal-notice", "Legal Notice")} before using or purchasing Custom Food Card.`;
   }
 
   if (paragraph === "Custom Food Cardを利用または購入する前に、利用規約、プライバシーポリシー、特定商取引法に基づく表記もあわせてご確認ください。") {
-    return `Custom Food Cardを利用または購入する前に、${legalPageLinkMarkup("#/terms", "利用規約")}、${legalPageLinkMarkup("#/privacy", "プライバシーポリシー")}、${legalPageLinkMarkup("#/legal-notice", "特定商取引法に基づく表記")}もあわせてご確認ください。`;
+    return `Custom Food Cardを利用または購入する前に、${legalPageLinkMarkup("/terms", "利用規約")}、${legalPageLinkMarkup("/privacy", "プライバシーポリシー")}、${legalPageLinkMarkup("/legal-notice", "特定商取引法に基づく表記")}もあわせてご確認ください。`;
   }
 
   return escapeHtml(paragraph);
@@ -5526,7 +5571,7 @@ function renderLegalPage(pageId) {
   app.innerHTML = `
     <div class="page-shell legal-page ${isTerms ? "terms-of-use-page" : ""} layout-container">
       <header class="legal-page-header content-container">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>${title}</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>${title}</span></nav>
         <h1>${title}</h1>
       </header>
       <article class="legal-page-content content-container">
@@ -5846,7 +5891,7 @@ function renderPrivacyPage() {
   app.innerHTML = `
     <div class="page-shell legal-page privacy-page layout-container">
       <header class="legal-page-header content-container">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>${title}</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>${title}</span></nav>
         <h1>${title}</h1>
       </header>
       <article class="legal-page-content content-container">
@@ -6018,11 +6063,11 @@ function legalNoticeParagraphMarkup(paragraph) {
   }
 
   if (paragraph === "Please also review our Terms of Use, Disclaimer, and Privacy Policy before purchase.") {
-    return `Please also review our ${legalNoticePageLinkMarkup("Terms of Use", "#/terms")}, ${legalNoticePageLinkMarkup("Disclaimer", "#/disclaimer")}, and ${legalNoticePageLinkMarkup("Privacy Policy", "#/privacy")} before purchase.`;
+    return `Please also review our ${legalNoticePageLinkMarkup("Terms of Use", "/terms")}, ${legalNoticePageLinkMarkup("Disclaimer", "/disclaimer")}, and ${legalNoticePageLinkMarkup("Privacy Policy", "/privacy")} before purchase.`;
   }
 
   if (paragraph === "購入前に、利用規約、免責事項、プライバシーポリシーもあわせてご確認ください。") {
-    return `購入前に、${legalNoticePageLinkMarkup("利用規約", "#/terms")}、${legalNoticePageLinkMarkup("免責事項", "#/disclaimer")}、${legalNoticePageLinkMarkup("プライバシーポリシー", "#/privacy")}もあわせてご確認ください。`;
+    return `購入前に、${legalNoticePageLinkMarkup("利用規約", "/terms")}、${legalNoticePageLinkMarkup("免責事項", "/disclaimer")}、${legalNoticePageLinkMarkup("プライバシーポリシー", "/privacy")}もあわせてご確認ください。`;
   }
 
   return escapeHtml(paragraph);
@@ -6062,7 +6107,7 @@ function renderLegalNoticePage() {
   app.innerHTML = `
     <div class="page-shell legal-page legal-notice-page layout-container">
       <header class="legal-page-header content-container">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>${title}</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>${title}</span></nav>
         <h1>${title}</h1>
       </header>
       <article class="legal-page-content content-container">
@@ -6162,7 +6207,7 @@ function renderFaqPage() {
   app.innerHTML = `
     <div class="page-shell legal-page faq-page layout-container">
       <header class="legal-page-header content-container">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="#/">Home</a><span>/</span><span>${title}</span></nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>${title}</span></nav>
         <h1>${title}</h1>
         <p class="faq-page-lead">Find answers about Japan First Move, Custom Food Cards, saving images, and using the guide while traveling in Japan.</p>
       </header>
@@ -6257,7 +6302,7 @@ function renderNotFound() {
         <h1>That first move is not here yet.</h1>
         <p class="lead">Try the home page or choose a category.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#/">Go home</a>
+          <a class="button primary" href="/">Go home</a>
         </div>
       </div>
     </div>
@@ -6278,7 +6323,7 @@ function navSectionFromRoute(parts) {
     return "home";
   }
 
-  if (parts[0] === "custom-food-card" || (parts[0] === "food-card" && parts[1] === "custom")) {
+  if (parts[0] === "food-card" && parts[1] === "custom") {
     return "custom-food-card";
   }
 
@@ -6319,13 +6364,12 @@ function router() {
     customFoodCardState.imagePreviewFile = null;
   }
   document.title = "Japan First Move";
-  const hash = window.location.hash.replace(/^#\/?/, "");
-  const parts = hash.split("/").filter(Boolean);
+  const parts = routePartsFromPathname();
   const route = parts;
 
   if (route.length === 0) {
     renderHome();
-  } else if (route[0] === "custom-food-card" || (route[0] === "food-card" && route[1] === "custom")) {
+  } else if (route[0] === "food-card" && route[1] === "custom") {
     startCustomFoodCard();
   } else if (route[0] === "food-cards") {
     if (route[1]) {
@@ -6354,5 +6398,5 @@ function router() {
   window.scrollTo(0, 0);
 }
 
-window.addEventListener("hashchange", router);
+window.addEventListener("popstate", router);
 router();

@@ -4,6 +4,9 @@
 !index.html
 !app.js
 !styles.css
+!_redirects
+!robots.txt
+!sitemap.xml
 
 !assets/
 assets/*
