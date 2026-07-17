@@ -3428,7 +3428,9 @@ function customFoodCardProtectCancelledBackNavigation() {
     return;
   }
 
-  window.history.pushState({ customFoodCardCancelGuard: true }, "", "/food-card/custom/?checkout=cancelled");
+  const cancelledPath = "/food-card/custom/?checkout=cancelled";
+  window.history.replaceState({ customFoodCardCancelReturn: true }, "", `${cancelledPath}#return`);
+  window.history.pushState({ customFoodCardCancelGuard: true }, "", cancelledPath);
 }
 
 function startCustomFoodCard({ restoreDraft = false } = {}) {
