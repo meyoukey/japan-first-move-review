@@ -1324,13 +1324,13 @@ const placeChoices = [
     label: "Ramen shop",
     slug: "ramen-shop",
     description: "Ordering basics",
-    iconSrc: "./assets/icons/place/icon-place-ramen.png",
+    iconSrc: "/assets/icons/place/icon-place-ramen.png",
   },
   {
     label: "Izakaya",
     slug: "izakaya",
     description: "Before ordering",
-    iconSrc: "./assets/icons/place/icon-place-izakaya.png",
+    iconSrc: "/assets/icons/place/icon-place-izakaya.png",
   },
   {
     label: "Station",
@@ -1338,42 +1338,42 @@ const placeChoices = [
     category: "move",
     iconName: "categoryicon-move",
     description: "First steps",
-    iconSrc: "./assets/icons/place/icon-place-station.png",
+    iconSrc: "/assets/icons/place/icon-place-station.png",
     largeIcon: true,
   },
   {
     label: "Bus stop",
     slug: "local-bus",
     description: "Boarding & payment",
-    iconSrc: "./assets/icons/place/icon-place-bus-stop.png",
+    iconSrc: "/assets/icons/place/icon-place-bus-stop.png",
     largeIcon: true,
   },
   {
     label: "Coin lockers",
     slug: "coin-lockers",
     description: "Bag storage",
-    iconSrc: "./assets/icons/place/icon-place-coin-locker.png",
+    iconSrc: "/assets/icons/place/icon-place-coin-locker.png",
     largeIcon: true,
   },
   {
     label: "Ticket machine",
     slug: "ticket-machine-no-english",
     description: "No English option",
-    iconSrc: "./assets/icons/place/icon-place-ticket-machine.png",
+    iconSrc: "/assets/icons/place/icon-place-ticket-machine.png",
     largeIcon: true,
   },
   {
     label: "Pharmacy",
     slug: "pharmacy",
     description: "Medicine help",
-    iconSrc: "./assets/icons/place/icon-place-drugstore.png",
+    iconSrc: "/assets/icons/place/icon-place-drugstore.png",
     largeIcon: true,
   },
   {
     label: "Onsen",
     slug: "onsen-sento",
     description: "Onsen basics",
-    iconSrc: "./assets/icons/place/icon-place-onsen.png",
+    iconSrc: "/assets/icons/place/icon-place-onsen.png",
   },
 ];
 
@@ -1385,13 +1385,13 @@ const needChoices = [
     href: "/food",
     track: "need_card_order_food",
     description: "Know what to check before ordering.",
-    iconSrc: "./assets/icons/action/icon-action-order-food.png",
+    iconSrc: "/assets/icons/action/icon-action-order-food.png",
   },
   {
     label: "Pay correctly",
     slug: "how-to-pay",
     description: "Check where and how to pay.",
-    iconSrc: "./assets/icons/action/icon-action-pay-correctly.png",
+    iconSrc: "/assets/icons/action/icon-action-pay-correctly.png",
   },
   {
     label: "Explain food needs",
@@ -1399,20 +1399,20 @@ const needChoices = [
     category: "food",
     href: "/food-cards",
     iconName: "categoryicon-food",
-    iconSrc: "./assets/icons/action/icon-action-explain-food-needs.png",
+    iconSrc: "/assets/icons/action/icon-action-explain-food-needs.png",
     description: "Show allergies, dietary needs, or ingredients to check before ordering.",
   },
   {
     label: "Store luggage",
     slug: "coin-lockers",
     description: "Find a coin locker or storage option.",
-    iconSrc: "./assets/icons/action/icon-action-store-luggage.png",
+    iconSrc: "/assets/icons/action/icon-action-store-luggage.png",
   },
   {
     label: "Ask for medicine",
     slug: "pharmacy",
     description: "Find the right words at a pharmacy.",
-    iconSrc: "./assets/icons/action/icon-action-ask-medicine.png",
+    iconSrc: "/assets/icons/action/icon-action-ask-medicine.png",
   },
   {
     label: "Use local transport",
@@ -1421,7 +1421,7 @@ const needChoices = [
     href: "/move",
     track: "need_card_use_local_transport",
     description: "Use IC cards, routes, and stops with confidence.",
-    iconSrc: "./assets/icons/action/icon-action-local-transport.png",
+    iconSrc: "/assets/icons/action/icon-action-local-transport.png",
   },
 ];
 
@@ -2294,7 +2294,7 @@ const culturePhraseCards = [
   },
 ];
 
-const partPngPath = "./assets/ui/PNG/";
+const partPngPath = "/assets/ui/PNG/";
 
 const placeIconBySlug = {
   "ramen-shop": "icon-ramen",
@@ -2327,27 +2327,27 @@ const categoryIconById = {
 };
 
 const foodGuideIconBySlug = {
-  "ramen-shop": { src: "./assets/icons/place/icon-place-ramen.png" },
-  izakaya: { src: "./assets/icons/place/icon-place-izakaya.png" },
-  "restaurant-full": { src: "./assets/icons/place/icon-place-full.png" },
-  "how-to-pay": { src: "./assets/icons/action/icon-action-pay-correctly.png" },
-  "food-cards": { src: "./assets/icons/action/icon-action-explain-food-needs.png" },
+  "ramen-shop": { src: "/assets/icons/place/icon-place-ramen.png" },
+  izakaya: { src: "/assets/icons/place/icon-place-izakaya.png" },
+  "restaurant-full": { src: "/assets/icons/place/icon-place-full.png" },
+  "how-to-pay": { src: "/assets/icons/action/icon-action-pay-correctly.png" },
+  "food-cards": { src: "/assets/icons/action/icon-action-explain-food-needs.png" },
 };
 
 const categoryGuideIconBySlug = {
-  "local-bus": { src: "./assets/icons/place/icon-place-bus-stop.png" },
-  "find-right-platform": { src: "./assets/icons/action/icon-action-platform.png" },
-  "find-right-exit": { src: "./assets/icons/action/icon-action-exit.png" },
-  "charge-ic-card": { src: "./assets/icons/action/icon-action-IC-card.png" },
-  "coin-lockers": { src: "./assets/icons/place/icon-place-coin-locker.png" },
-  "ticket-machine-no-english": { src: "./assets/icons/place/icon-place-ticket-machine.png" },
-  "onsen-sento": { src: "./assets/icons/place/icon-place-onsen.png" },
-  "short-break": { src: "./assets/icons/action/icon-action-Short-Break.png" },
-  shrine: { src: "./assets/icons/place/icon-place-shrine.png" },
-  "photo-manners": { src: "./assets/icons/action/icon-action-Taking-Photos.png" },
-  pharmacy: { src: "./assets/icons/place/icon-place-drugstore.png" },
-  "feeling-sick": { src: "./assets/icons/action/icon-action-Feel-Sick-white.png" },
-  "lost-something": { src: "./assets/icons/action/icon-action-Lost-Something.png" },
+  "local-bus": { src: "/assets/icons/place/icon-place-bus-stop.png" },
+  "find-right-platform": { src: "/assets/icons/action/icon-action-platform.png" },
+  "find-right-exit": { src: "/assets/icons/action/icon-action-exit.png" },
+  "charge-ic-card": { src: "/assets/icons/action/icon-action-IC-card.png" },
+  "coin-lockers": { src: "/assets/icons/place/icon-place-coin-locker.png" },
+  "ticket-machine-no-english": { src: "/assets/icons/place/icon-place-ticket-machine.png" },
+  "onsen-sento": { src: "/assets/icons/place/icon-place-onsen.png" },
+  "short-break": { src: "/assets/icons/action/icon-action-Short-Break.png" },
+  shrine: { src: "/assets/icons/place/icon-place-shrine.png" },
+  "photo-manners": { src: "/assets/icons/action/icon-action-Taking-Photos.png" },
+  pharmacy: { src: "/assets/icons/place/icon-place-drugstore.png" },
+  "feeling-sick": { src: "/assets/icons/action/icon-action-Feel-Sick-white.png" },
+  "lost-something": { src: "/assets/icons/action/icon-action-Lost-Something.png" },
 };
 
 const categoryMap = Object.fromEntries(categories.map((category) => [category.id, category]));
@@ -2717,10 +2717,10 @@ function renderHome() {
           </h1>
           <p class="lead">Simple first moves for real-life Japan moments.</p>
           <div class="hero-visual" aria-hidden="true">
-            <img class="hero-visual-img hero-visual-img-1" src="./sozai/hero/hero-mobile-ramen.png" alt="" />
-            <img class="hero-visual-img hero-visual-img-2" src="./sozai/hero/hero-mobile-izakaya.png" alt="" />
-            <img class="hero-visual-img hero-visual-img-3" src="./sozai/hero/hero-mobile-onsen.png" alt="" />
-            <img class="hero-visual-img hero-visual-img-4" src="./sozai/hero/hero-mobile-torii.png" alt="" />
+            <img class="hero-visual-img hero-visual-img-1" src="/sozai/hero/hero-mobile-ramen.png" alt="" />
+            <img class="hero-visual-img hero-visual-img-2" src="/sozai/hero/hero-mobile-izakaya.png" alt="" />
+            <img class="hero-visual-img hero-visual-img-3" src="/sozai/hero/hero-mobile-onsen.png" alt="" />
+            <img class="hero-visual-img hero-visual-img-4" src="/sozai/hero/hero-mobile-torii.png" alt="" />
           </div>
           <div class="poster-wordmark" aria-hidden="true">JAPAN</div>
         </div>
@@ -3694,9 +3694,9 @@ function customFoodCardIngredientTilesMarkup(selectedIngredients) {
 
 function customFoodCardResponseSymbolAsset(symbol) {
   return {
-    "○": "./assets/food-card/response-can.jpg",
-    "×": "./assets/food-card/response-cannot.jpg",
-    "?": "./assets/food-card/response-check.jpg",
+    "○": "/assets/food-card/response-can.jpg",
+    "×": "/assets/food-card/response-cannot.jpg",
+    "?": "/assets/food-card/response-check.jpg",
   }[symbol];
 }
 
@@ -3750,7 +3750,7 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
           </div>
           ${content.closing ? `<p class="custom-card-staff-message" lang="ja">${closingMarkup}</p>` : ""}
           <div class="custom-card-point-note">
-            <img class="custom-card-point-icon" src="./assets/food-card/yubisashi.png" alt="" aria-hidden="true" />
+            <img class="custom-card-point-icon" src="/assets/food-card/yubisashi.png" alt="" aria-hidden="true" />
             <div>
               <strong lang="ja">該当するものを指さしてください</strong>
               <small lang="en">Please point to one.</small>
@@ -3781,7 +3781,7 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
           </footer>
         </section>
         <footer class="custom-card-capture-brand-footer" aria-hidden="true">
-          <img src="./assets/brand/bird-logo.png" alt="" />
+          <img src="/assets/brand/bird-logo.png" alt="" />
           <span class="custom-card-capture-brand-text">Japan First Move</span>
           <span class="custom-card-capture-brand-separator">·</span>
           <span class="custom-card-capture-brand-url">japanfirstmove.com</span>
@@ -4655,7 +4655,7 @@ function renderGuide(slug) {
           </section>
           <section class="article-section communication-section say-show-section content-container" id="say-show">
             <div class="communication-heading">
-              <img class="communication-heading-icon" src="./assets/section-icons/icon-say-or-show-this.png" alt="" loading="lazy" decoding="async">
+              <img class="communication-heading-icon" src="/assets/section-icons/icon-say-or-show-this.png" alt="" loading="lazy" decoding="async">
               <div class="communication-heading-copy">
                 ${guideSectionHeading("Say or show this")}
                 <p class="section-intro">Use these phrases to speak or point when you need help.</p>
@@ -4667,7 +4667,7 @@ function renderGuide(slug) {
           </section>
           <section class="article-section communication-section staff-section content-container" id="staff">
             <div class="communication-heading">
-              <img class="communication-heading-icon" src="./assets/section-icons/icon-if-you-see-or-hear-this.png" alt="" loading="lazy" decoding="async">
+              <img class="communication-heading-icon" src="/assets/section-icons/icon-if-you-see-or-hear-this.png" alt="" loading="lazy" decoding="async">
               <div class="communication-heading-copy">
                 ${guideSectionHeading("If You See or Hear This")}
               </div>
