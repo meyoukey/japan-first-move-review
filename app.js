@@ -4023,7 +4023,21 @@ function customFoodCardPurchaseReviewLinkMarkup(label, href) {
 }
 
 function customFoodCardPurchaseReviewAgreementMarkup() {
-  return `I have reviewed my selected ingredients, card purpose, ${customFoodCardPurchaseReviewLinkMarkup("Terms of Use", "/terms")}, ${customFoodCardPurchaseReviewLinkMarkup("Disclaimer", "/disclaimer")}, ${customFoodCardPurchaseReviewLinkMarkup("Legal Notice", "/legal-notice")}, and ${customFoodCardPurchaseReviewLinkMarkup("Privacy Policy", "/privacy")}.`;
+  return "I have reviewed my selected ingredients, card purpose, and purchase conditions.";
+}
+
+function customFoodCardPurchaseReviewLegalLinksMarkup() {
+  return `
+    <section class="custom-purchase-legal-links" aria-label="Purchase legal links">
+      <span>Legal information</span>
+      <div>
+        ${customFoodCardPurchaseReviewLinkMarkup("Terms of Use", "/terms")}
+        ${customFoodCardPurchaseReviewLinkMarkup("Disclaimer", "/disclaimer")}
+        ${customFoodCardPurchaseReviewLinkMarkup("Legal Notice", "/legal-notice")}
+        ${customFoodCardPurchaseReviewLinkMarkup("Privacy Policy", "/privacy")}
+      </div>
+    </section>
+  `;
 }
 
 function customFoodCardPurchaseReviewIsComplete() {
@@ -4095,6 +4109,7 @@ function customFoodCardStepThreeMarkup() {
         </div>
         <button class="button secondary custom-sample-preview-button" type="button" data-custom-open-sample>View sample card</button>
       </section>
+      ${customFoodCardPurchaseReviewLegalLinksMarkup()}
       <label class="custom-agreement-box">
         <input type="checkbox" data-custom-safety-agreement ${customFoodCardState.safetyAgreed ? "checked" : ""}>
         <span>I understand that Custom Food Card does not guarantee food safety, allergy safety, ingredient accuracy, allergen-free meals, or restaurant acceptance.</span>
