@@ -2184,7 +2184,8 @@ const customFoodCardState = {
   cardType: "",
   reason: "",
   selectedIngredientIds: [],
-  agreed: false,
+  safetyAgreed: false,
+  purchaseReviewAgreed: false,
   sampleMode: false,
   showMode: false,
   error: "",
@@ -3341,7 +3342,8 @@ function resetCustomFoodCardState() {
     cardType: "",
     reason: "",
     selectedIngredientIds: [],
-    agreed: false,
+    safetyAgreed: false,
+    purchaseReviewAgreed: false,
     sampleMode: false,
     showMode: false,
     error: "",
@@ -3784,16 +3786,55 @@ function customFoodCardSampleModalMarkup() {
   `;
 }
 
+function customFoodCardPurchaseReviewLinkMarkup(label, href) {
+  return `<a href="${escapeHtml(href)}">${escapeHtml(label)}</a>`;
+}
+
+function customFoodCardPurchaseReviewAgreementMarkup() {
+  return `I have reviewed my selected ingredients, card purpose, ${customFoodCardPurchaseReviewLinkMarkup("Terms of Use", "#/terms")}, ${customFoodCardPurchaseReviewLinkMarkup("Disclaimer", "#/disclaimer")}, ${customFoodCardPurchaseReviewLinkMarkup("Legal Notice", "#/legal-notice")}, and ${customFoodCardPurchaseReviewLinkMarkup("Privacy Policy", "#/privacy")}.`;
+}
+
+function customFoodCardPurchaseReviewIsComplete() {
+  return customFoodCardState.safetyAgreed && customFoodCardState.purchaseReviewAgreed;
+}
+
 function customFoodCardStepThreeMarkup() {
   const type = customFoodCardType();
   const reason = customFoodCardReason();
   const selectedIngredients = customFoodCardSelectedIngredients();
+  const canProceedToPayment = customFoodCardPurchaseReviewIsComplete();
   return `
     <div class="custom-food-card-step" data-custom-step="3">
       <div class="custom-step-heading">
-        <h2>Confirm your card</h2>
-        <p>Review your card before creating it.</p>
+        <h2>Review before purchase</h2>
       </div>
+      <section class="custom-purchase-review" aria-label="Purchase review">
+        <header class="custom-purchase-review-header">
+          <div>
+            <h3>Custom Food Card</h3>
+            <p>Digital product · One-time purchase</p>
+          </div>
+        </header>
+        <div class="custom-purchase-review-items">
+          <div class="custom-purchase-review-item">
+            <span>Price</span>
+            <p>USD $4.99 tax included</p>
+          </div>
+          <div class="custom-purchase-review-item">
+            <span>What you get</span>
+            <p>Create a Japanese food communication card to show to staff, save as an image, or share from your device.</p>
+          </div>
+          <div class="custom-purchase-review-item">
+            <span>Refunds and cancellations</span>
+            <p>Digital product available immediately after purchase. Generally non-refundable, except where required by law or for a clear payment processing error.</p>
+          </div>
+          <div class="custom-purchase-review-item">
+            <span>Important note</span>
+            <p>Communication aid only. No guarantee of food safety, allergy safety, ingredient accuracy, allergen-free meals, or restaurant acceptance.</p>
+          </div>
+        </div>
+        <p class="custom-purchase-review-reminder">Review your selected ingredients and card purpose before purchase.</p>
+      </section>
       <div class="custom-confirm-summary">
         <div class="custom-confirm-group custom-confirm-group-items">
           <span>Selected items</span>
@@ -3820,21 +3861,19 @@ function customFoodCardStepThreeMarkup() {
         </div>
         <button class="button secondary custom-sample-preview-button" type="button" data-custom-open-sample>View sample card</button>
       </section>
-      <div class="custom-payment-placeholder" aria-label="Payment placeholder">
-        <span>Custom Food Card</span>
-        <strong>$4.99</strong>
-        <p>Payment is not connected in this preview yet.</p>
-        <p class="custom-digital-product-note">This is a digital product. Refunds are generally not available after purchase.</p>
-      </div>
       <label class="custom-agreement-box">
-        <input type="checkbox" data-custom-agreement ${customFoodCardState.agreed ? "checked" : ""}>
-        <span>I understand this card does not guarantee food safety.</span>
+        <input type="checkbox" data-custom-safety-agreement ${customFoodCardState.safetyAgreed ? "checked" : ""}>
+        <span>I understand that Custom Food Card does not guarantee food safety, allergy safety, ingredient accuracy, allergen-free meals, or restaurant acceptance.</span>
       </label>
-      <p class="custom-terms-copy">By creating this card, you agree to the <a href="#/terms">Terms of Use</a> and understand the <a href="#/disclaimer">Disclaimer</a>.</p>
+      <label class="custom-agreement-box">
+        <input type="checkbox" data-custom-purchase-review-agreement ${customFoodCardState.purchaseReviewAgreed ? "checked" : ""}>
+        <span>${customFoodCardPurchaseReviewAgreementMarkup()}</span>
+      </label>
       <div class="custom-step-actions custom-step-actions-split">
         <button class="button secondary" type="button" data-custom-back>Back</button>
-        <button class="button primary" type="button" data-custom-create ${customFoodCardState.agreed ? "" : "disabled"}>Create my card — $4.99</button>
+        <button class="button primary" type="button" data-custom-create ${canProceedToPayment ? "" : "disabled"}>Proceed to payment</button>
       </div>
+      <p class="custom-terms-copy">Payment is processed securely through Stripe.</p>
     </div>
   `;
 }
@@ -4317,7 +4356,8 @@ function wireCustomFoodCardEvents() {
       if (customFoodCardState.cardType !== cardType) {
         customFoodCardState.cardType = cardType;
         customFoodCardState.reason = "";
-        customFoodCardState.agreed = false;
+        customFoodCardState.safetyAgreed = false;
+        customFoodCardState.purchaseReviewAgreed = false;
       }
       customFoodCardState.error = "";
       renderCustomFoodCard();
@@ -4344,7 +4384,8 @@ function wireCustomFoodCardEvents() {
         customFoodCardState.selectedIngredientIds = [...customFoodCardState.selectedIngredientIds, ingredientId];
         customFoodCardState.error = "";
       }
-      customFoodCardState.agreed = false;
+      customFoodCardState.safetyAgreed = false;
+      customFoodCardState.purchaseReviewAgreed = false;
       if (customFoodCardState.cardType && !customFoodCardTypeIsAvailable(customFoodCardState.cardType)) {
         customFoodCardState.cardType = "";
         customFoodCardState.reason = "";
@@ -4390,8 +4431,13 @@ function wireCustomFoodCardEvents() {
     window.scrollTo(0, 0);
   });
 
-  document.querySelector("[data-custom-agreement]")?.addEventListener("change", (event) => {
-    customFoodCardState.agreed = event.currentTarget.checked;
+  document.querySelector("[data-custom-safety-agreement]")?.addEventListener("change", (event) => {
+    customFoodCardState.safetyAgreed = event.currentTarget.checked;
+    renderCustomFoodCard();
+  });
+
+  document.querySelector("[data-custom-purchase-review-agreement]")?.addEventListener("change", (event) => {
+    customFoodCardState.purchaseReviewAgreed = event.currentTarget.checked;
     renderCustomFoodCard();
   });
 
@@ -4406,7 +4452,7 @@ function wireCustomFoodCardEvents() {
   });
 
   document.querySelector("[data-custom-create]")?.addEventListener("click", () => {
-    if (!customFoodCardState.agreed) {
+    if (!customFoodCardPurchaseReviewIsComplete()) {
       return;
     }
     // TODO(stripe-checkout): Replace this direct transition with Stripe Checkout and resume card creation after successful payment.

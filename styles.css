@@ -15187,6 +15187,67 @@ body:has(#app) .site-footer .site-footer-note {
   font-size: 0.82rem;
 }
 
+.custom-purchase-review {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid #e7dce0;
+  border-radius: 14px;
+  color: var(--color-text-main);
+  background: #fff8fa;
+}
+
+.custom-purchase-review-header h3,
+.custom-purchase-review-header p,
+.custom-purchase-review-item p,
+.custom-purchase-review-reminder {
+  margin: 0;
+}
+
+.custom-purchase-review-header h3 {
+  color: var(--color-text-main);
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.custom-purchase-review-header p {
+  margin-top: 0.2rem;
+  color: var(--color-text-sub);
+  font-size: 0.84rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.custom-purchase-review-items {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.custom-purchase-review-item {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.custom-purchase-review-item > span {
+  color: #a65d74;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.015em;
+}
+
+.custom-purchase-review-item p,
+.custom-purchase-review-reminder {
+  color: #3f4652;
+  font-size: 0.86rem;
+  line-height: 1.48;
+}
+
+.custom-purchase-review-reminder {
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(166, 93, 116, 0.18);
+  font-weight: 650;
+}
+
 .custom-flow-safety-note {
   display: grid;
   gap: 0.25rem;
@@ -15257,6 +15318,19 @@ body:has(#app) .site-footer .site-footer-note {
   height: 1.05rem;
   margin: 0.08rem 0 0;
   accent-color: #b94b6f;
+}
+
+.custom-agreement-box a {
+  color: #a54162;
+  text-decoration: underline;
+  text-decoration-color: rgba(165, 65, 98, 0.35);
+  text-underline-offset: 0.16em;
+}
+
+.custom-agreement-box a:hover,
+.custom-agreement-box a:focus-visible {
+  color: #85314f;
+  text-decoration-color: rgba(165, 65, 98, 0.55);
 }
 
 .custom-terms-copy {
