@@ -15013,10 +15013,11 @@ body:has(#app) .site-footer .site-footer-note {
 .custom-confirm-summary {
   display: grid;
   gap: 0.65rem;
-  padding: 1rem;
-  border: 1px solid #e7dce0;
+  padding: 1.05rem;
+  border: 2px solid rgba(200, 91, 125, 0.34);
   border-radius: 14px;
-  background: #faf7f8;
+  background: #fffdfd;
+  box-shadow: 0 10px 24px rgba(110, 70, 82, 0.08);
 }
 
 .custom-confirm-summary > div {
@@ -15026,27 +15027,27 @@ body:has(#app) .site-footer .site-footer-note {
 }
 
 .custom-confirm-summary > div > span {
-  color: var(--color-text-sub);
+  color: #914762;
   font-size: 0.88rem;
-  font-weight: 750;
+  font-weight: 850;
 }
 
 .custom-confirm-summary strong {
   min-width: 0;
   overflow-wrap: anywhere;
   color: var(--color-text-main);
-  font-size: 0.98rem;
+  font-size: 1.05rem;
   line-height: 1.35;
 }
 
 .custom-confirm-items {
   display: grid;
-  gap: 0.3rem;
+  gap: 0.42rem;
   min-width: 0;
   margin: 0;
   padding-left: 1.2rem;
   color: var(--color-text-main);
-  font-size: 0.98rem;
+  font-size: 1.06rem;
   line-height: 1.35;
 }
 
@@ -15189,12 +15190,12 @@ body:has(#app) .site-footer .site-footer-note {
 
 .custom-purchase-review {
   display: grid;
-  gap: 0.9rem;
-  padding: 1rem;
+  gap: 0.75rem;
+  padding: 0.9rem;
   border: 1px solid #e7dce0;
-  border-radius: 14px;
+  border-radius: 12px;
   color: var(--color-text-main);
-  background: #fff8fa;
+  background: #fbf8f9;
 }
 
 .custom-purchase-review-header h3,
@@ -15206,21 +15207,21 @@ body:has(#app) .site-footer .site-footer-note {
 
 .custom-purchase-review-header h3 {
   color: var(--color-text-main);
-  font-size: 1.08rem;
+  font-size: 0.98rem;
   line-height: 1.25;
 }
 
 .custom-purchase-review-header p {
   margin-top: 0.2rem;
   color: var(--color-text-sub);
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   font-weight: 650;
   line-height: 1.35;
 }
 
 .custom-purchase-review-items {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.62rem;
 }
 
 .custom-purchase-review-item {
@@ -15230,7 +15231,7 @@ body:has(#app) .site-footer .site-footer-note {
 
 .custom-purchase-review-item > span {
   color: #a65d74;
-  font-size: 0.92rem;
+  font-size: 0.84rem;
   font-weight: 800;
   letter-spacing: 0.015em;
 }
@@ -15238,8 +15239,8 @@ body:has(#app) .site-footer .site-footer-note {
 .custom-purchase-review-item p,
 .custom-purchase-review-reminder {
   color: #3f4652;
-  font-size: 0.91rem;
-  line-height: 1.48;
+  font-size: 0.84rem;
+  line-height: 1.42;
 }
 
 .custom-purchase-review-reminder {

@@ -4042,6 +4042,25 @@ function customFoodCardStepThreeMarkup() {
       <div class="custom-step-heading">
         <h2>Review before purchase</h2>
       </div>
+      <div class="custom-confirm-summary">
+        <div class="custom-confirm-group custom-confirm-group-items">
+          <span>Selected items</span>
+          <ul class="custom-confirm-items">
+            ${selectedIngredients
+              .map(
+                (ingredient) => `
+                  <li>
+                    <strong lang="ja">${escapeHtml(ingredient.labelJa)}</strong>
+                    <span class="custom-confirm-item-en" lang="en">/ ${escapeHtml(ingredient.labelEn)}</span>
+                  </li>
+                `,
+              )
+              .join("")}
+          </ul>
+        </div>
+        <div class="custom-confirm-group custom-confirm-group-purpose"><span>Card purpose</span><strong>${escapeHtml(type?.label ?? "")}</strong></div>
+        ${reason ? `<div class="custom-confirm-group custom-confirm-group-reason"><span>Reason</span><strong>${escapeHtml(reason.label)}</strong></div>` : ""}
+      </div>
       <section class="custom-purchase-review" aria-label="Purchase review">
         <header class="custom-purchase-review-header">
           <div>
@@ -4069,25 +4088,6 @@ function customFoodCardStepThreeMarkup() {
         </div>
         <p class="custom-purchase-review-reminder">Review your selected ingredients and card purpose before purchase.</p>
       </section>
-      <div class="custom-confirm-summary">
-        <div class="custom-confirm-group custom-confirm-group-items">
-          <span>Selected items</span>
-          <ul class="custom-confirm-items">
-            ${selectedIngredients
-              .map(
-                (ingredient) => `
-                  <li>
-                    <strong lang="ja">${escapeHtml(ingredient.labelJa)}</strong>
-                    <span class="custom-confirm-item-en" lang="en">/ ${escapeHtml(ingredient.labelEn)}</span>
-                  </li>
-                `,
-              )
-              .join("")}
-          </ul>
-        </div>
-        <div class="custom-confirm-group custom-confirm-group-purpose"><span>Card purpose</span><strong>${escapeHtml(type?.label ?? "")}</strong></div>
-        ${reason ? `<div class="custom-confirm-group custom-confirm-group-reason"><span>Reason</span><strong>${escapeHtml(reason.label)}</strong></div>` : ""}
-      </div>
       <section class="custom-sample-preview" aria-labelledby="custom-sample-preview-title">
         <div>
           <h3 id="custom-sample-preview-title">Want to see the card format?</h3>
