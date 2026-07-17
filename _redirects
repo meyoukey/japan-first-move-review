@@ -1,1 +1,6 @@
-/* /index.html 200
+/food-card/custom /index.html 200
+/food-card/custom/* /index.html 200
+/privacy /index.html 200
+/legal-notice /index.html 200
+/terms /index.html 200
+/disclaimer /index.html 200
