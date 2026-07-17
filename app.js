@@ -2520,10 +2520,12 @@ function shouldHandleAppLink(event, link) {
 }
 
 function navigateToUrl(url) {
-  const nextPath = routePathFromUrl(url);
-  const currentPath = routePathFromUrl(window.location);
-  if (nextPath !== currentPath) {
-    window.history.pushState({}, "", nextPath);
+  const nextRoutePath = routePathFromUrl(url);
+  const currentRoutePath = routePathFromUrl(window.location);
+  const nextHistoryPath = `${url.pathname}${url.search}`;
+  const currentHistoryPath = `${window.location.pathname}${window.location.search}`;
+  if (nextRoutePath !== currentRoutePath || nextHistoryPath !== currentHistoryPath) {
+    window.history.pushState({}, "", nextHistoryPath);
   }
   router({ restoreCustomFoodCardDraft: false });
 }
@@ -2665,7 +2667,7 @@ function foodCardCtaPanel({ context = "home", includeSamplesLink = true } = {}) 
           <span>Show in Japanese</span>
         </div>
         <div class="section-actions">
-          <a class="button primary" href="/food-card/custom" ${trackAttr(createTrack)}>Create my card</a>
+          <a class="button primary" href="/food-card/custom/" ${trackAttr(createTrack)}>Create my card</a>
           ${includeSamplesLink ? `<a class="food-card-sample-link" href="/food-cards" ${trackAttr(samplesTrack)}>See sample cards</a>` : ""}
         </div>
       </div>
@@ -3153,7 +3155,7 @@ function foodCardsPromo() {
       </div>
       <div class="section-actions">
         <a class="button primary" href="/food-cards" ${trackAttr("food_sample_cards_view")}>See sample cards</a>
-        <a class="button secondary" href="/food-card/custom" ${trackAttr("food_custom_card_create")}>Create my card</a>
+        <a class="button secondary" href="/food-card/custom/" ${trackAttr("food_custom_card_create")}>Create my card</a>
       </div>
     </section>
   `;
@@ -3374,7 +3376,7 @@ function renderFoodCardDetail(cardId) {
           <h2 id="custom-card-title">Create your own card</h2>
           <p>Show allergies, dietary needs, or ingredients to check before ordering.</p>
         </div>
-        <a class="button primary" href="/food-card/custom" ${trackAttr(`food_card_detail_create_${card.id}`)}>Create my card</a>
+        <a class="button primary" href="/food-card/custom/" ${trackAttr(`food_card_detail_create_${card.id}`)}>Create my card</a>
       </section>
 
       <div class="section-actions content-container">
@@ -3409,10 +3411,24 @@ function resetCustomFoodCardState() {
 }
 
 function customFoodCardEnsureBuilderRoute() {
-  const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
-  if (pathname !== "/food-card/custom") {
-    window.history.replaceState({}, "", "/food-card/custom");
+  if (window.location.pathname !== "/food-card/custom/") {
+    window.history.replaceState({}, "", "/food-card/custom/");
   }
+}
+
+function customFoodCardNormalizeCancelledRoute() {
+  const cancelledPath = "/food-card/custom/?checkout=cancelled";
+  if (`${window.location.pathname}${window.location.search}` !== cancelledPath) {
+    window.history.replaceState({ customFoodCardCancelReturn: true }, "", cancelledPath);
+  }
+}
+
+function customFoodCardProtectCancelledBackNavigation() {
+  if (window.history.state?.customFoodCardCancelGuard) {
+    return;
+  }
+
+  window.history.pushState({ customFoodCardCancelGuard: true }, "", "/food-card/custom/?checkout=cancelled");
 }
 
 function startCustomFoodCard({ restoreDraft = false } = {}) {
@@ -3660,6 +3676,8 @@ async function customFoodCardBeginCheckout() {
 }
 
 function startCustomFoodCardCancelled() {
+  customFoodCardNormalizeCancelledRoute();
+  customFoodCardProtectCancelledBackNavigation();
   resetCustomFoodCardState();
   const draft = customFoodCardLoadCheckoutDraft();
   if (draft && customFoodCardRestoreCheckoutSnapshot(draft.snapshot)) {
@@ -6702,7 +6720,7 @@ function router({ restoreCustomFoodCardDraft = false } = {}) {
   const params = new URLSearchParams(window.location.search);
 
   if (route.length === 0 && params.get("checkout") === "cancelled") {
-    window.history.replaceState({}, "", "/food-card/custom?checkout=cancelled");
+    window.history.replaceState({}, "", "/food-card/custom/?checkout=cancelled");
     startCustomFoodCardCancelled();
   } else if (route.length === 0) {
     renderHome();

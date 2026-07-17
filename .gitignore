@@ -40,6 +40,9 @@ functions/api/*
 !food-cards/index.html
 !food-cards/*/
 !food-cards/*/index.html
+!food-card/
+!food-card/custom/
+!food-card/custom/index.html
 
 !assets/
 assets/*

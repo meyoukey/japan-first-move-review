@@ -42,7 +42,7 @@ export async function onRequestPost({ request, env }) {
   params.set("line_items[0][price]", env.STRIPE_PRICE_ID);
   params.set("line_items[0][quantity]", "1");
   params.set("success_url", `${origin}/food-card/custom/success?session_id={CHECKOUT_SESSION_ID}`);
-  params.set("cancel_url", `${origin}/food-card/custom?checkout=cancelled`);
+  params.set("cancel_url", `${origin}/food-card/custom/?checkout=cancelled`);
   params.set("client_reference_id", purchaseAttemptId);
 
   const stripeResponse = await fetch("https://api.stripe.com/v1/checkout/sessions", {
