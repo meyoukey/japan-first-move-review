@@ -4028,15 +4028,16 @@ function customFoodCardPurchaseReviewAgreementMarkup() {
 
 function customFoodCardPurchaseReviewLegalLinksMarkup() {
   return `
-    <section class="custom-purchase-legal-links" aria-label="Purchase legal links">
-      <span>Legal information</span>
-      <div>
-        ${customFoodCardPurchaseReviewLinkMarkup("Terms of Use", "/terms")}
-        ${customFoodCardPurchaseReviewLinkMarkup("Disclaimer", "/disclaimer")}
-        ${customFoodCardPurchaseReviewLinkMarkup("Legal Notice", "/legal-notice")}
-        ${customFoodCardPurchaseReviewLinkMarkup("Privacy Policy", "/privacy")}
-      </div>
-    </section>
+    <p class="custom-purchase-legal-links">
+      <span>Legal information:</span>
+      ${customFoodCardPurchaseReviewLinkMarkup("Terms", "/terms")}
+      <span class="custom-purchase-legal-separator" aria-hidden="true">/</span>
+      ${customFoodCardPurchaseReviewLinkMarkup("Disclaimer", "/disclaimer")}
+      <span class="custom-purchase-legal-separator" aria-hidden="true">/</span>
+      ${customFoodCardPurchaseReviewLinkMarkup("Legal Notice", "/legal-notice")}
+      <span class="custom-purchase-legal-separator" aria-hidden="true">/</span>
+      ${customFoodCardPurchaseReviewLinkMarkup("Privacy Policy", "/privacy")}
+    </p>
   `;
 }
 
