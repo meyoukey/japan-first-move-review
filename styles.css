@@ -9174,32 +9174,6 @@ body {
   color: var(--color-food);
 }
 
-.food-card-deco {
-  position: absolute;
-  z-index: 1;
-  display: block;
-  object-fit: contain;
-  pointer-events: none;
-}
-
-.food-card-deco-cow {
-  top: 0.4rem;
-  right: -3rem;
-  width: clamp(7rem, 19vw, 13rem);
-}
-
-.food-card-deco-wheat {
-  bottom: -3.5rem;
-  left: -1.6rem;
-  width: clamp(4rem, 10vw, 7rem);
-}
-
-.food-card-deco-milk {
-  bottom: -1.4rem;
-  left: 0.6rem;
-  width: clamp(5rem, 12vw, 8rem);
-}
-
 .home-page .categories-section,
 .home-page .quick-phrases-section {
   padding-top: clamp(2.8rem, 7vw, 4.8rem);
@@ -9581,58 +9555,6 @@ body {
   margin: 0 0 1.15rem;
 }
 
-.food-card-cta-panel.is-compact {
-  padding: 3.2rem 1rem 1rem;
-  border-radius: 15px;
-}
-
-.food-card-cta-panel.is-compact .food-card-ribbon {
-  min-width: min(80%, 21rem);
-  padding-block: 0.58rem;
-  font-size: 0.72rem;
-}
-
-.food-card-cta-panel.is-compact .food-card-ribbon::after {
-  border-top-width: 1rem;
-  border-bottom-width: 1rem;
-}
-
-.food-card-cta-panel.is-compact h2 {
-  max-width: 14ch;
-  font-size: clamp(1.45rem, 4vw, 2.25rem);
-}
-
-.food-card-cta-panel.is-compact p {
-  font-size: 0.88rem;
-}
-
-.food-card-cta-panel.is-compact .food-card-benefits {
-  gap: 0.35rem;
-}
-
-.food-card-cta-panel.is-compact .food-card-benefits span {
-  padding: 0.24rem 0.42rem;
-  font-size: 0.62rem;
-}
-
-.food-card-cta-panel.is-compact .button.primary {
-  min-height: 2.8rem;
-  font-size: 1rem;
-}
-
-.food-card-cta-panel.is-compact .food-card-deco-cow {
-  right: -2.7rem;
-  width: 8rem;
-}
-
-.food-card-cta-panel.is-compact .food-card-deco-wheat {
-  width: 4rem;
-}
-
-.food-card-cta-panel.is-compact .food-card-deco-milk {
-  width: 4.5rem;
-}
-
 .guide-page .related-guides-section > p {
   color: var(--color-text-sub);
 }
@@ -9797,23 +9719,6 @@ body {
     font-size: 0.63rem;
   }
 
-  .food-card-deco-cow {
-    right: -3.6rem;
-    width: 8.5rem;
-  }
-
-  .food-card-deco-wheat {
-    bottom: -2.8rem;
-    left: -1.2rem;
-    width: 3.8rem;
-  }
-
-  .food-card-deco-milk {
-    bottom: -1rem;
-    left: -0.1rem;
-    width: 4.2rem;
-  }
-
   .home-page .category-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.65rem;
@@ -9877,9 +9782,6 @@ body {
     border-radius: 12px;
   }
 
-  .food-card-cta-panel.is-compact {
-    padding-top: 3rem;
-  }
 }
 
 /* Minimal header: the fixed bottom navigation remains the primary navigation. */
@@ -10006,21 +9908,6 @@ body {
   left: -0.15rem;
   border-radius: 0;
   box-shadow: 0 4px 8px rgba(31, 41, 51, 0.08);
-}
-
-.home-page .food-card-deco {
-  filter: drop-shadow(0 4px 4px rgba(31, 41, 51, 0.2));
-}
-
-.home-page .food-card-deco-wheat {
-  bottom: 1.15rem;
-  left: -0.5rem;
-  width: clamp(4.5rem, 11vw, 7.2rem);
-}
-
-.home-page .food-card-deco-milk {
-  bottom: -0.55rem;
-  left: 0.25rem;
 }
 
 .home-page .food-card-benefits {
@@ -10157,12 +10044,6 @@ body:has(.home-page) .site-footer p {
     font-size: clamp(0.54rem, 2.45vw, 0.64rem);
   }
 
-  .home-page .food-card-deco-wheat {
-    bottom: 1rem;
-    left: -0.65rem;
-    width: 4.4rem;
-  }
-
   .home-page .category-card {
     min-height: 150px;
   }
@@ -10265,30 +10146,6 @@ body:has(.home-page) .site-footer p {
   content: none;
 }
 
-.home-page .food-card-deco {
-  max-width: 100%;
-  opacity: 0.86;
-  filter: drop-shadow(0 3px 4px rgba(31, 41, 51, 0.2));
-}
-
-.home-page .food-card-deco-cow {
-  top: 0.5rem;
-  right: 0.25rem;
-  width: clamp(6rem, 15vw, 9.5rem);
-}
-
-.home-page .food-card-deco-wheat {
-  bottom: 1.25rem;
-  left: 0.45rem;
-  width: clamp(2.7rem, 5.4vw, 3.8rem);
-}
-
-.home-page .food-card-deco-milk {
-  bottom: 0.2rem;
-  left: 0.35rem;
-  width: clamp(3.7rem, 7.5vw, 5.4rem);
-}
-
 .home-page .food-card-cta-panel .button.primary {
   font-size: clamp(20px, 5.286vw, 48px);
 }
@@ -10354,22 +10211,6 @@ body:has(.home-page) .site-footer p {
     padding: 0.62rem 0.7rem;
   }
 
-  .home-page .food-card-deco-cow {
-    right: 0.15rem;
-    width: 6.4rem;
-  }
-
-  .home-page .food-card-deco-wheat {
-    bottom: 1rem;
-    left: 0.25rem;
-    width: 2.8rem;
-  }
-
-  .home-page .food-card-deco-milk {
-    bottom: 0.15rem;
-    left: 0.2rem;
-    width: 3.8rem;
-  }
 }
 
 /* TOP lower-section sizing refinements. */
@@ -10384,33 +10225,6 @@ body:has(.home-page) .site-footer p {
 .home-page .finder-panel .need-card .action-card-icon {
   max-width: clamp(96px, 11.9vw, 108px);
   max-height: clamp(96px, 11.9vw, 108px);
-}
-
-.home-page .food-card-deco-cow-crop {
-  top: 0.45rem;
-  right: 0.2rem;
-  width: clamp(4.8rem, 11vw, 6.5rem);
-  height: clamp(3.9rem, 9vw, 5.2rem);
-  max-width: none;
-  overflow: hidden;
-}
-
-.home-page .food-card-deco-cow-crop .food-card-deco-cow {
-  position: absolute;
-  top: 0;
-  right: auto;
-  bottom: auto;
-  left: 0;
-  display: block;
-  width: clamp(10.5rem, 24vw, 14rem);
-  height: auto;
-  max-width: none;
-  object-fit: contain;
-  filter: none;
-}
-
-.home-page .food-card-deco-wheat {
-  bottom: 3.6rem;
 }
 
 .home-page .category-card h3 {
@@ -10436,18 +10250,6 @@ body:has(.home-page) .site-footer p {
     max-height: 96px;
   }
 
-  .home-page .food-card-deco-cow-crop {
-    width: 4.8rem;
-    height: 3.9rem;
-  }
-
-  .home-page .food-card-deco-cow-crop .food-card-deco-cow {
-    width: 10.5rem;
-  }
-
-  .home-page .food-card-deco-wheat {
-    bottom: 3.2rem;
-  }
 }
 
 /* Compact action-card height while preserving the enlarged icon. */
@@ -10469,19 +10271,6 @@ body:has(.home-page) .site-footer p {
   max-height: clamp(96px, 11.9vw, 108px);
 }
 
-/* Keep the full cow image; the Food Card itself clips its right side. */
-.home-page .food-card-deco-cow {
-  top: 0.4rem;
-  right: clamp(-8.2rem, -14vw, -5.4rem);
-  bottom: auto;
-  left: auto;
-  width: clamp(10rem, 24vw, 14rem);
-  height: auto;
-  max-width: none;
-  object-fit: contain;
-  object-position: center;
-}
-
 @media (max-width: 620px) {
   .home-page .finder-panel .need-card {
     min-height: 0;
@@ -10497,10 +10286,6 @@ body:has(.home-page) .site-footer p {
     max-height: 96px;
   }
 
-  .home-page .food-card-deco-cow {
-    right: -6.9rem;
-    width: 11rem;
-  }
 }
 
 /* Larger place names without changing the place-card footprint. */
@@ -10840,110 +10625,6 @@ body:has(.guide-page) {
   margin: 0 0 clamp(1rem, 3vw, 1.4rem) !important;
 }
 
-.guide-page .food-card-cta-panel.is-compact {
-  position: relative;
-  overflow: hidden !important;
-  min-height: 0;
-  padding: clamp(3.25rem, 7vw, 4rem) clamp(0.9rem, 3vw, 1.4rem) clamp(1rem, 3vw, 1.35rem) !important;
-  border: 0 !important;
-  border-radius: 16px !important;
-  background: var(--color-card-bg) !important;
-  box-shadow: 0 4px 12px rgba(31, 41, 51, 0.04) !important;
-}
-
-.guide-page .food-card-cta-panel.is-compact .food-card-ribbon {
-  top: 0.55rem;
-  left: 0;
-  min-width: 0;
-  width: max-content;
-  max-width: 78%;
-  padding: 0.62rem 0.8rem;
-  border-radius: 0;
-  color: #fff;
-  background: var(--color-ribbon);
-  box-shadow: none;
-}
-
-.guide-page .food-card-cta-panel.is-compact .food-card-ribbon::after {
-  display: none;
-  content: none;
-}
-
-.guide-page .food-card-cta-panel.is-compact .food-card-cta-content {
-  position: relative;
-  z-index: 2;
-  gap: 0.7rem;
-}
-
-.guide-page .food-card-cta-panel.is-compact h2 {
-  max-width: 14ch;
-  margin: 0;
-  color: var(--color-food) !important;
-  background: transparent !important;
-  font-size: clamp(1.6rem, 4.5vw, 2.35rem) !important;
-  line-height: 1 !important;
-}
-
-.guide-page .food-card-cta-panel.is-compact p {
-  color: var(--color-text-main) !important;
-  font-size: clamp(0.82rem, 1.9vw, 0.94rem) !important;
-}
-
-.guide-page .food-card-cta-panel.is-compact .food-card-benefits {
-  flex-wrap: nowrap;
-  gap: 0.35rem;
-}
-
-.guide-page .food-card-cta-panel.is-compact .food-card-benefits span {
-  padding: 0.25rem 0.4rem;
-  white-space: nowrap;
-  font-size: clamp(0.56rem, 1.4vw, 0.68rem);
-}
-
-.guide-page .food-card-cta-panel.is-compact .section-actions {
-  width: min(84%, 28rem);
-  justify-items: center;
-}
-
-.guide-page .food-card-cta-panel.is-compact .button.primary {
-  width: 100%;
-  min-height: 2.75rem;
-  border: 0;
-  border-radius: 999px;
-  color: #fff;
-  background: var(--color-food);
-  box-shadow: none;
-  font-size: clamp(0.94rem, 2.2vw, 1.08rem);
-}
-
-.guide-page .food-card-cta-panel.is-compact .food-card-deco {
-  max-width: 100%;
-  opacity: 0.82;
-  filter: drop-shadow(0 3px 3px rgba(31, 41, 51, 0.16));
-}
-
-.guide-page .food-card-cta-panel.is-compact .food-card-deco-cow {
-  top: 0.4rem;
-  right: -5.6rem;
-  bottom: auto;
-  left: auto;
-  width: 8.5rem;
-  height: auto;
-  object-fit: contain;
-}
-
-.guide-page .food-card-cta-panel.is-compact .food-card-deco-wheat {
-  bottom: 2.7rem;
-  left: 0.3rem;
-  width: 2.7rem;
-}
-
-.guide-page .food-card-cta-panel.is-compact .food-card-deco-milk {
-  bottom: 0.15rem;
-  left: 0.2rem;
-  width: 3.8rem;
-}
-
 .guide-page .related-guides-section > p {
   margin-bottom: 1rem;
   color: var(--color-text-sub) !important;
@@ -11061,9 +10742,6 @@ body:has(.guide-page) .site-footer p {
     padding-inline: 0.4rem !important;
   }
 
-  .guide-page .food-card-cta-panel.is-compact .food-card-benefits span {
-    font-size: 0.56rem;
-  }
 }
 
 /* Guide spacing and phrase separators. */
@@ -11379,111 +11057,12 @@ h6,
   font-size: clamp(0.78rem, 1.8vw, 0.9rem) !important;
 }
 
-/* One shared Food Card presentation for TOP and guide routes. */
-.home-page .shared-food-card-cta,
-.guide-page .shared-food-card-cta {
-  overflow: hidden;
-  margin-top: 0.65rem;
-}
-
-.home-page .shared-food-card-cta .food-card-ribbon,
-.guide-page .shared-food-card-cta .food-card-ribbon {
-  top: 0.55rem;
-  left: 0;
-  min-width: 0;
-  width: max-content;
-  max-width: 76%;
-  padding: 0.7rem 1.7rem 0.7rem 1rem !important;
-  border-radius: 0;
-  box-shadow: 0 4px 8px rgba(31, 41, 51, 0.08);
-}
-
-.home-page .shared-food-card-cta .food-card-deco,
-.guide-page .shared-food-card-cta .food-card-deco {
-  max-width: 100%;
-  opacity: 0.98;
-  filter:
-    drop-shadow(0 5px 5px rgba(31, 41, 51, 0.3))
-    drop-shadow(0 1px 1px rgba(31, 41, 51, 0.18));
-}
-
-.home-page .shared-food-card-cta .food-card-deco-cow,
-.guide-page .shared-food-card-cta .food-card-deco-cow {
-  top: 0.4rem;
-  right: clamp(-8.2rem, -14vw, -5.4rem);
-  bottom: auto;
-  left: auto;
-  width: clamp(10rem, 24vw, 14rem);
-  height: auto;
-  max-width: none;
-  object-fit: contain;
-}
-
-.home-page .shared-food-card-cta .food-card-deco-wheat,
-.guide-page .shared-food-card-cta .food-card-deco-wheat {
-  bottom: 3.6rem;
-  left: 0.45rem;
-  width: clamp(2.7rem, 5.4vw, 3.8rem);
-}
-
-.home-page .shared-food-card-cta .food-card-deco-milk,
-.guide-page .shared-food-card-cta .food-card-deco-milk {
-  bottom: 0.2rem;
-  left: 0.35rem;
-  width: clamp(3.7rem, 7.5vw, 5.4rem);
-}
-
-.home-page .shared-food-card-cta .food-card-benefits,
-.guide-page .shared-food-card-cta .food-card-benefits {
-  width: 100%;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: clamp(0.3rem, 1.2vw, 0.6rem);
-}
-
-.home-page .shared-food-card-cta .food-card-benefits span,
-.guide-page .shared-food-card-cta .food-card-benefits span {
-  flex: 0 1 auto;
-  white-space: nowrap;
-}
-
-.home-page .shared-food-card-cta .section-actions,
-.guide-page .shared-food-card-cta .section-actions {
-  width: min(86%, 31rem);
-  justify-items: center;
-}
-
-.home-page .shared-food-card-cta .button.primary,
-.guide-page .shared-food-card-cta .button.primary {
-  width: 100%;
-  font-size: clamp(20px, 5.286vw, 48px);
-}
-
 /* Keep the guide footer visually light while reserving room for fixed navigation. */
 body:has(.guide-page) .site-footer {
   gap: 1.2rem;
   padding: 2rem clamp(1rem, 4vw, 2.5rem) calc(2rem + 5.75rem + env(safe-area-inset-bottom));
   font-size: 0.88rem;
   line-height: 1.55;
-}
-
-@media (max-width: 620px) {
-  .home-page .shared-food-card-cta .food-card-deco-cow,
-  .guide-page .shared-food-card-cta .food-card-deco-cow {
-    right: -6.2rem;
-    width: 12rem;
-  }
-
-  .home-page .shared-food-card-cta .food-card-deco-wheat,
-  .guide-page .shared-food-card-cta .food-card-deco-wheat {
-    bottom: 3.2rem;
-    width: 3.5rem;
-  }
-
-  .home-page .shared-food-card-cta .food-card-deco-milk,
-  .guide-page .shared-food-card-cta .food-card-deco-milk {
-    width: 4.5rem;
-  }
 }
 
 /* Shared lightweight footer treatment for TOP and guide routes. */
@@ -12201,18 +11780,6 @@ body:has(#app) .site-footer .site-footer-legal a + a::before {
   font-weight: 400;
 }
 
-.custom-digital-product-note {
-  margin: 0;
-  color: var(--color-text-sub, #69717b);
-  font-size: 0.75rem;
-  line-height: 1.4;
-}
-
-.custom-payment-placeholder .custom-digital-product-note {
-  padding-top: 0.45rem;
-  border-top: 1px solid rgba(143, 69, 95, 0.12);
-}
-
 .custom-terms-copy a {
   color: #8f455f;
   font-weight: 700;
@@ -12819,90 +12386,8 @@ body:has(#app) .site-footer .site-footer-note {
   background: #c85b7d !important;
 }
 
-/* Keep the TOP Food Card CTA prominent without letting it dominate desktop screens. */
+/* Keep the TOP lower sections compact on desktop. */
 @media (min-width: 761px) {
-  .home-page .shared-food-card-cta {
-    min-height: 0;
-    padding: 3.55rem 3rem 1.9rem;
-    border-radius: var(--jfm-card-radius);
-  }
-
-  .home-page .shared-food-card-cta .food-card-cta-content {
-    width: 100%;
-    grid-template-columns: minmax(0, 1fr) 18rem;
-    grid-template-rows: auto auto auto;
-    justify-items: start;
-    column-gap: 2rem;
-    row-gap: 0.65rem;
-    text-align: left;
-  }
-
-  .home-page .shared-food-card-cta h2,
-  .home-page .shared-food-card-cta p,
-  .home-page .shared-food-card-cta .food-card-benefits {
-    grid-column: 1;
-  }
-
-  .home-page .shared-food-card-cta h2 {
-    max-width: 15ch;
-    font-size: 2.5rem;
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-  }
-
-  .home-page .shared-food-card-cta p {
-    max-width: 34rem;
-    font-size: 1.05rem;
-    line-height: 1.4;
-  }
-
-  .home-page .shared-food-card-cta .food-card-benefits {
-    justify-content: flex-start;
-    gap: 0.4rem;
-    margin-top: 0.1rem;
-  }
-
-  .home-page .shared-food-card-cta .food-card-benefits span {
-    padding: 0.3rem 0.52rem;
-    font-size: 0.7rem;
-  }
-
-  .home-page .shared-food-card-cta .section-actions {
-    grid-column: 2;
-    grid-row: 1 / span 3;
-    align-self: center;
-    width: 100%;
-    gap: 0.65rem;
-    margin-top: 0;
-  }
-
-  .home-page .shared-food-card-cta .button.primary {
-    min-height: 3.2rem;
-    padding: 0.75rem 1rem;
-    font-size: 1.08rem;
-  }
-
-  .home-page .shared-food-card-cta .food-card-sample-link {
-    font-size: 0.88rem;
-  }
-
-  .home-page .shared-food-card-cta .food-card-deco-cow {
-    right: -5.6rem;
-    width: 11rem;
-    opacity: 0.98;
-  }
-
-  .home-page .shared-food-card-cta .food-card-deco-wheat {
-    bottom: 1.45rem;
-    width: 3.4rem;
-    opacity: 0.98;
-  }
-
-  .home-page .shared-food-card-cta .food-card-deco-milk {
-    width: 4.4rem;
-    opacity: 0.98;
-  }
-
   .home-page .categories-section {
     padding-top: 3.5rem;
   }
@@ -12983,74 +12468,6 @@ body:has(#app) .site-footer .site-footer-note {
     max-width: 13ch !important;
     font-size: clamp(2rem, 8.5vw, 2.35rem) !important;
     line-height: 0.98 !important;
-  }
-}
-
-/* Match the guide Food Card CTA to the compact desktop TOP presentation. */
-@media (min-width: 761px) {
-  .guide-page .shared-food-card-cta {
-    min-height: 0;
-    padding: 3.55rem 3rem 1.9rem;
-    border-radius: var(--jfm-card-radius);
-  }
-
-  .guide-page .shared-food-card-cta .food-card-cta-content {
-    width: 100%;
-    grid-template-columns: minmax(0, 1fr) 18rem;
-    grid-template-rows: auto auto auto;
-    justify-items: start;
-    column-gap: 2rem;
-    row-gap: 0.65rem;
-    text-align: left;
-  }
-
-  .guide-page .shared-food-card-cta h2,
-  .guide-page .shared-food-card-cta p,
-  .guide-page .shared-food-card-cta .food-card-benefits {
-    grid-column: 1;
-  }
-
-  .guide-page .shared-food-card-cta h2 {
-    max-width: 15ch;
-    font-size: 2.5rem;
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-  }
-
-  .guide-page .shared-food-card-cta p {
-    max-width: 34rem;
-    font-size: 1.05rem;
-    line-height: 1.4;
-  }
-
-  .guide-page .shared-food-card-cta .food-card-benefits {
-    justify-content: flex-start;
-    gap: 0.4rem;
-    margin-top: 0.1rem;
-  }
-
-  .guide-page .shared-food-card-cta .food-card-benefits span {
-    padding: 0.3rem 0.52rem;
-    font-size: 0.7rem;
-  }
-
-  .guide-page .shared-food-card-cta .section-actions {
-    grid-column: 2;
-    grid-row: 1 / span 3;
-    align-self: center;
-    width: 100%;
-    gap: 0.65rem;
-    margin-top: 0;
-  }
-
-  .guide-page .shared-food-card-cta .button.primary {
-    min-height: 3.2rem;
-    padding: 0.75rem 1rem;
-    font-size: 1.08rem;
-  }
-
-  .guide-page .shared-food-card-cta .food-card-sample-link {
-    font-size: 0.88rem;
   }
 }
 
@@ -13508,100 +12925,6 @@ body:has(#app) .site-footer .site-footer-note {
   padding: 0;
 }
 
-.food-page .shared-food-card-cta {
-  overflow: hidden;
-  margin-top: 0;
-}
-
-.food-page .shared-food-card-cta .food-card-benefits {
-  width: 100%;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: clamp(0.3rem, 1.2vw, 0.6rem);
-}
-
-.food-page .shared-food-card-cta .food-card-benefits span {
-  flex: 0 1 auto;
-  white-space: nowrap;
-}
-
-.food-page .shared-food-card-cta .section-actions {
-  width: min(86%, 31rem);
-  justify-items: center;
-}
-
-.food-page .shared-food-card-cta .button.primary {
-  width: 100%;
-  font-size: clamp(20px, 5.286vw, 48px);
-}
-
-@media (min-width: 761px) {
-  .food-page .shared-food-card-cta {
-    min-height: 0;
-    padding: 3.55rem 3rem 1.9rem;
-    border-radius: var(--jfm-card-radius);
-  }
-
-  .food-page .shared-food-card-cta .food-card-cta-content {
-    width: 100%;
-    grid-template-columns: minmax(0, 1fr) 18rem;
-    grid-template-rows: auto auto auto;
-    justify-items: start;
-    column-gap: 2rem;
-    row-gap: 0.65rem;
-    text-align: left;
-  }
-
-  .food-page .shared-food-card-cta h2,
-  .food-page .shared-food-card-cta p,
-  .food-page .shared-food-card-cta .food-card-benefits {
-    grid-column: 1;
-  }
-
-  .food-page .shared-food-card-cta h2 {
-    max-width: 15ch;
-    font-size: 2.5rem;
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-  }
-
-  .food-page .shared-food-card-cta p {
-    max-width: 34rem;
-    font-size: 1.05rem;
-    line-height: 1.4;
-  }
-
-  .food-page .shared-food-card-cta .food-card-benefits {
-    justify-content: flex-start;
-    gap: 0.4rem;
-    margin-top: 0.1rem;
-  }
-
-  .food-page .shared-food-card-cta .food-card-benefits span {
-    padding: 0.3rem 0.52rem;
-    font-size: 0.7rem;
-  }
-
-  .food-page .shared-food-card-cta .section-actions {
-    grid-column: 2;
-    grid-row: 1 / span 3;
-    align-self: center;
-    width: 100%;
-    gap: 0.65rem;
-    margin-top: 0;
-  }
-
-  .food-page .shared-food-card-cta .button.primary {
-    min-height: 3.2rem;
-    padding: 0.75rem 1rem;
-    font-size: 1.08rem;
-  }
-
-  .food-page .shared-food-card-cta .food-card-sample-link {
-    font-size: 0.88rem;
-  }
-}
-
 @media (max-width: 620px) {
   .food-page .food-card-cta-section {
     margin-top: 1.8rem;
@@ -13862,14 +13185,16 @@ body:has(#app) .site-footer .site-footer-note {
 /* Food Card CTA consistency: TOP, Food category, and guide pages share one visual treatment. */
 .home-page .shared-food-card-cta,
 .food-page .shared-food-card-cta,
-.guide-page .shared-food-card-cta {
+.guide-page .shared-food-card-cta,
+.food-card-page .food-cards-create-section .shared-food-card-cta {
   overflow: hidden;
   margin-top: 0.65rem;
 }
 
 .home-page .shared-food-card-cta .food-card-ribbon,
 .food-page .shared-food-card-cta .food-card-ribbon,
-.guide-page .shared-food-card-cta .food-card-ribbon {
+.guide-page .shared-food-card-cta .food-card-ribbon,
+.food-card-page .food-cards-create-section .shared-food-card-cta .food-card-ribbon {
   top: 0.55rem;
   left: 0;
   min-width: 0;
@@ -13883,16 +13208,22 @@ body:has(#app) .site-footer .site-footer-note {
 
 .home-page .shared-food-card-cta .food-card-ribbon::after,
 .food-page .shared-food-card-cta .food-card-ribbon::after,
-.guide-page .shared-food-card-cta .food-card-ribbon::after {
+.guide-page .shared-food-card-cta .food-card-ribbon::after,
+.food-card-page .food-cards-create-section .shared-food-card-cta .food-card-ribbon::after {
   display: none !important;
   content: none !important;
 }
 
 .shared-food-card-cta .food-card-benefits {
+  width: 100%;
+  flex-wrap: nowrap;
+  align-items: center;
   gap: clamp(0.32rem, 1.15vw, 0.62rem);
 }
 
 .shared-food-card-cta .food-card-benefits span {
+  flex: 0 1 auto;
+  white-space: nowrap;
   padding: 0.34rem clamp(0.48rem, 1.2vw, 0.72rem);
   border: 0;
   border-radius: 6px;
@@ -13906,6 +13237,127 @@ body:has(#app) .site-footer .site-footer-note {
 
 .food-card-benefits span {
   border: 0 !important;
+}
+
+.shared-food-card-cta .section-actions {
+  width: min(86%, 31rem);
+  justify-items: center;
+}
+
+.shared-food-card-cta .button.primary {
+  width: 100%;
+  font-size: clamp(20px, 5.286vw, 48px);
+}
+
+.food-page .shared-food-card-cta,
+.food-card-page .food-cards-create-section .shared-food-card-cta {
+  margin-top: 0;
+}
+
+.food-card-page .food-cards-create-section .shared-food-card-cta {
+  border-radius: var(--jfm-card-radius);
+}
+
+@media (min-width: 761px) {
+  .home-page .shared-food-card-cta,
+  .food-page .shared-food-card-cta,
+  .guide-page .shared-food-card-cta,
+  .food-card-page .food-cards-create-section .shared-food-card-cta {
+    min-height: 0;
+    padding: 3.55rem 3rem 1.9rem;
+    border-radius: var(--jfm-card-radius);
+  }
+
+  .home-page .shared-food-card-cta .food-card-cta-content,
+  .food-page .shared-food-card-cta .food-card-cta-content,
+  .guide-page .shared-food-card-cta .food-card-cta-content,
+  .food-card-page .food-cards-create-section .shared-food-card-cta .food-card-cta-content {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) 18rem;
+    grid-template-rows: auto auto auto;
+    justify-items: start;
+    column-gap: 2rem;
+    row-gap: 0.65rem;
+    text-align: left;
+  }
+
+  .home-page .shared-food-card-cta h2,
+  .home-page .shared-food-card-cta p,
+  .home-page .shared-food-card-cta .food-card-benefits,
+  .food-page .shared-food-card-cta h2,
+  .food-page .shared-food-card-cta p,
+  .food-page .shared-food-card-cta .food-card-benefits,
+  .guide-page .shared-food-card-cta h2,
+  .guide-page .shared-food-card-cta p,
+  .guide-page .shared-food-card-cta .food-card-benefits,
+  .food-card-page .food-cards-create-section .shared-food-card-cta h2,
+  .food-card-page .food-cards-create-section .shared-food-card-cta p,
+  .food-card-page .food-cards-create-section .shared-food-card-cta .food-card-benefits {
+    grid-column: 1;
+  }
+
+  .home-page .shared-food-card-cta h2,
+  .food-page .shared-food-card-cta h2,
+  .guide-page .shared-food-card-cta h2,
+  .food-card-page .food-cards-create-section .shared-food-card-cta h2 {
+    max-width: 15ch;
+    font-size: 2.5rem;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+
+  .home-page .shared-food-card-cta p,
+  .food-page .shared-food-card-cta p,
+  .guide-page .shared-food-card-cta p,
+  .food-card-page .food-cards-create-section .shared-food-card-cta p {
+    max-width: 34rem;
+    font-size: 1.05rem;
+    line-height: 1.4;
+  }
+
+  .home-page .shared-food-card-cta .food-card-benefits,
+  .food-page .shared-food-card-cta .food-card-benefits,
+  .guide-page .shared-food-card-cta .food-card-benefits,
+  .food-card-page .food-cards-create-section .shared-food-card-cta .food-card-benefits {
+    justify-content: flex-start;
+    gap: 0.4rem;
+    margin-top: 0.1rem;
+  }
+
+  .home-page .shared-food-card-cta .food-card-benefits span,
+  .food-page .shared-food-card-cta .food-card-benefits span,
+  .guide-page .shared-food-card-cta .food-card-benefits span,
+  .food-card-page .food-cards-create-section .shared-food-card-cta .food-card-benefits span {
+    padding: 0.3rem 0.52rem;
+    font-size: 0.7rem;
+  }
+
+  .home-page .shared-food-card-cta .section-actions,
+  .food-page .shared-food-card-cta .section-actions,
+  .guide-page .shared-food-card-cta .section-actions,
+  .food-card-page .food-cards-create-section .shared-food-card-cta .section-actions {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    align-self: center;
+    width: 100%;
+    gap: 0.65rem;
+    margin-top: 0;
+  }
+
+  .home-page .shared-food-card-cta .button.primary,
+  .food-page .shared-food-card-cta .button.primary,
+  .guide-page .shared-food-card-cta .button.primary,
+  .food-card-page .food-cards-create-section .shared-food-card-cta .button.primary {
+    min-height: 3.2rem;
+    padding: 0.75rem 1rem;
+    font-size: 1.08rem;
+  }
+
+  .home-page .shared-food-card-cta .food-card-sample-link,
+  .food-page .shared-food-card-cta .food-card-sample-link,
+  .guide-page .shared-food-card-cta .food-card-sample-link {
+    font-size: 0.88rem;
+  }
 }
 
 /* Category TOP pass after Food: align Move, Relax, Culture, and Help with the simplified Food tone. */
@@ -14411,115 +13863,8 @@ body:has(#app) .site-footer .site-footer-note {
   padding: 0;
 }
 
-.food-card-page .food-cards-create-section .shared-food-card-cta {
-  overflow: hidden;
-  margin-top: 0;
-  border-radius: var(--jfm-card-radius);
-}
-
-.food-card-page .food-cards-create-section .shared-food-card-cta .food-card-ribbon {
-  top: 0.55rem;
-  left: 0;
-  min-width: 0;
-  width: max-content;
-  max-width: 76%;
-  padding: 0.7rem 1.7rem 0.7rem 1rem !important;
-  border-radius: 0;
-  clip-path: polygon(0 0, 100% 0, calc(100% - 0.72rem) 50%, 100% 100%, 0 100%);
-  box-shadow: 0 4px 8px rgba(31, 41, 51, 0.08);
-}
-
-.food-card-page .food-cards-create-section .shared-food-card-cta .food-card-ribbon::after {
-  display: none !important;
-  content: none !important;
-}
-
-.food-card-page .food-cards-create-section .shared-food-card-cta .food-card-benefits {
-  width: 100%;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: clamp(0.3rem, 1.2vw, 0.6rem);
-}
-
-.food-card-page .food-cards-create-section .shared-food-card-cta .food-card-benefits span {
-  flex: 0 1 auto;
-  white-space: nowrap;
-}
-
-.food-card-page .food-cards-create-section .shared-food-card-cta .section-actions {
-  width: min(86%, 31rem);
-  justify-items: center;
-}
-
-.food-card-page .food-cards-create-section .shared-food-card-cta .button.primary {
-  width: 100%;
-  font-size: clamp(20px, 5.286vw, 48px);
-}
-
 .food-card-page .food-cards-create-section .food-card-sample-link {
   display: none;
-}
-
-@media (min-width: 761px) {
-  .food-card-page .food-cards-create-section .shared-food-card-cta {
-    min-height: 0;
-    padding: 3.55rem 3rem 1.9rem;
-  }
-
-  .food-card-page .food-cards-create-section .shared-food-card-cta .food-card-cta-content {
-    width: 100%;
-    grid-template-columns: minmax(0, 1fr) 18rem;
-    grid-template-rows: auto auto auto;
-    justify-items: start;
-    column-gap: 2rem;
-    row-gap: 0.65rem;
-    text-align: left;
-  }
-
-  .food-card-page .food-cards-create-section .shared-food-card-cta h2,
-  .food-card-page .food-cards-create-section .shared-food-card-cta p,
-  .food-card-page .food-cards-create-section .shared-food-card-cta .food-card-benefits {
-    grid-column: 1;
-  }
-
-  .food-card-page .food-cards-create-section .shared-food-card-cta h2 {
-    max-width: 15ch;
-    font-size: 2.5rem;
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-  }
-
-  .food-card-page .food-cards-create-section .shared-food-card-cta p {
-    max-width: 34rem;
-    font-size: 1.05rem;
-    line-height: 1.4;
-  }
-
-  .food-card-page .food-cards-create-section .shared-food-card-cta .food-card-benefits {
-    justify-content: flex-start;
-    gap: 0.4rem;
-    margin-top: 0.1rem;
-  }
-
-  .food-card-page .food-cards-create-section .shared-food-card-cta .food-card-benefits span {
-    padding: 0.3rem 0.52rem;
-    font-size: 0.7rem;
-  }
-
-  .food-card-page .food-cards-create-section .shared-food-card-cta .section-actions {
-    grid-column: 2;
-    grid-row: 1 / span 3;
-    align-self: center;
-    width: 100%;
-    gap: 0.65rem;
-    margin-top: 0;
-  }
-
-  .food-card-page .food-cards-create-section .shared-food-card-cta .button.primary {
-    min-height: 3.2rem;
-    padding: 0.75rem 1rem;
-    font-size: 1.08rem;
-  }
 }
 
 .shared-food-card-cta .section-actions .price-line {
@@ -15195,34 +14540,6 @@ body:has(#app) .site-footer .site-footer-note {
   color: var(--color-text-sub);
   font-size: 0.86rem;
   line-height: 1.4;
-}
-
-.custom-payment-placeholder {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.35rem 1rem;
-  align-items: center;
-  padding: 1rem;
-  border: 2px dashed #d9b4c1;
-  border-radius: 14px;
-  color: var(--color-text-main);
-  background: #fff8fa;
-}
-
-.custom-payment-placeholder > span {
-  font-weight: 800;
-}
-
-.custom-payment-placeholder > strong {
-  color: #a54162;
-  font-size: 1.35rem;
-}
-
-.custom-payment-placeholder p {
-  grid-column: 1 / -1;
-  margin: 0;
-  color: var(--color-text-sub);
-  font-size: 0.82rem;
 }
 
 .custom-purchase-review {
