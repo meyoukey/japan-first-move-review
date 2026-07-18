@@ -4,6 +4,7 @@
 !index.html
 !app.js
 !styles.css
+!styles-*.css
 !_redirects
 !robots.txt
 !sitemap.xml

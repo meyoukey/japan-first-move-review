@@ -272,7 +272,7 @@ function headMarkup(page) {
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css?v=seo-pages-1" />
+    <link rel="stylesheet" href="/styles.css?v=css-modules-1" />
   </head>`;
 }
 
