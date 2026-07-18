@@ -3537,8 +3537,8 @@ function customFoodCardRestoreDraft(draft) {
     customFoodCardState.reason = "";
   }
 
-  customFoodCardState.safetyAgreed = Boolean(snapshot.safetyAgreed);
-  customFoodCardState.purchaseReviewAgreed = Boolean(snapshot.purchaseReviewAgreed);
+  customFoodCardState.safetyAgreed = false;
+  customFoodCardState.purchaseReviewAgreed = false;
   customFoodCardState.openCategoryIds = Array.isArray(snapshot.openCategoryIds)
     ? snapshot.openCategoryIds.filter((categoryId) => customFoodCardIngredientCategories.includes(categoryId))
     : ["popular"];
@@ -3644,6 +3644,13 @@ function customFoodCardSetCheckoutFeedback(status, message = "", error = "") {
   customFoodCardState.checkoutError = error;
 }
 
+function customFoodCardResetPendingCheckoutReturn(message = "Payment was not completed. Please review and try again when ready.") {
+  customFoodCardState.safetyAgreed = false;
+  customFoodCardState.purchaseReviewAgreed = false;
+  customFoodCardSetCheckoutFeedback("cancelled", message);
+  customFoodCardSaveDraft();
+}
+
 async function customFoodCardBeginCheckout() {
   if (!customFoodCardPurchaseReviewIsComplete() || customFoodCardState.checkoutStatus === "preparing") {
     return;
@@ -3701,7 +3708,7 @@ function startCustomFoodCardCancelled({ returnToPreCheckoutPage = false } = {}) 
   resetCustomFoodCardState();
   if (draft && customFoodCardRestoreCheckoutSnapshot(draft.snapshot)) {
     customFoodCardState.step = 3;
-    customFoodCardSetCheckoutFeedback("cancelled", "Payment was cancelled. You can review and try again.");
+    customFoodCardResetPendingCheckoutReturn("Payment was cancelled. You can review and try again.");
   } else {
     customFoodCardState.error = "Payment was cancelled. Please recreate your card to try again.";
   }
@@ -6778,8 +6785,12 @@ function router({ restoreCustomFoodCardDraft = false } = {}) {
 window.addEventListener("popstate", () => {
   router({ restoreCustomFoodCardDraft: false });
 });
-window.addEventListener("pageshow", () => {
+window.addEventListener("pageshow", (event) => {
   if (!customFoodCardConsumeCheckoutCancelledReturn()) {
+    if (event.persisted && window.location.pathname === "/food-card/custom/" && customFoodCardState.checkoutStatus === "preparing") {
+      customFoodCardResetPendingCheckoutReturn();
+      renderCustomFoodCard();
+    }
     return;
   }
 
