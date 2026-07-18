@@ -1,34 +1,6 @@
-/* Home page, hero, finder, and TOP visual refinement layers. */
-
-/* Practical TOP tone: keep the structure, reduce festival/poster decoration. */
-body {
-  background: #f7f5ef;
-}
-
-body::after {
-  background: #d9eaf0;
-  opacity: 0.26;
-}
-
-.site-header {
-  border-bottom: 1px solid #ece8de;
-}
-
-.brand {
-  gap: 0.55rem;
-}
-
-.brand-mark {
-  width: 34px;
-  height: 34px;
-  border: 2px solid #d8d2c5;
-  border-radius: 12px;
-  background: #fffdf8;
-}
 
 .brand-mark::before,
 .brand-mark::after {
-  content: "";
   position: absolute;
   display: block;
 }
@@ -53,84 +25,17 @@ body::after {
   transform-origin: right center;
 }
 
-.brand strong {
-  font-size: 1.06rem;
-  letter-spacing: -0.025em;
-}
-
-.brand small {
-  color: #6f716f;
-}
-
-.home-page > .hero {
-  background: #f1f8fa;
-  box-shadow: none;
-}
-
-.poster-cover {
-  min-height: 420px;
-  background:
-    radial-gradient(circle at 82% 18%, rgba(22, 181, 213, 0.15) 0 88px, transparent 90px),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(247, 245, 239, 0.8));
-  box-shadow: none;
-}
-
-.poster-cover h1 {
-  max-width: 680px;
-  line-height: 0.94;
-}
 
 .poster-cover h1 strong {
   color: var(--ink);
   background: transparent;
 }
 
-.poster-cover .lead{
-  color: #3f4548;
-}
-
 .poster-wordmark {
   color: rgba(18, 100, 181, 0.06);
 }
-.categories-section,
-.food-card-cta-section,
-.quick-phrases-section {
-  padding-top: clamp(2rem, 4vw, 3rem);
-}
 .categories-section h2::after {
   content: none;
-}
-
-.choice-grid,
-.need-grid {
-  gap: 0.95rem;
-}
-
-.choice-button,
-.need-card,
-.quick-phrase-card {
-  border: 1px solid #ece8de;
-  border-radius: 14px;
-  background: var(--white);
-  box-shadow: 0 8px 20px rgba(16, 40, 79, 0.06);
-}
-
-.choice-button {
-  min-height: 128px;
-  padding: 1rem;
-  align-content: start;
-}
-
-.choice-button span:first-child,
-.need-card strong {
-  color: var(--ink);
-  font-family: inherit;
-  letter-spacing: -0.02em;
-}
-
-.choice-button small,
-.need-card > span:not(.card-pict) {
-  color: #606569;
 }
 
 .card-pict {
@@ -141,13 +46,8 @@ body::after {
   width: 100%;
   height: 100%;
 }
-.categories-section h2,
-.quick-phrases-section h2 {
-  color: var(--ink);
-}
 .categories-section .section-header > p,
 .quick-phrases-section .section-header > p {
-  color: #5e6466;
   background: transparent;
 }
 
@@ -157,16 +57,11 @@ body::after {
 }
 
 .need-card {
-  min-height: 132px;
-  padding: 1rem;
   overflow: visible;
 }
 
 .need-card .card-pict {
   position: static;
-  width: 2.5rem;
-  height: 2.5rem;
-  margin: 0.55rem auto 0.45rem;
   transform: none;
 }
 
@@ -177,51 +72,15 @@ body::after {
 .need-card > span:not(.card-pict) {
   position: static;
   display: block;
-  text-align: center;
   text-transform: none;
 }
 
-.food-card-cta-panel {
-  color: var(--ink);
-  background: #fff8f5;
-  border: 2px solid rgba(190, 26, 49, 0.18);
-  border-left: 8px solid var(--red);
-  box-shadow: 0 16px 36px rgba(16, 40, 79, 0.08);
-}
-
-.food-card-cta-panel .eyebrow {
-  color: var(--red);
-  background: rgba(190, 26, 49, 0.08);
-}
-
-.food-card-cta-panel h2,
-.food-card-cta-panel p {
-  color: inherit;
-}
-
-.food-card-cta-panel .button.primary {
-  color: var(--white);
-  background: var(--red);
-}
-
 .food-card-cta-panel .button.secondary {
-  color: var(--red);
-  background: var(--white);
   border: 2px solid rgba(190, 26, 49, 0.28);
 }
 
 .category-card {
   border-color: #eee9df;
-  box-shadow: 0 8px 20px rgba(16, 40, 79, 0.06);
-}
-
-.category-card .category-chip {
-  background: rgba(16, 40, 79, 0.08);
-  color: #3f4548;
-}
-
-.category-card p {
-  color: #5e6466;
 }
 
 .site-footer {
@@ -230,32 +89,17 @@ body::after {
 }
 
 @media (max-width: 620px) {
-  body {
-    background: #f7f5ef;
-  }
 
   body::before {
     content: none;
   }
 
-  .site-header {
-    min-height: 54px;
-    border-bottom: 1px solid #ece8de;
-  }
-
   .brand-mark {
-    width: 32px;
-    height: 32px;
     background: #fffdf8;
   }
 
   .brand strong {
-    font-size: 0.98rem;
     letter-spacing: -0.03em;
-  }
-
-  .home-page > .section {
-    width: calc(100% - 1.5rem);
   }
 
   .home-page > .hero {
@@ -263,60 +107,27 @@ body::after {
     background: #f1f8fa;
   }
 
-  .poster-cover {
-    padding: 1.6rem 1.15rem 1.9rem;
-    background:
-      radial-gradient(circle at 90% 12%, rgba(22, 181, 213, 0.16) 0 62px, transparent 64px),
-      #f8fbfa;
-  }
-
-  .poster-cover h1 {
-    font-size: clamp(2.4rem, 11vw, 3rem);
-    line-height: 0.94;
-  }
-
   .poster-cover h1::after {
     content: none;
   }
 
-  .poster-cover .lead {
-    margin-top: 0.95rem;
-    font-size: 15px;
-    line-height: 20px;
-  }
-
-  .choice-grid {
-    gap: 0.72rem;
-  }
-
   .choice-button {
-    min-height: 132px;
-    padding: 0.85rem 0.65rem;
     gap: 0.28rem;
   }
 
   .choice-button span:first-child {
     font-family: inherit;
-    font-size: 16px;
-    line-height: 1.12;
   }
 
   .choice-button small {
     max-width: 8.5rem;
     color: #606569;
-    font-size: 11px;
-    line-height: 1.25;
   }
 
   .card-pict {
     width: 2.1rem;
     height: 2.1rem;
     margin-top: 0.42rem;
-  }
-  .categories-section,
-  .food-card-cta-section,
-  .quick-phrases-section {
-    padding-top: 2rem;
   }
   .categories-section .section-header,
   .quick-phrases-section .section-header {
@@ -325,7 +136,6 @@ body::after {
   .categories-section h2,
   .quick-phrases-section h2 {
     padding-right: 0;
-    font-size: 28px;
     line-height: 1;
   }
   .categories-section .section-header > p,
@@ -333,38 +143,20 @@ body::after {
     margin-top: 0.55rem;
     padding: 0;
     color: #5e6466;
-    font-size: 13px;
-    line-height: 18px;
   }
 
   .need-grid {
-    gap: 0.72rem;
     padding: 0;
-  }
-
-  .need-card {
-    min-height: 142px;
-    padding: 0.85rem 0.65rem;
   }
 
   .need-card strong {
     min-height: auto;
     color: var(--ink);
     font-family: inherit;
-    font-size: 16px;
-    line-height: 1.08;
-  }
-
-  .need-card .card-pict {
-    width: 2.25rem;
-    height: 2.25rem;
-    margin: 0.55rem auto 0.5rem;
   }
 
   .need-card > span:not(.card-pict) {
     color: #606569;
-    font-size: 11px;
-    line-height: 1.22;
   }
 
   .food-card-cta-section,
@@ -375,45 +167,20 @@ body::after {
   }
 
   .food-card-cta-panel {
-    padding: 1rem;
     border-width: 1px;
-    border-left-width: 5px;
-    background: #fff8f5;
-  }
-
-  .food-card-cta-panel h2 {
-    font-size: 28px;
   }
 
   .food-card-cta-panel p {
     color: var(--ink);
-    font-size: 13px;
-    line-height: 18px;
   }
 
   .food-card-cta-panel .button {
     width: 100%;
   }
 
-  .category-grid {
-    gap: 0.72rem;
-  }
-
   .category-card {
-    min-height: 108px;
-    padding: 0.78rem 0.9rem 0.78rem 5.25rem;
     border-width: 1px;
     border-color: #ece8de;
-    border-radius: 14px;
-  }
-
-  .category-card h3 {
-    font-size: 19px;
-  }
-
-  .category-card p {
-    font-size: 12px;
-    line-height: 1.32;
   }
 
   .quick-phrase-card {
@@ -430,24 +197,14 @@ body::after {
 /* TOP polish pass: spacing, readability, and a calmer travel-support tone. */
 .home-page > .hero {
   position: relative;
-  background: #f2f8f8;
 }
 
 .poster-cover {
   position: relative;
-  min-height: 360px;
-  padding-top: clamp(2.2rem, 5vw, 4rem);
-  padding-bottom: clamp(2.2rem, 5vw, 4rem);
 }
 
 .poster-cover::before {
-  content: "";
   position: absolute;
-  right: clamp(1rem, 9vw, 7rem);
-  bottom: clamp(1rem, 4vw, 2.8rem);
-  width: min(42vw, 420px);
-  height: min(20vw, 180px);
-  border: 2px solid rgba(18, 100, 181, 0.1);
   border-left: 0;
   border-bottom: 0;
   border-radius: 0 120px 0 0;
@@ -456,291 +213,42 @@ body::after {
 }
 
 .poster-cover::after {
-  content: "";
   position: absolute;
-  right: clamp(1.5rem, 12vw, 9rem);
-  bottom: clamp(2.6rem, 6vw, 4.4rem);
-  width: min(28vw, 260px);
   height: 2px;
-  background: rgba(190, 26, 49, 0.13);
   transform: rotate(-4deg);
   pointer-events: none;
 }
 
-.poster-cover h1,
-.poster-cover .lead{
-  max-width: 640px;
-}
-
-.poster-cover h1 {
-  font-size: clamp(3.2rem, 6vw, 5.1rem);
-}
-
-.poster-cover .lead {
-  margin-top: 1rem;
-  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
-  line-height: 1.45;
-}
-
-.categories-section,
-.food-card-cta-section,
-.quick-phrases-section {
-  padding-top: clamp(2.2rem, 4vw, 3.2rem);
-}
-.categories-section h2,
-.quick-phrases-section h2 {
-  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
-  line-height: 1.04;
-}
-.categories-section .section-header > p,
-.quick-phrases-section .section-header > p {
-  max-width: 620px;
-  margin-top: 0.55rem;
-  line-height: 1.45;
-}
-
-.choice-grid,
-.need-grid {
-  gap: 1rem;
-}
-
 .choice-button,
 .need-card {
-  min-height: 142px;
-  padding: 1.05rem;
-  align-content: start;
   gap: 0.45rem;
 }
 
-.choice-button span:first-child,
-.need-card strong {
-  font-size: 1.05rem;
-  line-height: 1.15;
-}
-
-.choice-button small,
-.need-card > span:not(.card-pict) {
-  max-width: 12rem;
-  font-size: 0.82rem;
-  line-height: 1.35;
-}
-
-.choice-button .card-pict,
-.need-card .card-pict {
-  width: 2.35rem;
-  height: 2.35rem;
-}
-
-.food-card-cta-panel {
-  gap: 1.6rem;
-  padding: clamp(1.65rem, 3.4vw, 2.6rem);
-  border-left-width: 6px;
-}
-
-.food-card-cta-panel h2 {
-  max-width: 620px;
-  margin-top: 0.55rem;
-  line-height: 1.02;
-}
-
-.food-card-cta-panel p {
-  line-height: 1.5;
-}
-
 .food-card-cta-panel .price-line {
-  display: inline-flex;
   align-items: center;
-  margin-top: 1rem;
-  padding: 0.36rem 0.68rem;
-  border-radius: 999px;
-  color: var(--red);
-  background: rgba(190, 26, 49, 0.08);
-  font-size: 1rem;
-}
-
-.food-card-cta-panel .section-actions {
-  align-items: center;
-}
-
-.category-card {
-  gap: 0.65rem;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
-.category-card h3 {
-  line-height: 1.08;
-}
-
-.category-card p {
-  line-height: 1.45;
-}
-
-.quick-phrase-card {
-  background: rgba(255, 255, 255, 0.72);
-}
-
-.quick-phrase-card strong {
-  font-size: 0.95rem;
-}
-
-.quick-phrase-card .jp {
-  color: #7f2633;
-  font-size: 0.92rem;
 }
 
 @media (max-width: 620px) {
-  .poster-cover {
-    min-height: 0;
-    padding: 1.45rem 1.15rem 1.55rem;
-  }
 
   .poster-cover::before {
-    right: -1.4rem;
-    bottom: 1.1rem;
-    width: 9rem;
-    height: 4.8rem;
     border-width: 1px;
     border-radius: 0 80px 0 0;
-    opacity: 0.9;
-  }
-
-  .poster-cover::after {
-    right: 1.2rem;
-    bottom: 2.2rem;
-    width: 5.8rem;
-  }
-
-  .poster-cover h1 {
-    max-width: 18rem;
-    font-size: clamp(2.25rem, 10.2vw, 2.75rem);
-  }
-
-  .poster-cover .lead {
-    max-width: 19rem;
-    margin-top: 0.8rem;
-    font-size: 14px;
-    line-height: 19px;
-  }
-  .categories-section,
-  .food-card-cta-section,
-  .quick-phrases-section {
-    padding-top: 1.8rem;
-  }
-  .categories-section h2,
-  .quick-phrases-section h2 {
-    font-size: 26px;
-  }
-  .categories-section .section-header > p,
-  .quick-phrases-section .section-header > p {
-    font-size: 13px;
-    line-height: 18px;
-  }
-
-  .choice-grid,
-  .need-grid {
-    gap: 0.65rem;
-  }
-
-  .choice-button,
-  .need-card {
-    min-height: 134px;
-    padding: 0.82rem 0.68rem;
-  }
-
-  .choice-button span:first-child,
-  .need-card strong {
-    font-size: 15px;
-    line-height: 1.12;
-  }
-
-  .choice-button small,
-  .need-card > span:not(.card-pict) {
-    font-size: 10.5px;
-    line-height: 1.28;
-  }
-
-  .choice-button .card-pict,
-  .need-card .card-pict {
-    width: 2rem;
-    height: 2rem;
-    margin-top: 0.42rem;
-    margin-bottom: 0.28rem;
-  }
-
-  .food-card-cta-panel {
-    padding: 1.15rem;
-  }
-
-  .food-card-cta-panel h2 {
-    font-size: 27px;
-  }
-
-  .food-card-cta-panel .price-line {
-    font-size: 14px;
-  }
-
-  .category-card {
-    padding-top: 0.95rem;
-    padding-bottom: 0.95rem;
-  }
-
-  .category-card p {
-    line-height: 1.4;
   }
 }
 
 /* TOP fine tuning: reduce empty hero space and improve card readability. */
 .poster-cover {
-  min-height: 330px;
   padding-top: clamp(1.8rem, 4.2vw, 3.2rem);
   padding-bottom: clamp(1.8rem, 4.2vw, 3.2rem);
 }
 
-.poster-cover::before {
-  opacity: 0.7;
-}
-
-.poster-cover::after {
-  opacity: 0.75;
-}
-
-.poster-cover h1 {
-  font-size: clamp(3rem, 5.5vw, 4.7rem);
-}
-
-.poster-cover .lead {
-  margin-top: 0.8rem;
-}
-
-.choice-button,
-.need-card {
-  min-height: 136px;
-  padding: 1rem 0.95rem 0.95rem;
-}
-
-.choice-button span:first-child,
-.need-card strong {
-  font-size: 1.02rem;
-}
-
-.choice-button small,
-.need-card > span:not(.card-pict) {
-  max-width: 13rem;
-  font-size: 0.86rem;
-  line-height: 1.36;
-}
-
 .choice-button .card-pict,
 .need-card .card-pict {
-  width: 2.2rem;
-  height: 2.2rem;
   margin-top: 0.48rem;
   margin-bottom: 0.35rem;
 }
 
 .food-card-cta-panel {
-  padding: clamp(1.85rem, 3.8vw, 2.85rem);
   border-left-width: 5px;
 }
 
@@ -748,98 +256,29 @@ body::after {
   margin-top: 0.65rem;
 }
 
-.food-card-cta-panel .price-line {
-  margin-top: 1.1rem;
-  padding: 0.42rem 0.78rem;
-  background: rgba(190, 26, 49, 0.1);
-  font-size: 1.04rem;
-  line-height: 1;
-}
-
-.food-card-cta-panel .button.secondary {
-  border-color: transparent;
-  background: transparent;
-}
-
 .category-card {
-  gap: 0.75rem;
   padding-top: 1.35rem;
   padding-bottom: 1.35rem;
 }
 
-.quick-phrase-grid {
-  gap: 0.65rem;
-}
-
-.quick-phrase-card {
-  min-height: auto;
-  padding: 0.9rem 0;
-  border: 0;
-  border-top: 1px solid #e7e1d6;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-.quick-phrase-card:last-child {
-  border-bottom: 1px solid #e7e1d6;
-}
-
 @media (max-width: 620px) {
-  .poster-cover {
-    padding: 1.25rem 1.15rem 1.35rem;
-  }
 
   .poster-cover::before {
-    right: -1.8rem;
-    bottom: 0.8rem;
-    width: 8.2rem;
-    height: 4.3rem;
     opacity: 0.62;
   }
 
   .poster-cover::after {
-    right: 1rem;
-    bottom: 1.8rem;
-    width: 5.2rem;
     opacity: 0.58;
-  }
-
-  .poster-cover h1 {
-    font-size: clamp(2.2rem, 9.7vw, 2.6rem);
-  }
-
-  .poster-cover .lead {
-    margin-top: 0.7rem;
-  }
-
-  .choice-button,
-  .need-card {
-    min-height: 136px;
-    padding: 0.86rem 0.72rem 0.78rem;
-  }
-
-  .choice-button small,
-  .need-card > span:not(.card-pict) {
-    font-size: 11.5px;
-    line-height: 1.3;
   }
 
   .choice-button .card-pict,
   .need-card .card-pict {
-    width: 2.08rem;
-    height: 2.08rem;
     margin-top: 0.42rem;
     margin-bottom: 0.32rem;
   }
 
-  .food-card-cta-panel {
-    padding: 1.25rem;
-  }
-
   .food-card-cta-panel .price-line {
     display: inline-flex;
-    font-size: 14.5px;
   }
 
   .food-card-cta-panel .button.secondary {
@@ -852,94 +291,32 @@ body::after {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
-
-  .quick-phrase-card {
-    padding: 0.75rem 0;
-  }
 }
 
-/* TOP card balance: stronger icons without turning cards into icon tiles. */
-.choice-button,
-.need-card {
-  min-height: 144px;
-  padding: 1rem 0.95rem 0.95rem;
-  justify-items: center;
-}
 
 .choice-button span:first-child,
 .need-card strong {
   min-height: auto;
-  font-size: 1rem;
-  font-weight: 850;
-  line-height: 1.14;
-  text-align: center;
-}
-
-.choice-button .card-pict,
-.need-card .card-pict {
-  width: 3rem;
-  height: 3rem;
-  margin: 0.55rem auto 0.42rem;
-  opacity: 0.68;
-}
-
-.choice-button small,
-.need-card > span:not(.card-pict) {
-  max-width: 13.5rem;
-  color: #555d61;
-  font-size: 0.88rem;
-  line-height: 1.34;
-  text-align: center;
 }
 
 @media (max-width: 620px) {
-  .choice-button,
-  .need-card {
-    min-height: 142px;
-    padding: 0.82rem 0.7rem 0.76rem;
-  }
 
   .choice-button span:first-child,
   .need-card strong {
-    font-size: 15px;
     font-weight: 850;
-    line-height: 1.12;
-  }
-
-  .choice-button .card-pict,
-  .need-card .card-pict {
-    width: 2.8rem;
-    height: 2.8rem;
-    margin: 0.46rem auto 0.34rem;
-    opacity: 0.66;
-  }
-
-  .choice-button small,
-  .need-card > span:not(.card-pict) {
-    font-size: 11.5px;
-    line-height: 1.28;
   }
 }
 
-/* Clean TOP UI pass: practical travel support with a restrained, modern mark. */
-body {
-  background: #fbfaf7;
-}
 
 body::after {
   right: -150px;
   top: 88px;
   width: 320px;
   height: 320px;
-  background: #dceff5;
-  opacity: 0.18;
 }
 
 .site-header {
   align-items: center;
-  min-height: 62px;
-  border-bottom: 1px solid #e9e3d8;
-  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px);
 }
 
@@ -949,11 +326,7 @@ body::after {
 
 .brand-mark {
   flex: 0 0 auto;
-  width: 34px;
-  height: 34px;
   border: 0;
-  border-radius: 0;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 5.25C11.55 5.25 4.75 11.45 4.75 19.1C4.75 26.75 11.55 32.95 20 32.95C22.17 32.95 24.25 32.54 26.08 31.8L31.3 35.25L30 29.72C33.2 27.2 35.25 23.4 35.25 19.1C35.25 11.45 28.45 5.25 20 5.25Z' stroke='%23172033' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M13.4 19.85H25.35M25.35 19.85L20.72 15.2M25.35 19.85L20.72 24.48' stroke='%23172033' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='31.4' cy='8.4' r='2.1' fill='%23BE1A31'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .brand-mark::before,
@@ -963,39 +336,19 @@ body::after {
 
 .brand strong {
   color: #171b24;
-  font-size: 1.04rem;
   font-weight: 900;
   letter-spacing: -0.03em;
 }
 
 .brand small {
   margin-top: 0.05rem;
-  color: #71757b;
   font-size: 0.72rem;
   font-weight: 750;
   letter-spacing: -0.01em;
 }
 
-.home-page > .hero {
-  padding: clamp(0.9rem, 2vw, 1.4rem) 0;
-  background: #fbfaf7;
-}
-
-.hero::after {
-  content: none;
-}
-
 .poster-cover {
-  width: 100%;
   max-width: var(--content-max);
-  min-height: 310px;
-  padding: clamp(2rem, 4.4vw, 3.4rem);
-  border: 1px solid #ebe5dc;
-  border-radius: 24px;
-  background:
-    radial-gradient(circle at 88% 22%, rgba(207, 233, 239, 0.9) 0 72px, transparent 74px),
-    linear-gradient(180deg, #ffffff 0%, #fbfaf7 100%);
-  box-shadow: 0 18px 44px rgba(23, 32, 51, 0.06);
 }
 
 .poster-meta,
@@ -1021,27 +374,6 @@ body::after {
   opacity: 1;
 }
 
-.poster-cover h1 {
-  max-width: 680px;
-  color: #171b24;
-  font-size: clamp(3rem, 5.1vw, 4.55rem);
-  line-height: 0.95;
-  letter-spacing: -0.07em;
-}
-
-.poster-cover .lead {
-  max-width: 560px;
-  margin-top: 1rem;
-  color: #303844;
-  font-size: clamp(1rem, 1.5vw, 1.16rem);
-  font-weight: 850;
-  line-height: 1.45;
-}
-
-.home-page > .section {
-  width: min(calc(100% - var(--content-gutter)), var(--content-max));
-}
-
 .home-page .eyebrow::before {
   content: none;
 }
@@ -1063,10 +395,6 @@ body::after {
 .quick-phrases-section .section-header > p {
   max-width: 640px;
   margin-top: 0.5rem;
-  color: #626972;
-  font-size: 0.98rem;
-  font-weight: 720;
-  line-height: 1.5;
 }
 
 .choice-grid {
@@ -1115,7 +443,6 @@ body::after {
 .choice-button span:first-child,
 .need-card strong {
   color: #171b24;
-  font-family: inherit;
   font-size: 1.04rem;
   font-weight: 900;
   letter-spacing: -0.035em;
@@ -1152,85 +479,21 @@ body::after {
 }
 
 .food-card-cta-panel {
-  gap: clamp(1.3rem, 3vw, 2.2rem);
-  padding: clamp(1.6rem, 3.6vw, 2.45rem);
   color: #171b24;
-  border: 1px solid #efc7cd;
-  border-left: 6px solid var(--red);
-  border-radius: 22px;
-  background: #fff5f4;
-  box-shadow: 0 18px 40px rgba(190, 26, 49, 0.08);
 }
 
 .food-card-cta-panel .eyebrow {
   margin-bottom: 0.45rem;
-  padding: 0.28rem 0.56rem;
-  color: var(--red);
-  background: #ffffff;
-  border: 1px solid #f0c8ce;
   border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 950;
-}
-
-.food-card-cta-panel h2 {
-  color: #171b24;
-  font-size: clamp(1.75rem, 3vw, 2.35rem);
-  line-height: 1.04;
-  letter-spacing: -0.055em;
-}
-
-.food-card-cta-panel p {
-  color: #303844;
-  font-weight: 760;
-  line-height: 1.52;
 }
 
 .food-card-cta-panel .price-line {
-  display: inline-flex;
-  width: fit-content;
-  margin-top: 1rem;
-  padding: 0.42rem 0.76rem;
-  color: var(--red);
-  background: #ffffff;
-  border: 1px solid #efc7cd;
-  border-radius: 999px;
   font-size: 1rem;
-  font-weight: 950;
   line-height: 1;
 }
 
-.food-card-cta-panel .button.primary {
-  color: #ffffff;
-  background: var(--red);
-  box-shadow: 0 12px 24px rgba(190, 26, 49, 0.18);
-}
-
 .food-card-cta-panel .button.secondary {
-  color: var(--red);
-  background: transparent;
-  border-color: transparent;
   box-shadow: none;
-}
-
-.categories-section .section-header,
-.quick-phrases-section .section-header {
-  margin-bottom: 1.05rem;
-}
-
-.category-grid {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.9rem;
-}
-
-.category-card {
-  min-height: 166px;
-  gap: 0.58rem;
-  padding: 1.1rem;
-  border: 1px solid #e7e1d8;
-  border-radius: 18px;
-  background: #ffffff;
-  box-shadow: 0 10px 26px rgba(23, 32, 51, 0.06);
 }
 
 .category-card::before,
@@ -1240,34 +503,12 @@ body::after {
 
 .category-card .category-chip {
   padding: 0.28rem 0.58rem;
-  color: #59616b;
-  background: #f3f0e9;
   border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 850;
-}
-
-.category-card h3 {
-  color: #171b24;
-  font-size: 1.08rem;
-  line-height: 1.08;
-}
-
-.category-card p {
-  color: #626972;
-  font-size: 0.84rem;
-  font-weight: 700;
-  line-height: 1.42;
 }
 
 .quick-phrase-grid {
   grid-template-columns: 1fr;
   gap: 0;
-  overflow: hidden;
-  border: 1px solid #e7e1d8;
-  border-radius: 18px;
-  background: #ffffff;
-  box-shadow: 0 10px 26px rgba(23, 32, 51, 0.05);
 }
 
 .quick-phrase-card {
@@ -1275,12 +516,8 @@ body::after {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.45rem 1rem;
-  min-height: auto;
-  padding: 0.95rem 1.2rem;
   border: 0;
   border-top: 1px solid #ece6dc;
-  border-radius: 0;
-  background: transparent;
   box-shadow: none;
 }
 
@@ -1289,31 +526,18 @@ body::after {
 }
 
 .quick-phrase-card::after {
-  content: ">";
   align-self: center;
   grid-row: 1 / span 2;
   grid-column: 2;
-  color: #9a9fa7;
   font-weight: 900;
 }
 
 .quick-phrase-card strong {
-  color: #171b24;
-  font-size: 0.96rem;
   line-height: 1.2;
 }
 
 .quick-phrase-card .jp {
-  color: #7a2c37;
-  font-size: 0.9rem;
-  font-weight: 800;
   line-height: 1.25;
-}
-
-@media (max-width: 900px) {
-  .category-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 620px) {
@@ -1326,14 +550,7 @@ body::after {
   }
 
   .site-header {
-    min-height: 56px;
-    padding: 0.68rem 0.9rem 0.55rem;
     border-bottom: 1px solid #e9e3d8;
-  }
-
-  .brand-mark {
-    width: 31px;
-    height: 31px;
   }
 
   .brand strong {
@@ -1346,15 +563,6 @@ body::after {
 
   .home-page > .hero {
     padding: 0.75rem 0 0.2rem;
-  }
-
-  .poster-cover {
-    width: calc(100% - 1.5rem);
-    padding: 1.55rem 1.25rem 1.7rem;
-    border-radius: 20px;
-    background:
-      radial-gradient(circle at 94% 18%, rgba(207, 233, 239, 0.88) 0 48px, transparent 50px),
-      #ffffff;
   }
 
   .poster-cover::before {
@@ -1374,15 +582,7 @@ body::after {
 
   .poster-cover h1 {
     max-width: 18rem;
-    font-size: clamp(2.45rem, 10.6vw, 2.85rem);
     line-height: 0.96;
-  }
-
-  .poster-cover .lead {
-    max-width: 19rem;
-    margin-top: 0.82rem;
-    font-size: 14px;
-    line-height: 19px;
   }
 
   .home-page > .section {
@@ -1441,7 +641,6 @@ body::after {
     gap: 1rem;
     padding: 1.18rem;
     border-left-width: 5px;
-    border-radius: 18px;
   }
 
   .food-card-cta-panel h2 {
@@ -1469,7 +668,6 @@ body::after {
   .category-card {
     min-height: 142px;
     padding: 0.92rem;
-    border-radius: 15px;
   }
 
   .category-card h3 {
@@ -1479,10 +677,6 @@ body::after {
   .category-card p {
     font-size: 11.5px;
     line-height: 1.34;
-  }
-
-  .quick-phrase-grid {
-    border-radius: 15px;
   }
 
   .quick-phrase-card {
@@ -1501,13 +695,8 @@ body::after {
 /* First Move Finder TOP layout: make the homepage feel like a situation chooser, not an article grid. */
 .poster-cover {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.62fr);
   gap: clamp(1.5rem, 4vw, 3rem);
   align-items: center;
-  min-height: 360px;
-  background:
-    radial-gradient(circle at 86% 18%, rgba(207, 233, 239, 0.7) 0 70px, transparent 72px),
-    linear-gradient(180deg, #ffffff 0%, #fbfaf7 100%);
 }
 
 .poster-cover h1,
@@ -1515,140 +704,61 @@ body::after {
   grid-column: 1;
 }
 
-.finder-section {
-  padding-top: clamp(1.35rem, 3vw, 2.35rem);
-}
-
-.finder-panel {
-  padding: clamp(1.25rem, 3vw, 2.15rem);
-  border: 1px solid #e7e1d8;
-  border-radius: 24px;
-  background: #ffffff;
-  box-shadow: 0 18px 44px rgba(23, 32, 51, 0.07);
-}
-
 .finder-groups {
   display: grid;
-  gap: clamp(1.35rem, 3vw, 2rem);
-  padding-top: clamp(1.25rem, 2.8vw, 1.85rem);
 }
 
 .finder-group {
   display: grid;
-  gap: 0.9rem;
 }
 
 .finder-group-header {
-  display: flex;
-  align-items: baseline;
   justify-content: space-between;
-  gap: 1rem;
-}
-
-.finder-group-header h3 {
-  color: #171b24;
-  font-size: clamp(1.45rem, 2.4vw, 2rem);
-  line-height: 1;
-  letter-spacing: -0.055em;
 }
 
 .finder-group-header p {
   max-width: 360px;
-  margin: 0;
-  color: #626972;
-  font-size: 0.92rem;
-  font-weight: 740;
-  line-height: 1.4;
 }
 
 .finder-panel .choice-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.86rem;
 }
 
 .finder-panel .choice-button {
-  min-height: 138px;
-  padding: 0.98rem 0.82rem 0.9rem;
   border-color: #e9e2d8;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(23, 32, 51, 0.055);
-}
-
-.finder-panel .choice-button span:first-child {
-  font-size: 0.99rem;
-}
-
-.finder-panel .choice-button .card-pict {
-  width: 2.65rem;
-  height: 2.65rem;
-  margin: 0.48rem auto 0.34rem;
-}
-
-.finder-panel .choice-button small {
-  font-size: 0.8rem;
-  line-height: 1.3;
 }
 
 .finder-panel .need-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.86rem;
 }
 
 .finder-panel .need-card {
-  grid-template-columns: auto minmax(0, 1fr);
   grid-template-rows: auto auto;
   column-gap: 0.82rem;
   row-gap: 0.18rem;
-  align-items: center;
   justify-items: start;
-  min-height: 104px;
-  padding: 1rem;
-  border-radius: 16px;
-  background: #fbfaf7;
-  box-shadow: 0 8px 20px rgba(23, 32, 51, 0.045);
 }
 
 .finder-panel .need-card .card-pict {
-  grid-row: 1 / span 2;
   grid-column: 1;
-  width: 2.45rem;
-  height: 2.45rem;
   margin: 0;
-  opacity: 0.68;
 }
 
 .finder-panel .need-card strong {
   grid-column: 2;
   text-align: left;
-  font-size: 1rem;
 }
 
 .finder-panel .need-card > span:not(.card-pict) {
   grid-column: 2;
-  max-width: none;
   text-align: left;
-  font-size: 0.82rem;
-  line-height: 1.32;
 }
 
 .food-card-cta-section {
   padding-top: clamp(1.6rem, 3.3vw, 2.45rem);
 }
 
-.food-card-cta-panel {
-  position: relative;
-  overflow: hidden;
-}
-
 .food-card-cta-panel::after {
-  content: "";
-  position: absolute;
-  right: -38px;
-  top: -42px;
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  background: rgba(190, 26, 49, 0.08);
   pointer-events: none;
 }
 
@@ -1657,18 +767,8 @@ body::after {
   z-index: 1;
 }
 
-.categories-section .section-header h2,
-.quick-phrases-section .section-header h2 {
-  font-size: clamp(1.7rem, 2.7vw, 2.25rem);
-}
-
 .category-grid {
   grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
-.category-card {
-  min-height: 150px;
-  box-shadow: 0 8px 20px rgba(23, 32, 51, 0.045);
 }
 
 .quick-phrases-section {
@@ -1676,9 +776,6 @@ body::after {
 }
 
 @media (max-width: 900px) {
-  .poster-cover {
-    grid-template-columns: 1fr;
-  }
 
   .finder-panel .choice-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1693,16 +790,10 @@ body::after {
 @media (max-width: 620px) {
   .poster-cover {
     display: block;
-    min-height: 0;
   }
 
   .finder-section {
     padding-top: 1.35rem;
-  }
-
-  .finder-panel {
-    padding: 1rem;
-    border-radius: 18px;
   }
 
   .finder-groups {
@@ -1731,7 +822,6 @@ body::after {
   }
 
   .finder-panel .choice-button {
-    min-height: 132px;
     padding: 0.84rem 0.64rem 0.76rem;
   }
 
@@ -1740,8 +830,6 @@ body::after {
   }
 
   .finder-panel .choice-button .card-pict {
-    width: 2.55rem;
-    height: 2.55rem;
     margin: 0.42rem auto 0.3rem;
   }
 
@@ -1754,7 +842,6 @@ body::after {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     justify-items: center;
-    min-height: 138px;
     padding: 0.84rem 0.68rem;
     text-align: center;
   }
@@ -1793,33 +880,6 @@ body::after {
   }
 }
 
-/* Practical but fun direction: useful structure, lighter travel energy. */
-body {
-  background:
-    radial-gradient(circle at 8% 9%, rgba(255, 214, 221, 0.62) 0 120px, transparent 122px),
-    radial-gradient(circle at 94% 7%, rgba(207, 238, 231, 0.72) 0 160px, transparent 162px),
-    linear-gradient(180deg, #fffaf1 0%, #f8fbf7 48%, #fff8f3 100%);
-}
-
-body::after {
-  background: #bfe4f5;
-  opacity: 0.2;
-}
-
-.site-header {
-  width: min(1120px, calc(100% - 1.5rem));
-  margin: 0.7rem auto 0;
-  border: 1px solid rgba(23, 32, 51, 0.08);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 14px 36px rgba(23, 32, 51, 0.08);
-}
-
-.brand-mark {
-  width: 38px;
-  height: 38px;
-  filter: drop-shadow(0 8px 14px rgba(23, 32, 51, 0.08));
-}
 
 .brand strong {
   font-size: 1.08rem;
@@ -1829,247 +889,36 @@ body::after {
   color: #778084;
 }
 
-.page-shell {
-  padding-top: clamp(0.7rem, 1.6vw, 1.4rem);
-}
-
 .home-page > .hero {
   background: transparent;
-}
-
-.poster-cover {
-  grid-template-columns: minmax(0, 0.9fr) minmax(310px, 0.72fr);
-  min-height: 440px;
-  border: 0;
-  border-radius: 40px;
-  background:
-    radial-gradient(circle at 78% 18%, rgba(255, 213, 190, 0.86) 0 94px, transparent 96px),
-    radial-gradient(circle at 94% 78%, rgba(198, 235, 227, 0.96) 0 180px, transparent 182px),
-    radial-gradient(circle at 54% 95%, rgba(191, 228, 245, 0.74) 0 130px, transparent 132px),
-    #ffffff;
-  box-shadow: 0 28px 70px rgba(23, 32, 51, 0.11);
-}
-
-.poster-cover::before,
-.poster-cover::after {
-  content: none;
-}
-
-.poster-cover h1 {
-  max-width: 660px;
-  color: #132033;
-  font-size: clamp(3.6rem, 6.4vw, 5.8rem);
-  line-height: 0.9;
-  letter-spacing: -0.085em;
-}
-
-.poster-cover .lead {
-  max-width: 510px;
-  margin-top: 1.25rem;
-  color: #263241;
-  font-size: clamp(1.08rem, 1.7vw, 1.35rem);
-  line-height: 1.42;
-}
-
-.finder-section {
-  padding-top: clamp(1.6rem, 3.4vw, 2.7rem);
-}
-
-.finder-panel {
-  position: relative;
-  overflow: hidden;
-  padding: clamp(1.35rem, 3.3vw, 2.35rem);
-  border: 0;
-  border-radius: 34px;
-  background:
-    radial-gradient(circle at 4% 12%, rgba(255, 215, 223, 0.8) 0 120px, transparent 122px),
-    radial-gradient(circle at 96% 6%, rgba(191, 228, 245, 0.86) 0 150px, transparent 152px),
-    linear-gradient(180deg, #fff6e8 0%, #fffdf8 100%);
-  box-shadow: 0 26px 60px rgba(23, 32, 51, 0.1);
-}
-
-.finder-panel::before {
-  content: "";
-  position: absolute;
-  right: 2.2rem;
-  top: 2rem;
-  width: 8.5rem;
-  height: 8.5rem;
-  border: 2px dashed rgba(83, 167, 211, 0.25);
-  border-radius: 50%;
-  pointer-events: none;
 }
 
 .finder-groups {
   position: relative;
   z-index: 1;
-  gap: clamp(1.55rem, 3.4vw, 2.35rem);
-}
-
-.finder-group {
-  gap: 1rem;
-}
-
-.finder-group-header h3 {
-  color: #132033;
-  font-size: clamp(1.65rem, 2.7vw, 2.25rem);
-  letter-spacing: -0.07em;
-}
-
-.finder-group-header p {
-  color: #6c6260;
-}
-
-.finder-panel .choice-grid {
-  gap: 0.95rem;
-}
-
-.finder-panel .choice-button {
-  min-height: 152px;
-  padding: 1rem 0.85rem 0.95rem;
-  border: 2px solid rgba(255, 255, 255, 0.72);
-  border-radius: 24px;
-  background: var(--tile-bg, #ffffff);
-  box-shadow: 0 14px 28px rgba(23, 32, 51, 0.08);
-}
-
-.finder-panel .choice-button.category-food {
-  --tile-bg: #fff0f2;
-}
-
-.finder-panel .choice-button.category-move {
-  --tile-bg: #ecf8ff;
-}
-
-.finder-panel .choice-button.category-relax {
-  --tile-bg: #eff9ef;
-}
-
-.finder-panel .choice-button.category-help {
-  --tile-bg: #f3f0ff;
-}
-
-.finder-panel .choice-button span:first-child {
-  color: #172033;
-  font-size: 1.03rem;
 }
 
 .finder-panel .choice-button .card-pict {
-  width: 3rem;
-  height: 3rem;
   margin: 0.52rem auto 0.4rem;
-  opacity: 0.82;
-  filter: drop-shadow(0 7px 8px rgba(23, 32, 51, 0.1));
-}
-
-.finder-panel .choice-button small {
-  color: #4e5961;
-  font-size: 0.82rem;
-  font-weight: 760;
-}
-
-.finder-panel .need-grid {
-  gap: 0.95rem;
-}
-
-.finder-panel .need-card {
-  min-height: 112px;
-  padding: 1.05rem;
-  border: 2px solid rgba(255, 255, 255, 0.78);
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 14px 28px rgba(23, 32, 51, 0.07);
 }
 
 .finder-panel .need-card::after {
-  content: ">";
   position: absolute;
-  right: 1rem;
-  top: 50%;
-  display: grid;
-  width: 1.7rem;
-  height: 1.7rem;
   place-items: center;
   border-radius: 999px;
-  color: #172033;
-  background: #fff1a8;
-  font-size: 0.88rem;
   font-weight: 950;
-  transform: translateY(-50%);
 }
 
 .finder-panel .need-card .card-pict {
-  width: 2.85rem;
-  height: 2.85rem;
-  padding: 0.48rem;
-  border-radius: 18px;
-  background: #f4f8f6;
   opacity: 0.82;
 }
 
-.finder-panel .need-card strong {
-  color: #172033;
-}
-
-.finder-panel .need-card > span:not(.card-pict) {
-  max-width: calc(100% - 2rem);
-  color: #59636c;
-}
-
-.food-card-cta-panel {
-  grid-template-columns: minmax(0, 1fr) minmax(210px, auto);
-  border: 0;
-  border-left: 0;
-  border-radius: 34px;
-  background:
-    radial-gradient(circle at 92% 24%, rgba(255, 255, 255, 0.36) 0 88px, transparent 90px),
-    linear-gradient(135deg, #d51f3c 0%, #be1a31 54%, #8f1230 100%);
-  box-shadow: 0 28px 64px rgba(190, 26, 49, 0.19);
-}
-
 .food-card-cta-panel::before {
-  content: "";
-  position: absolute;
   right: 14rem;
-  bottom: -2.2rem;
-  width: 9rem;
   height: 9rem;
   border: 2px solid rgba(255, 255, 255, 0.16);
-  border-radius: 32px;
   transform: rotate(-9deg);
   pointer-events: none;
-}
-
-.food-card-cta-panel::after {
-  right: -28px;
-  top: -28px;
-  background: rgba(255, 255, 255, 0.16);
-}
-
-.food-card-cta-panel .eyebrow {
-  color: #be1a31;
-  background: #fff8f3;
-}
-
-.food-card-cta-panel h2,
-.food-card-cta-panel p{
-  color: #ffffff;
-}
-
-.food-card-cta-panel .price-line {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255, 255, 255, 0.22);
-}
-
-.food-card-cta-panel .button.primary {
-  color: #be1a31;
-  background: #ffffff;
-  box-shadow: 0 18px 34px rgba(23, 32, 51, 0.16);
-}
-
-.food-card-cta-panel .button.secondary {
-  color: #ffffff;
 }
 
 .categories-section,
@@ -2077,32 +926,13 @@ body::after {
   position: relative;
 }
 
-.category-card {
-  border: 0;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 14px 30px rgba(23, 32, 51, 0.07);
-}
-
-.quick-phrase-grid {
-  border: 0;
-  border-radius: 26px;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 14px 30px rgba(23, 32, 51, 0.07);
-}
-
 .quick-phrase-card {
   padding-right: 1.35rem;
 }
 
 .quick-phrase-card::after {
-  color: #be1a31;
-  background: #fff0f2;
   border-radius: 999px;
-  width: 1.55rem;
-  height: 1.55rem;
   text-align: center;
-  line-height: 1.55rem;
 }
 
 @media (max-width: 900px) {
@@ -2110,52 +940,12 @@ body::after {
     width: min(100% - 1rem, 1120px);
     border-radius: 26px;
   }
-
-  .poster-cover {
-    grid-template-columns: 1fr;
-    min-height: 0;
-  }
 }
 
 @media (max-width: 620px) {
-  body {
-    background:
-      radial-gradient(circle at 6% 7%, rgba(255, 214, 221, 0.68) 0 78px, transparent 80px),
-      radial-gradient(circle at 104% 5%, rgba(207, 238, 231, 0.8) 0 110px, transparent 112px),
-      #fffaf1;
-  }
-
-  .site-header {
-    position: sticky;
-    top: 0.45rem;
-    width: calc(100% - 1rem);
-    padding: 0.55rem 0.68rem;
-    border-radius: 22px;
-  }
-
-  .brand-mark {
-    width: 32px;
-    height: 32px;
-  }
-
-  .poster-cover {
-    width: calc(100% - 1rem);
-    padding: 1.35rem 1.1rem 1.25rem;
-    border-radius: 28px;
-    background:
-      radial-gradient(circle at 92% 12%, rgba(255, 213, 190, 0.78) 0 58px, transparent 60px),
-      radial-gradient(circle at 88% 88%, rgba(198, 235, 227, 0.82) 0 96px, transparent 98px),
-      #ffffff;
-  }
 
   .poster-cover h1 {
     font-size: clamp(2.8rem, 12.2vw, 3.5rem);
-  }
-
-  .poster-cover .lead {
-    max-width: 17.5rem;
-    font-size: 15px;
-    line-height: 20px;
   }
 
   .finder-panel {
@@ -2188,10 +978,6 @@ body::after {
     background: rgba(255, 255, 255, 0.84);
   }
 
-  .finder-panel .need-card::after {
-    content: none;
-  }
-
   .food-card-cta-panel {
     border-radius: 26px;
   }
@@ -2210,13 +996,6 @@ body::after {
   }
 }
 
-/* Cool, clean, playful TOP tone: white cards, stronger accents, no creamy pastel fill. */
-body {
-  background:
-    radial-gradient(circle at 4% 8%, rgba(83, 167, 211, 0.12) 0 130px, transparent 132px),
-    radial-gradient(circle at 96% 10%, rgba(190, 26, 49, 0.08) 0 150px, transparent 152px),
-    linear-gradient(180deg, #f7fafc 0%, #ffffff 46%, #f5f8fb 100%);
-}
 
 body::after {
   background: #dbe8ef;
@@ -2225,37 +1004,6 @@ body::after {
 
 .site-header {
   border-color: rgba(23, 32, 51, 0.1);
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 14px 36px rgba(23, 32, 51, 0.08);
-}
-
-.poster-cover {
-  border: 1px solid #dfe8ee;
-  background:
-    linear-gradient(135deg, rgba(83, 167, 211, 0.1) 0 28%, transparent 28%),
-    radial-gradient(circle at 86% 18%, rgba(190, 26, 49, 0.12) 0 76px, transparent 78px),
-    #ffffff;
-  box-shadow: 0 24px 58px rgba(23, 32, 51, 0.1);
-}
-
-.poster-cover h1,
-.finder-group-header h3 {
-  color: #111827;
-}
-
-.poster-cover .lead {
-  color: #263241;
-}
-.finder-group-header p {
-  color: #5c6670;
-}
-
-.finder-panel {
-  border: 1px solid #dfe8ee;
-  background:
-    linear-gradient(90deg, #be1a31 0 7px, transparent 7px),
-    linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
-  box-shadow: 0 24px 58px rgba(23, 32, 51, 0.09);
 }
 
 .finder-panel::before {
@@ -2263,29 +1011,11 @@ body::after {
 }
 
 .finder-panel::after {
-  content: "";
-  position: absolute;
   right: 2.35rem;
-  bottom: 2rem;
-  width: 10rem;
-  height: 4.5rem;
   border-bottom: 3px solid rgba(22, 119, 168, 0.14);
-  border-radius: 0 0 999px 999px;
-  pointer-events: none;
 }
 .food-card-cta-panel .eyebrow {
-  padding: 0;
-  color: #be1a31;
-  background: transparent;
-  border: 0;
   box-shadow: none;
-  letter-spacing: 0.04em;
-}
-
-.finder-panel .choice-button {
-  border: 1px solid #dfe8ee;
-  background: #ffffff;
-  box-shadow: 0 12px 26px rgba(23, 32, 51, 0.07);
 }
 
 .finder-panel .choice-button.category-food,
@@ -2296,18 +1026,9 @@ body::after {
 }
 
 .finder-panel .choice-button::after {
-  content: ">";
   position: absolute;
-  right: 0.85rem;
-  top: 0.75rem;
-  display: grid;
-  width: 1.45rem;
-  height: 1.45rem;
   place-items: center;
   border-radius: 999px;
-  color: #ffffff;
-  background: var(--accent, #be1a31);
-  font-size: 0.78rem;
   font-weight: 950;
 }
 
@@ -2316,83 +1037,13 @@ body::after {
   filter: none;
 }
 
-.finder-panel .choice-button small {
-  color: #55616b;
-}
-
-.finder-panel .need-card {
-  border: 1px solid #dfe8ee;
-  background: #ffffff;
-  box-shadow: 0 12px 26px rgba(23, 32, 51, 0.06);
-}
-
 .finder-panel .need-card::before {
-  content: "";
   position: absolute;
   left: 0;
   top: 1rem;
   bottom: 1rem;
   width: 4px;
   border-radius: 999px;
-  background: var(--accent, #be1a31);
-}
-
-.finder-panel .need-card::after {
-  color: var(--accent, #be1a31);
-  background: #ffffff;
-  border: 1px solid currentColor;
-}
-
-.finder-panel .need-card .card-pict {
-  background: #ffffff;
-  border: 1px solid #e1e8ee;
-}
-
-.food-card-cta-panel {
-  border: 1px solid rgba(190, 26, 49, 0.22);
-  border-left: 7px solid #be1a31;
-  background:
-    radial-gradient(circle at 94% 18%, rgba(190, 26, 49, 0.08) 0 86px, transparent 88px),
-    #ffffff;
-  box-shadow: 0 24px 58px rgba(23, 32, 51, 0.09);
-}
-
-.food-card-cta-panel::before {
-  border-color: rgba(190, 26, 49, 0.12);
-}
-
-.food-card-cta-panel::after {
-  background: rgba(190, 26, 49, 0.08);
-}
-
-.food-card-cta-panel h2 {
-  color: #111827;
-}
-
-.food-card-cta-panel p{
-  color: #34404c;
-}
-
-.food-card-cta-panel .price-line {
-  color: #be1a31;
-  background: #ffffff;
-  border: 1px solid rgba(190, 26, 49, 0.28);
-}
-
-.food-card-cta-panel .button.primary {
-  color: #ffffff;
-  background: #be1a31;
-  box-shadow: 0 16px 30px rgba(190, 26, 49, 0.22);
-}
-
-.food-card-cta-panel .button.secondary {
-  color: #be1a31;
-}
-
-.category-card {
-  border: 1px solid #dfe8ee;
-  background: #ffffff;
-  box-shadow: 0 12px 26px rgba(23, 32, 51, 0.06);
 }
 
 .category-card.category-food h3 {
@@ -2415,36 +1066,16 @@ body::after {
   color: #6552c7;
 }
 
-.quick-phrase-grid {
-  border: 1px solid #dfe8ee;
-  background: #ffffff;
-  box-shadow: 0 12px 26px rgba(23, 32, 51, 0.05);
-}
-
-.quick-phrase-card::after {
-  color: #ffffff;
-  background: #be1a31;
-}
-
 @media (max-width: 620px) {
   body {
-    background:
-      radial-gradient(circle at 0% 5%, rgba(83, 167, 211, 0.13) 0 92px, transparent 94px),
-      radial-gradient(circle at 108% 6%, rgba(190, 26, 49, 0.08) 0 104px, transparent 106px),
-      #f7fafc;
-  }
-
-  .poster-cover {
-    background:
-      linear-gradient(135deg, rgba(83, 167, 211, 0.11) 0 34%, transparent 34%),
-      radial-gradient(circle at 92% 12%, rgba(190, 26, 49, 0.12) 0 54px, transparent 56px),
-      #ffffff;
+    background: radial-gradient(circle at 0% 5%, rgba(83, 167, 211, 0.13) 0 92px, transparent 94px),
+          radial-gradient(circle at 108% 6%, rgba(190, 26, 49, 0.08) 0 104px, transparent 106px),
+          #f7fafc;
   }
 
   .finder-panel {
-    background:
-      linear-gradient(90deg, #be1a31 0 6px, transparent 6px),
-      #ffffff;
+    background: linear-gradient(90deg, #be1a31 0 6px, transparent 6px),
+          #ffffff;
   }
 
   .finder-panel .need-card::before {
@@ -2452,25 +1083,12 @@ body::after {
     bottom: 0.82rem;
   }
 
-  .finder-panel .need-card::after {
-    content: none;
-  }
-
   .food-card-cta-panel {
-    background:
-      radial-gradient(circle at 98% 10%, rgba(190, 26, 49, 0.08) 0 72px, transparent 74px),
-      #ffffff;
+    background: radial-gradient(circle at 98% 10%, rgba(190, 26, 49, 0.08) 0 72px, transparent 74px),
+          #ffffff;
   }
 }
 
-/* Street warmth pass: keep the clean base, add travel cues and softer human energy. */
-.poster-cover {
-  background:
-    linear-gradient(135deg, rgba(83, 167, 211, 0.1) 0 30%, transparent 30%),
-    radial-gradient(circle at 84% 18%, rgba(190, 26, 49, 0.11) 0 68px, transparent 70px),
-    radial-gradient(circle at 72% 86%, rgba(255, 138, 61, 0.09) 0 120px, transparent 122px),
-    #ffffff;
-}
 
 .finder-group-header h3 {
   position: relative;
@@ -2478,7 +1096,6 @@ body::after {
 }
 
 .finder-group-header h3::after {
-  content: "";
   position: absolute;
   left: 0.08em;
   right: 0.08em;
@@ -2497,14 +1114,8 @@ body::after {
 }
 
 .finder-panel .choice-button::after {
-  content: "→";
-  right: 0.95rem;
-  top: 0.82rem;
   width: auto;
   height: auto;
-  color: var(--accent, #be1a31);
-  background: transparent;
-  font-size: 1.15rem;
   line-height: 1;
 }
 
@@ -2515,7 +1126,6 @@ body::after {
 
 .finder-panel .choice-button .card-pict::before,
 .finder-panel .need-card .card-pict::before {
-  content: "";
   position: absolute;
   right: -0.1rem;
   bottom: -0.05rem;
@@ -2523,7 +1133,6 @@ body::after {
   width: 1.2rem;
   height: 1.2rem;
   border-radius: 50%;
-  background: var(--accent, #be1a31);
   opacity: 0.18;
 }
 
@@ -2534,29 +1143,12 @@ body::after {
 }
 
 .finder-panel .need-card::after {
-  content: "→";
-  right: 1rem;
-  top: auto;
-  bottom: 0.95rem;
   width: auto;
   height: auto;
-  color: var(--accent, #be1a31);
-  background: transparent;
-  border: 0;
-  font-size: 1.08rem;
-  transform: none;
 }
 
 .finder-panel .need-card .card-pict {
-  background: #ffffff;
   border-color: #dfe8ee;
-}
-
-.food-card-cta-panel {
-  background:
-    linear-gradient(90deg, rgba(190, 26, 49, 0.08), transparent 42%),
-    radial-gradient(circle at 94% 18%, rgba(255, 138, 61, 0.1) 0 80px, transparent 82px),
-    #ffffff;
 }
 
 .food-card-cta-panel::before {
@@ -2565,10 +1157,6 @@ body::after {
 
 .food-card-cta-panel .price-line {
   border-color: rgba(190, 26, 49, 0.34);
-}
-
-.food-card-cta-panel .button.primary {
-  background: #be1a31;
 }
 
 .category-card:hover,
@@ -2607,27 +1195,10 @@ body::after {
   --font-display: "Bricolage Grotesque", "Hiragino Sans", "Yu Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-body,
-button,
-input,
-textarea,
-select {
-  font-family: var(--font-display);
-}
 
 .poster-cover {
   grid-template-columns: minmax(0, 0.78fr) minmax(280px, 0.72fr);
-  min-height: 520px;
-  padding: clamp(2.2rem, 4.5vw, 4rem);
   overflow: hidden;
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 48%, rgba(255, 255, 255, 0.42) 76%, rgba(255, 255, 255, 0.16) 100%),
-    #ffffff;
-}
-
-.poster-cover::before,
-.poster-cover::after {
-  content: none;
 }
 
 .poster-cover h1,
@@ -2645,99 +1216,33 @@ select {
   letter-spacing: -0.085em;
 }
 
-.hero-title-word{
-  display: block;
-}
-
-.hero-title-word {
-  letter-spacing: -0.12em;
-}
-
-.hero-title-letter-w {
-  color: #c90000;
-}
-
-.hero-title-letter-h {
-  color: #ffba00;
-}
-
-.hero-title-letter-a {
-  color: #1dadff;
-}
-
-.hero-title-letter-t {
-  color: #ff62b0;
-}
-
-.hero-title-letter-apostrophe {
-  color: #ff7800;
-}
-
-.hero-title-letter-s {
-  color: #404eff;
-}
-
 .poster-cover .lead{
   position: relative;
   z-index: 3;
-  max-width: 440px;
   font-family: var(--font-display);
 }
 
 .poster-cover .lead {
-  margin-top: 1.15rem;
-  color: #202938;
-  font-size: clamp(1.05rem, 1.6vw, 1.24rem);
   font-weight: 650;
-  line-height: 1.38;
 }
 
 .hero-visual {
   position: absolute;
-  inset: 0;
   z-index: 1;
   overflow: hidden;
-  border-radius: inherit;
   pointer-events: none;
 }
 
 .hero-visual::before {
-  content: "";
   position: absolute;
   inset: 0;
   z-index: 2;
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 42%, rgba(255, 255, 255, 0.5) 62%, rgba(255, 255, 255, 0.1) 100%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(247, 250, 252, 0.24) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 42%, rgba(255, 255, 255, 0.5) 62%, rgba(255, 255, 255, 0.1) 100%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(247, 250, 252, 0.24) 100%);
 }
 
 .hero-visual-img {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 68% 54%;
-  opacity: 0;
-  transform: scale(1.02);
-  animation: heroImageFade 32s infinite ease-in-out;
-}
-
-.hero-visual-img-1 {
-  opacity: 1;
-  animation-delay: 0s;
-}
-
-.hero-visual-img-2 {
-  animation-delay: 8s;
-}
-
-.hero-visual-img-3 {
-  animation-delay: 16s;
-}
-
-.hero-visual-img-4 {
-  animation-delay: 24s;
 }
 
 @keyframes heroImageFade {
@@ -2777,8 +1282,7 @@ select {
   }
 
   .hero-visual::before {
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.94) 30%, rgba(255, 255, 255, 0.54) 56%, rgba(255, 255, 255, 0.06) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.94) 30%, rgba(255, 255, 255, 0.54) 56%, rgba(255, 255, 255, 0.06) 100%);
   }
 
   .hero-visual-img {
@@ -2788,23 +1292,7 @@ select {
 
 @media (max-width: 620px) {
   .poster-cover {
-    min-height: 620px;
-    padding: 1.55rem 1.18rem 17.5rem;
-    border-radius: 30px;
     background: #ffffff;
-  }
-
-  .poster-cover .hero-title {
-    max-width: 21rem;
-    font-size: clamp(3.15rem, 14.4vw, 4.45rem);
-    line-height: 0.86;
-  }
-
-  .poster-cover .lead {
-    max-width: 19rem;
-    margin-top: 1rem;
-    font-size: 15.5px;
-    line-height: 20px;
   }
 
   .hero-visual {
@@ -2812,8 +1300,7 @@ select {
   }
 
   .hero-visual::before {
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(255, 255, 255, 0.97) 34%, rgba(255, 255, 255, 0.64) 56%, rgba(255, 255, 255, 0.08) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(255, 255, 255, 0.97) 34%, rgba(255, 255, 255, 0.64) 56%, rgba(255, 255, 255, 0.08) 100%);
   }
 
   .hero-visual-img {
@@ -2822,21 +1309,9 @@ select {
   }
 }
 
-/* User-directed hero/header corrections: full-width image, readable text, simple header bar. */
-body {
-  background: #f2f2f2;
-}
 
 .site-header {
-  width: 100%;
-  min-height: 58px;
   margin: 0;
-  padding: 0.62rem clamp(1rem, 4vw, 2rem);
-  border: 0;
-  border-bottom: 1px solid rgba(17, 24, 39, 0.1);
-  border-radius: 0;
-  background: #ffffff;
-  box-shadow: none;
 }
 
 .brand-mark {
@@ -2853,33 +1328,24 @@ body {
 }
 
 .home-page > .hero {
-  width: 100%;
   padding: 0;
 }
 
 .poster-cover {
   width: 100%;
-  min-height: min(1200px, 142vw);
   margin: 0;
-  padding: clamp(2rem, 6vw, 4rem) clamp(1.2rem, 6vw, 4rem) clamp(18rem, 42vw, 31rem);
-  border: 0;
   border-radius: 0;
   background: transparent;
-  box-shadow: none;
 }
 
 .poster-cover .hero-title,
 .poster-cover .lead{
   width: fit-content;
-  max-width: min(560px, calc(100vw - 2.4rem));
   padding-inline: 0.08em;
 }
 
 .poster-cover .hero-title {
   display: block;
-  font-size: clamp(3.35rem, 13.5vw, 5.2rem);
-  line-height: 0.94;
-  letter-spacing: -0.04em;
 }
 
 .hero-title-word {
@@ -2889,7 +1355,6 @@ body {
 }
 
 .poster-cover .lead {
-  margin-top: 1.18rem;
   font-size: clamp(1rem, 4.3vw, 1.42rem);
   line-height: 1.18;
   letter-spacing: -0.02em;
@@ -2901,11 +1366,6 @@ body {
 
 .hero-visual::before {
   content: none;
-}
-
-.hero-visual-img {
-  object-fit: cover;
-  object-position: center bottom;
 }
 
 @media (min-width: 901px) {
@@ -2937,37 +1397,19 @@ body {
 
   .poster-cover {
     width: 100%;
-    min-height: 1200px;
-    padding: 2.1rem 1.5rem 23rem;
     border-radius: 0;
-  }
-
-  .poster-cover .hero-title {
-    max-width: calc(100vw - 3rem);
-    font-size: clamp(3.8rem, 17vw, 5rem);
-    line-height: 0.94;
-    letter-spacing: -0.035em;
   }
 
   .hero-title-word {
     letter-spacing: -0.075em;
   }
-
-  .poster-cover .lead {
-    max-width: calc(100vw - 3rem);
-    margin-top: 1.35rem;
-    font-size: 1.28rem;
-    line-height: 1.18;
-  }
 }
 
 /* Fix hero word flow and keep the mobile artwork fitted to the viewport width. */
 .poster-cover .hero-title .hero-title-word {
-  display: inline-flex;
   align-items: baseline;
   max-width: none;
   white-space: nowrap;
-  letter-spacing: -0.055em;
 }
 
 .poster-cover .hero-title .hero-title-word > span {
@@ -2977,17 +1419,11 @@ body {
 }
 
 .hero-visual {
-  display: flex;
   align-items: flex-end;
 }
 
 .hero-visual-img {
-  inset: auto 0 0;
-  width: 100%;
-  height: auto;
   min-height: 0;
-  object-fit: contain;
-  object-position: center bottom;
   transform: none;
   animation-name: heroImageFadeFlat;
 }
@@ -3008,24 +1444,6 @@ body {
   }
 }
 
-@media (max-width: 620px) {
-  .poster-cover {
-    min-height: min(870px, calc(100vw * 1.45 + 300px));
-    padding: 2.05rem 1.5rem calc(100vw * 1.06);
-  }
-
-  .poster-cover .hero-title {
-    max-width: calc(100vw - 3rem);
-    font-size: clamp(3.5rem, 15.8vw, 4.7rem);
-    line-height: 0.94;
-    letter-spacing: -0.025em;
-  }
-
-  .poster-cover .hero-title .hero-title-word {
-    letter-spacing: -0.05em;
-  }
-}
-
 /* Hero composition: let the papercraft scene sit behind the live copy. */
 .poster-cover {
   min-height: clamp(620px, 76vw, 900px);
@@ -3034,15 +1452,11 @@ body {
 
 .poster-cover .hero-title {
   max-width: min(900px, calc(100vw - 2.2rem));
-  font-size: clamp(3.8rem, 10vw, 7.35rem);
-  line-height: 0.84;
-  letter-spacing: -0.058em;
 }
 
 .poster-cover .hero-title .hero-title-word {
   display: inline-flex;
   vertical-align: baseline;
-  letter-spacing: -0.052em;
 }
 
 .poster-cover .lead {
@@ -3090,43 +1504,7 @@ body {
   }
 }
 
-/* Softer hero slideshow and no divider below the background image. */
-.home-page > .hero,
-.poster-hero,
-.poster-cover,
-.hero-visual {
-  border-bottom: 0;
-  box-shadow: none;
-}
 
-.home-page > .hero::before,
-.home-page > .hero::after,
-.poster-hero::before,
-.poster-hero::after,
-.hero::before,
-.hero::after {
-  content: none;
-}
-
-.hero-visual-img {
-  animation: heroImageFadeSoft 48s infinite ease-in-out;
-}
-
-.hero-visual-img-1 {
-  animation-delay: 0s;
-}
-
-.hero-visual-img-2 {
-  animation-delay: 12s;
-}
-
-.hero-visual-img-3 {
-  animation-delay: 24s;
-}
-
-.hero-visual-img-4 {
-  animation-delay: 36s;
-}
 
 @keyframes heroImageFadeSoft {
   0%,
@@ -3147,12 +1525,11 @@ body {
 /* Soft readability halo for hero copy over papercraft images. */
 .poster-cover .hero-title,
 .poster-cover .lead{
-  text-shadow:
-    0 0 7px #f2f2f2,
-    0 0 14px #f2f2f2,
-    0 0 26px #f2f2f2,
-    0 0 44px rgba(242, 242, 242, 0.98),
-    0 3px 28px rgba(242, 242, 242, 0.92);
+  text-shadow: 0 0 7px #f2f2f2,
+      0 0 14px #f2f2f2,
+      0 0 26px #f2f2f2,
+      0 0 44px rgba(242, 242, 242, 0.98),
+      0 3px 28px rgba(242, 242, 242, 0.92);
 }
 
 /* Use one consistent crossfade rhythm so every image eases in and out. */
@@ -3240,22 +1617,12 @@ body {
   padding-bottom: clamp(1.25rem, 3.4vw, 2.4rem);
 }
 
-.finder-section {
-  padding-top: clamp(1.1rem, 3vw, 2rem) !important;
-}
 
 .finder-panel {
   position: relative;
-  overflow: hidden;
-  padding: clamp(1.25rem, 4vw, 2.6rem);
-  border: 1px solid rgba(17, 24, 39, 0.12);
-  border-radius: 32px;
-  background: #ffffff;
-  box-shadow: 0 18px 42px rgba(17, 24, 39, 0.08);
 }
 
 .finder-panel::before {
-  content: "";
   position: absolute;
   right: -4.8rem;
   top: -5.2rem;
@@ -3267,7 +1634,6 @@ body {
 }
 
 .finder-panel::after {
-  content: "";
   position: absolute;
   left: -3.2rem;
   bottom: 18%;
@@ -3309,17 +1675,13 @@ body {
   height: 0.58rem;
   border-radius: 50%;
   background: #ffba00;
-  box-shadow:
-    0.64rem 0 0 #1dadff,
-    1.28rem 0 0 #ff62b0;
+  box-shadow: 0.64rem 0 0 #1dadff,
+      1.28rem 0 0 #ff62b0;
 }
 .categories-section .section-header h2,
 .quick-phrases-section .section-header h2 {
   color: #111827;
-  font-size: clamp(2rem, 5vw, 3.45rem);
   font-weight: 800;
-  line-height: 0.92;
-  letter-spacing: -0.06em;
 }
 .finder-group-header p,
 .categories-section .section-header > p,
@@ -3330,135 +1692,62 @@ body {
   line-height: 1.38;
 }
 
-.finder-groups {
-  gap: clamp(1.35rem, 4vw, 2.45rem);
-  padding-top: 0;
-}
-
 .finder-group {
   gap: 0.95rem;
 }
 
 .finder-group-header {
-  align-items: end;
   padding-bottom: 0.12rem;
 }
 
 .finder-group-header h3 {
-  color: #111827;
-  font-size: clamp(1.55rem, 4vw, 2.3rem);
   font-weight: 800;
   line-height: 0.95;
-  letter-spacing: -0.055em;
 }
 
 .finder-group-header h3::after {
   content: none;
 }
 
-.finder-panel .choice-grid {
-  gap: clamp(0.72rem, 2vw, 1rem);
-}
-
 .finder-panel .choice-button {
-  min-height: 150px;
-  padding: 1rem 0.9rem 0.95rem;
-  border: 1px solid rgba(17, 24, 39, 0.12);
-  border-radius: 24px;
-  background: #ffffff;
-  box-shadow: 0 10px 20px rgba(17, 24, 39, 0.055);
-  transition:
-    transform 160ms ease,
-    box-shadow 160ms ease,
-    border-color 160ms ease;
+  transition: transform 160ms ease,
+      box-shadow 160ms ease,
+      border-color 160ms ease;
 }
 
 .finder-panel .choice-button::before {
-  content: "";
   position: absolute;
   left: 0.95rem;
   top: 0.85rem;
   width: 0.58rem;
   height: 0.58rem;
   border-radius: 50%;
-  background: var(--accent, #c90000);
 }
 
 .finder-panel .choice-button::after {
   right: 0.86rem;
   top: 0.68rem;
   color: var(--accent, #c90000);
-  background: transparent;
-  border: 0;
   font-size: 1.05rem;
 }
 
 .finder-panel .choice-button span:first-child {
   margin-top: 0.28rem;
-  color: #111827;
-  font-size: clamp(1rem, 2.8vw, 1.2rem);
   font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.035em;
-}
-
-.finder-panel .choice-button .card-pict {
-  width: clamp(3.7rem, 12vw, 4.65rem);
-  height: clamp(3.7rem, 12vw, 4.65rem);
-  margin-block: 0.28rem 0.16rem;
-  padding: 0.45rem;
-  border: 0;
-  border-radius: 24px;
-  background: #f7f7f7;
 }
 
 .finder-panel .choice-button small {
-  color: #4f5965;
-  font-size: clamp(0.78rem, 2.4vw, 0.92rem);
   font-weight: 600;
-  line-height: 1.22;
-}
-
-.finder-panel .need-grid {
-  gap: clamp(0.75rem, 2.2vw, 1rem);
-}
-
-.finder-panel .need-card {
-  min-height: 112px;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.82rem 0.85rem;
-  padding: 1rem 2.3rem 1rem 1rem;
-  border: 1px solid rgba(17, 24, 39, 0.12);
-  border-radius: 24px;
-  background: #ffffff;
-  box-shadow: 0 10px 20px rgba(17, 24, 39, 0.05);
-}
-
-.finder-panel .need-card .card-pict {
-  grid-row: 1 / span 2;
-  width: 3.15rem;
-  height: 3.15rem;
-  padding: 0.48rem;
-  border: 0;
-  border-radius: 19px;
-  background: #f7f7f7;
 }
 
 .finder-panel .need-card strong {
-  align-self: end;
   color: #111827;
-  font-size: clamp(0.98rem, 2.5vw, 1.18rem);
   font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.035em;
 }
 
 .finder-panel .need-card > span:not(.card-pict) {
   max-width: none;
-  color: #4f5965;
-  font-size: clamp(0.78rem, 2.3vw, 0.9rem);
   font-weight: 620;
-  line-height: 1.24;
 }
 
 .finder-panel .need-card::after {
@@ -3476,27 +1765,16 @@ body {
 .finder-panel .need-card:focus-visible {
   border-color: rgba(17, 24, 39, 0.22);
   box-shadow: 0 16px 28px rgba(17, 24, 39, 0.09);
-  transform: translateY(-2px);
 }
 
 .food-card-cta-panel {
-  position: relative;
   grid-template-columns: minmax(0, 1fr) minmax(190px, 0.34fr);
   gap: clamp(1.1rem, 4vw, 2rem);
   align-items: center;
-  padding: clamp(1.3rem, 4vw, 2.4rem);
-  border: 1px solid rgba(201, 0, 0, 0.18);
   border-left: 0;
-  border-radius: 32px;
-  background:
-    linear-gradient(90deg, rgba(201, 0, 0, 0.09), transparent 42%),
-    radial-gradient(circle at 92% 18%, rgba(255, 186, 0, 0.16) 0 74px, transparent 76px),
-    #ffffff;
-  box-shadow: 0 18px 42px rgba(17, 24, 39, 0.08);
 }
 
 .food-card-cta-panel::before {
-  content: "";
   position: absolute;
   left: 0;
   top: 1rem;
@@ -3507,7 +1785,6 @@ body {
 }
 
 .food-card-cta-panel::after {
-  content: "";
   position: absolute;
   right: 1.35rem;
   top: 1.25rem;
@@ -3519,25 +1796,13 @@ body {
   transform: rotate(5deg);
 }
 
-.food-card-cta-panel h2 {
-  color: #111827;
-  font-size: clamp(1.65rem, 4.4vw, 2.7rem);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.055em;
-}
-
 .food-card-cta-panel p{
   max-width: 620px;
-  color: #34404c;
-  font-weight: 640;
-  line-height: 1.38;
 }
 
 .food-card-cta-panel .price-line {
   display: inline-flex;
   width: fit-content;
-  margin-top: 0.55rem;
   padding: 0.45rem 0.7rem;
   color: #c90000;
   background: #ffffff;
@@ -3550,11 +1815,6 @@ body {
   align-items: stretch;
 }
 
-.food-card-cta-panel .button.primary {
-  background: #c90000;
-  box-shadow: 0 16px 28px rgba(201, 0, 0, 0.2);
-}
-
 .food-card-cta-panel .button.secondary {
   color: #c90000;
   background: #ffffff;
@@ -3563,19 +1823,10 @@ body {
 
 .categories-section .section-header,
 .quick-phrases-section .section-header {
-  align-items: end;
   margin-bottom: clamp(0.9rem, 2.5vw, 1.25rem);
 }
 
-.category-grid {
-  gap: clamp(0.7rem, 2vw, 1rem);
-}
-
 .category-card {
-  min-height: 178px;
-  padding: 1rem;
-  border: 1px solid rgba(17, 24, 39, 0.12);
-  border-radius: 24px;
   background: #ffffff;
   box-shadow: 0 10px 20px rgba(17, 24, 39, 0.045);
 }
@@ -3592,20 +1843,15 @@ body {
   color: var(--category-title, #111827);
   font-size: clamp(1.06rem, 2.6vw, 1.26rem);
   font-weight: 800;
-  letter-spacing: -0.04em;
 }
 
 .category-card p {
   color: #4f5965;
-  font-size: clamp(0.78rem, 2vw, 0.9rem);
   font-weight: 620;
-  line-height: 1.25;
 }
 
 .quick-phrase-grid {
   overflow: hidden;
-  border: 1px solid rgba(17, 24, 39, 0.12);
-  border-radius: 26px;
   background: #ffffff;
   box-shadow: 0 10px 20px rgba(17, 24, 39, 0.045);
 }
@@ -3625,7 +1871,6 @@ body {
   color: #111827;
   font-size: 0.96rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
 }
 
 .quick-phrase-card .jp {
@@ -3636,8 +1881,6 @@ body {
 
 .quick-phrase-card::after {
   right: 1rem;
-  color: #c90000;
-  background: transparent;
   font-size: 1.15rem;
 }
 
@@ -3666,10 +1909,6 @@ body {
   }
 }
 
-/* Finder cleanup: simple choice section under the illustrated hero. */
-.finder-section {
-  padding-top: clamp(1.45rem, 4vw, 2.6rem) !important;
-}
 
 .finder-panel {
   overflow: visible;
@@ -3689,10 +1928,6 @@ body {
 .quick-phrases-section .section-header h2 {
   font-size: clamp(2rem, 5vw, 3.35rem);
   line-height: 0.94;
-}
-
-.finder-groups {
-  gap: clamp(1.65rem, 4.2vw, 2.8rem);
 }
 
 .finder-group-header {
@@ -3716,34 +1951,19 @@ body {
 }
 
 .finder-panel .choice-button {
-  min-height: 142px;
-  padding: 1rem 0.85rem 0.95rem;
-  border: 1px solid rgba(17, 24, 39, 0.14);
   border-radius: 12px;
   background: #ffffff;
   box-shadow: 0 8px 18px rgba(17, 24, 39, 0.045);
 }
 
-.finder-panel .choice-button::before,
-.finder-panel .choice-button::after {
-  display: none;
-  content: none;
-}
-
 .finder-panel .choice-button span:first-child {
   margin: 0;
   color: #111827;
-  font-size: clamp(1.08rem, 3.2vw, 1.28rem);
 }
 
 .finder-panel .choice-button .card-pict {
-  width: clamp(3.35rem, 10.5vw, 4.1rem);
-  height: clamp(3.35rem, 10.5vw, 4.1rem);
-  margin-block: 0.38rem 0.22rem;
   padding: 0;
-  border: 0;
   border-radius: 0;
-  background: transparent;
 }
 
 .finder-panel .choice-button small {
@@ -3751,40 +1971,19 @@ body {
   color: #4f5965;
 }
 
-.finder-panel .need-grid {
-  gap: clamp(0.72rem, 2vw, 1rem);
-}
-
 .finder-panel .need-card {
-  min-height: 104px;
-  padding: 0.95rem 1rem;
-  border: 1px solid rgba(17, 24, 39, 0.14);
   border-radius: 12px;
   background: #ffffff;
   box-shadow: 0 8px 18px rgba(17, 24, 39, 0.04);
 }
 
-.finder-panel .need-card::after {
-  display: none;
-  content: none;
-}
-
 .finder-panel .need-card .card-pict {
-  width: 3rem;
-  height: 3rem;
   padding: 0;
-  border: 0;
   border-radius: 0;
-  background: transparent;
-}
-
-.finder-panel .need-card strong {
-  font-size: clamp(1.02rem, 2.7vw, 1.18rem);
 }
 
 .finder-panel .need-card > span:not(.card-pict) {
   color: #4f5965;
-  font-size: clamp(0.82rem, 2.25vw, 0.92rem);
 }
 
 .finder-panel .choice-button:hover,
@@ -3804,7 +2003,6 @@ body {
 }
 
 .category-card {
-  min-height: 164px;
   border-radius: 12px;
 }
 
@@ -3833,10 +2031,6 @@ body {
 
   .finder-group-header p {
     text-align: left;
-  }
-
-  .finder-panel .choice-button {
-    min-height: 136px;
   }
 }
 
@@ -3917,7 +2111,6 @@ body {
 }
 
 .finder-panel .choice-button span:first-child {
-  font-size: clamp(1.1rem, 3.2vw, 1.26rem);
   line-height: 1.04;
 }
 
@@ -3962,29 +2155,13 @@ body {
   line-height: 1.18;
 }
 
-.food-card-cta-panel {
-  padding: clamp(1.45rem, 4.4vw, 2.65rem);
-}
-
 .food-card-cta-panel > div:first-child {
   display: grid;
   gap: 0.68rem;
 }
 
-.food-card-cta-panel h2 {
-  margin: 0;
-}
-
-.food-card-cta-panel p {
-  margin: 0;
-}
-
 .food-card-cta-panel .price-line {
   margin-top: 0.18rem;
-}
-
-.food-card-cta-panel .section-actions {
-  gap: 0.72rem;
 }
 
 .categories-section .section-header {
@@ -3999,10 +2176,9 @@ body {
   min-height: 0;
   display: grid;
   grid-template-columns: 3rem minmax(0, 1fr);
-  grid-template-areas:
-    "icon title"
-    "icon text"
-    "chip chip";
+  grid-template-areas: "icon title"
+      "icon text"
+      "chip chip";
   gap: 0.28rem 0.82rem;
   align-items: start;
   padding: 0.95rem;
@@ -4052,19 +2228,14 @@ body {
     height: 2.35rem;
   }
 
-  .food-card-cta-panel {
-    padding: 1.25rem;
-  }
-
   .category-grid {
     grid-template-columns: 1fr;
   }
 
   .category-card {
     grid-template-columns: 2.7rem minmax(0, 1fr) auto;
-    grid-template-areas:
-      "icon title chip"
-      "icon text text";
+    grid-template-areas: "icon title chip"
+          "icon text text";
     gap: 0.22rem 0.75rem;
     padding: 0.86rem;
   }
@@ -4079,9 +2250,6 @@ body {
 /* Place cards use dedicated papercraft image icons. */
 .finder-places .choice-button .place-card-pict {
   display: grid;
-  width: clamp(3.25rem, 5.4vw, 4.25rem);
-  height: clamp(3.25rem, 5.4vw, 4.25rem);
-  margin-block: 0.34rem 0.2rem;
   place-items: center;
   padding: 0;
   background: transparent !important;
@@ -4098,14 +2266,6 @@ body {
   border-radius: 0;
   box-shadow: none;
   filter: none;
-}
-
-@media (max-width: 760px) {
-  .finder-places .choice-button .place-card-pict {
-    width: clamp(2.625rem, 13vw, 3.5rem);
-    height: clamp(2.625rem, 13vw, 3.5rem);
-    margin-block: 0.3rem 0.18rem;
-  }
 }
 
 /* Place card emphasis: larger icons/titles and brand-red group headings. */
@@ -4135,14 +2295,6 @@ body {
   }
 }
 
-/* More breathing room before the Finder group headings. */
-.finder-group {
-  padding-top: clamp(0.55rem, 2.1vw, 1.15rem);
-}
-
-.finder-group + .finder-group {
-  padding-top: clamp(1rem, 3vw, 1.7rem);
-}
 
 /* Loosen hero headline tracking and add more air above Finder headings. */
 .poster-cover .hero-title {
@@ -4171,9 +2323,6 @@ body {
   line-height: 0.98;
 }
 
-.site-header {
-  justify-content: flex-start;
-}
 
 .brand {
   justify-content: flex-start;
