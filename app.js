@@ -4253,10 +4253,6 @@ function customFoodCardStepThreeMarkup() {
             <span>Refunds and cancellations</span>
             <p>Digital product available immediately after purchase. Generally non-refundable, except where required by law or for a clear payment processing error.</p>
           </div>
-          <div class="custom-purchase-review-item">
-            <span>Important note</span>
-            <p>Communication aid only. No guarantee of food safety, allergy safety, ingredient accuracy, allergen-free meals, or restaurant acceptance.</p>
-          </div>
         </div>
         <p class="custom-purchase-review-reminder">Review your selected ingredients and card purpose before purchase.</p>
       </section>
