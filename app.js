@@ -2198,6 +2198,7 @@ const customFoodCardState = {
   openCategoryIds: ["popular"],
 };
 
+const customFoodCardPriceText = "One-time purchase: USD $4.99";
 const customFoodCardDraftStorageKey = "jfmCustomFoodCardDraft";
 const customFoodCardCheckoutStorageKey = "jfmCustomFoodCardCheckoutDraft";
 const customFoodCardCheckoutCancelledReturnStorageKey = "jfmCustomFoodCardCheckoutCancelledReturn";
@@ -2668,6 +2669,7 @@ function foodCardCtaPanel({ context = "home", includeSamplesLink = true } = {}) 
           <span>Show in Japanese</span>
         </div>
         <div class="section-actions">
+          <p class="price-line">${customFoodCardPriceText}</p>
           <a class="button primary" href="/food-card/custom/" ${trackAttr(createTrack)}>Create my card</a>
           ${includeSamplesLink ? `<a class="food-card-sample-link" href="/food-cards" ${trackAttr(samplesTrack)}>See sample cards</a>` : ""}
         </div>
@@ -3153,6 +3155,7 @@ function foodCardsPromo() {
         <p class="eyebrow">Food in Japan</p>
         <h2 id="food-promo-title">Explain food needs</h2>
         <p>Show allergies, dietary needs, or ingredients to check before ordering. Choose a sample card or create your own.</p>
+        <p class="price-line">${customFoodCardPriceText}</p>
       </div>
       <div class="section-actions">
         <a class="button primary" href="/food-cards" ${trackAttr("food_sample_cards_view")}>See sample cards</a>
@@ -4240,7 +4243,7 @@ function customFoodCardStepThreeMarkup() {
         <div class="custom-purchase-review-items">
           <div class="custom-purchase-review-item">
             <span>Price</span>
-            <p>USD $4.99 tax included</p>
+            <p><strong class="custom-purchase-price">USD $4.99 tax included</strong></p>
           </div>
           <div class="custom-purchase-review-item">
             <span>What you get</span>
@@ -4732,6 +4735,7 @@ function renderCustomFoodCard() {
         </nav>
         <h1>Custom Food Card</h1>
         <p class="lead">Create a simple Japanese card to show restaurant staff.</p>
+        <p class="custom-price-note">${customFoodCardPriceText}</p>
       </header>
       <section class="custom-food-card-workspace card-container" aria-label="Custom Food Card builder">
         <div class="custom-step-progress" aria-label="Step ${customFoodCardState.step} of 4">
