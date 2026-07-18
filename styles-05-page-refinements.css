@@ -85,6 +85,10 @@ body:has(#app) .site-footer .site-footer-note {
   white-space: nowrap;
 }
 
+.home-page .hero-title .hero-title-line-first {
+  gap: 0.1em;
+}
+
 .home-page .hero-title .hero-title-your {
   display: inline !important;
   max-width: none !important;
@@ -226,43 +230,43 @@ body:has(#app) .site-footer .site-footer-note {
 
   .home-page .categories-section .section-header h2 {
     font-size: 2.35rem;
-  line-height: 1.05;
+    line-height: 1.05;
   }
 
   .home-page .categories-section .section-header > p {
     margin-top: 0.45rem;
-  font-size: 1rem;
+    font-size: 1rem;
   }
 
   .home-page .category-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
-  align-items: stretch;
-  gap: 0.85rem 0.75rem;
+    align-items: stretch;
+    gap: 0.85rem 0.75rem;
   }
 
   .home-page .category-card {
     grid-column: span 2;
-  height: 100% !important;
-  min-height: 0 !important;
-  padding: 1rem 0.9rem 0.85rem !important;
-  gap: 0.45rem !important;
-  border-radius: var(--jfm-card-radius);
+    height: 100% !important;
+    min-height: 0 !important;
+    padding: 1rem 0.9rem 0.85rem !important;
+    gap: 0.45rem !important;
+    border-radius: var(--jfm-card-radius);
   }
 
   .home-page .category-card h3 {
     font-size: 1.4rem;
-  line-height: 1.05;
+    line-height: 1.05;
   }
 
   .home-page .category-card p {
     font-size: 0.92rem;
-  line-height: 1.35;
+    line-height: 1.35;
   }
 
   .home-page .category-card .category-chip {
     margin-top: auto !important;
-  padding: 0.25rem 0.5rem;
-  font-size: 0.76rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.76rem;
   }
 
   .home-page .quick-phrases-section {
@@ -275,26 +279,28 @@ body:has(#app) .site-footer .site-footer-note {
 
   .home-page .quick-phrases-section .section-header h2 {
     font-size: 2.35rem;
-  line-height: 1.05;
+    line-height: 1.05;
   }
 
   .home-page .quick-phrases-section .section-header > p {
     margin-top: 0.45rem;
-  font-size: 1rem;
+    font-size: 1rem;
   }
 
-  .home-page .quick-phrase-card: :after {
-      right: 2rem !important;
-  width: 1.25rem !important;
-  height: 0.9rem !important;
+  .home-page .quick-phrase-card::after {
+    right: 2rem !important;
+    width: 1.25rem !important;
+    height: 0.9rem !important;
+  }
 }
 
 /* Keep the guide Food Card headline prominent on mobile. */
 @media (max-width: 620px) {
   .guide-page .shared-food-card-cta h2 {
     max-width: 13ch !important;
-  font-size: clamp(2rem, 8.5vw, 2.35rem) !important;
-  line-height: 0.98 !important;
+    font-size: clamp(2rem, 8.5vw, 2.35rem) !important;
+    line-height: 0.98 !important;
+  }
 }
 
 /* Slightly tighten the desktop guide rhythm without changing mobile. */
@@ -309,12 +315,12 @@ body:has(#app) .site-footer .site-footer-note {
 
   .guide-page .article-section {
     padding-top: 2.4rem !important;
-  padding-bottom: 2.4rem !important;
+    padding-bottom: 2.4rem !important;
   }
 
-  .guide-page .first-move-box: :before {
-      top: 2.4rem;
-  bottom: 2.4rem;
+  .guide-page .first-move-box::before {
+    top: 2.4rem;
+    bottom: 2.4rem;
   }
 
   .guide-page .communication-section + .communication-section {
@@ -323,24 +329,25 @@ body:has(#app) .site-footer .site-footer-note {
 
   .guide-page .food-guide-cta {
     padding-top: 2.7rem !important;
+  }
 }
 
 /* Desktop Food landing: align the category page with the current TOP and guide system. */
 @media (min-width: 761px) {
   .food-page {
     color: var(--color-text-main);
-  padding-bottom: 5rem;
+    padding-bottom: 5rem;
   }
 
   .food-page .category-page-header {
     gap: 0;
-  padding: 2.25rem 0 2.4rem;
+    padding: 2.25rem 0 2.4rem;
   }
 
   .food-page .crumbs {
     margin-bottom: 1.4rem;
-  color: var(--color-text-sub);
-  font-size: 0.82rem;
+    color: var(--color-text-sub);
+    font-size: 0.82rem;
   }
 
   .food-page .crumbs a {
@@ -349,35 +356,35 @@ body:has(#app) .site-footer .site-footer-note {
 
   .food-page .eyebrow {
     gap: 0;
-  margin: 0 0 0.55rem;
-  color: #b94b6f;
-  font-size: 0.74rem;
-  font-weight: 750;
-  line-height: 1;
-  letter-spacing: 0.08em;
+    margin: 0 0 0.55rem;
+    color: #b94b6f;
+    font-size: 0.74rem;
+    font-weight: 750;
+    line-height: 1;
+    letter-spacing: 0.08em;
   }
 
-  .food-page .eyebrow: :before {
-      display: none;
-  content: none;
+  .food-page .eyebrow::before {
+    display: none;
+    content: none;
   }
 
   .food-page .category-page-header h1 {
     max-width: none;
-  color: #111418;
-  font-size: 3.65rem;
-  font-weight: 800;
-  line-height: 0.98;
-  letter-spacing: -0.04em;
+    color: #111418;
+    font-size: 3.65rem;
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.04em;
   }
 
   .food-page .category-page-header .lead {
     max-width: 42rem;
-  margin: 0.9rem 0 0;
-  color: var(--color-text-sub);
-  font-size: 1.08rem;
-  font-weight: 600;
-  line-height: 1.45;
+    margin: 0.9rem 0 0;
+    color: var(--color-text-sub);
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.45;
   }
 
   .food-page .food-section {
@@ -390,178 +397,178 @@ body:has(#app) .site-footer .site-footer-note {
 
   .food-page .section-header {
     display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(20rem, 1fr);
-  gap: 2rem;
-  align-items: end;
-  margin-bottom: 1.25rem;
+    grid-template-columns: minmax(0, 0.85fr) minmax(20rem, 1fr);
+    gap: 2rem;
+    align-items: end;
+    margin-bottom: 1.25rem;
   }
 
   .food-page .section-header h2 {
     max-width: 14ch;
-  color: var(--color-text-main);
-  font-size: 2.45rem;
-  font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.025em;
+    color: var(--color-text-main);
+    font-size: 2.45rem;
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
   }
 
   .food-page .section-header > p {
     margin: 0 0 0.1rem;
-  color: var(--color-text-sub);
-  font-size: 0.98rem;
-  font-weight: 550;
-  line-height: 1.45;
+    color: var(--color-text-sub);
+    font-size: 0.98rem;
+    font-weight: 550;
+    line-height: 1.45;
   }
 
   .food-page .guide-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-auto-rows: 1fr;
-  gap: 1rem;
+    grid-auto-rows: 1fr;
+    gap: 1rem;
   }
 
   .food-page .guide-card {
     min-height: 220px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  padding: 1.15rem 2.65rem 1.15rem 1.15rem;
-  border: 0;
-  border-radius: var(--jfm-card-radius);
-  background: var(--color-card-bg);
-  box-shadow: var(--jfm-card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.15rem 2.65rem 1.15rem 1.15rem;
+    border: 0;
+    border-radius: var(--jfm-card-radius);
+    background: var(--color-card-bg);
+    box-shadow: var(--jfm-card-shadow);
   }
 
-  .food-page .guide-card: :before {
-      display: none;
-  content: none;
+  .food-page .guide-card::before {
+    display: none;
+    content: none;
   }
 
-  .food-page .guide-card: :after {
-      content: "";
-  top: 1.2rem;
-  right: 1.1rem;
-  width: 1rem;
-  height: 0.72rem;
-  background: #c85b7d;
-  clip-path: polygon(0 37%, 58% 37%, 58% 0, 100% 50%, 58% 100%, 58% 63%, 0 63%);
+  .food-page .guide-card::after {
+    content: "";
+    top: 1.2rem;
+    right: 1.1rem;
+    width: 1rem;
+    height: 0.72rem;
+    background: #c85b7d;
+    clip-path: polygon(0 37%, 58% 37%, 58% 0, 100% 50%, 58% 100%, 58% 63%, 0 63%);
   }
 
-  .food-page .guide-card: hover,
-    .food-page .guide-card:focus-visible {
-      transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(31, 41, 51, 0.08);
+  .food-page .guide-card:hover,
+  .food-page .guide-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(31, 41, 51, 0.08);
   }
 
   .food-page .guide-card .category-chip {
     width: fit-content;
-  align-self: flex-start;
-  padding: 0.28rem 0.6rem;
-  border: 1px solid #efd2db;
-  border-radius: 999px;
-  color: #b94b6f;
-  background: #fff7f9;
-  font-size: 0.72rem;
-  line-height: 1;
+    align-self: flex-start;
+    padding: 0.28rem 0.6rem;
+    border: 1px solid #efd2db;
+    border-radius: 999px;
+    color: #b94b6f;
+    background: #fff7f9;
+    font-size: 0.72rem;
+    line-height: 1;
   }
 
   .food-page .guide-card h3 {
     color: var(--color-text-main);
-  font-size: 1.25rem;
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -0.015em;
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
   }
 
   .food-page .guide-card > div {
     display: grid;
-  gap: 0.4rem;
-  margin-top: auto;
-  padding-top: 0.75rem;
-  border-top: 1px solid #eee9ed;
+    gap: 0.4rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid #eee9ed;
   }
 
   .food-page .guide-card .first-move-label {
     color: #b94b6f;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
   }
 
   .food-page .guide-card p {
     color: var(--color-text-sub);
-  font-size: 0.92rem;
-  font-weight: 550;
-  line-height: 1.4;
+    font-size: 0.92rem;
+    font-weight: 550;
+    line-height: 1.4;
   }
 
   .food-page .food-phrase-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-auto-rows: 1fr;
-  gap: 1rem;
+    grid-auto-rows: 1fr;
+    gap: 1rem;
   }
 
   .food-page .food-phrase-card {
     min-height: 172px;
-  align-content: start;
-  gap: 0.6rem;
-  padding: 1.15rem;
-  border: 0;
-  border-radius: 16px;
-  background: var(--color-card-bg);
-  box-shadow: var(--jfm-card-shadow);
+    align-content: start;
+    gap: 0.6rem;
+    padding: 1.15rem;
+    border: 0;
+    border-radius: 16px;
+    background: var(--color-card-bg);
+    box-shadow: var(--jfm-card-shadow);
   }
 
   .food-page .food-phrase-card h3 {
     color: #b94b6f;
-  font-size: 0.98rem;
-  font-weight: 750;
-  line-height: 1.25;
+    font-size: 0.98rem;
+    font-weight: 750;
+    line-height: 1.25;
   }
 
   .food-page .food-phrase-card .jp {
     color: var(--color-text-main);
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.18;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.18;
   }
 
-  .food-page .food-phrase-card > p: last-child {
-      color: var(--color-text-sub);
-  font-size: 0.92rem;
-  font-weight: 500;
-  line-height: 1.45;
+  .food-page .food-phrase-card > p:last-child {
+    color: var(--color-text-sub);
+    font-size: 0.92rem;
+    font-weight: 500;
+    line-height: 1.45;
   }
 
   .food-page .food-promo {
     grid-template-columns: minmax(0, 1fr) auto;
-  gap: 2rem;
-  align-items: center;
-  margin-top: 3rem;
-  padding: 1.6rem 1.75rem;
-  border: 0;
-  border-radius: var(--jfm-card-radius);
-  background: var(--color-card-bg);
-  box-shadow: var(--jfm-card-shadow);
+    gap: 2rem;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 1.6rem 1.75rem;
+    border: 0;
+    border-radius: var(--jfm-card-radius);
+    background: var(--color-card-bg);
+    box-shadow: var(--jfm-card-shadow);
   }
 
   .food-page .food-promo h2 {
     color: var(--color-text-main);
-  font-size: 2rem;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+    font-size: 2rem;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
   }
 
-  .food-page .food-promo p: not(.eyebrow) {
-      max-width: 38rem;
-  color: var(--color-text-sub);
-  font-size: 0.98rem;
-  font-weight: 500;
-  line-height: 1.45;
+  .food-page .food-promo p:not(.eyebrow) {
+    max-width: 38rem;
+    color: var(--color-text-sub);
+    font-size: 0.98rem;
+    font-weight: 500;
+    line-height: 1.45;
   }
 
   .food-page .food-promo .price-line {
     color: #a54248;
-  font-weight: 850;
+    font-weight: 850;
   }
 
   .food-page .food-promo .section-actions {
@@ -570,97 +577,99 @@ body:has(#app) .site-footer .site-footer-note {
 
   .food-page .food-promo .button {
     min-height: 3rem;
-  padding: 0.7rem 1.35rem;
-  border: 0;
-  border-radius: 999px;
-  box-shadow: none;
+    padding: 0.7rem 1.35rem;
+    border: 0;
+    border-radius: 999px;
+    box-shadow: none;
   }
 
   .food-page .food-promo .button.primary {
     color: #fff;
-  background: var(--color-food);
+    background: var(--color-food);
   }
 
   .food-page .food-promo .button.secondary {
     color: #b94b6f;
-  background: #f7edf1;
+    background: #f7edf1;
   }
 
   .food-page .category-explorer {
     margin-top: 3.4rem;
-  padding-top: 3rem;
-  border-top: 1px solid #ddd8de;
+    padding-top: 3rem;
+    border-top: 1px solid #ddd8de;
   }
 
   .food-page .category-link-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.8rem;
+    gap: 0.8rem;
   }
 
   .food-page .category-link-card {
     min-height: 150px;
-  padding: 1.1rem 2.3rem 1.1rem 1.1rem;
-  border: 0;
-  border-radius: 16px;
-  background: var(--color-card-bg);
-  box-shadow: var(--jfm-card-shadow);
+    padding: 1.1rem 2.3rem 1.1rem 1.1rem;
+    border: 0;
+    border-radius: 16px;
+    background: var(--color-card-bg);
+    box-shadow: var(--jfm-card-shadow);
   }
 
-  .food-page .category-link-card: :after {
-      content: "";
-  top: 1.15rem;
-  right: 1rem;
-  width: 0.9rem;
-  height: 0.64rem;
-  background: var(--accent, #7c6fa8);
-  clip-path: polygon(0 37%, 58% 37%, 58% 0, 100% 50%, 58% 100%, 58% 63%, 0 63%);
+  .food-page .category-link-card::after {
+    content: "";
+    top: 1.15rem;
+    right: 1rem;
+    width: 0.9rem;
+    height: 0.64rem;
+    background: var(--accent, #7c6fa8);
+    clip-path: polygon(0 37%, 58% 37%, 58% 0, 100% 50%, 58% 100%, 58% 63%, 0 63%);
   }
 
-  .food-page .category-link-card: hover,
-    .food-page .category-link-card:focus-visible {
-      transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(31, 41, 51, 0.08);
+  .food-page .category-link-card:hover,
+  .food-page .category-link-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(31, 41, 51, 0.08);
   }
 
   .food-page .category-link-card .category-chip {
     width: fit-content;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid color-mix(in srgb, var(--accent, #7c6fa8) 38%, white);
-  border-radius: 999px;
-  color: var(--accent, #7c6fa8);
-  background: #fff;
-  font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid color-mix(in srgb, var(--accent, #7c6fa8) 38%, white);
+    border-radius: 999px;
+    color: var(--accent, #7c6fa8);
+    background: #fff;
+    font-size: 0.7rem;
   }
 
   .food-page .category-link-card strong {
     color: var(--accent, var(--color-text-main));
-  font-size: 1.25rem;
-  line-height: 1.1;
+    font-size: 1.25rem;
+    line-height: 1.1;
   }
 
   .food-page .category-link-card small {
     color: var(--color-text-sub);
-  font-size: 0.84rem;
-  font-weight: 500;
-  line-height: 1.4;
+    font-size: 0.84rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
 }
 
 /* Food section headings: one-line title with supporting copy directly below. */
 @media (min-width: 761px) {
   .food-page .food-section .section-header {
     grid-template-columns: 1fr;
-  gap: 0.6rem;
-  align-items: start;
+    gap: 0.6rem;
+    align-items: start;
   }
 
   .food-page .food-section .section-header h2 {
     max-width: none;
-  white-space: nowrap;
+    white-space: nowrap;
   }
 
   .food-page .food-section .section-header > p {
     max-width: 55rem;
-  margin: 0;
+    margin: 0;
+  }
 }
 
 /* Shared category cards: reuse the TOP component in lower-page explorers. */
@@ -715,21 +724,11 @@ body:has(#app) .site-footer .site-footer-note {
   font-weight: 800;
 }
 
-.category-explorer .category-card.category-food {
-  --category-color: var(--color-cat-food);
-}
-.category-explorer .category-card.category-move {
-  --category-color: var(--color-cat-move);
-}
-.category-explorer .category-card.category-relax {
-  --category-color: var(--color-cat-relax);
-}
-.category-explorer .category-card.category-culture {
-  --category-color: var(--color-cat-culture);
-}
-.category-explorer .category-card.category-help {
-  --category-color: var(--color-cat-help);
-}
+.category-explorer .category-card.category-food { --category-color: var(--color-cat-food); }
+.category-explorer .category-card.category-move { --category-color: var(--color-cat-move); }
+.category-explorer .category-card.category-relax { --category-color: var(--color-cat-relax); }
+.category-explorer .category-card.category-culture { --category-color: var(--color-cat-culture); }
+.category-explorer .category-card.category-help { --category-color: var(--color-cat-help); }
 
 @media (min-width: 761px) {
   .category-explorer .category-explorer-grid {
@@ -840,6 +839,7 @@ body:has(#app) .site-footer .site-footer-note {
 .food-page .food-phrase-card {
   cursor: default;
   border: 0;
+  background: #fffbfd;
   box-shadow: none;
 }
 
@@ -935,24 +935,25 @@ body:has(#app) .site-footer .site-footer-note {
 
   .food-page .food-phrase-card {
     min-height: 138px;
-  padding: 0.95rem 1rem 0.9rem;
-  border: 0;
-  background: rgba(255, 255, 255, 0.68);
+    padding: 0.95rem 1rem 0.9rem;
+    border: 0;
+    background: rgba(255, 255, 255, 0.68);
   }
 
   .food-page .food-phrase-card h3 {
     font-size: 0.92rem;
-  line-height: 1.22;
+    line-height: 1.22;
   }
 
   .food-page .food-phrase-card .jp {
     font-size: 1.34rem;
-  line-height: 1.16;
+    line-height: 1.16;
   }
 
-  .food-page .food-phrase-card > p: last-child {
-      font-size: 0.86rem;
-  line-height: 1.38;
+  .food-page .food-phrase-card > p:last-child {
+    font-size: 0.86rem;
+    line-height: 1.38;
+  }
 }
 
 /* Language-pair convention: English follows the active category color; Japanese is black. */
@@ -1192,18 +1193,10 @@ body:has(#app) .site-footer .site-footer-note {
 }
 
 /* Category TOP pass after Food: align Move, Relax, Culture, and Help with the simplified Food tone. */
-.move-page {
-  --category-page-color: var(--color-cat-move);
-}
-.relax-page {
-  --category-page-color: var(--color-cat-relax);
-}
-.culture-page {
-  --category-page-color: var(--color-cat-culture);
-}
-.help-page {
-  --category-page-color: var(--color-cat-help);
-}
+.move-page { --category-page-color: var(--color-cat-move); }
+.relax-page { --category-page-color: var(--color-cat-relax); }
+.culture-page { --category-page-color: var(--color-cat-culture); }
+.help-page { --category-page-color: var(--color-cat-help); }
 
 .move-page .section-header,
 .relax-page .section-header,
@@ -1558,6 +1551,9 @@ body:has(#app) .site-footer .site-footer-note {
 .relax-page .category-guide-card h3,
 .culture-page .category-guide-card h3,
 .help-page .category-guide-card h3 {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
   max-width: none;
   margin: 0;
 }
@@ -1566,6 +1562,9 @@ body:has(#app) .site-footer .site-footer-note {
 .relax-page .category-guide-card-first-move,
 .culture-page .category-guide-card-first-move,
 .help-page .category-guide-card-first-move {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
   gap: 0.35rem;
   margin-top: 0.1rem;
   padding-top: 0.72rem;
@@ -1586,6 +1585,9 @@ body:has(#app) .site-footer .site-footer-note {
   .culture-page .category-guide-card,
   .help-page .category-guide-card {
     min-height: 184px;
+    grid-template-columns: 5rem minmax(0, 1fr);
+    gap: 0.82rem 1.05rem;
+    padding: 1.15rem 1.2rem;
   }
 
   .category-guide-card-icon {
@@ -1736,33 +1738,35 @@ body:has(#app) .site-footer .site-footer-note {
 @media (max-width: 640px) {
   .page-shell.layout-container {
     padding-right: 0;
-  padding-left: 0;
+    padding-left: 0;
   }
 
   .guide-page .communication-section {
     width: 100vw !important;
-  max-width: 100vw !important;
-  margin-right: calc(50% - 50vw) !important;
-  margin-left: calc(50% - 50vw) !important;
-  padding-right: 16px !important;
-  padding-left: 16px !important;
+    max-width: 100vw !important;
+    margin-right: calc(50% - 50vw) !important;
+    margin-left: calc(50% - 50vw) !important;
+    padding-right: 16px !important;
+    padding-left: 16px !important;
   }
 
   .guide-page .steps-section .guide-section-title,
   .guide-page .dont-section .guide-section-title,
   .guide-page .food-guide-cta > h2 {
     margin-left: calc(50% - 50vw) !important;
-  padding-left: 16px !important;
+    padding-left: 16px !important;
+  }
 }
 
 /* Keep the mobile site header above page content without changing desktop layout. */
 @media (max-width: 640px) {
   .site-header {
     position: sticky !important;
-  top: 0 !important;
-  z-index: 9;
-  background: #fff;
-  isolation: isolate;
+    top: 0 !important;
+    z-index: 9;
+    background: #fff;
+    isolation: isolate;
+  }
 }
 
 /* Move TOP help CTA: keep it as a quiet helper note, not a clickable guide card. */
