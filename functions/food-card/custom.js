@@ -5,5 +5,5 @@ export function onRequestGet({ request, next }) {
   }
 
   url.pathname = "/food-card/custom/";
-  return Response.redirect(url.toString(), 301);
+  return fetch(url.toString(), request);
 }
