@@ -2198,7 +2198,7 @@ const customFoodCardState = {
   openCategoryIds: ["popular"],
 };
 
-const customFoodCardPriceText = "One-time purchase: USD $4.99";
+const customFoodCardPriceText = "One-time purchase: USD $7.99";
 const customFoodCardDraftStorageKey = "jfmCustomFoodCardDraft";
 const customFoodCardCheckoutStorageKey = "jfmCustomFoodCardCheckoutDraft";
 const customFoodCardCheckoutCancelledReturnStorageKey = "jfmCustomFoodCardCheckoutCancelledReturn";
@@ -4250,7 +4250,7 @@ function customFoodCardStepThreeMarkup() {
         <div class="custom-purchase-review-items">
           <div class="custom-purchase-review-item">
             <span>Price</span>
-            <p><strong class="custom-purchase-price">USD $4.99 tax included</strong></p>
+            <p><strong class="custom-purchase-price">USD $7.99 tax included</strong></p>
           </div>
           <div class="custom-purchase-review-item">
             <span>What you get</span>
@@ -6303,7 +6303,7 @@ const legalNoticeEnglishSections = [
   {
     heading: "Selling price:",
     paragraphs: [
-      "USD $4.99, tax included.",
+      "USD $7.99, tax included.",
       "The selling price is also shown on the purchase or checkout screen before payment.",
     ],
   },
@@ -6381,7 +6381,7 @@ const legalNoticeJapaneseSections = [
   {
     heading: "販売価格：",
     paragraphs: [
-      "4.99米ドル、税込。",
+      "7.99米ドル、税込。",
       "販売価格は、決済前の購入画面またはチェックアウト画面にも表示されます。",
     ],
   },
