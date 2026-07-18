@@ -19,6 +19,9 @@ functions/*
 functions/api/*
 !functions/api/create-checkout-session.js
 !functions/api/verify-checkout-session.js
+!functions/food-card/
+functions/food-card/*
+!functions/food-card/custom.js
 
 !food/
 !food/index.html
