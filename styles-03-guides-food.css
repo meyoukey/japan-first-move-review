@@ -2450,7 +2450,7 @@ body:has(.guide-page) .site-footer p {
   box-shadow: 0 3px 10px rgba(31, 41, 51, 0.04);
 }
 
-/* Unified detail notes: white explanation area with a soft-pink safety note below. */
+/* Unified detail notes: white explanation area with a quiet safety note below. */
 .food-detail-page .food-detail-notes {
   margin-top: 1rem;
   overflow: hidden;
@@ -2505,27 +2505,27 @@ body:has(.guide-page) .site-footer p {
   border: 0;
   border-radius: 0;
   color: var(--color-text-main);
-  background: #fff0f4;
+  background: #f2f2f4;
   box-shadow: none !important;
 }
 
 .food-detail-page .food-detail-notes .disclaimer-box h2 {
   margin: 0;
-  color: var(--color-food);
-  font-size: clamp(1.6rem, 4vw, 2.25rem);
-  line-height: 1.05;
+  color: #6f7e8c;
+  font-size: clamp(1.28rem, 3.4vw, 1.7rem);
+  line-height: 1.12;
 }
 
 .food-detail-page .food-detail-notes .disclaimer-box p {
   color: var(--color-text-main);
-  font-size: clamp(0.94rem, 2.3vw, 1.08rem);
-  font-weight: 650;
+  font-size: clamp(0.92rem, 2.2vw, 1.02rem);
+  font-weight: 550;
   line-height: 1.5;
 }
 
 .food-detail-page .food-detail-notes .disclaimer-box .jp {
-  font-size: clamp(1rem, 2.5vw, 1.18rem);
-  font-weight: 600;
+  font-size: clamp(0.96rem, 2.4vw, 1.08rem);
+  font-weight: 500;
 }
 
 .food-detail-page .food-detail-info .eyebrow::before {
@@ -2549,7 +2549,8 @@ body:has(.guide-page) .site-footer p {
 
 .food-detail-page .food-detail-upgrade {
   padding: clamp(1rem, 2.8vw, 1.35rem);
-  box-shadow: none;
+  border-color: rgba(222, 118, 151, 0.18);
+  box-shadow: 0 10px 24px rgba(31, 41, 51, 0.07);
 }
 
 .food-detail-page > .section-actions {
