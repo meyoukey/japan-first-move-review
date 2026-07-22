@@ -2,31 +2,26 @@ const categories = [
   {
     id: "food",
     name: "Food",
-    icon: "🍜",
     description: "Order, pay, wait, and explain food needs.",
   },
   {
     id: "move",
     name: "Move",
-    icon: "🚌",
     description: "Stations, trains, buses, IC cards, and lockers.",
   },
   {
     id: "relax",
     name: "Relax",
-    icon: "♨",
     description: "Rest, recover, onsen, and quiet spaces.",
   },
   {
     id: "culture",
     name: "Culture",
-    icon: "⛩",
     description: "Shrines, photos, entry rules, and local manners.",
   },
   {
     id: "help",
     name: "Get Help",
-    icon: "＋",
     description: "Medicine, lost items, ticket machines, and feeling sick.",
   },
 ];
@@ -1455,18 +1450,6 @@ const foodCards = [
     label: "Severe",
     englishText: "I have a severe peanut allergy. Even a small amount or cross-contact may be dangerous.",
     japaneseText: "重度の食物アレルギーがあります。アレルギーのあるもの：落花生（ピーナッツ）。少量の混入や調理器具の共有でも危険です。対応が難しい場合は、無理に提供しなくて大丈夫です。",
-    displayLines: [
-      "重度の食物アレルギーがあります。",
-      "",
-      "アレルギーのあるもの：",
-      "落花生（ピーナッツ）",
-      "",
-      "少量の混入や調理器具の共有でも",
-      "危険です。",
-      "",
-      "対応が難しい場合は、",
-      "無理に提供しなくて大丈夫です。",
-    ],
     summary: "For a severe peanut allergy or cross-contact risk.",
     note: "Use when: you have a severe peanut allergy and cross-contact may be unsafe.",
     access: "free",
@@ -2472,10 +2455,6 @@ function categoryName(id) {
   return categoryMap[id]?.name ?? id;
 }
 
-function categoryIcon(id) {
-  return categoryMap[id]?.icon ?? "•";
-}
-
 function categoryHref(id) {
   return `/${id}`;
 }
@@ -2692,18 +2671,6 @@ function categoryExplorerSection(currentCategoryId) {
         ${otherCategories.map((category) => categoryCard(category)).join("")}
       </div>
     </section>
-  `;
-}
-
-function categoryLinkCard(category, currentCategoryId) {
-  const count = guides.filter((guide) => guide.category === category.id).length;
-
-  return `
-    <a class="category-link-card category-${category.id}" href="${categoryHref(category.id)}" ${trackAttr(`category_explorer_${currentCategoryId}_${category.id}`)}>
-      <span class="category-chip">${count} guide${count === 1 ? "" : "s"}</span>
-      <strong>${escapeHtml(category.name)}</strong>
-      <small>${escapeHtml(category.description)}</small>
-    </a>
   `;
 }
 
@@ -3221,33 +3188,6 @@ function foodCard(card) {
 function foodCardPreviewText(card) {
   const firstSentence = card.japaneseText.split("。").filter(Boolean)[0] ?? card.japaneseText;
   return `${firstSentence}。`;
-}
-
-function foodCardDisplayText(card) {
-  const lines = card.displayLines ?? card.japaneseText
-    .split("。")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .map((line) => `${line}。`);
-  return lines
-    .map((line, index) => {
-      if (!line) {
-        return '<span class="food-card-line-spacer" aria-hidden="true"></span>';
-      }
-
-      const allergenClass =
-        card.id === "severe-allergy" && index === 2
-          ? " food-card-allergen-label"
-          : card.id === "severe-allergy" && index === 3
-            ? " food-card-allergen-value"
-            : "";
-      const closingClass =
-        card.id === "severe-allergy" && index >= 8
-          ? ` food-card-closing-line${index === 8 ? " food-card-closing-start" : ""}`
-          : "";
-      return `<span class="food-card-line${allergenClass}${closingClass}">${escapeHtml(line)}</span>`;
-    })
-    .join("");
 }
 
 function foodCardCustomSampleConfig(card) {

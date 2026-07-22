@@ -697,135 +697,8 @@
   z-index: 1;
 }
 
-.custom-generated-card-message {
-  display: grid;
-  gap: 1rem;
-  color: #111;
-  font-size: clamp(1.2rem, 4.5vw, 1.7rem);
-  font-weight: 760;
-  line-height: 1.42;
-}
-
-.custom-card-copy-section {
-  display: grid;
-  gap: 0.35rem;
-}
-
-.custom-card-section-label {
-  width: fit-content;
-  display: inline-flex;
-  padding: 0.26rem 0.5rem 0.24rem;
-  border-radius: 4px 8px 7px 4px;
-  color: #914760;
-  background: rgba(244, 226, 231, 0.88);
-  font-size: clamp(0.62rem, 1.8vw, 0.74rem);
-  font-weight: 850;
-  line-height: 1.15;
-  letter-spacing: 0.08em;
-  box-shadow: 2px 3px 0 rgba(231, 216, 202, 0.62);
-}
-
-.custom-generated-card-message p,
 .custom-card-short-disclaimer p {
   margin: 0;
-}
-
-.custom-card-ingredient-label {
-  color: #111;
-  font-size: 0.82em;
-  font-weight: 850;
-}
-
-.custom-card-ingredients-inline,
-.custom-card-ingredient-list {
-  position: relative;
-  padding: 1.05rem 1.1rem;
-  border: 0;
-  border-radius: 8px 13px 10px 7px;
-  color: #111;
-  background:
-    radial-gradient(circle, rgba(164, 100, 120, 0.05) 0 0.7px, transparent 0.9px),
-    linear-gradient(145deg, #fae9ed, #f5e5e6);
-  background-size: 18px 19px, auto;
-  font-size: 1.08em;
-  font-weight: 900;
-  box-shadow:
-    0 8px 18px rgba(103, 65, 78, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.72);
-  transform: rotate(-0.15deg);
-}
-
-.custom-card-ingredients-inline::before,
-.custom-card-ingredient-list::before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  left: 50%;
-  width: 46px;
-  height: 10px;
-  background: rgba(232, 215, 188, 0.78);
-  box-shadow: 0 1px 2px rgba(88, 66, 48, 0.08);
-  transform: translateX(-50%) rotate(-1deg);
-}
-
-.custom-card-ingredients-inline {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem 0.8rem;
-}
-
-.custom-card-ingredients-inline > div {
-  min-width: 0;
-}
-
-.custom-card-ingredient-list {
-  display: grid;
-  gap: 0.42rem;
-  margin: 0;
-  padding-left: 2.55rem;
-}
-
-.custom-card-ingredient-list li {
-  padding-left: 0.1rem;
-}
-
-.custom-card-ingredients-inline small,
-.custom-card-ingredient-list small {
-  color: #4f5660;
-  font-size: 0.65em;
-  font-weight: 750;
-}
-
-.custom-card-ingredient-ja {
-  font-weight: 900;
-}
-
-.custom-card-point-block {
-  position: relative;
-  display: grid;
-  gap: 0.48rem;
-  padding: 0.9rem 1rem;
-  border-radius: 7px 12px 9px 6px;
-  background:
-    repeating-linear-gradient(9deg, transparent 0 12px, rgba(132, 102, 76, 0.02) 12px 13px),
-    #f7efe4;
-  box-shadow: 0 7px 16px rgba(83, 61, 44, 0.08);
-  transform: rotate(0.12deg);
-}
-
-.custom-card-point-instruction {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  padding-top: 0.25rem;
-  color: #111;
-  font-size: clamp(1rem, 3.5vw, 1.25rem);
-  text-align: center;
-}
-
-.custom-card-point-instruction > span {
-  font-size: 1.35em;
 }
 
 .custom-card-response-grid {
@@ -1394,10 +1267,6 @@
     gap: 1rem;
     padding: 1.15rem;
     border-radius: 19px 16px 20px 17px;
-  }
-
-  .custom-generated-card-message {
-    font-size: clamp(1.08rem, 5vw, 1.35rem);
   }
 
   .custom-card-response-grid {

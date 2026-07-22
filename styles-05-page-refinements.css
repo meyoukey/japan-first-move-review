@@ -599,58 +599,6 @@ body:has(#app) .site-footer .site-footer-note {
     border-top: 1px solid #ddd8de;
   }
 
-  .food-page .category-link-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.8rem;
-  }
-
-  .food-page .category-link-card {
-    min-height: 150px;
-    padding: 1.1rem 2.3rem 1.1rem 1.1rem;
-    border: 0;
-    border-radius: 16px;
-    background: var(--color-card-bg);
-    box-shadow: var(--jfm-card-shadow);
-  }
-
-  .food-page .category-link-card::after {
-    content: "";
-    top: 1.15rem;
-    right: 1rem;
-    width: 0.9rem;
-    height: 0.64rem;
-    background: var(--accent, #7c6fa8);
-    clip-path: polygon(0 37%, 58% 37%, 58% 0, 100% 50%, 58% 100%, 58% 63%, 0 63%);
-  }
-
-  .food-page .category-link-card:hover,
-  .food-page .category-link-card:focus-visible {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(31, 41, 51, 0.08);
-  }
-
-  .food-page .category-link-card .category-chip {
-    width: fit-content;
-    padding: 0.25rem 0.5rem;
-    border: 1px solid color-mix(in srgb, var(--accent, #7c6fa8) 38%, white);
-    border-radius: 999px;
-    color: var(--accent, #7c6fa8);
-    background: #fff;
-    font-size: 0.7rem;
-  }
-
-  .food-page .category-link-card strong {
-    color: var(--accent, var(--color-text-main));
-    font-size: 1.25rem;
-    line-height: 1.1;
-  }
-
-  .food-page .category-link-card small {
-    color: var(--color-text-sub);
-    font-size: 0.84rem;
-    font-weight: 500;
-    line-height: 1.4;
-  }
 }
 
 /* Food section headings: one-line title with supporting copy directly below. */

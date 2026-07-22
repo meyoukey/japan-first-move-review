@@ -1219,55 +1219,6 @@ h3 {
   border-top: 1px solid rgba(23, 26, 33, 0.08);
 }
 
-.category-link-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 0.8rem;
-}
-
-.category-link-card {
-  position: relative;
-  display: grid;
-  gap: 0.45rem;
-  min-height: 132px;
-  padding: 1rem 2rem 1rem 1rem;
-  background: var(--soft-accent, var(--soft-sky));
-  box-shadow:
-    inset 5px 0 0 var(--accent, var(--red)),
-    0 10px 22px rgba(6, 45, 83, 0.06);
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.category-link-card::after {
-  content: ">";
-  position: absolute;
-  right: 0.8rem;
-  top: 0.8rem;
-  color: var(--accent, var(--red));
-  font-weight: 900;
-}
-
-.category-link-card:hover,
-.category-link-card:focus-visible {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 28px rgba(6, 45, 83, 0.12);
-}
-
-.category-link-card strong {
-  color: var(--ink);
-  font-size: clamp(1.05rem, 2vw, 1.35rem);
-  line-height: 1.15;
-}
-
-.category-link-card small {
-  color: var(--muted);
-  font-size: 0.86rem;
-  font-weight: 700;
-  line-height: 1.35;
-}
-
 .food-detail-upgrade {
   margin-top: 1rem;
   background: var(--white);
@@ -2441,13 +2392,11 @@ h3 {
     padding-top: 1.3rem;
   }
 
-  .category-link-grid,
   .related-guide-grid {
     grid-template-columns: 1fr;
     gap: 0.65rem;
   }
 
-  .category-link-card,
   .related-guide-card {
     min-height: 106px;
     padding: 0.85rem 1.9rem 0.85rem 0.9rem;
