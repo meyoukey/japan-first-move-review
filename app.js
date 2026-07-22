@@ -1653,7 +1653,7 @@ const customFoodCardTypes = [
   },
   {
     id: "preference",
-    label: "I prefer to avoid these items",
+    label: "I prefer not to eat these items",
     subtext: "For dislikes or preferences, not allergies.",
   },
 ];
@@ -1673,7 +1673,7 @@ const customFoodCardCategoryMeta = {
   nutsSeeds: "Nuts & seeds",
   fruit: "Fruit",
   seasonings: "Seasonings & alcohol",
-  preferences: "Preferences",
+  preferences: "Other ingredients & requests",
 };
 
 const customFoodCardIngredientCategories = [
@@ -1711,7 +1711,7 @@ const ingredients = [
     labelJa: "肉類全般",
     category: "meat",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "pork",
@@ -1719,7 +1719,7 @@ const ingredients = [
     labelJa: "豚肉",
     category: "meat",
     popular: true,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "beef",
@@ -1727,7 +1727,7 @@ const ingredients = [
     labelJa: "牛肉",
     category: "meat",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "chicken",
@@ -1735,7 +1735,7 @@ const ingredients = [
     labelJa: "鶏肉",
     category: "meat",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "lamb",
@@ -1743,7 +1743,7 @@ const ingredients = [
     labelJa: "羊肉",
     category: "meat",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "animal-fat",
@@ -1751,7 +1751,7 @@ const ingredients = [
     labelJa: "動物性脂肪",
     category: "meat",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "lard",
@@ -1759,7 +1759,7 @@ const ingredients = [
     labelJa: "ラード",
     category: "meat",
     popular: true,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "gelatin",
@@ -1767,7 +1767,7 @@ const ingredients = [
     labelJa: "ゼラチン",
     category: "meat",
     popular: true,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "animal-based-dashi",
@@ -1775,7 +1775,7 @@ const ingredients = [
     labelJa: "動物性のだし",
     category: "meat",
     popular: true,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "fish",
@@ -1783,7 +1783,7 @@ const ingredients = [
     labelJa: "魚全般",
     category: "seafood",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "seafood",
@@ -1791,7 +1791,7 @@ const ingredients = [
     labelJa: "魚介類全般",
     category: "seafood",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "shellfish",
@@ -1799,7 +1799,7 @@ const ingredients = [
     labelJa: "甲殻類・貝類",
     category: "seafood",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "shrimp-crab",
@@ -1807,7 +1807,7 @@ const ingredients = [
     labelJa: "えび・かに",
     category: "seafood",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "squid-octopus",
@@ -1815,7 +1815,7 @@ const ingredients = [
     labelJa: "いか・たこ",
     category: "seafood",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "fish-based-dashi",
@@ -1823,7 +1823,7 @@ const ingredients = [
     labelJa: "魚のだし",
     category: "seafood",
     popular: true,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "bonito-flakes",
@@ -1831,7 +1831,7 @@ const ingredients = [
     labelJa: "かつお節",
     category: "seafood",
     popular: true,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "fish-sauce",
@@ -1839,7 +1839,7 @@ const ingredients = [
     labelJa: "魚醤",
     category: "seafood",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "roe",
@@ -1847,7 +1847,7 @@ const ingredients = [
     labelJa: "魚卵",
     category: "seafood",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "raw-fish",
@@ -1863,7 +1863,7 @@ const ingredients = [
     labelJa: "乳製品・牛乳",
     category: "dairyEgg",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "cheese",
@@ -1871,7 +1871,7 @@ const ingredients = [
     labelJa: "チーズ",
     category: "dairyEgg",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "butter",
@@ -1879,7 +1879,7 @@ const ingredients = [
     labelJa: "バター",
     category: "dairyEgg",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "cream",
@@ -1887,7 +1887,7 @@ const ingredients = [
     labelJa: "クリーム",
     category: "dairyEgg",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "egg",
@@ -1895,7 +1895,7 @@ const ingredients = [
     labelJa: "卵",
     category: "dairyEgg",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "raw-egg",
@@ -1919,7 +1919,7 @@ const ingredients = [
     labelJa: "小麦・グルテン",
     category: "grains",
     popular: true,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "soba",
@@ -1927,7 +1927,7 @@ const ingredients = [
     labelJa: "そば",
     category: "grains",
     popular: true,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "barley",
@@ -1935,7 +1935,7 @@ const ingredients = [
     labelJa: "大麦",
     category: "grains",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "rye",
@@ -1943,7 +1943,7 @@ const ingredients = [
     labelJa: "ライ麦",
     category: "grains",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "peanuts",
@@ -1951,7 +1951,7 @@ const ingredients = [
     labelJa: "落花生（ピーナッツ）",
     category: "nutsSeeds",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "tree-nuts",
@@ -1959,7 +1959,7 @@ const ingredients = [
     labelJa: "木の実類",
     category: "nutsSeeds",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "walnuts",
@@ -1967,7 +1967,7 @@ const ingredients = [
     labelJa: "くるみ",
     category: "nutsSeeds",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "almonds",
@@ -1975,7 +1975,7 @@ const ingredients = [
     labelJa: "アーモンド",
     category: "nutsSeeds",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "cashews",
@@ -1983,7 +1983,7 @@ const ingredients = [
     labelJa: "カシューナッツ",
     category: "nutsSeeds",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "sesame",
@@ -1991,7 +1991,7 @@ const ingredients = [
     labelJa: "ごま",
     category: "nutsSeeds",
     popular: true,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "fruit",
@@ -1999,7 +1999,7 @@ const ingredients = [
     labelJa: "果物",
     category: "fruit",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "peach",
@@ -2007,7 +2007,7 @@ const ingredients = [
     labelJa: "もも",
     category: "fruit",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "apple",
@@ -2015,7 +2015,7 @@ const ingredients = [
     labelJa: "りんご",
     category: "fruit",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "kiwi",
@@ -2023,7 +2023,7 @@ const ingredients = [
     labelJa: "キウイ",
     category: "fruit",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "banana",
@@ -2031,7 +2031,7 @@ const ingredients = [
     labelJa: "バナナ",
     category: "fruit",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "orange",
@@ -2039,7 +2039,7 @@ const ingredients = [
     labelJa: "オレンジ",
     category: "fruit",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "mango",
@@ -2047,7 +2047,7 @@ const ingredients = [
     labelJa: "マンゴー",
     category: "fruit",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools"],
+    allowedTypes: ["cannotEat", "ingredientCheck"],
   },
   {
     id: "soy",
@@ -2111,7 +2111,7 @@ const ingredients = [
     labelJa: "辛い調味料",
     category: "seasonings",
     popular: false,
-    allowedTypes: ["ingredientCheck", "preference"],
+    allowedTypes: ["cannotEat", "ingredientCheck", "preference"],
   },
   {
     id: "wasabi",
@@ -2119,7 +2119,7 @@ const ingredients = [
     labelJa: "わさび",
     category: "seasonings",
     popular: false,
-    allowedTypes: ["ingredientCheck", "preference"],
+    allowedTypes: ["cannotEat", "ingredientCheck", "preference"],
   },
   {
     id: "spicy-food",
@@ -2143,7 +2143,7 @@ const ingredients = [
     labelJa: "山芋・長芋",
     category: "popular",
     popular: false,
-    allowedTypes: ["cannotEat", "ingredientCheck", "sharedTools", "preference"],
+    allowedTypes: ["cannotEat", "ingredientCheck", "preference"],
   },
   {
     id: "raw-onion",
@@ -2151,7 +2151,7 @@ const ingredients = [
     labelJa: "生の玉ねぎ",
     category: "preferences",
     popular: false,
-    allowedTypes: ["ingredientCheck", "preference"],
+    allowedTypes: ["cannotEat", "ingredientCheck", "preference"],
   },
   {
     id: "green-onion",
@@ -2159,7 +2159,7 @@ const ingredients = [
     labelJa: "ねぎ",
     category: "preferences",
     popular: false,
-    allowedTypes: ["ingredientCheck", "preference"],
+    allowedTypes: ["cannotEat", "ingredientCheck", "preference"],
   },
   {
     id: "garlic",
@@ -2167,7 +2167,7 @@ const ingredients = [
     labelJa: "にんにく",
     category: "preferences",
     popular: false,
-    allowedTypes: ["ingredientCheck", "preference"],
+    allowedTypes: ["cannotEat", "ingredientCheck", "preference"],
   },
   {
     id: "cilantro",
@@ -2175,7 +2175,7 @@ const ingredients = [
     labelJa: "パクチー",
     category: "preferences",
     popular: false,
-    allowedTypes: ["ingredientCheck", "preference"],
+    allowedTypes: ["cannotEat", "ingredientCheck", "preference"],
   },
 ];
 
@@ -3934,7 +3934,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       typeLabel: "SEVERE ALLERGY",
       main: "重度の食物アレルギーがあります。",
       support: "少量の混入や、調理器具・油の共有でも危険です。",
-      closing: "対応が難しい場合は、無理に提供しなくて大丈夫です。",
+      closing: "これらを含まない料理を提供できるか、食材と調理方法を確認してください。対応が難しい場合は、提供しなくて大丈夫です。",
       ingredientLabelJa: "アレルギーのあるもの",
       ingredientLabelEn: "Allergens",
       responses: [
@@ -3957,7 +3957,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
         ? "体質的に食べることができないものがあります。"
         : "食物アレルギーがあります。",
       support: "",
-      closing: "対応が難しい場合は、無理に提供しなくて大丈夫です。",
+      closing: "これらを含まない料理を提供できるか、食材と調理方法を確認してください。",
       ingredientLabelJa: "食べられないもの",
       ingredientLabelEn: "Items I cannot eat",
       responses: [
@@ -3968,7 +3968,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       whatItSays: isIntolerance
         ? "I have an intolerance and must not eat the selected items."
         : "I have an allergy and must not eat the selected items.",
-      staffRequest: "Please check whether you can serve a suitable dish.",
+      staffRequest: "Please check the ingredients and preparation method before deciding whether you can serve a suitable dish.",
       useWithCare: "Show this card before ordering and give staff time to check.",
       importantNote: "This card helps communication but does not guarantee food safety.",
     };
@@ -3979,7 +3979,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       typeLabel: "MUST NOT EAT",
       main: "下記の食材を食べることができません。",
       support: "",
-      closing: "対応が難しい場合は、無理に提供しなくて大丈夫です。",
+      closing: "これらを含まない料理を提供できるか、食材と調理方法を確認してください。",
       ingredientLabelJa: "食べられないもの",
       ingredientLabelEn: "Items I cannot eat",
       responses: [
@@ -3988,7 +3988,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
       whatItSays: "I must not eat the selected items.",
-      staffRequest: "Please check whether you can serve a suitable dish.",
+      staffRequest: "Please check the ingredients and preparation method before deciding whether you can serve a suitable dish.",
       useWithCare: "Show this card before ordering and give staff time to check.",
       importantNote: "This card is a communication aid and does not guarantee that every dish can be adjusted.",
     };
@@ -3999,16 +3999,16 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       typeLabel: "I DO NOT EAT",
       main: "私は下記の食材を食べません。",
       support: "だし、ソース、調味料に含まれるものも避けています。",
-      closing: "これらを含まない、食べられる料理を教えていただけますか？",
+      closing: "これらを含まない料理はありますか？",
       ingredientLabelJa: "食べないもの",
       ingredientLabelEn: "Items I do not eat",
       responses: [
-        { symbol: "○", ja: "提供できます", en: "CAN SERVE" },
-        { symbol: "×", ja: "提供できません", en: "CAN’T SERVE" },
+        { symbol: "○", ja: "あります", en: "AVAILABLE" },
+        { symbol: "×", ja: "ありません", en: "NOT AVAILABLE" },
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
       whatItSays: "I do not eat the selected items as part of my diet or personal choices.",
-      staffRequest: "Could you show me which dishes I can eat?",
+      staffRequest: "Are there any dishes that do not contain these items?",
       useWithCare: "Show this card before ordering and give staff time to check broth, sauces, and seasonings.",
       importantNote: "This card is a communication aid and does not guarantee that every ingredient can be confirmed.",
     };
@@ -4055,19 +4055,19 @@ function customFoodCardLayoutContent(cardType, reason = "") {
   }
 
   return {
-    typeLabel: "I PREFER TO AVOID",
+    typeLabel: "I PREFER NOT TO EAT",
     main: "できれば下記のものを避けたいです。",
     support: "",
-    closing: "可能であれば、これらを避けられる料理を教えてください。",
+    closing: "可能であれば、これらを避けられる料理はありますか？",
     ingredientLabelJa: "避けたいもの",
     ingredientLabelEn: "Items to avoid",
     responses: [
-      { symbol: "○", ja: "できます", en: "CAN AVOID" },
-      { symbol: "×", ja: "できません", en: "CAN’T AVOID" },
+      { symbol: "○", ja: "あります", en: "AVAILABLE" },
+      { symbol: "×", ja: "ありません", en: "NOT AVAILABLE" },
       { symbol: "?", ja: "確認します", en: "CHECK" },
     ],
-    whatItSays: "It says I would prefer to avoid the selected items if possible.",
-    staffRequest: "Could you show me which dishes can avoid these items?",
+    whatItSays: "It says I would prefer not to eat the selected items if possible.",
+    staffRequest: "Are there any dishes that can avoid these items?",
     useWithCare: "Use this for preferences, not for allergies or medical restrictions.",
     importantNote: "The restaurant may not be able to change every dish.",
   };
@@ -4112,9 +4112,11 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
   const supportMarkup = content.typeLabel === "SEVERE ALLERGY"
     ? `少量の混入や、<br />調理器具・油の共有でも危険です。`
     : escapeHtml(content.support);
-  const closingMarkup = content.closing === "対応が難しい場合は、無理に提供しなくて大丈夫です。"
-    ? `<span>対応が難しい場合は、</span><span>無理に提供しなくても大丈夫です。</span>`
-    : escapeHtml(content.closing);
+  const closingMarkup = content.closing === "これらを含まない料理を提供できるか、食材と調理方法を確認してください。対応が難しい場合は、提供しなくて大丈夫です。"
+    ? `<span>これらを含まない料理を提供できるか、</span><span>食材と調理方法を確認してください。</span><span>対応が難しい場合は、提供しなくて大丈夫です。</span>`
+    : content.closing === "これらを含まない料理を提供できるか、食材と調理方法を確認してください。"
+      ? `<span>これらを含まない料理を提供できるか、</span><span>食材と調理方法を確認してください。</span>`
+      : escapeHtml(content.closing);
   return `
     <section class="custom-generated-card${className}" aria-label="Generated Japanese food card">
       <div class="custom-card-paper">
@@ -4122,7 +4124,7 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
           <span class="custom-card-type-label" lang="en">${escapeHtml(content.typeLabel)}</span>
           <div class="custom-card-main-copy" lang="ja">
             <p class="custom-card-main-line">${mainMarkup}</p>
-            ${content.support ? `<p class="custom-card-support-line">${supportMarkup}</p>` : ""}
+            ${content.support ? `<p class="custom-card-support-line${content.typeLabel === "I DO NOT EAT" ? " is-dietary-note" : ""}">${supportMarkup}</p>` : ""}
           </div>
           <section class="custom-card-ingredient-area" aria-label="Selected ingredients">
             <header>
@@ -4334,161 +4336,6 @@ function customFoodCardStepThreeMarkup() {
       <p class="custom-terms-copy">Payment is processed securely through Stripe.</p>
       ${customFoodCardState.checkoutMessage ? `<p class="custom-checkout-status" role="status" aria-live="polite">${escapeHtml(customFoodCardState.checkoutMessage)}</p>` : ""}
       ${customFoodCardState.checkoutError ? `<div class="custom-selection-error" role="alert">${escapeHtml(customFoodCardState.checkoutError)}</div>` : ""}
-    </div>
-  `;
-}
-
-function customFoodCardIngredientMarkup(selectedIngredients) {
-  const ingredientLine = (ingredient) => `
-    <span class="custom-card-ingredient-ja">${escapeHtml(ingredient.labelJa)}</span>
-    <small lang="en">/ ${escapeHtml(ingredient.labelEn)}</small>
-  `;
-  if (selectedIngredients.length <= 2) {
-    return `<div class="custom-card-ingredients-inline">${selectedIngredients
-      .map((ingredient) => `<div>${ingredientLine(ingredient)}</div>`)
-      .join("")}</div>`;
-  }
-  return `
-    <ul class="custom-card-ingredient-list">
-      ${selectedIngredients.map((ingredient) => `<li>${ingredientLine(ingredient)}</li>`).join("")}
-    </ul>
-  `;
-}
-
-function customFoodCardTemplateMarkup() {
-  const selectedIngredients = customFoodCardSelectedIngredients();
-  const ingredientMarkup = customFoodCardIngredientMarkup(selectedIngredients);
-  let messageMarkup = "";
-  let responses = [];
-
-  if (customFoodCardState.cardType === "cannotEat") {
-    if (customFoodCardState.reason === "severe") {
-      messageMarkup = `
-        <div class="custom-card-copy-section">
-          <span class="custom-card-section-label" lang="en">SEVERE ALLERGY</span>
-          <p>重度の食物アレルギーがあります。</p>
-        </div>
-        <div class="custom-card-copy-section">
-          <span class="custom-card-section-label" lang="en">ALLERGENS</span>
-          <p class="custom-card-ingredient-label">アレルギーのあるもの：</p>
-          ${ingredientMarkup}
-        </div>
-        <div class="custom-card-copy-section">
-          <span class="custom-card-section-label" lang="en">CROSS-CONTACT WARNING</span>
-          <p>少量の混入や、調理器具・油の共有でも<br>危険です。</p>
-        </div>
-        <div class="custom-card-copy-section">
-          <span class="custom-card-section-label" lang="en">IF YOU CANNOT ACCOMMODATE THIS</span>
-          <p>対応が難しい場合は、<br>無理に提供しなくて大丈夫です。</p>
-        </div>
-      `;
-    } else if (customFoodCardState.reason === "allergy") {
-      messageMarkup = `
-        <div class="custom-card-copy-section">
-          <span class="custom-card-section-label" lang="en">ALLERGY / INTOLERANCE</span>
-          <p>食物アレルギー、または体質的に<br>食べられないものがあります。</p>
-        </div>
-        <div class="custom-card-copy-section">
-          <span class="custom-card-section-label" lang="en">ITEMS I CANNOT EAT</span>
-          <p class="custom-card-ingredient-label">食べられないもの：</p>
-          ${ingredientMarkup}
-        </div>
-        <div class="custom-card-copy-section">
-          <span class="custom-card-section-label" lang="en">IF YOU CANNOT ACCOMMODATE THIS</span>
-          <p>対応が難しい場合は、<br>無理に提供しなくて大丈夫です。</p>
-        </div>
-      `;
-    } else {
-      messageMarkup = `
-        <div class="custom-card-copy-section">
-          <span class="custom-card-section-label" lang="en">DIETARY RESTRICTION</span>
-          <p>食事制限のため、<br>食べられないものがあります。</p>
-        </div>
-        <div class="custom-card-copy-section">
-          <span class="custom-card-section-label" lang="en">ITEMS I CANNOT EAT</span>
-          <p class="custom-card-ingredient-label">食べられないもの：</p>
-          ${ingredientMarkup}
-        </div>
-        <div class="custom-card-copy-section">
-          <span class="custom-card-section-label" lang="en">IF YOU CANNOT ACCOMMODATE THIS</span>
-          <p>対応が難しい場合は、<br>無理に提供しなくて大丈夫です。</p>
-        </div>
-      `;
-    }
-    responses = [
-      { ja: "提供できます", en: "CAN SERVE" },
-      { ja: "提供できません", en: "CAN’T SERVE" },
-      { ja: "確認します", en: "CHECK" },
-    ];
-  } else if (customFoodCardState.cardType === "ingredientCheck") {
-    messageMarkup = `
-      <div class="custom-card-copy-section">
-        <span class="custom-card-section-label" lang="en">INGREDIENT CHECK</span>
-        <p>この料理に下記のものは入っていますか？</p>
-      </div>
-      <div class="custom-card-copy-section">
-        <span class="custom-card-section-label" lang="en">ITEMS TO CHECK</span>
-        <p class="custom-card-ingredient-label">確認したいもの：</p>
-        ${ingredientMarkup}
-      </div>
-    `;
-    responses = [
-      { ja: "入っています", en: "CONTAINS" },
-      { ja: "入っていません", en: "DOES NOT CONTAIN" },
-      { ja: "確認します", en: "CHECK" },
-    ];
-  } else if (customFoodCardState.cardType === "sharedTools") {
-    messageMarkup = `
-      <div class="custom-card-copy-section">
-        <span class="custom-card-section-label" lang="en">SHARED TOOLS OR OIL</span>
-        <p>下記の食材と同じ調理器具や油を<br>使っていますか？</p>
-      </div>
-      <div class="custom-card-copy-section">
-        <span class="custom-card-section-label" lang="en">ITEMS TO CHECK</span>
-        <p class="custom-card-ingredient-label">確認したいもの：</p>
-        ${ingredientMarkup}
-      </div>
-    `;
-    responses = [
-      { ja: "共有しています", en: "SHARED" },
-      { ja: "共有していません", en: "NOT SHARED" },
-      { ja: "確認します", en: "CHECK" },
-    ];
-  } else {
-    messageMarkup = `
-      <div class="custom-card-copy-section">
-        <span class="custom-card-section-label" lang="en">I PREFER TO AVOID</span>
-        <p>できれば下記のものを避けたいです。</p>
-      </div>
-      <div class="custom-card-copy-section">
-        <span class="custom-card-section-label" lang="en">ITEMS TO AVOID</span>
-        <p class="custom-card-ingredient-label">避けたいもの：</p>
-        ${ingredientMarkup}
-      </div>
-      <div class="custom-card-copy-section">
-        <span class="custom-card-section-label" lang="en">IF POSSIBLE</span>
-        <p>可能な範囲で大丈夫です。</p>
-      </div>
-    `;
-    responses = [
-      { ja: "できます", en: "CAN AVOID" },
-      { ja: "できません", en: "CAN’T AVOID" },
-      { ja: "確認します", en: "CHECK" },
-    ];
-  }
-
-  return `
-    <div class="custom-generated-card-message" lang="ja">${messageMarkup}</div>
-    <div class="custom-card-point-block">
-      <span class="custom-card-section-label" lang="en">PLEASE POINT TO ONE</span>
-      <div class="custom-card-point-instruction" lang="ja"><span aria-hidden="true">☝</span><strong>該当するものを指さしてください</strong></div>
-    </div>
-    <div class="custom-card-response-grid" lang="ja">
-      ${responses
-        .map(
-          (response) => `<div class="custom-card-response-option"><small lang="en">${escapeHtml(response.en)}</small><strong>${escapeHtml(response.ja)}</strong></div>`,
-        )
-        .join("")}
     </div>
   `;
 }
