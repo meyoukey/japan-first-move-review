@@ -1652,11 +1652,6 @@ const customFoodCardTypes = [
     subtext: "Ask if the dish contains these items.",
   },
   {
-    id: "sharedTools",
-    label: "Ask about shared tools or oil",
-    subtext: "Ask about shared cooking tools or frying oil.",
-  },
-  {
     id: "preference",
     label: "I prefer to avoid these items",
     subtext: "For dislikes or preferences, not allergies.",
@@ -3782,7 +3777,7 @@ function customFoodCardSelectedIngredients() {
 
 function customFoodCardTypeIsAvailable(typeId) {
   const selectedIngredients = customFoodCardSelectedIngredients();
-  if (!selectedIngredients.length) {
+  if (!customFoodCardTypes.some((type) => type.id === typeId) || !selectedIngredients.length) {
     return false;
   }
 
@@ -3938,7 +3933,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
     return {
       typeLabel: "SEVERE ALLERGY",
       main: "重度の食物アレルギーがあります。",
-      support: "少量の混入や調理器具の共有でも危険です。",
+      support: "少量の混入や、調理器具・油の共有でも危険です。",
       closing: "対応が難しい場合は、無理に提供しなくて大丈夫です。",
       ingredientLabelJa: "アレルギーのあるもの",
       ingredientLabelEn: "Allergens",
@@ -3947,7 +3942,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
         { symbol: "×", ja: "提供できません", en: "CAN’T SERVE" },
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
-      whatItSays: "I have a severe food allergy. Even a small amount or shared cooking tools can be dangerous.",
+      whatItSays: "I have a severe food allergy. Even a small amount or shared cooking tools or oil can be dangerous.",
       staffRequest: "Please check the ingredients and preparation method before deciding whether you can serve it.",
       useWithCare: "Show this card before ordering and wait while staff checks the ingredients and preparation method.",
       importantNote: "This card helps communication but does not guarantee food safety.",
@@ -4115,7 +4110,7 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
       ? `この料理に下記のものは<br />入っていますか？`
       : escapeHtml(content.main);
   const supportMarkup = content.typeLabel === "SEVERE ALLERGY"
-    ? `少量の混入や<br />調理器具の共有でも危険です。`
+    ? `少量の混入や、<br />調理器具・油の共有でも危険です。`
     : escapeHtml(content.support);
   const closingMarkup = content.closing === "対応が難しい場合は、無理に提供しなくて大丈夫です。"
     ? `<span>対応が難しい場合は、</span><span>無理に提供しなくても大丈夫です。</span>`
@@ -4380,7 +4375,7 @@ function customFoodCardTemplateMarkup() {
         </div>
         <div class="custom-card-copy-section">
           <span class="custom-card-section-label" lang="en">CROSS-CONTACT WARNING</span>
-          <p>少量の混入や調理器具の共有でも<br>危険です。</p>
+          <p>少量の混入や、調理器具・油の共有でも<br>危険です。</p>
         </div>
         <div class="custom-card-copy-section">
           <span class="custom-card-section-label" lang="en">IF YOU CANNOT ACCOMMODATE THIS</span>
