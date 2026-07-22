@@ -1638,8 +1638,13 @@ const helpPhraseCards = [
 const customFoodCardTypes = [
   {
     id: "cannotEat",
-    label: "I cannot eat these items",
-    subtext: "For allergies, intolerance, or dietary restrictions.",
+    label: "I must not eat these items",
+    subtext: "For allergies or intolerances.",
+  },
+  {
+    id: "doNotEat",
+    label: "I do not eat these items",
+    subtext: "For dietary, religious, cultural, or personal choices.",
   },
   {
     id: "ingredientCheck",
@@ -1660,8 +1665,8 @@ const customFoodCardTypes = [
 
 const customFoodCardReasons = [
   { id: "severe", label: "Severe allergy" },
-  { id: "allergy", label: "Allergy / intolerance" },
-  { id: "dietary", label: "Dietary restriction" },
+  { id: "allergy", label: "Allergy" },
+  { id: "intolerance", label: "Intolerance" },
 ];
 
 const customFoodCardCategoryMeta = {
@@ -3263,8 +3268,7 @@ function foodCardCustomSampleConfig(card) {
       ingredients: [{ labelJa: "避ける必要がある食材", labelEn: "Ingredient to avoid" }],
     },
     vegetarian: {
-      type: "cannotEat",
-      reason: "dietary",
+      type: "doNotEat",
       ingredients: [
         { labelJa: "肉類全般", labelEn: "All meat" },
         { labelJa: "魚介類全般", labelEn: "All seafood" },
@@ -3272,8 +3276,7 @@ function foodCardCustomSampleConfig(card) {
       ],
     },
     vegan: {
-      type: "cannotEat",
-      reason: "dietary",
+      type: "doNotEat",
       ingredients: [
         { labelJa: "肉類全般", labelEn: "All meat" },
         { labelJa: "魚介類全般", labelEn: "All seafood" },
@@ -3283,8 +3286,7 @@ function foodCardCustomSampleConfig(card) {
       ],
     },
     "no-pork": {
-      type: "cannotEat",
-      reason: "dietary",
+      type: "doNotEat",
       ingredients: [
         { labelJa: "豚肉", labelEn: "Pork" },
         { labelJa: "豚骨スープ", labelEn: "Pork broth" },
@@ -3293,8 +3295,7 @@ function foodCardCustomSampleConfig(card) {
       ],
     },
     "no-alcohol": {
-      type: "cannotEat",
-      reason: "dietary",
+      type: "doNotEat",
       ingredients: [
         { labelJa: "アルコール", labelEn: "Alcohol" },
         { labelJa: "みりん・酒", labelEn: "Mirin / sake" },
@@ -3528,11 +3529,16 @@ function customFoodCardRestoreDraft(draft) {
 
   customFoodCardState.selectedIngredientIds = selectedIngredientIds;
   customFoodCardState.cardType = typeof snapshot.cardType === "string" ? snapshot.cardType : "";
+  if (customFoodCardState.cardType === "cannotEat" && snapshot.reason === "dietary") {
+    customFoodCardState.cardType = "doNotEat";
+  }
   if (!customFoodCardTypeIsAvailable(customFoodCardState.cardType)) {
     customFoodCardState.cardType = "";
   }
 
-  customFoodCardState.reason = typeof snapshot.reason === "string" ? snapshot.reason : "";
+  customFoodCardState.reason = customFoodCardState.cardType === "doNotEat"
+    ? ""
+    : typeof snapshot.reason === "string" ? snapshot.reason : "";
   if (customFoodCardState.reason && !customFoodCardReasons.some((reason) => reason.id === customFoodCardState.reason)) {
     customFoodCardState.reason = "";
   }
@@ -3626,10 +3632,15 @@ function customFoodCardRestoreCheckoutSnapshot(snapshot) {
   }
   customFoodCardState.selectedIngredientIds = selectedIngredientIds;
   customFoodCardState.cardType = typeof snapshot.cardType === "string" ? snapshot.cardType : "";
+  if (customFoodCardState.cardType === "cannotEat" && snapshot.reason === "dietary") {
+    customFoodCardState.cardType = "doNotEat";
+  }
   if (!customFoodCardTypeIsAvailable(customFoodCardState.cardType)) {
     customFoodCardState.cardType = "";
   }
-  customFoodCardState.reason = typeof snapshot.reason === "string" ? snapshot.reason : "";
+  customFoodCardState.reason = customFoodCardState.cardType === "doNotEat"
+    ? ""
+    : typeof snapshot.reason === "string" ? snapshot.reason : "";
   if (customFoodCardState.reason && !customFoodCardReasons.some((reason) => reason.id === customFoodCardState.reason)) {
     customFoodCardState.reason = "";
   }
@@ -3771,7 +3782,17 @@ function customFoodCardSelectedIngredients() {
 
 function customFoodCardTypeIsAvailable(typeId) {
   const selectedIngredients = customFoodCardSelectedIngredients();
-  return selectedIngredients.length > 0 && selectedIngredients.every((ingredient) => ingredient.allowedTypes.includes(typeId));
+  if (!selectedIngredients.length) {
+    return false;
+  }
+
+  // Dietary choices and preferences can apply to ordinary ingredients even
+  // when those ingredients were originally configured only for safety checks.
+  if (typeId === "doNotEat" || typeId === "preference") {
+    return true;
+  }
+
+  return selectedIngredients.every((ingredient) => ingredient.allowedTypes.includes(typeId));
 }
 
 function customFoodCardStepOneMarkup() {
@@ -3850,7 +3871,7 @@ function customFoodCardStepTwoMarkup() {
     <div class="custom-food-card-step" data-custom-step="2">
       <div class="custom-step-heading">
         <h2>Choose card purpose</h2>
-        <p class="custom-step-question">What do you want to say about these items?</p>
+        <p class="custom-step-question">What is your relationship to these items?</p>
       </div>
       ${
         availableTypes.length
@@ -3879,7 +3900,7 @@ function customFoodCardStepTwoMarkup() {
                   showReasonPanel
                     ? `
                       <fieldset class="custom-reason-panel">
-                        <legend>What is the reason?</legend>
+                        <legend>Why must you not eat them?</legend>
                         <div class="custom-reason-list">
                           ${customFoodCardReasons
                             .map(
@@ -3927,15 +3948,19 @@ function customFoodCardLayoutContent(cardType, reason = "") {
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
       whatItSays: "I have a severe food allergy. Even a small amount or shared cooking tools can be dangerous.",
+      staffRequest: "Please check the ingredients and preparation method before deciding whether you can serve it.",
       useWithCare: "Show this card before ordering and wait while staff checks the ingredients and preparation method.",
       importantNote: "This card helps communication but does not guarantee food safety.",
     };
   }
 
-  if (cardType === "cannotEat" && reason === "allergy") {
+  if (cardType === "cannotEat" && (reason === "allergy" || reason === "intolerance")) {
+    const isIntolerance = reason === "intolerance";
     return {
-      typeLabel: "ALLERGY / INTOLERANCE",
-      main: "食物アレルギー、または体質的に食べられないものがあります。",
+      typeLabel: isIntolerance ? "INTOLERANCE" : "ALLERGY",
+      main: isIntolerance
+        ? "体質的に食べることができないものがあります。"
+        : "食物アレルギーがあります。",
       support: "",
       closing: "対応が難しい場合は、無理に提供しなくて大丈夫です。",
       ingredientLabelJa: "食べられないもの",
@@ -3945,7 +3970,10 @@ function customFoodCardLayoutContent(cardType, reason = "") {
         { symbol: "×", ja: "提供できません", en: "CAN’T SERVE" },
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
-      whatItSays: "I have an allergy or intolerance and cannot eat the selected items.",
+      whatItSays: isIntolerance
+        ? "I have an intolerance and must not eat the selected items."
+        : "I have an allergy and must not eat the selected items.",
+      staffRequest: "Please check whether you can serve a suitable dish.",
       useWithCare: "Show this card before ordering and give staff time to check.",
       importantNote: "This card helps communication but does not guarantee food safety.",
     };
@@ -3953,8 +3981,8 @@ function customFoodCardLayoutContent(cardType, reason = "") {
 
   if (cardType === "cannotEat") {
     return {
-      typeLabel: "DIETARY RESTRICTION",
-      main: "食事制限のため、食べられないものがあります。",
+      typeLabel: "MUST NOT EAT",
+      main: "下記の食材を食べることができません。",
       support: "",
       closing: "対応が難しい場合は、無理に提供しなくて大丈夫です。",
       ingredientLabelJa: "食べられないもの",
@@ -3964,9 +3992,30 @@ function customFoodCardLayoutContent(cardType, reason = "") {
         { symbol: "×", ja: "提供できません", en: "CAN’T SERVE" },
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
-      whatItSays: "I have a dietary restriction and cannot eat the selected items.",
+      whatItSays: "I must not eat the selected items.",
+      staffRequest: "Please check whether you can serve a suitable dish.",
       useWithCare: "Show this card before ordering and give staff time to check.",
       importantNote: "This card is a communication aid and does not guarantee that every dish can be adjusted.",
+    };
+  }
+
+  if (cardType === "doNotEat") {
+    return {
+      typeLabel: "I DO NOT EAT",
+      main: "私は下記の食材を食べません。",
+      support: "だし、ソース、調味料に含まれるものも避けています。",
+      closing: "これらを含まない、食べられる料理を教えていただけますか？",
+      ingredientLabelJa: "食べないもの",
+      ingredientLabelEn: "Items I do not eat",
+      responses: [
+        { symbol: "○", ja: "提供できます", en: "CAN SERVE" },
+        { symbol: "×", ja: "提供できません", en: "CAN’T SERVE" },
+        { symbol: "?", ja: "確認します", en: "CHECK" },
+      ],
+      whatItSays: "I do not eat the selected items as part of my diet or personal choices.",
+      staffRequest: "Could you show me which dishes I can eat?",
+      useWithCare: "Show this card before ordering and give staff time to check broth, sauces, and seasonings.",
+      importantNote: "This card is a communication aid and does not guarantee that every ingredient can be confirmed.",
     };
   }
 
@@ -3984,6 +4033,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
       whatItSays: "It asks whether the selected items are included in the dish.",
+      staffRequest: "Please check whether the dish contains these items.",
       useWithCare: "Ask before ordering and wait while staff checks the ingredients.",
       importantNote: "Recipes and seasonings can vary. Please confirm with staff each time.",
     };
@@ -4003,6 +4053,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
       whatItSays: "It asks whether the same cooking tools or frying oil are used for the selected items.",
+      staffRequest: "Please check whether cooking tools or frying oil are shared.",
       useWithCare: "Show this card before ordering and ask staff to check the preparation method.",
       importantNote: "This does not guarantee zero cross-contact.",
     };
@@ -4012,7 +4063,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
     typeLabel: "I PREFER TO AVOID",
     main: "できれば下記のものを避けたいです。",
     support: "",
-    closing: "可能な範囲で大丈夫です。",
+    closing: "可能であれば、これらを避けられる料理を教えてください。",
     ingredientLabelJa: "避けたいもの",
     ingredientLabelEn: "Items to avoid",
     responses: [
@@ -4021,6 +4072,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       { symbol: "?", ja: "確認します", en: "CHECK" },
     ],
     whatItSays: "It says I would prefer to avoid the selected items if possible.",
+    staffRequest: "Could you show me which dishes can avoid these items?",
     useWithCare: "Use this for preferences, not for allergies or medical restrictions.",
     importantNote: "The restaurant may not be able to change every dish.",
   };
@@ -4055,8 +4107,10 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
   const sharedToolsNote = content.typeLabel === "SHARED TOOLS OR OIL"
     ? `<p class="custom-card-cross-contact-note">This does not guarantee zero cross-contact.</p>`
     : "";
-  const mainMarkup = content.typeLabel === "DIETARY RESTRICTION"
-    ? `食事制限のため、<br />食べられないものがあります。`
+  const mainMarkup = content.typeLabel === "MUST NOT EAT"
+    ? `下記の食材を<br />食べることができません。`
+    : content.typeLabel === "I DO NOT EAT"
+      ? `私は下記の食材を<br />食べません。`
     : content.typeLabel === "INGREDIENT CHECK"
       ? `この料理に下記のものは<br />入っていますか？`
       : escapeHtml(content.main);
@@ -4185,7 +4239,7 @@ function customFoodCardPurchaseReviewLinkMarkup(label, href) {
 }
 
 function customFoodCardPurchaseReviewAgreementMarkup() {
-  return "I have reviewed my selected ingredients, card purpose, and purchase conditions.";
+  return "I have reviewed my selected ingredients, card purpose, request to staff, and purchase conditions.";
 }
 
 function customFoodCardPurchaseReviewLegalLinksMarkup() {
@@ -4237,6 +4291,7 @@ function customFoodCardStepThreeMarkup() {
         </div>
         <div class="custom-confirm-group custom-confirm-group-purpose"><span>Card purpose</span><strong>${escapeHtml(type?.label ?? "")}</strong></div>
         ${reason ? `<div class="custom-confirm-group custom-confirm-group-reason"><span>Reason</span><strong>${escapeHtml(reason.label)}</strong></div>` : ""}
+        <div class="custom-confirm-group custom-confirm-group-request"><span>Request to staff</span><strong>${escapeHtml(customFoodCardLayoutContent(type?.id, reason?.id).staffRequest ?? "")}</strong></div>
       </div>
       <section class="custom-purchase-review" aria-label="Purchase review">
         <header class="custom-purchase-review-header">
@@ -4259,7 +4314,7 @@ function customFoodCardStepThreeMarkup() {
             <p>Digital product available immediately after purchase. Generally non-refundable, except where required by law or for a clear payment processing error.</p>
           </div>
         </div>
-        <p class="custom-purchase-review-reminder">Review your selected ingredients and card purpose before purchase.</p>
+        <p class="custom-purchase-review-reminder">Review your selected ingredients, card purpose, and request to staff before purchase.</p>
       </section>
       <section class="custom-sample-preview" aria-labelledby="custom-sample-preview-title">
         <div>

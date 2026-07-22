@@ -390,7 +390,8 @@
 
 .custom-confirm-summary .custom-confirm-group-items > span,
 .custom-confirm-summary .custom-confirm-group-purpose > span,
-.custom-confirm-summary .custom-confirm-group-reason > span {
+.custom-confirm-summary .custom-confirm-group-reason > span,
+.custom-confirm-summary .custom-confirm-group-request > span {
   color: #a65d74;
   background: rgba(212, 125, 151, 0.1);
 }
@@ -452,7 +453,8 @@
   }
 
   .custom-food-card-step[data-custom-step="3"] .custom-confirm-group-purpose > strong,
-  .custom-food-card-step[data-custom-step="3"] .custom-confirm-group-reason > strong {
+  .custom-food-card-step[data-custom-step="3"] .custom-confirm-group-reason > strong,
+  .custom-food-card-step[data-custom-step="3"] .custom-confirm-group-request > strong {
     font-size: 1.02rem;
     line-height: 1.48;
   }
