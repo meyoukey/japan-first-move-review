@@ -469,16 +469,6 @@ h3 {
   font-size: clamp(1.02rem, 1.7vw, 1.18rem);
 }
 
-.poster-word {
-  position: relative;
-  z-index: 1;
-  align-self: center;
-  font-size: clamp(3.6rem, 10vw, 7.4rem);
-  font-weight: 1000;
-  line-height: 0.72;
-  letter-spacing: 0;
-}
-
 .hero-actions,
 .section-actions {
   display: flex;
