@@ -3874,7 +3874,8 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       typeLabel: "SEVERE ALLERGY",
       main: "重度の食物アレルギーがあります。",
       support: "少量の混入や、調理器具・油の共有でも危険です。",
-      closing: "これらを含まない料理を提供できるか、食材と調理方法を確認してください。対応が難しい場合は、提供しなくて大丈夫です。",
+      closing: "お手数ですが、食材と調理方法をご確認ください。\nこれらの食材を含まない料理を提供できますか？\n対応が難しい場合は、提供できないとお伝えください。",
+      menuFollowup: true,
       ingredientLabelJa: "アレルギーのあるもの",
       ingredientLabelEn: "Allergens",
       responses: [
@@ -3883,7 +3884,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
       whatItSays: "I have a severe food allergy. Even a small amount or shared cooking tools or oil can be dangerous.",
-      staffRequest: "Please check the ingredients and preparation method before deciding whether you can serve it.",
+      staffRequest: "Please check the ingredients and preparation method. If you can serve a suitable dish, please point to it on the menu.",
       useWithCare: "Show this card before ordering and wait while staff checks the ingredients and preparation method.",
       importantNote: "This card helps communication but does not guarantee food safety.",
     };
@@ -3897,7 +3898,8 @@ function customFoodCardLayoutContent(cardType, reason = "") {
         ? "体質的に食べることができないものがあります。"
         : "食物アレルギーがあります。",
       support: "",
-      closing: "これらを含まない料理を提供できるか、食材と調理方法を確認してください。",
+      closing: "お手数ですが、食材と調理方法をご確認ください。\nこれらの食材を含まない料理を提供できますか？",
+      menuFollowup: true,
       ingredientLabelJa: "食べられないもの",
       ingredientLabelEn: "Items I cannot eat",
       responses: [
@@ -3908,7 +3910,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       whatItSays: isIntolerance
         ? "I have an intolerance and must not eat the selected items."
         : "I have an allergy and must not eat the selected items.",
-      staffRequest: "Please check the ingredients and preparation method before deciding whether you can serve a suitable dish.",
+      staffRequest: "Please check the ingredients and preparation method. If you can serve a suitable dish, please point to it on the menu.",
       useWithCare: "Show this card before ordering and give staff time to check.",
       importantNote: "This card helps communication but does not guarantee food safety.",
     };
@@ -3919,7 +3921,8 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       typeLabel: "MUST NOT EAT",
       main: "下記の食材を食べることができません。",
       support: "",
-      closing: "これらを含まない料理を提供できるか、食材と調理方法を確認してください。",
+      closing: "お手数ですが、食材と調理方法をご確認ください。\nこれらの食材を含まない料理を提供できますか？",
+      menuFollowup: true,
       ingredientLabelJa: "食べられないもの",
       ingredientLabelEn: "Items I cannot eat",
       responses: [
@@ -3928,7 +3931,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
       whatItSays: "I must not eat the selected items.",
-      staffRequest: "Please check the ingredients and preparation method before deciding whether you can serve a suitable dish.",
+      staffRequest: "Please check the ingredients and preparation method. If you can serve a suitable dish, please point to it on the menu.",
       useWithCare: "Show this card before ordering and give staff time to check.",
       importantNote: "This card is a communication aid and does not guarantee that every dish can be adjusted.",
     };
@@ -3939,7 +3942,8 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       typeLabel: "I DO NOT EAT",
       main: "私は下記の食材を食べません。",
       support: "だし、ソース、調味料に含まれるものも避けています。",
-      closing: "これらを含まない料理はありますか？",
+      closing: "これらの食材を使っていない料理はありますか？",
+      menuFollowup: true,
       ingredientLabelJa: "食べないもの",
       ingredientLabelEn: "Items I do not eat",
       responses: [
@@ -3948,7 +3952,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
         { symbol: "?", ja: "確認します", en: "CHECK" },
       ],
       whatItSays: "I do not eat the selected items as part of my diet or personal choices.",
-      staffRequest: "Are there any dishes that do not contain these items?",
+      staffRequest: "Are there any dishes that do not contain these items? If yes, please point to the suitable menu item.",
       useWithCare: "Show this card before ordering and give staff time to check broth, sauces, and seasonings.",
       importantNote: "This card is a communication aid and does not guarantee that every ingredient can be confirmed.",
     };
@@ -3998,7 +4002,8 @@ function customFoodCardLayoutContent(cardType, reason = "") {
     typeLabel: "I PREFER NOT TO EAT",
     main: "できれば下記のものを避けたいです。",
     support: "",
-    closing: "可能であれば、これらを避けられる料理はありますか？",
+    closing: "可能であれば、これらの食材を使っていない料理、\nまたは抜いて提供できる料理はありますか？",
+    menuFollowup: true,
     ingredientLabelJa: "避けたいもの",
     ingredientLabelEn: "Items to avoid",
     responses: [
@@ -4007,7 +4012,7 @@ function customFoodCardLayoutContent(cardType, reason = "") {
       { symbol: "?", ja: "確認します", en: "CHECK" },
     ],
     whatItSays: "It says I would prefer not to eat the selected items if possible.",
-    staffRequest: "Are there any dishes that can avoid these items?",
+    staffRequest: "Are there any dishes that do not use these items, or can be served without them? If yes, please point to the suitable menu item.",
     useWithCare: "Use this for preferences, not for allergies or medical restrictions.",
     importantNote: "The restaurant may not be able to change every dish.",
   };
@@ -4052,11 +4057,10 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
   const supportMarkup = content.typeLabel === "SEVERE ALLERGY"
     ? `少量の混入や、<br />調理器具・油の共有でも危険です。`
     : escapeHtml(content.support);
-  const closingMarkup = content.closing === "これらを含まない料理を提供できるか、食材と調理方法を確認してください。対応が難しい場合は、提供しなくて大丈夫です。"
-    ? `<span>これらを含まない料理を提供できるか、</span><span>食材と調理方法を確認してください。</span><span>対応が難しい場合は、提供しなくて大丈夫です。</span>`
-    : content.closing === "これらを含まない料理を提供できるか、食材と調理方法を確認してください。"
-      ? `<span>これらを含まない料理を提供できるか、</span><span>食材と調理方法を確認してください。</span>`
-      : escapeHtml(content.closing);
+  const closingMarkup = content.closing
+    .split("\n")
+    .map((line) => `<span>${escapeHtml(line)}</span>`)
+    .join("");
   return `
     <section class="custom-generated-card${className}" aria-label="Generated Japanese food card">
       <div class="custom-card-paper">
@@ -4117,6 +4121,11 @@ function customFoodCardLayoutMarkup(content, selectedIngredients, className = ""
               )
               .join("")}
           </div>
+          ${
+            content.menuFollowup
+              ? `<p class="custom-card-menu-followup"><strong lang="ja">○の場合は、該当するメニューを指さしてください。</strong><small lang="en">If yes, please point to the suitable menu item.</small></p>`
+              : ""
+          }
           <footer class="custom-card-short-disclaimer">
             <p>Communication aid only. Does not guarantee food safety.<br>Staff still need to confirm ingredients and preparation.</p>
             ${sharedToolsNote}

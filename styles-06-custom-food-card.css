@@ -1683,6 +1683,25 @@
     0 2px 5px rgba(58, 65, 78, 0.07);
 }
 
+.custom-card-menu-followup {
+  display: grid;
+  gap: 0.1rem;
+  margin: 0;
+  color: var(--custom-card-navy);
+  text-align: center;
+}
+
+.custom-card-menu-followup strong {
+  font-size: 0.9rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.custom-card-menu-followup small {
+  font-size: 0.64rem;
+  line-height: 1.35;
+}
+
 .custom-card-staff-section .custom-card-response-option,
 .custom-card-staff-section .custom-card-response-option:nth-child(1),
 .custom-card-staff-section .custom-card-response-option:nth-child(2),
@@ -1861,6 +1880,10 @@
   .custom-card-staff-section .custom-card-response-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: 0.35rem;
+  }
+
+  .custom-card-menu-followup strong {
+    font-size: 0.8rem;
   }
 
   .custom-card-staff-section .custom-card-response-option,
