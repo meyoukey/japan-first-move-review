@@ -3298,7 +3298,7 @@ function renderFoodAllergyCardGuide() {
           <h3>Cooking oil and preparation</h3>
           <p>If cross-contact matters for your allergy, checking the listed ingredients may not be enough. You may also need to ask about shared frying oil, cookware, utensils, or preparation surfaces.</p>
           <p>This is especially important for severe allergies. It does not need to be included in every dietary request, ingredient question, or personal preference.</p>
-          <p>Ask only about the ingredients and cooking methods that matter to you. A focused question such as “<a href="/food-cards/ask-dashi" ${trackAttr("food_allergy_guide_dashi")}>Does this contain fish-based dashi?</a>” is usually easier for staff to check than a broad question such as “Is this vegetarian?”</p>
+          <p>Ask only about the ingredients and cooking methods that matter to you. A focused question such as “<a href="/food-cards/ask-dashi" ${trackAttr("food_allergy_guide_dashi")}>Does this contain animal-based broth or dashi?</a>” is usually easier for staff to check than a broad question such as “Is this vegetarian?”</p>
         </section>
 
         <section class="food-card-article-section" aria-labelledby="cannot-guarantee-title">
