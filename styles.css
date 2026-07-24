@@ -1,7 +1,7 @@
 /* Japan First Move CSS entrypoint. Keep imports ordered to preserve the cascade. */
 @import url("./styles-01-foundation.css");
 @import url("./styles-02-home.css");
-@import url("./styles-03-guides-food.css");
+@import url("./styles-03-guides-food.css?v=food-card-article-4");
 @import url("./styles-04-legal.css");
 @import url("./styles-05-page-refinements.css");
 @import url("./styles-06-custom-food-card.css");

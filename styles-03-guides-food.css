@@ -2564,6 +2564,201 @@ body:has(.guide-page) .site-footer p {
   font-size: 0.85rem;
 }
 
+/* Long-form food card guide. */
+.food-card-article-page {
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+
+.food-card-article-header {
+  margin-bottom: clamp(1.4rem, 4vw, 2rem);
+}
+
+.food-card-article-header h1 {
+  max-width: 18ch;
+}
+
+.food-card-article-intro {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.food-card-article-intro p {
+  max-width: 70ch;
+  margin: 0;
+  color: var(--color-text-main);
+  font-size: clamp(1rem, 2.2vw, 1.12rem);
+  line-height: 1.7;
+}
+
+.food-card-article-body {
+  display: grid;
+  gap: 0;
+}
+
+.food-card-article-section {
+  padding: clamp(1.8rem, 5vw, 2.8rem) 0;
+  border-top: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+.food-card-article-section h2 {
+  margin: 0 0 0.9rem;
+  color: var(--color-text-main);
+  font-size: clamp(1.45rem, 3.8vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.food-card-article-section h3 {
+  margin: 1.55rem 0 0.55rem;
+  color: var(--color-food);
+  font-size: clamp(1.08rem, 2.8vw, 1.3rem);
+  line-height: 1.25;
+}
+
+.food-card-article-section p,
+.food-card-article-section li {
+  color: var(--color-text-main);
+  font-size: clamp(0.96rem, 2.1vw, 1.04rem);
+  line-height: 1.7;
+}
+
+.food-card-article-section p {
+  margin: 0.75rem 0 0;
+}
+
+.food-card-article-section ul {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.food-card-article-intro a,
+.food-card-article-section a:not(.button) {
+  color: #c38e9c;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(195, 142, 156, 0.55);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+.food-card-article-intro a:hover,
+.food-card-article-intro a:focus-visible,
+.food-card-article-section a:not(.button):hover,
+.food-card-article-section a:not(.button):focus-visible {
+  color: #a86f7f;
+  text-decoration-color: rgba(195, 142, 156, 0.55);
+}
+
+.food-detail-guide-link a,
+.food-card-first-move .article-inline-link {
+  color: var(--red);
+  font-weight: 750;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+.food-card-quick-answer {
+  margin-top: clamp(1.25rem, 3.5vw, 1.8rem);
+  margin-bottom: clamp(0.6rem, 2vw, 1rem);
+  padding: 1rem 0 1rem 1rem;
+  border-top: 0;
+  border-left: 4px solid var(--color-food);
+}
+
+.food-card-article-note {
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: #fff4f6;
+}
+
+.food-card-article-steps {
+  counter-reset: food-card-steps;
+  display: grid;
+  gap: 0.8rem;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.food-card-article-steps li {
+  counter-increment: food-card-steps;
+  position: relative;
+  min-height: 4.25rem;
+  padding: 1rem 0 1rem 4rem;
+  border-top: 1px solid rgba(107, 114, 128, 0.18);
+}
+
+.food-card-article-steps li::before {
+  content: counter(food-card-steps);
+  position: absolute;
+  top: 0.9rem;
+  left: 1rem;
+  display: grid;
+  width: 2.1rem;
+  height: 2.1rem;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--color-food);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.food-card-article-steps h3,
+.food-card-article-steps p {
+  margin: 0;
+}
+
+.food-card-article-steps p + p {
+  margin-top: 0.55rem;
+}
+
+.food-card-article-create {
+  margin: clamp(1.8rem, 5vw, 2.8rem) 0;
+}
+
+.food-card-official-sources {
+  padding-bottom: 0;
+}
+
+.food-card-official-sources h2 {
+  margin-bottom: 0.65rem;
+  color: var(--color-text-sub);
+  font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+  letter-spacing: 0;
+}
+
+.food-card-official-sources ul {
+  gap: 0.3rem;
+  margin-top: 0;
+}
+
+.food-card-official-sources li {
+  color: var(--color-text-sub);
+  font-size: clamp(0.82rem, 1.9vw, 0.9rem);
+  line-height: 1.55;
+}
+
+.food-card-article-page .food-card-official-sources a {
+  color: var(--color-text-sub);
+  font-weight: 500;
+  text-decoration-thickness: 0.06em;
+}
+
+.food-detail-guide-link {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 1rem auto 0;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  background: #fff8fa;
+  box-shadow: var(--jfm-card-shadow);
+}
+
 /* Shared page-width system. Keep page containers on one 880px rail. */
 .layout-container,
 .content-container,
@@ -2609,6 +2804,10 @@ body:has(.guide-page) .site-footer p {
 }
 
 @media (max-width: 640px) {
+  .food-card-article-steps li {
+    padding-left: 3.6rem;
+  }
+
   .layout-container,
   .content-container,
   .card-container,

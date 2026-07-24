@@ -45,6 +45,19 @@ const pages = [
       "Show allergies, dietary needs, and ingredients to check in Japanese with sample food cards for restaurants in Japan.",
   },
   {
+    path: "/food-card/custom/",
+    title: "Custom Food Card for Japan | Japan First Move",
+    description:
+      "Create a clear Japanese food card for allergies, dietary needs, preferences, or ingredients you want restaurant staff to check.",
+  },
+  {
+    path: "/guides/food-allergy-card-japan",
+    title: "Food Allergy Card for Japan: How to Use It | Japan First Move",
+    description:
+      "Learn when and how to show a food allergy or dietary restriction card at restaurants in Japan, including dashi, broth, and other ingredients to check.",
+    ogType: "article",
+  },
+  {
     path: "/faq",
     title: "FAQ | Japan First Move",
     description:
@@ -223,6 +236,11 @@ function headMarkup(page) {
   const title = escapeHtml(page.title);
   const description = escapeHtml(page.description);
   const escapedCanonical = escapeHtml(canonical);
+  const pageOgImage = escapeHtml(page.ogImage ?? ogImage);
+  const pageOgImageAlt = escapeHtml(page.ogImageAlt ?? ogImageAlt);
+  const pageOgImageWidth = page.ogImageWidth ?? 1200;
+  const pageOgImageHeight = page.ogImageHeight ?? 630;
+  const pageOgType = escapeHtml(page.ogType ?? "website");
   return `  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -236,19 +254,19 @@ function headMarkup(page) {
     <meta property="og:site_name" content="Japan First Move" />
     <meta property="og:title" content="${title}" />
     <meta property="og:description" content="${description}" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="${pageOgType}" />
     <meta property="og:url" content="${escapedCanonical}" />
-    <meta property="og:image" content="${ogImage}" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="${ogImageAlt}" />
+    <meta property="og:image" content="${pageOgImage}" />
+    <meta property="og:image:width" content="${pageOgImageWidth}" />
+    <meta property="og:image:height" content="${pageOgImageHeight}" />
+    <meta property="og:image:alt" content="${pageOgImageAlt}" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${title}" />
     <meta name="twitter:description" content="${description}" />
-    <meta name="twitter:image" content="${ogImage}" />
-    <meta name="twitter:image:alt" content="${ogImageAlt}" />
+    <meta name="twitter:image" content="${pageOgImage}" />
+    <meta name="twitter:image:alt" content="${pageOgImageAlt}" />
 
     <!-- Icons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -272,7 +290,7 @@ function headMarkup(page) {
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css?v=css-modules-1" />
+    <link rel="stylesheet" href="/styles.css?v=css-modules-5" />
   </head>`;
 }
 
@@ -288,7 +306,7 @@ for (const page of pages) {
   const html = `<!doctype html>
 <html lang="en">
 ${headMarkup(page)}
-${bodyMatch[0].replace('/app.js?v=clean-urls-1', '/app.js?v=seo-pages-1')}
+${bodyMatch[0]}
 </html>
 `;
   fs.writeFileSync(filePath, html);

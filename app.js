@@ -2615,7 +2615,13 @@ function categoryCard(category) {
   `;
 }
 
-function foodCardCtaPanel({ context = "home", includeSamplesLink = true } = {}) {
+function foodCardCtaPanel({
+  context = "home",
+  includeSamplesLink = true,
+  headingOverride = "",
+  descriptionOverride = "",
+  buttonLabel = "Create my card",
+} = {}) {
   const isGuide = context === "guide";
   const isFoodCategory = context === "food";
   const isFoodCardsPage = context === "foodCards";
@@ -2634,8 +2640,12 @@ function foodCardCtaPanel({ context = "home", includeSamplesLink = true } = {}) 
         ? "food_cards_create"
         : "home_custom_food_card_create";
   const samplesTrack = isGuide ? "guide_food_card_samples" : isFoodCategory ? "food_sample_cards_view" : "home_custom_food_card_samples";
-  const heading = isFoodCardsPage ? "Create your own card" : "Create a food card for Japan";
-  const description = "Show allergies, dietary needs, or ingredients to check before ordering.";
+  const heading = headingOverride || (isFoodCardsPage ? "Create your own card" : "Create a food card for Japan");
+  const description = descriptionOverride || (isFoodCardsPage
+    ? "Choose the food needs and specific ingredients that matter to you. Your card keeps them easy to scan and gives restaurant staff clear replies they can point to."
+    : context === "home"
+      ? "Choose your food needs and specific ingredients, then show a clear Japanese card that helps restaurant staff understand and respond."
+      : "Show allergies, dietary needs, or ingredients to check before ordering.");
   return `
     <div class="food-card-cta-panel shared-food-card-cta">
       <span class="food-card-ribbon">Food needs</span>
@@ -2645,11 +2655,11 @@ function foodCardCtaPanel({ context = "home", includeSamplesLink = true } = {}) 
         <div class="food-card-benefits" aria-label="Food card benefits">
           <span>No app needed</span>
           <span>Save as image</span>
-          <span>Show in Japanese</span>
+          <span>Point-to-reply answers</span>
         </div>
         <div class="section-actions">
           <p class="price-line">${customFoodCardPriceText}</p>
-          <a class="button primary" href="/food-card/custom/" ${trackAttr(createTrack)}>Create my card</a>
+          <a class="button primary" href="/food-card/custom/" ${trackAttr(createTrack)}>${escapeHtml(buttonLabel)}</a>
           ${includeSamplesLink ? `<a class="food-card-sample-link" href="/food-cards" ${trackAttr(samplesTrack)}>See sample cards</a>` : ""}
         </div>
       </div>
@@ -3143,13 +3153,14 @@ function renderFoodCardsPage() {
           <span>Food cards</span>
         </nav>
         <h1>Show your food needs in Japanese</h1>
-        <p class="lead">Show allergies, dietary needs, or ingredients to check before ordering. Use a sample card or create your own.</p>
+        <p class="lead">More than a translation card. Show allergies, dietary needs, or ingredients to check—and make it easier for restaurant staff to understand and respond.</p>
       </header>
 
       <section class="food-card-first-move content-container" aria-labelledby="food-card-first-move-title">
         <h2 id="food-card-first-move-title">First move</h2>
         <p><strong>Show a card before you order.</strong></p>
         <p>These cards help communication, but they do not guarantee food safety.</p>
+        <p><a class="article-inline-link" href="/guides/food-allergy-card-japan" ${trackAttr("food_cards_use_guide")}>Learn how to use a food card in Japan →</a></p>
       </section>
 
       <section class="section food-samples content-container" aria-labelledby="food-samples-title">
@@ -3173,6 +3184,159 @@ function renderFoodCardsPage() {
   `;
 }
 
+function renderFoodAllergyCardGuide() {
+  document.title = "Food Allergy Card for Japan: How to Use It | Japan First Move";
+  app.innerHTML = `
+    <article class="page-shell guide-page category-food food-card-article-page layout-container">
+      <header class="guide-page-header food-card-article-header content-container">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>/</span>
+          <a href="/food">Food</a><span>/</span>
+          <span>Food allergy card guide</span>
+        </nav>
+        <h1>How to Use a Food Allergy or Dietary Restriction Card in Japan</h1>
+        <div class="food-card-article-intro">
+          <p>Eating out in Japan can take a little extra planning if you have a food allergy or dietary restriction. Some dishes contain ingredients that are not obvious from their name or appearance, and restaurant staff may need time to check with the kitchen.</p>
+          <p>A clear Japanese food card can help you show what you need to avoid or ask about, making it easier for staff to understand, check, and respond. You can also <a href="/food-cards" ${trackAttr("food_allergy_guide_samples")}>view food card examples</a>.</p>
+        </div>
+      </header>
+
+      <div class="food-card-article-body content-container">
+        <section class="food-card-article-section food-card-quick-answer" aria-labelledby="food-card-quick-answer-title">
+          <h2 id="food-card-quick-answer-title">Quick answer</h2>
+          <p>The best time to show your card is before you order. Give restaurant staff time to check the ingredients and how the food is prepared, then wait for a clear response before choosing a dish. If they cannot confirm, choose another dish or restaurant.</p>
+        </section>
+
+        <section class="food-card-article-section" aria-labelledby="why-food-card-title">
+          <h2 id="why-food-card-title">Why you may need a food card in Japan</h2>
+          <p>Japan has allergen-labeling rules for prepackaged processed foods. Restaurants and businesses selling prepared food, however, are not required to provide the same allergen information.</p>
+          <p>What staff can tell you may vary by restaurant, dish, and staff member. Even when they want to help, they may need time to check with the kitchen.</p>
+          <p>A written food card makes it easier to show which ingredients you need to avoid or ask about.</p>
+          <p class="food-card-article-note"><strong>Important:</strong> A food card helps with communication, but it does not confirm that a dish is safe or free from a specific ingredient.</p>
+        </section>
+
+        <section class="food-card-article-section" aria-labelledby="when-show-card-title">
+          <h2 id="when-show-card-title">When to show your food card</h2>
+          <p>Show your card before you order, while staff still have time to check. If you have a severe allergy or need to avoid cross-contact, let staff know as early as possible—ideally before you are seated or as soon as you arrive.</p>
+          <p>For other dietary restrictions or ingredients you want to ask about, show the card before choosing a menu item.</p>
+          <ol class="food-card-article-steps">
+            <li>
+              <h3>Show the card</h3>
+              <p>Keep the card open on your phone and show it clearly to a staff member.</p>
+            </li>
+            <li>
+              <h3>Let staff check</h3>
+              <p>Give staff time to read the card and check the ingredients, sauces, broth, and how the food is prepared with the kitchen.</p>
+            </li>
+            <li>
+              <h3>Wait for a clear response</h3>
+              <p>Use the point-to-reply section to make the answer easier to understand. Wait for a clear response before choosing a dish.</p>
+              <p>Showing the card starts the conversation. It is not a response by itself.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="food-card-article-section" aria-labelledby="staff-understand-title">
+          <h2 id="staff-understand-title">What restaurant staff need to understand</h2>
+          <p>A useful food card should give restaurant staff three things: why the ingredients matter, which ingredients to check, and how they can respond.</p>
+
+          <h3>Why the ingredients matter</h3>
+          <p>Choose wording that matches your situation:</p>
+          <ul>
+            <li>a severe allergy</li>
+            <li>another food allergy</li>
+            <li>an intolerance</li>
+            <li>a religious, cultural, or dietary choice</li>
+            <li>an ingredient you want to ask about</li>
+            <li>a personal preference</li>
+          </ul>
+          <p>These situations are different. Accurate wording helps staff understand whether they need to check an ingredient, how the food is prepared, or the risk of cross-contact.</p>
+
+          <h3>Which ingredients to check</h3>
+          <p>Avoid relying only on a broad label such as “<a href="/food-cards/vegetarian" ${trackAttr("food_allergy_guide_vegetarian")}>vegetarian</a>,” as it may be understood differently by different people. List the specific ingredients that matter to you, such as pork, seafood, fish-based dashi, animal-based broth, egg, dairy, or alcohol.</p>
+
+          <h3>How staff can respond</h3>
+          <p>Make the next step clear. For example, ask staff to:</p>
+          <ul>
+            <li>check the ingredients and how the food is prepared</li>
+            <li>confirm whether a suitable dish can be served</li>
+            <li>tell you if they cannot confirm</li>
+            <li>point to a suitable menu item</li>
+          </ul>
+        </section>
+
+        <section class="food-card-article-section" aria-labelledby="wording-fit-title">
+          <h2 id="wording-fit-title">Use wording that fits your situation</h2>
+          <p>Your food card should describe your situation accurately, rather than simply using the strongest wording possible. <a href="/food-cards/severe-allergy" ${trackAttr("food_allergy_guide_severe")}>Severe-allergy wording</a> tells staff that even a small amount or cross-contact may be unsafe. An intolerance, dietary choice, ingredient question, or preference needs different wording.</p>
+          <p>A restaurant may say it cannot serve you if staff are unable to confirm the ingredients or how the food is prepared. This is not a failed interaction. A clear “can’t serve” answer is more helpful than an uncertain one.</p>
+          <p>If different ingredients matter for different reasons—for example, an allergy to one ingredient and a dietary choice involving another—using separate cards can make each request clearer.</p>
+        </section>
+
+        <section class="food-card-article-section" aria-labelledby="ingredients-not-obvious-title">
+          <h2 id="ingredients-not-obvious-title">Ingredients that may not be obvious</h2>
+          <p>A dish may look suitable even when an ingredient you avoid is used in the broth, sauce, seasoning, or cooking process. Because these ingredients may not be visible in the finished dish, it can help to ask about them separately.</p>
+          <p>Recipes vary between restaurants, so do not assume that every dish with the same name contains the same ingredients.</p>
+
+          <h3>Dashi and broth</h3>
+          <p>Dashi is not a single ingredient. Depending on the recipe, it may be made from kombu or shiitake mushrooms, bonito flakes, mackerel, dried sardines, or a combination of plant and fish ingredients.</p>
+          <p>Broth or soup stock may also be made from chicken, pork, or other animal ingredients.</p>
+          <p>Dashi or broth can be used in noodle soup, miso soup, simmered vegetables, tofu dishes, sauces, and other foods where the ingredients may not be obvious.</p>
+          <p>Instead of asking only whether a dish contains dashi, ask what kind of dashi, broth, or soup stock is used.</p>
+
+          <h3>Sauces and seasonings</h3>
+          <p>An ingredient you avoid may be used in a sauce, dressing, marinade, or seasoning, even when it is not clear from the menu.</p>
+          <p>Depending on your needs, you may want staff to check:</p>
+          <ul>
+            <li>soy sauce or other seasonings, if you need to avoid wheat</li>
+            <li>fish-based sauces or extracts</li>
+            <li>mirin, sake, or other alcohol</li>
+            <li>animal-based broth or fat</li>
+            <li>premade sauces whose ingredients may need to be checked</li>
+          </ul>
+          <p>Products and recipes vary. Some soy sauce contains wheat, but this is not true of every soy sauce product. Staff may need to check a product label, and they may not always be able to confirm every ingredient in a premade sauce.</p>
+
+          <h3>Cooking oil and preparation</h3>
+          <p>If cross-contact matters for your allergy, checking the listed ingredients may not be enough. You may also need to ask about shared frying oil, cookware, utensils, or preparation surfaces.</p>
+          <p>This is especially important for severe allergies. It does not need to be included in every dietary request, ingredient question, or personal preference.</p>
+          <p>Ask only about the ingredients and cooking methods that matter to you. A focused question such as “<a href="/food-cards/ask-dashi" ${trackAttr("food_allergy_guide_dashi")}>Does this contain fish-based dashi?</a>” is usually easier for staff to check than a broad question such as “Is this vegetarian?”</p>
+        </section>
+
+        <section class="food-card-article-section" aria-labelledby="cannot-guarantee-title">
+          <h2 id="cannot-guarantee-title">What a food card cannot guarantee</h2>
+          <p>A food card can make your needs easier to understand, but it cannot check a recipe, guarantee that a dish is free from an ingredient, or prevent cross-contact in the kitchen.</p>
+          <p>Staff may need to check recipes, product labels, suppliers, and cooking methods. Ingredients can also change, and complete information may not always be available.</p>
+
+          <h3>If the restaurant cannot confirm</h3>
+          <p>If staff cannot confirm the ingredients or how the food is prepared, choose another dish or restaurant. A clear “can’t confirm” answer can help prevent a misunderstanding. It may simply mean that the restaurant does not have enough information—not that staff are unwilling to help.</p>
+
+          <h3>For severe food allergies</h3>
+          <p>If even a small amount or cross-contact could cause a reaction, a food card alone may not be enough. Clearly tell staff that your allergy is severe and that cross-contact matters. When possible, contact the restaurant before your visit.</p>
+          <p>Only you can decide whether the information provided is enough for your needs.</p>
+        </section>
+
+        <section class="food-card-cta-section food-card-article-create card-container" aria-label="Create your Custom Food Card">
+          ${foodCardCtaPanel({
+            context: "guide",
+            includeSamplesLink: false,
+            headingOverride: "Create your Custom Food Card",
+            descriptionOverride: "Choose why the ingredients matter and select the specific ingredients you need to show or ask about. Create a clear Japanese card with simple replies restaurant staff can point to.",
+            buttonLabel: "Create my card",
+          })}
+        </section>
+
+        <section class="food-card-article-section food-card-official-sources" aria-labelledby="official-sources-title">
+          <h2 id="official-sources-title">Official sources</h2>
+          <ul>
+            <li><a href="https://www.caa.go.jp/en/policy/food_labeling/assets/food_labeling_cms204_240425_01.pdf" target="_blank" rel="noopener noreferrer">Consumer Affairs Agency, Japan — Japan’s Food Labelling System</a></li>
+            <li><a href="https://www.caa.go.jp/policies/policy/food_labeling/information/research/2025/assets/food_labeling_cms204_260501_01.pdf" target="_blank" rel="noopener noreferrer">Consumer Affairs Agency, Japan — Survey Report on Food Allergy Information Provision in Restaurants and Prepared Food Businesses (Japanese)</a></li>
+            <li><a href="https://www.maff.go.jp/e/policies/market/k_ryouri/search_menu/4612/index.html" target="_blank" rel="noopener noreferrer">Ministry of Agriculture, Forestry and Fisheries — Kitsune Udon, Our Regional Cuisines</a></li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  `;
+}
+
 function foodCard(card) {
   return `
     <a class="food-sample-card" href="/food-cards/${card.id}" ${trackAttr(`food_card_open_${card.id}`)}>
@@ -3188,6 +3352,23 @@ function foodCard(card) {
 function foodCardPreviewText(card) {
   const firstSentence = card.japaneseText.split("。").filter(Boolean)[0] ?? card.japaneseText;
   return `${firstSentence}。`;
+}
+
+function foodCardGuideLinkMarkup(cardId) {
+  const links = {
+    vegetarian: "How to use a dietary restriction card in Japan",
+    "severe-allergy": "How to use a food allergy card in Japan",
+    "ask-dashi": "Learn more about asking what kind of dashi or broth is used",
+  };
+  const label = links[cardId];
+  if (!label) {
+    return "";
+  }
+  return `
+    <aside class="food-detail-guide-link" aria-label="Related guide">
+      <a class="article-inline-link" href="/guides/food-allergy-card-japan" ${trackAttr(`food_card_detail_guide_${cardId}`)}>${escapeHtml(label)} →</a>
+    </aside>
+  `;
 }
 
 function foodCardCustomSampleConfig(card) {
@@ -3278,13 +3459,13 @@ function renderFoodCardDetail(cardId) {
         </div>
         <div>
           <span>2</span>
-          <strong>Let staff check</strong>
-          <p>Give staff time to confirm.</p>
+          <strong>Let staff check and respond</strong>
+          <p>Give staff time to confirm and point to a reply.</p>
         </div>
         <div>
           <span>3</span>
-          <strong>If unsure, choose something else</strong>
-          <p>Choose another dish or place.</p>
+          <strong>Follow the staff’s reply</strong>
+          <p>Choose a suitable menu item—or another dish or place if they can’t confirm.</p>
         </div>
       </section>
 
@@ -3311,10 +3492,12 @@ function renderFoodCardDetail(cardId) {
         ${foodDisclaimer()}
       </div>
 
+      ${foodCardGuideLinkMarkup(card.id)}
+
       <section class="food-card-builder-panel food-detail-upgrade card-container" aria-labelledby="custom-card-title">
         <div>
           <h2 id="custom-card-title">Create your own card</h2>
-          <p>Show allergies, dietary needs, or ingredients to check before ordering.</p>
+          <p>Choose your food needs and specific ingredients to create a clear card restaurant staff can understand and respond to.</p>
         </div>
         <a class="button primary" href="/food-card/custom/" ${trackAttr(`food_card_detail_create_${card.id}`)}>Create my card</a>
       </section>
@@ -3737,7 +3920,7 @@ function customFoodCardStepOneMarkup() {
     <div class="custom-food-card-step" data-custom-step="1">
       <div class="custom-step-heading">
         <h2>Choose ingredients</h2>
-        <p class="custom-step-question">Choose the items you need to mention.</p>
+        <p class="custom-step-question">Choose the ingredients you need to show or ask about.</p>
         <p>Choose up to 5 items.</p>
         <p>A shorter card is easier for staff to read. Create another card if you need more items.</p>
       </div>
@@ -3806,7 +3989,7 @@ function customFoodCardStepTwoMarkup() {
     <div class="custom-food-card-step" data-custom-step="2">
       <div class="custom-step-heading">
         <h2>Choose card purpose</h2>
-        <p class="custom-step-question">What is your relationship to these items?</p>
+        <p class="custom-step-question">Why do you need to mention these items?</p>
       </div>
       ${
         availableTypes.length
@@ -4253,7 +4436,7 @@ function customFoodCardStepThreeMarkup() {
           </div>
           <div class="custom-purchase-review-item">
             <span>What you get</span>
-            <p>Create a Japanese food communication card to show to staff, save as an image, or share from your device.</p>
+            <p>Create a clear Japanese food communication card with simple replies staff can point to. Show it on your device, save it as an image, or share it.</p>
           </div>
           <div class="custom-purchase-review-item">
             <span>Refunds and cancellations</span>
@@ -4581,7 +4764,7 @@ function renderCustomFoodCard() {
           <span>Custom Food Card</span>
         </nav>
         <h1>Custom Food Card</h1>
-        <p class="lead">Create a simple Japanese card to show restaurant staff.</p>
+        <p class="lead">Create a clear Japanese food card that helps restaurant staff understand your needs and respond.</p>
         <p class="custom-price-note">${customFoodCardPriceText}</p>
       </header>
       <section class="custom-food-card-workspace card-container" aria-label="Custom Food Card builder">
@@ -6550,6 +6733,9 @@ function navSectionFromRoute(parts) {
   }
 
   if (parts[0] === "guides") {
+    if (parts[1] === "food-allergy-card-japan") {
+      return "food";
+    }
     return guideMap[parts[1]]?.category ?? "";
   }
 
@@ -6616,7 +6802,11 @@ function router({ restoreCustomFoodCardDraft = false } = {}) {
   } else if (route[0] === "faq") {
     renderFaqPage();
   } else if (route[0] === "guides") {
-    renderGuide(route[1]);
+    if (route[1] === "food-allergy-card-japan") {
+      renderFoodAllergyCardGuide();
+    } else {
+      renderGuide(route[1]);
+    }
   } else {
     renderCategory(route[0]);
   }
