@@ -3333,6 +3333,14 @@ function renderFoodAllergyCardGuide() {
           </ul>
         </section>
       </div>
+      <aside class="food-card-sticky-cta" aria-label="Create your Custom Food Card" data-food-card-sticky-cta>
+        <div class="food-card-sticky-cta-copy">
+          <strong>Create your Custom Food Card</strong>
+          <span>Show your food needs clearly in Japanese.</span>
+        </div>
+        <span class="food-card-sticky-cta-price">USD $7.99</span>
+        <a class="button primary" href="/food-card/custom/" ${trackAttr("food_allergy_guide_sticky_create")}>Create my card</a>
+      </aside>
     </article>
   `;
 }
@@ -6719,6 +6727,45 @@ function wireScrollButtons() {
   });
 }
 
+let foodCardStickyCtaCleanup = null;
+
+function wireFoodCardStickyCta() {
+  foodCardStickyCtaCleanup?.();
+  foodCardStickyCtaCleanup = null;
+
+  const stickyCta = document.querySelector("[data-food-card-sticky-cta]");
+  const articleHeader = document.querySelector(".food-card-article-header");
+  const inlineCta = document.querySelector(".food-card-article-create");
+  if (!stickyCta || !articleHeader || !inlineCta) {
+    return;
+  }
+
+  let frameId = 0;
+  const updateStickyCta = () => {
+    frameId = 0;
+    const headerHasPassed = articleHeader.getBoundingClientRect().bottom <= 0;
+    const inlineCtaIsAhead = inlineCta.getBoundingClientRect().top > window.innerHeight;
+    stickyCta.classList.toggle("is-visible", headerHasPassed && inlineCtaIsAhead);
+  };
+  const requestUpdate = () => {
+    if (!frameId) {
+      frameId = window.requestAnimationFrame(updateStickyCta);
+    }
+  };
+
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate);
+  requestUpdate();
+
+  foodCardStickyCtaCleanup = () => {
+    window.removeEventListener("scroll", requestUpdate);
+    window.removeEventListener("resize", requestUpdate);
+    if (frameId) {
+      window.cancelAnimationFrame(frameId);
+    }
+  };
+}
+
 function navSectionFromRoute(parts) {
   if (parts.length === 0) {
     return "home";
@@ -6812,6 +6859,7 @@ function router({ restoreCustomFoodCardDraft = false } = {}) {
   }
 
   wireScrollButtons();
+  wireFoodCardStickyCta();
   updateNavState(parts);
   window.scrollTo(0, 0);
 }
