@@ -2689,8 +2689,8 @@ body:has(.guide-page) .site-footer p {
 .food-card-article-steps {
   counter-reset: food-card-steps;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1rem, 2.5vw, 1.5rem);
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.4rem, 3.5vw, 2rem);
   margin: 1.1rem 0 0;
   padding: 0;
   list-style: none;
@@ -2700,8 +2700,8 @@ body:has(.guide-page) .site-footer p {
   counter-increment: food-card-steps;
   position: relative;
   display: grid;
-  grid-template-columns: 2.35rem minmax(0, 1fr);
-  column-gap: 0.65rem;
+  grid-template-columns: clamp(140px, 20vw, 180px) 2.35rem minmax(0, 1fr);
+  column-gap: clamp(0.65rem, 1.8vw, 1rem);
   row-gap: 0.45rem;
   align-content: start;
   min-width: 0;
@@ -2711,8 +2711,8 @@ body:has(.guide-page) .site-footer p {
 .food-card-article-steps li::before {
   content: counter(food-card-steps);
   display: grid;
-  grid-column: 1;
-  grid-row: 2;
+  grid-column: 2;
+  grid-row: 1;
   width: 2.1rem;
   height: 2.1rem;
   place-items: center;
@@ -2724,22 +2724,21 @@ body:has(.guide-page) .site-footer p {
 }
 
 .food-card-article-step-image {
-  grid-column: 1 / -1;
-  grid-row: 1;
+  grid-column: 1;
+  grid-row: 1 / span 4;
   display: block;
   width: 100%;
   height: auto;
-  margin-bottom: 0.25rem;
 }
 
 .food-card-article-steps h3 {
-  grid-column: 2;
-  grid-row: 2;
+  grid-column: 3;
+  grid-row: 1;
   align-self: center;
 }
 
 .food-card-article-steps p {
-  grid-column: 2;
+  grid-column: 3;
 }
 
 .food-card-article-steps h3,
@@ -2749,13 +2748,6 @@ body:has(.guide-page) .site-footer p {
 
 .food-card-article-steps p + p {
   margin-top: 0.55rem;
-}
-
-@media (max-width: 760px) {
-  .food-card-article-steps {
-    grid-template-columns: minmax(0, 1fr);
-    gap: clamp(1.8rem, 7vw, 2.6rem);
-  }
 }
 
 .food-card-article-create {
@@ -2911,7 +2903,24 @@ body:has(.guide-page) .site-footer p {
 
 @media (max-width: 640px) {
   .food-card-article-steps li {
-    padding-left: 3.6rem;
+    grid-template-columns: 112px 2rem minmax(0, 1fr);
+    column-gap: 0.55rem;
+  }
+
+  .food-card-article-steps li::before {
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 0.82rem;
+  }
+
+  .food-card-article-steps h3 {
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+  .food-card-article-steps p {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 
   .food-card-sticky-cta {
