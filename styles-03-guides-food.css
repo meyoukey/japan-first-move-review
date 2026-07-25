@@ -2573,10 +2573,6 @@ body:has(.guide-page) .site-footer p {
   margin-bottom: clamp(1.4rem, 4vw, 2rem);
 }
 
-.food-card-article-header h1 {
-  max-width: 18ch;
-}
-
 .food-card-article-hero {
   width: 100%;
   margin: clamp(1.4rem, 4vw, 2rem) 0 0;
