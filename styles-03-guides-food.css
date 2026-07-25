@@ -2578,6 +2578,10 @@ body:has(.guide-page) .site-footer p {
   margin: clamp(1.4rem, 4vw, 2rem) 0 0;
 }
 
+.food-card-article-hero picture {
+  display: block;
+}
+
 .food-card-article-hero img {
   display: block;
   width: 100%;
