@@ -3195,6 +3195,16 @@ function renderFoodAllergyCardGuide() {
           <span>Food allergy card guide</span>
         </nav>
         <h1>How to Use a Food Allergy or Dietary Restriction Card in Japan</h1>
+        <figure class="food-card-article-hero">
+          <img
+            src="/assets/guides/food-allergy-card-japan.png"
+            width="1200"
+            height="405"
+            alt="Restaurant staff checking ingredients around a smartphone displaying a Japanese food allergy card."
+            fetchpriority="high"
+            decoding="async"
+          >
+        </figure>
         <div class="food-card-article-intro">
           <p>Eating out in Japan can take a little extra planning if you have a food allergy or dietary restriction. Some dishes contain ingredients that are not obvious from their name or appearance, and restaurant staff may need time to check with the kitchen.</p>
           <p>A clear Japanese food card can help you show what you need to avoid or ask about, making it easier for staff to understand, check, and respond. You can also <a href="/food-cards" ${trackAttr("food_allergy_guide_samples")}>view food card examples</a>.</p>

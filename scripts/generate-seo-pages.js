@@ -56,6 +56,8 @@ const pages = [
     description:
       "Learn when and how to show a food allergy or dietary restriction card at restaurants in Japan, including dashi, broth, and other ingredients to check.",
     ogType: "article",
+    ogImage: `${siteUrl}/assets/ogp/ogp-food-allergy-card-japan.png`,
+    ogImageAlt: "Food Allergy Card for Japan — a Japanese food card shown on a phone while restaurant staff check ingredients.",
   },
   {
     path: "/faq",
@@ -290,7 +292,7 @@ function headMarkup(page) {
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles.css?v=css-modules-7" />
+    <link rel="stylesheet" href="/styles.css?v=css-modules-8" />
   </head>`;
 }
 

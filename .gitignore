@@ -54,6 +54,8 @@ assets/*
 !assets/brand/**
 !assets/food-card/
 !assets/food-card/**
+!assets/guides/
+!assets/guides/**
 !assets/icons/
 !assets/icons/**
 !assets/favicon/
