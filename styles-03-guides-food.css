@@ -2903,22 +2903,33 @@ body:has(.guide-page) .site-footer p {
 
 @media (max-width: 640px) {
   .food-card-article-steps li {
-    grid-template-columns: 112px 2rem minmax(0, 1fr);
-    column-gap: 0.55rem;
+    grid-template-columns: 112px minmax(0, 1fr);
+    column-gap: 0.75rem;
+    row-gap: 0.7rem;
   }
 
   .food-card-article-steps li::before {
+    grid-column: 1;
+    grid-row: 1;
     width: 1.8rem;
     height: 1.8rem;
     font-size: 0.82rem;
   }
 
+  .food-card-article-step-image {
+    grid-column: 1;
+    grid-row: 2 / span 3;
+  }
+
   .food-card-article-steps h3 {
+    grid-column: 2;
+    grid-row: 1;
     font-size: 1rem;
     line-height: 1.25;
   }
 
   .food-card-article-steps p {
+    grid-column: 2;
     font-size: 0.9rem;
     line-height: 1.5;
   }
