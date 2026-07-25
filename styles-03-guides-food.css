@@ -2903,8 +2903,8 @@ body:has(.guide-page) .site-footer p {
 
 @media (max-width: 640px) {
   .food-card-article-steps li {
-    grid-template-columns: 112px minmax(0, 1fr);
-    column-gap: 0.75rem;
+    grid-template-columns: 2rem 71px minmax(0, 1fr);
+    column-gap: 0.55rem;
     row-gap: 0.7rem;
   }
 
@@ -2917,19 +2917,19 @@ body:has(.guide-page) .site-footer p {
   }
 
   .food-card-article-step-image {
-    grid-column: 1;
+    grid-column: 1 / span 2;
     grid-row: 2 / span 3;
   }
 
   .food-card-article-steps h3 {
-    grid-column: 2;
+    grid-column: 2 / -1;
     grid-row: 1;
     font-size: 1rem;
     line-height: 1.25;
   }
 
   .food-card-article-steps p {
-    grid-column: 2;
+    grid-column: 3;
     font-size: 0.9rem;
     line-height: 1.5;
   }
