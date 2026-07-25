@@ -1804,3 +1804,17 @@ body:has(#app) .site-footer .site-footer-note {
     width: auto;
   }
 }
+
+/* Shared breadcrumbs: keep navigation colors consistent across every category and page. */
+body:has(#app) .crumbs {
+  color: var(--color-text-sub);
+}
+
+body:has(#app) .crumbs a {
+  color: #c38e9c;
+}
+
+body:has(#app) .crumbs a:hover,
+body:has(#app) .crumbs a:focus-visible {
+  color: #a86f7f;
+}
