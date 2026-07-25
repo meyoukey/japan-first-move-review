@@ -2689,7 +2689,8 @@ body:has(.guide-page) .site-footer p {
 .food-card-article-steps {
   counter-reset: food-card-steps;
   display: grid;
-  gap: 0.8rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
   margin: 1.1rem 0 0;
   padding: 0;
   list-style: none;
@@ -2698,17 +2699,20 @@ body:has(.guide-page) .site-footer p {
 .food-card-article-steps li {
   counter-increment: food-card-steps;
   position: relative;
-  min-height: 4.25rem;
-  padding: 1rem 0 1rem 4rem;
-  border-top: 1px solid rgba(107, 114, 128, 0.18);
+  display: grid;
+  grid-template-columns: 2.35rem minmax(0, 1fr);
+  column-gap: 0.65rem;
+  row-gap: 0.45rem;
+  align-content: start;
+  min-width: 0;
+  padding: 0;
 }
 
 .food-card-article-steps li::before {
   content: counter(food-card-steps);
-  position: absolute;
-  top: 0.9rem;
-  left: 1rem;
   display: grid;
+  grid-column: 1;
+  grid-row: 2;
   width: 2.1rem;
   height: 2.1rem;
   place-items: center;
@@ -2719,6 +2723,25 @@ body:has(.guide-page) .site-footer p {
   line-height: 1;
 }
 
+.food-card-article-step-image {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.25rem;
+}
+
+.food-card-article-steps h3 {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: center;
+}
+
+.food-card-article-steps p {
+  grid-column: 2;
+}
+
 .food-card-article-steps h3,
 .food-card-article-steps p {
   margin: 0;
@@ -2726,6 +2749,13 @@ body:has(.guide-page) .site-footer p {
 
 .food-card-article-steps p + p {
   margin-top: 0.55rem;
+}
+
+@media (max-width: 760px) {
+  .food-card-article-steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(1.8rem, 7vw, 2.6rem);
+  }
 }
 
 .food-card-article-create {

@@ -3234,14 +3234,41 @@ function renderFoodAllergyCardGuide() {
           <p>For other dietary restrictions or ingredients you want to ask about, show the card before choosing a menu item.</p>
           <ol class="food-card-article-steps">
             <li>
+              <img
+                class="food-card-article-step-image"
+                src="/assets/guides/food-card-step-show.jpg"
+                width="900"
+                height="900"
+                alt="A hand holding a phone displaying a food restriction card."
+                loading="lazy"
+                decoding="async"
+              >
               <h3>Show the card</h3>
               <p>Keep the card open on your phone and show it clearly to a staff member.</p>
             </li>
             <li>
+              <img
+                class="food-card-article-step-image"
+                src="/assets/guides/food-card-step-check.jpg"
+                width="900"
+                height="900"
+                alt="Restaurant staff checking a food card and ingredients."
+                loading="lazy"
+                decoding="async"
+              >
               <h3>Let staff check</h3>
               <p>Give staff time to read the card and check the ingredients, sauces, broth, and how the food is prepared with the kitchen.</p>
             </li>
             <li>
+              <img
+                class="food-card-article-step-image"
+                src="/assets/guides/food-card-step-response.jpg"
+                width="900"
+                height="900"
+                alt="A restaurant staff member pointing to a clear yes, no, or check response."
+                loading="lazy"
+                decoding="async"
+              >
               <h3>Wait for a clear response</h3>
               <p>Use the point-to-reply section to make the answer easier to understand. Wait for a clear response before choosing a dish.</p>
               <p>Showing the card starts the conversation. It is not a response by itself.</p>
