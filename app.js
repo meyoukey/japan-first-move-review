@@ -3334,12 +3334,13 @@ function renderFoodAllergyCardGuide() {
         </section>
       </div>
       <aside class="food-card-sticky-cta" aria-label="Create your Custom Food Card" data-food-card-sticky-cta>
-        <div class="food-card-sticky-cta-copy">
-          <strong>Create your Custom Food Card</strong>
-          <span>Show your food needs clearly in Japanese.</span>
+        <div class="food-card-sticky-cta-inner">
+          <div class="food-card-sticky-cta-copy">
+            <strong>Custom Food Card</strong>
+            <span>Show your food needs in Japanese.</span>
+          </div>
+          <a class="button primary" href="/food-card/custom/" ${trackAttr("food_allergy_guide_sticky_create")}>Create yours · USD $7.99</a>
         </div>
-        <span class="food-card-sticky-cta-price">USD $7.99</span>
-        <a class="button primary" href="/food-card/custom/" ${trackAttr("food_allergy_guide_sticky_create")}>Create my card</a>
       </aside>
     </article>
   `;
