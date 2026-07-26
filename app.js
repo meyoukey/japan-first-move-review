@@ -4700,6 +4700,39 @@ function customFoodCardCanvasBlob(canvas) {
   });
 }
 
+let customFoodCardHtml2CanvasPromise = null;
+
+function customFoodCardLoadHtml2Canvas() {
+  if (typeof window.html2canvas === "function") {
+    return Promise.resolve();
+  }
+
+  if (customFoodCardHtml2CanvasPromise) {
+    return customFoodCardHtml2CanvasPromise;
+  }
+
+  customFoodCardHtml2CanvasPromise = new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js";
+    script.async = true;
+    script.addEventListener("load", () => {
+      if (typeof window.html2canvas === "function") {
+        resolve();
+        return;
+      }
+      customFoodCardHtml2CanvasPromise = null;
+      reject(new Error("html2canvas is unavailable."));
+    }, { once: true });
+    script.addEventListener("error", () => {
+      customFoodCardHtml2CanvasPromise = null;
+      reject(new Error("html2canvas could not be loaded."));
+    }, { once: true });
+    document.head.appendChild(script);
+  });
+
+  return customFoodCardHtml2CanvasPromise;
+}
+
 function customFoodCardShareIsAvailable(file) {
   if (typeof navigator === "undefined" || typeof navigator.share !== "function" || typeof navigator.canShare !== "function" || typeof File !== "function") {
     return false;
@@ -4722,10 +4755,11 @@ async function customFoodCardCreateImageFile(button, filename) {
   let captureClassApplied = false;
 
   try {
-    if (!card || typeof window.html2canvas !== "function") {
+    if (!card) {
       throw new Error("html2canvas is unavailable.");
     }
 
+    await customFoodCardLoadHtml2Canvas();
     await customFoodCardWaitForAssets(card);
     card.classList.add("is-capturing-card");
     captureClassApplied = true;
