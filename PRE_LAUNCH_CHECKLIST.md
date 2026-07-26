@@ -31,12 +31,12 @@ Planned production launch: July 31, 2026
 
 ## Search visibility and domain
 
-- [ ] Remove the temporary `noindex, nofollow` directives from all public content pages and from the page generator.
+- [ ] Remove the temporary `noindex, nofollow` directives from indexable public content pages and from the page generator, while retaining `noindex` on legal pages, `404.html`, and `/food-card/custom/success`.
 - [x] Keep preview deployments and `/food-card/custom/success` excluded from search results.
 - [ ] Confirm `https://www.japanfirstmove.com` redirects to `https://japanfirstmove.com`.
 - [ ] Confirm the apex domain and `www` redirect both use HTTPS with no certificate or mixed-content errors.
 - [ ] Confirm `robots.txt`, `sitemap.xml`, canonical URLs, and social-share URLs all use `https://japanfirstmove.com`.
-- [ ] Decide whether the dynamic legal routes should have route-specific title/canonical metadata or remain `noindex`.
+- [x] Keep the legal routes accessible with route-specific title/canonical metadata while retaining `noindex`.
 - [ ] Add and test a useful custom `404.html` page.
 - [ ] Verify a Google Search Console domain property, submit `sitemap.xml`, and inspect the homepage plus the Custom Food Card page after launch.
 

@@ -69,21 +69,25 @@ const pages = [
     path: "/terms",
     title: "Terms of Use | Japan First Move",
     description: "Read the terms that apply when using Japan First Move and purchasing or using Custom Food Card.",
+    keepNoindex: true,
   },
   {
     path: "/privacy",
     title: "Privacy Policy | Japan First Move",
     description: "Learn how Japan First Move handles information, payments, analytics, cookies, and privacy requests.",
+    keepNoindex: true,
   },
   {
     path: "/legal-notice",
     title: "Legal Notice | Japan First Move",
     description: "Review seller, pricing, payment, delivery, refund, and other legally required purchase information.",
+    keepNoindex: true,
   },
   {
     path: "/disclaimer",
     title: "Disclaimer | Japan First Move",
     description: "Review important limitations for Japan First Move travel guidance, food cards, translations, and digital tools.",
+    keepNoindex: true,
   },
   {
     path: "/guides/ramen-shop",
@@ -263,13 +267,16 @@ function headMarkup(page) {
   const pageOgImageWidth = page.ogImageWidth ?? 1200;
   const pageOgImageHeight = page.ogImageHeight ?? 630;
   const pageOgType = escapeHtml(page.ogType ?? "website");
+  const robotsComment = page.keepNoindex
+    ? "Keep this legal page out of search results."
+    : "Temporary review setting: remove before public launch";
   return `  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${title}</title>
     <meta name="description" content="${description}" />
     <link rel="canonical" href="${escapedCanonical}" />
-    <!-- Temporary review setting: remove before public launch -->
+    <!-- ${robotsComment} -->
     <meta name="robots" content="noindex, nofollow" />
 
     <!-- Open Graph -->
