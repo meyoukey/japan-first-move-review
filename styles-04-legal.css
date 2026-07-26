@@ -22,7 +22,9 @@ body:has(#app) .site-footer .site-footer-legal a {
 }
 
 body:has(#app) .site-footer .site-footer-legal a:hover,
-body:has(#app) .site-footer .site-footer-legal a:focus-visible {
+body:has(#app) .site-footer .site-footer-legal a:focus-visible,
+body:has(#app) .site-footer .analytics-consent-settings:hover,
+body:has(#app) .site-footer .analytics-consent-settings:focus-visible {
   color: #a86f7f;
   text-decoration-color: rgba(195, 142, 156, 0.55);
 }
@@ -32,6 +34,109 @@ body:has(#app) .site-footer .site-footer-legal a + a::before {
   margin: 0 0.42rem;
   color: rgba(105, 113, 123, 0.55);
   font-weight: 400;
+}
+
+.analytics-consent-settings {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #c38e9c;
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(195, 142, 156, 0.55);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.16em;
+  cursor: pointer;
+}
+
+.analytics-consent-settings::before {
+  content: "·";
+  margin: 0 0.42rem;
+  color: rgba(105, 113, 123, 0.55);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.analytics-consent-banner {
+  position: fixed;
+  z-index: 10000;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  max-width: 980px;
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid rgba(48, 57, 71, 0.16);
+  border-radius: 1.15rem;
+  background: #fffafb;
+  box-shadow: 0 1rem 3rem rgba(36, 45, 60, 0.2);
+  color: #303947;
+}
+
+.analytics-consent-inner {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.analytics-consent-copy {
+  max-width: 650px;
+}
+
+.analytics-consent-copy h2 {
+  margin: 0 0 0.3rem;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.analytics-consent-copy p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.analytics-consent-copy a {
+  color: #365f8d;
+  font-weight: 700;
+}
+
+.analytics-consent-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.65rem;
+}
+
+.analytics-consent-actions .button {
+  min-height: 2.8rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .analytics-consent-banner {
+    right: 0.65rem;
+    bottom: 0.65rem;
+    left: 0.65rem;
+  }
+
+  .analytics-consent-inner {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .analytics-consent-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .analytics-consent-actions .button {
+    padding-inline: 0.8rem;
+    white-space: normal;
+  }
 }
 
 .custom-terms-copy a {

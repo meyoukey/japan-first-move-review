@@ -3,6 +3,7 @@
 !.gitignore
 !index.html
 !app.js
+!analytics-consent.js
 !styles.css
 !styles-*.css
 !_redirects

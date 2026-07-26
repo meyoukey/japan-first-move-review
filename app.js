@@ -6126,7 +6126,7 @@ function renderLegalPage(pageId) {
 
 const privacyEnglishIntro = [
   "Japan First Move respects your privacy. This Privacy Policy explains how Japan First Move collects, uses, stores, and shares information when you use our website, guides, phrases, sample cards, Custom Food Card, or related digital content.",
-  "By using Japan First Move, you agree to the handling of information described in this Privacy Policy.",
+  "Please read this Privacy Policy to understand how information is handled and what choices are available to you.",
 ];
 
 const privacyEnglishSections = [
@@ -6178,7 +6178,7 @@ const privacyEnglishSections = [
     blocks: [
       { type: "p", text: "Japan First Move may use Google Analytics or similar analytics tools to understand how users use the website and to improve the service." },
       { type: "p", text: "These tools may use cookies or similar technologies to collect information such as pages viewed, access time, device information, browser information, approximate location, and usage patterns." },
-      { type: "p", text: "You may be able to disable cookies through your browser settings. However, some parts of the website may not work properly if cookies or similar technologies are disabled." },
+      { type: "p", text: "Analytics is disabled until you select “Allow analytics” in the cookie notice. You can decline analytics or change your choice later through “Cookie Settings” in the footer. Declining optional analytics cookies does not prevent you from using the website or purchasing Custom Food Card." },
     ],
   },
   {
@@ -6251,7 +6251,7 @@ const privacyEnglishSections = [
 
 const privacyJapaneseIntro = [
   "Japan First Moveは、利用者のプライバシーを尊重します。本プライバシーポリシーは、Japan First Moveのウェブサイト、ガイド、フレーズ、サンプルカード、Custom Food Card、その他関連するデジタルコンテンツを利用する際に、Japan First Moveがどのような情報を取得、利用、保存、共有するかを説明するものです。",
-  "Japan First Moveを利用することにより、利用者は本プライバシーポリシーに記載された情報の取扱いに同意したものとします。",
+  "情報の取扱いおよび利用者が選択できる事項をご確認いただくため、本プライバシーポリシーをお読みください。",
 ];
 
 const privacyJapaneseSections = [
@@ -6303,7 +6303,7 @@ const privacyJapaneseSections = [
     blocks: [
       { type: "p", text: "Japan First Moveは、ウェブサイトの利用状況を把握し、サービスを改善するために、Google Analyticsその他類似のアクセス解析ツールを利用する場合があります。" },
       { type: "p", text: "これらのツールは、Cookieその他類似の技術を使用して、閲覧ページ、アクセス日時、端末情報、ブラウザ情報、おおよその位置情報、利用傾向などの情報を取得する場合があります。" },
-      { type: "p", text: "利用者は、ブラウザの設定によりCookieを無効にできる場合があります。ただし、Cookieその他類似の技術を無効にした場合、ウェブサイトの一部が正常に動作しない場合があります。" },
+      { type: "p", text: "アクセス解析は、Cookie通知で「Allow analytics」を選択するまで無効です。利用者はアクセス解析を拒否でき、フッターの「Cookie Settings」から後で選択を変更できます。任意のアクセス解析Cookieを拒否しても、ウェブサイトの利用またはCustom Food Cardの購入には影響しません。" },
     ],
   },
   {
