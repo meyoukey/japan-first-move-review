@@ -1,5 +1,7 @@
 # Japan First Move — Production Launch Checklist
 
+Planned production launch: July 31, 2026
+
 ## Must complete before accepting real payments
 
 - [ ] Merge the tested `preview-stripe-test` changes into the production branch and record the last known-good deployment for rollback.
@@ -25,7 +27,7 @@
 - [x] Confirm `support@japanfirstmove.com` forwards incoming mail successfully and that replies can be sent from the designated Gmail inbox with the Japan First Move Support signature.
 - [x] Confirm Cloudflare Email Routing’s SPF record and a DMARC monitoring record (`p=none`) are published. DKIM will be required only if outbound mail is later sent from `@japanfirstmove.com`.
 - [ ] Review the Terms, Privacy Policy, Legal Notice, Disclaimer, refund wording, price, currency, and product-delivery description one final time.
-- [ ] Update every legal page’s “Last updated” date after the final wording is approved.
+- [ ] At production launch, update every legal page’s “Last updated” date to **July 31, 2026 / 2026年7月31日** after the final wording is approved.
 
 ## Search visibility and domain
 
