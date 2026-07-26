@@ -1,6 +1,7 @@
 # Publish only the static review site and its required assets.
 *
 !.gitignore
+!AGENTS.md
 !index.html
 !app.js
 !analytics-consent.js
