@@ -122,7 +122,6 @@ button {
   height: 44px;
   place-items: center;
   color: transparent;
-  background: url("./assets/ui/SVG/logo.svg") center / contain no-repeat;
   border: 0;
   border-radius: 0;
   box-shadow: none;
@@ -1660,7 +1659,6 @@ h3 {
     height: 38px;
     border: 0;
     border-radius: 0;
-    background: url("./assets/ui/SVG/logo.svg") center / contain no-repeat;
     box-shadow: none;
     color: transparent;
     font-size: 0;

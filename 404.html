@@ -6,71 +6,21 @@
     <meta name="robots" content="noindex, nofollow" />
     <title>Page not found | Japan First Move</title>
     <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="stylesheet" href="/styles.css?v=css-modules-19" />
     <style>
-      :root {
-        color: #171717;
-        background: #eef8fb;
-        font-family: Avenir, "Avenir Next", "Trebuchet MS", "Hiragino Maru Gothic ProN", Verdana, sans-serif;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
       body {
         min-height: 100vh;
-        margin: 0;
-        background:
-          linear-gradient(180deg, #ffffff 0 72px, transparent 72px),
-          #eef8fb;
+        background: #eef8fb;
       }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .site-header {
-        display: flex;
-        align-items: center;
-        min-height: 72px;
-        padding: 0.65rem clamp(1rem, 3vw, 2rem);
-        border-bottom: 3px solid #efd8e1;
-        background: #ffffff;
-      }
-
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.7rem;
-      }
-
-      .brand img {
-        width: 38px;
-        height: 44px;
-      }
-
-      .brand-copy strong,
-      .brand-copy small {
-        display: block;
-      }
-
-      .brand-copy strong {
-        font-size: 1rem;
-        font-weight: 900;
-        line-height: 1;
-      }
-
-      .brand-copy small {
-        margin-top: 0.18rem;
-        color: #5d6066;
-        font-size: 0.72rem;
-        font-weight: 700;
+      body::before,
+      body::after {
+        content: none;
       }
 
       main {
         display: grid;
-        min-height: calc(100vh - 72px);
+        min-height: calc(100vh - 58px);
         place-items: center;
         padding: clamp(2rem, 7vw, 5rem) 1.25rem;
       }
@@ -134,10 +84,10 @@
   <body>
     <header class="site-header">
       <a class="brand" href="/" aria-label="Japan First Move home">
-        <img src="/assets/ui/SVG/logo.svg" alt="" />
-        <span class="brand-copy">
-          <strong>Japan First Move</strong>
-          <small>Your first step in Japan</small>
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name" aria-label="Japan First Move">
+          <span class="brand-name-japan">Japan</span>
+          <strong class="brand-name-first">First Move</strong>
         </span>
       </a>
     </header>
