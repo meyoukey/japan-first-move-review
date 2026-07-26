@@ -30,7 +30,7 @@
 ## Search visibility and domain
 
 - [ ] Remove the temporary `noindex, nofollow` directives from all public content pages and from the page generator.
-- [ ] Keep preview deployments and `/food-card/custom/success` excluded from search results.
+- [x] Keep preview deployments and `/food-card/custom/success` excluded from search results.
 - [ ] Confirm `https://www.japanfirstmove.com` redirects to `https://japanfirstmove.com`.
 - [ ] Confirm the apex domain and `www` redirect both use HTTPS with no certificate or mixed-content errors.
 - [ ] Confirm `robots.txt`, `sitemap.xml`, canonical URLs, and social-share URLs all use `https://japanfirstmove.com`.
