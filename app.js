@@ -3837,6 +3837,17 @@ function customFoodCardTrackBeginCheckout(destinationUrl) {
   window.setTimeout(continueToCheckout, 1600);
 }
 
+function customFoodCardTrackSave() {
+  if (typeof window.gtag !== "function") {
+    return;
+  }
+
+  window.gtag("event", "food_card_save", {
+    item_id: "custom-food-card",
+    item_name: "Custom Food Card",
+  });
+}
+
 function customFoodCardMarkCheckoutCancelledReturn() {
   try {
     window.sessionStorage.setItem(customFoodCardCheckoutCancelledReturnStorageKey, "1");
@@ -4731,6 +4742,7 @@ async function customFoodCardCreateImage(button) {
     customFoodCardState.imagePreviewUrl = URL.createObjectURL(blob);
     customFoodCardState.imagePreviewFile = file;
     customFoodCardState.saveMessage = "Image ready. Press and hold the image, then choose “Save to Photos.”";
+    customFoodCardTrackSave();
     renderCustomFoodCard();
   } catch (error) {
     console.error("Could not create Food Card image.", error);
