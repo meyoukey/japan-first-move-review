@@ -3805,14 +3805,26 @@ function customFoodCardTrackPurchase(transactionId) {
   }
 }
 
-function customFoodCardTrackBeginCheckout() {
+function customFoodCardTrackBeginCheckout(destinationUrl) {
+  let navigationStarted = false;
+  const continueToCheckout = () => {
+    if (navigationStarted) {
+      return;
+    }
+    navigationStarted = true;
+    window.location.assign(destinationUrl);
+  };
+
   if (typeof window.gtag !== "function") {
+    continueToCheckout();
     return;
   }
 
   window.gtag("event", "begin_checkout", {
     value: 7.99,
     currency: "USD",
+    event_callback: continueToCheckout,
+    event_timeout: 1500,
     items: [
       {
         item_id: "custom-food-card",
@@ -3822,6 +3834,7 @@ function customFoodCardTrackBeginCheckout() {
       },
     ],
   });
+  window.setTimeout(continueToCheckout, 1600);
 }
 
 function customFoodCardMarkCheckoutCancelledReturn() {
@@ -3918,8 +3931,7 @@ async function customFoodCardBeginCheckout() {
     if (!response.ok || !result.url) {
       throw new Error(result.error || "Payment could not be started.");
     }
-    customFoodCardTrackBeginCheckout();
-    window.location.assign(result.url);
+    customFoodCardTrackBeginCheckout(result.url);
   } catch (error) {
     customFoodCardSetCheckoutFeedback(
       "error",
