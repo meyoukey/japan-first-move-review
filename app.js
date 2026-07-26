@@ -2185,6 +2185,7 @@ const customFoodCardPriceText = "One-time purchase: USD $7.99";
 const customFoodCardDraftStorageKey = "jfmCustomFoodCardDraft";
 const customFoodCardCheckoutStorageKey = "jfmCustomFoodCardCheckoutDraft";
 const customFoodCardCheckoutCancelledReturnStorageKey = "jfmCustomFoodCardCheckoutCancelledReturn";
+const customFoodCardPurchaseTrackedStoragePrefix = "jfmCustomFoodCardPurchaseTracked:";
 
 const movePhraseCards = [
   {
@@ -3769,6 +3770,41 @@ function customFoodCardClearCheckoutDraft() {
   }
 }
 
+function customFoodCardTrackPurchase(transactionId) {
+  if (!transactionId || typeof window.gtag !== "function") {
+    return;
+  }
+
+  const trackedStorageKey = `${customFoodCardPurchaseTrackedStoragePrefix}${transactionId}`;
+  try {
+    if (window.localStorage.getItem(trackedStorageKey) === "1") {
+      return;
+    }
+  } catch {
+    // Continue without client-side deduplication if storage is unavailable.
+  }
+
+  window.gtag("event", "purchase", {
+    transaction_id: transactionId,
+    value: 7.99,
+    currency: "USD",
+    items: [
+      {
+        item_id: "custom-food-card",
+        item_name: "Custom Food Card",
+        price: 7.99,
+        quantity: 1,
+      },
+    ],
+  });
+
+  try {
+    window.localStorage.setItem(trackedStorageKey, "1");
+  } catch {
+    // The event was sent even if the browser cannot persist the marker.
+  }
+}
+
 function customFoodCardMarkCheckoutCancelledReturn() {
   try {
     window.sessionStorage.setItem(customFoodCardCheckoutCancelledReturnStorageKey, "1");
@@ -3916,6 +3952,7 @@ async function startCustomFoodCardSuccess() {
     if (!response.ok || !result.paid || !result.price_ok || !referenceMatches) {
       throw new Error(result.error || "Payment could not be verified.");
     }
+    customFoodCardTrackPurchase(draft.purchaseAttemptId);
     customFoodCardClearDraft();
     customFoodCardClearCheckoutDraft();
     customFoodCardSetCheckoutFeedback("verified");
