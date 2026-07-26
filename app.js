@@ -6468,7 +6468,7 @@ function renderPrivacyPage() {
 
 const legalNoticeEnglishSections = [
   {
-    heading: "Service provider:",
+    heading: "Trade name (site name):",
     paragraphs: ["Japan First Move"],
   },
   {
@@ -6546,7 +6546,7 @@ const legalNoticeEnglishSections = [
 
 const legalNoticeJapaneseSections = [
   {
-    heading: "サービス提供者：",
+    heading: "屋号（サイト名）：",
     paragraphs: ["Japan First Move"],
   },
   {
