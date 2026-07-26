@@ -3848,6 +3848,17 @@ function customFoodCardTrackSave() {
   });
 }
 
+function customFoodCardTrackShare() {
+  if (typeof window.gtag !== "function") {
+    return;
+  }
+
+  window.gtag("event", "food_card_share", {
+    item_id: "custom-food-card",
+    item_name: "Custom Food Card",
+  });
+}
+
 function customFoodCardMarkCheckoutCancelledReturn() {
   try {
     window.sessionStorage.setItem(customFoodCardCheckoutCancelledReturnStorageKey, "1");
@@ -4781,6 +4792,7 @@ async function customFoodCardShareImage(button) {
     }
 
     await navigator.share({ files: [file] });
+    customFoodCardTrackShare();
     customFoodCardSetSaveStatus("");
   } catch (error) {
     if (error?.name !== "AbortError") {
