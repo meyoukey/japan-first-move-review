@@ -11,7 +11,7 @@
   - [ ] Support URL: `https://japanfirstmove.com/faq`
   - [ ] Business website: `https://japanfirstmove.com`
   - [ ] Privacy Policy URL: `https://japanfirstmove.com/privacy`
-- [ ] Confirm the Stripe account is activated for live payments and that business details, payout bank account, statement descriptor, customer receipts, refund handling, and support contact are ready.
+- [x] Confirm the Stripe account is activated for live payments and that business details, payout bank account, statement descriptor, customer receipts, refund handling, and support contact are ready.
 - [ ] Complete one small real-payment test on `https://japanfirstmove.com`, then refund it, and confirm both actions in the Stripe Dashboard.
 - [ ] Confirm the payment succeeds and the Custom Food Card is displayed.
 - [ ] Confirm the Stripe `session_id` is removed from the visible URL.
