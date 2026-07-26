@@ -442,12 +442,10 @@ body.is-custom-image-preview-mode {
 .custom-image-preview-frame {
   display: grid;
   place-items: start center;
-  overflow: auto;
+  overflow: hidden;
   padding: 0.65rem;
   border-radius: 12px;
   background: #e9e5e6;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
 }
 
 .custom-image-preview-frame img {
