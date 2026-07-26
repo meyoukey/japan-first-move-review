@@ -105,7 +105,7 @@
         </div>
         <div class="analytics-consent-actions">
           <button class="button secondary" type="button" data-analytics-consent-deny>Decline</button>
-          <button class="button primary" type="button" data-analytics-consent-accept>Allow analytics</button>
+          <button class="button primary" type="button" data-analytics-consent-accept>Accept cookies</button>
         </div>
       </div>
     `;

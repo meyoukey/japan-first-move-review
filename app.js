@@ -6178,7 +6178,7 @@ const privacyEnglishSections = [
     blocks: [
       { type: "p", text: "Japan First Move may use Google Analytics or similar analytics tools to understand how users use the website and to improve the service." },
       { type: "p", text: "These tools may use cookies or similar technologies to collect information such as pages viewed, access time, device information, browser information, approximate location, and usage patterns." },
-      { type: "p", text: "Analytics is disabled until you select “Allow analytics” in the cookie notice. You can decline analytics or change your choice later through “Cookie Settings” in the footer. Declining optional analytics cookies does not prevent you from using the website or purchasing Custom Food Card." },
+      { type: "p", text: "Analytics is disabled until you select “Accept cookies” in the cookie notice. You can decline analytics or change your choice later through “Cookie Settings” in the footer. Declining optional analytics cookies does not prevent you from using the website or purchasing Custom Food Card." },
     ],
   },
   {
@@ -6303,7 +6303,7 @@ const privacyJapaneseSections = [
     blocks: [
       { type: "p", text: "Japan First Moveは、ウェブサイトの利用状況を把握し、サービスを改善するために、Google Analyticsその他類似のアクセス解析ツールを利用する場合があります。" },
       { type: "p", text: "これらのツールは、Cookieその他類似の技術を使用して、閲覧ページ、アクセス日時、端末情報、ブラウザ情報、おおよその位置情報、利用傾向などの情報を取得する場合があります。" },
-      { type: "p", text: "アクセス解析は、Cookie通知で「Allow analytics」を選択するまで無効です。利用者はアクセス解析を拒否でき、フッターの「Cookie Settings」から後で選択を変更できます。任意のアクセス解析Cookieを拒否しても、ウェブサイトの利用またはCustom Food Cardの購入には影響しません。" },
+      { type: "p", text: "アクセス解析は、Cookie通知で「Accept cookies」を選択するまで無効です。利用者はアクセス解析を拒否でき、フッターの「Cookie Settings」から後で選択を変更できます。任意のアクセス解析Cookieを拒否しても、ウェブサイトの利用またはCustom Food Cardの購入には影響しません。" },
     ],
   },
   {
