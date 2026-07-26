@@ -30,6 +30,19 @@
   display: none;
 }
 
+@media (min-width: 641px) and (max-width: 900px) {
+  .site-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .site-header .brand {
+    margin-right: auto;
+    margin-left: 0;
+  }
+}
+
 @media (max-width: 640px) {
   body {
     padding-bottom: 0 !important;
