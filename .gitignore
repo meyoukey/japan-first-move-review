@@ -40,6 +40,14 @@ functions/food-card/*
 !help/index.html
 !faq/
 !faq/index.html
+!terms/
+!terms/index.html
+!privacy/
+!privacy/index.html
+!legal-notice/
+!legal-notice/index.html
+!disclaimer/
+!disclaimer/index.html
 
 !guides/
 !guides/*/

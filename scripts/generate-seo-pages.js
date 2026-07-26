@@ -66,6 +66,26 @@ const pages = [
       "Answers about Japan First Move, Custom Food Card, saving images, privacy, refunds, and using the guide while traveling.",
   },
   {
+    path: "/terms",
+    title: "Terms of Use | Japan First Move",
+    description: "Read the terms that apply when using Japan First Move and purchasing or using Custom Food Card.",
+  },
+  {
+    path: "/privacy",
+    title: "Privacy Policy | Japan First Move",
+    description: "Learn how Japan First Move handles information, payments, analytics, cookies, and privacy requests.",
+  },
+  {
+    path: "/legal-notice",
+    title: "Legal Notice | Japan First Move",
+    description: "Review seller, pricing, payment, delivery, refund, and other legally required purchase information.",
+  },
+  {
+    path: "/disclaimer",
+    title: "Disclaimer | Japan First Move",
+    description: "Review important limitations for Japan First Move travel guidance, food cards, translations, and digital tools.",
+  },
+  {
     path: "/guides/ramen-shop",
     title: "What to Do First at a Ramen Shop in Japan | Japan First Move",
     description:
