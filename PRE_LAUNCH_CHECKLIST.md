@@ -16,7 +16,7 @@
 - [ ] Confirm the payment succeeds and the Custom Food Card is displayed.
 - [ ] Confirm the Stripe `session_id` is removed from the visible URL.
 - [ ] Confirm the production success page cannot be indexed by search engines.
-- [ ] Test a declined payment and a cancelled checkout, and confirm neither produces a card or a `purchase` event.
+- [x] Test a declined payment and a cancelled checkout, and confirm neither produces a card or a `purchase` event.
 
 ## Legal and customer support
 
