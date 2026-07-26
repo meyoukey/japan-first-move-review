@@ -2186,6 +2186,7 @@ const customFoodCardDraftStorageKey = "jfmCustomFoodCardDraft";
 const customFoodCardCheckoutStorageKey = "jfmCustomFoodCardCheckoutDraft";
 const customFoodCardCheckoutCancelledReturnStorageKey = "jfmCustomFoodCardCheckoutCancelledReturn";
 const customFoodCardPurchaseTrackedStoragePrefix = "jfmCustomFoodCardPurchaseTracked:";
+const customFoodCardCheckoutReturnSessionStorageKey = "jfmCheckoutReturnSessionId";
 
 const movePhraseCards = [
   {
@@ -3770,6 +3771,27 @@ function customFoodCardClearCheckoutDraft() {
   }
 }
 
+function customFoodCardCheckoutReturnSessionId() {
+  const sessionIdFromUrl = new URLSearchParams(window.location.search).get("session_id") || "";
+  if (sessionIdFromUrl) {
+    return sessionIdFromUrl;
+  }
+
+  try {
+    return window.sessionStorage.getItem(customFoodCardCheckoutReturnSessionStorageKey) || "";
+  } catch {
+    return "";
+  }
+}
+
+function customFoodCardClearCheckoutReturnSessionId() {
+  try {
+    window.sessionStorage.removeItem(customFoodCardCheckoutReturnSessionStorageKey);
+  } catch {
+    // Ignore storage errors.
+  }
+}
+
 function customFoodCardTrackPurchase(transactionId) {
   if (!transactionId || typeof window.gtag !== "function") {
     return;
@@ -3985,8 +4007,7 @@ function startCustomFoodCardCancelled({ returnToPreCheckoutPage = false } = {}) 
 
 async function startCustomFoodCardSuccess() {
   resetCustomFoodCardState();
-  const params = new URLSearchParams(window.location.search);
-  const sessionId = params.get("session_id") || "";
+  const sessionId = customFoodCardCheckoutReturnSessionId();
   const draft = customFoodCardLoadCheckoutDraft();
 
   if (!sessionId || !draft || !customFoodCardRestoreCheckoutSnapshot(draft.snapshot)) {
@@ -4009,6 +4030,7 @@ async function startCustomFoodCardSuccess() {
     customFoodCardTrackPurchase(draft.purchaseAttemptId);
     customFoodCardClearDraft();
     customFoodCardClearCheckoutDraft();
+    customFoodCardClearCheckoutReturnSessionId();
     customFoodCardSetCheckoutFeedback("verified");
     customFoodCardState.step = 4;
     renderCustomFoodCard();

@@ -1,6 +1,7 @@
 (function initializeAnalyticsConsent() {
   const measurementId = "G-8BQHR1GHK3";
   const consentStorageKey = "jfmAnalyticsConsent";
+  const checkoutReturnSessionStorageKey = "jfmCheckoutReturnSessionId";
   const grantedValue = "granted";
   const deniedValue = "denied";
   let analyticsLoaded = false;
@@ -9,6 +10,30 @@
   function queueGoogleTag() {
     window.dataLayer.push(arguments);
   }
+
+  function protectCheckoutSessionId() {
+    const url = new URL(window.location.href);
+    if (url.pathname.replace(/\/+$/, "") !== "/food-card/custom/success") {
+      return;
+    }
+
+    const sessionId = url.searchParams.get("session_id") || "";
+    if (!/^cs_[a-zA-Z0-9_]{8,240}$/.test(sessionId)) {
+      return;
+    }
+
+    try {
+      window.sessionStorage.setItem(checkoutReturnSessionStorageKey, sessionId);
+    } catch {
+      return;
+    }
+
+    url.searchParams.delete("session_id");
+    const cleanPath = `${url.pathname}${url.search}${url.hash}`;
+    window.history.replaceState(window.history.state, "", cleanPath);
+  }
+
+  protectCheckoutSessionId();
 
   queueGoogleTag("consent", "default", {
     analytics_storage: "denied",
