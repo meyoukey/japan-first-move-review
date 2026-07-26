@@ -3741,6 +3741,7 @@ function customFoodCardSaveCheckoutDraft(purchaseAttemptId) {
   const draft = {
     purchaseAttemptId,
     snapshot: customFoodCardCheckoutSnapshot(),
+    historyLengthBeforeCheckout: window.history.length,
     savedAt: Date.now(),
   };
   try {
@@ -4097,8 +4098,12 @@ async function startCustomFoodCardSuccess() {
       customFoodCardClearCheckoutDraft();
       customFoodCardClearCheckoutReturnSessionId();
     }
-    if (verifiedCardSaved && window.history.length > 2) {
-      window.history.go(-2);
+    const historyLengthBeforeCheckout = draft.historyLengthBeforeCheckout;
+    const checkoutHistoryDelta = Number.isSafeInteger(historyLengthBeforeCheckout)
+      ? window.history.length - historyLengthBeforeCheckout
+      : 0;
+    if (verifiedCardSaved && checkoutHistoryDelta > 0) {
+      window.history.go(-checkoutHistoryDelta);
       return;
     }
     customFoodCardShowVerifiedCard(draft);
