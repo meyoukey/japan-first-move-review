@@ -69,12 +69,12 @@ body:has(#app) .site-footer .site-footer-legal a + a::before {
   left: 1rem;
   max-width: 980px;
   margin: auto;
-  padding: 1rem;
-  border: 1px solid rgba(48, 57, 71, 0.16);
-  border-radius: 1.15rem;
-  background: #fffafb;
-  box-shadow: 0 1rem 3rem rgba(36, 45, 60, 0.2);
-  color: #303947;
+  padding: 0.9rem 1rem;
+  border: 1px solid #cfd2d6;
+  border-radius: 0;
+  background: #f1f1f2;
+  box-shadow: 0 0.35rem 1.1rem rgba(36, 45, 60, 0.1);
+  color: #4d535c;
 }
 
 .analytics-consent-inner {
@@ -90,7 +90,9 @@ body:has(#app) .site-footer .site-footer-legal a + a::before {
 
 .analytics-consent-copy h2 {
   margin: 0 0 0.3rem;
-  font-size: 1.08rem;
+  color: #414750;
+  font-size: 1rem;
+  font-weight: 650;
   line-height: 1.35;
 }
 
@@ -101,8 +103,8 @@ body:has(#app) .site-footer .site-footer-legal a + a::before {
 }
 
 .analytics-consent-copy a {
-  color: #365f8d;
-  font-weight: 700;
+  color: #525c68;
+  font-weight: 600;
 }
 
 .analytics-consent-actions {
@@ -113,7 +115,32 @@ body:has(#app) .site-footer .site-footer-legal a + a::before {
 
 .analytics-consent-actions .button {
   min-height: 2.8rem;
+  border: 1px solid #9da3aa;
+  border-radius: 0;
+  box-shadow: none;
+  font-weight: 650;
   white-space: nowrap;
+}
+
+.analytics-consent-actions .button.secondary {
+  color: #4d535c;
+  background: #fafafa;
+}
+
+.analytics-consent-actions .button.primary {
+  color: #fff;
+  background: #5d6670;
+}
+
+.analytics-consent-actions .button.secondary:hover,
+.analytics-consent-actions .button.secondary:focus-visible {
+  color: #353b43;
+  background: #fff;
+}
+
+.analytics-consent-actions .button.primary:hover,
+.analytics-consent-actions .button.primary:focus-visible {
+  background: #48515b;
 }
 
 @media (max-width: 700px) {
