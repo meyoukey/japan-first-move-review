@@ -7023,9 +7023,10 @@ function router({ restoreCustomFoodCardDraft = false } = {}) {
 window.addEventListener("popstate", () => {
   router({ restoreCustomFoodCardDraft: false });
 });
-window.addEventListener("pageshow", (event) => {
+window.addEventListener("pageshow", () => {
   if (!customFoodCardConsumeCheckoutCancelledReturn()) {
-    if (event.persisted && window.location.pathname === "/food-card/custom/" && customFoodCardState.checkoutStatus === "preparing") {
+    const isCustomFoodCardBuilder = window.location.pathname.replace(/\/+$/, "") === "/food-card/custom";
+    if (isCustomFoodCardBuilder && customFoodCardState.checkoutStatus === "preparing") {
       customFoodCardResetPendingCheckoutReturn();
       renderCustomFoodCard();
     }
