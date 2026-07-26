@@ -3805,6 +3805,25 @@ function customFoodCardTrackPurchase(transactionId) {
   }
 }
 
+function customFoodCardTrackBeginCheckout() {
+  if (typeof window.gtag !== "function") {
+    return;
+  }
+
+  window.gtag("event", "begin_checkout", {
+    value: 7.99,
+    currency: "USD",
+    items: [
+      {
+        item_id: "custom-food-card",
+        item_name: "Custom Food Card",
+        price: 7.99,
+        quantity: 1,
+      },
+    ],
+  });
+}
+
 function customFoodCardMarkCheckoutCancelledReturn() {
   try {
     window.sessionStorage.setItem(customFoodCardCheckoutCancelledReturnStorageKey, "1");
@@ -3899,6 +3918,7 @@ async function customFoodCardBeginCheckout() {
     if (!response.ok || !result.url) {
       throw new Error(result.error || "Payment could not be started.");
     }
+    customFoodCardTrackBeginCheckout();
     window.location.assign(result.url);
   } catch (error) {
     customFoodCardSetCheckoutFeedback(
