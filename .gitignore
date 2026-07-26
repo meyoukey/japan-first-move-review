@@ -60,6 +60,8 @@ functions/food-card/*
 !food-card/
 !food-card/custom/
 !food-card/custom/index.html
+!food-card/custom/success/
+!food-card/custom/success/index.html
 
 !assets/
 assets/*

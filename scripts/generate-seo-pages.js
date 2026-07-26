@@ -51,6 +51,13 @@ const pages = [
       "Create a clear Japanese food card for allergies, dietary needs, preferences, or ingredients you want restaurant staff to check.",
   },
   {
+    path: "/food-card/custom/success/",
+    title: "Custom Food Card Payment | Japan First Move",
+    description: "Verify your Custom Food Card payment and display your completed card.",
+    keepNoindex: true,
+    noindexComment: "Keep this payment return page out of search results.",
+  },
+  {
     path: "/guides/food-allergy-card-japan",
     title: "Food Allergy Card for Japan: How to Use It | Japan First Move",
     description:
@@ -267,9 +274,11 @@ function headMarkup(page) {
   const pageOgImageWidth = page.ogImageWidth ?? 1200;
   const pageOgImageHeight = page.ogImageHeight ?? 630;
   const pageOgType = escapeHtml(page.ogType ?? "website");
-  const robotsComment = page.keepNoindex
-    ? "Keep this legal page out of search results."
-    : "Temporary review setting: remove before public launch";
+  const robotsComment =
+    page.noindexComment ??
+    (page.keepNoindex
+      ? "Keep this legal page out of search results."
+      : "Temporary review setting: remove before public launch");
   return `  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
