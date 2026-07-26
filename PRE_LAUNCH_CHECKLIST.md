@@ -17,7 +17,7 @@
 ## Legal and customer support
 
 - [ ] Confirm the legally required seller identity and mail-order disclosures with a qualified professional. A site/brand name alone may not be sufficient as the seller’s legal name.
-- [ ] If address and telephone number remain omitted, confirm they can actually be supplied without delay when requested before purchase.
+- [x] If address and telephone number remain omitted, confirm they can actually be supplied without delay when requested before purchase.
 - [x] Confirm `support@japanfirstmove.com` forwards incoming mail successfully and that replies can be sent from `japanfirstmove@gmail.com` with the Japan First Move Support signature.
 - [ ] Confirm the domain’s SPF, DKIM, and DMARC records are configured for reliable support email delivery.
 - [ ] Review the Terms, Privacy Policy, Legal Notice, Disclaimer, refund wording, price, currency, and product-delivery description one final time.
