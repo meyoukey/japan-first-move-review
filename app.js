@@ -7178,8 +7178,11 @@ window.addEventListener("pageshow", () => {
         && checkoutDraft?.purchaseAttemptId === verifiedPurchaseAttemptId
         && customFoodCardShowVerifiedCard(checkoutDraft)
       ) {
-        window.history.replaceState({}, "", "/food-card/custom/");
+        window.history.pushState({}, "", "/food-card/custom/");
         customFoodCardVerifiedReturnRendered = true;
+        window.setTimeout(() => {
+          customFoodCardVerifiedReturnRendered = false;
+        }, 0);
         return;
       }
     }
