@@ -68,7 +68,7 @@ Planned production launch: July 31, 2026
 - [ ] Test keyboard navigation, visible focus, readable contrast, text zoom, and screen-reader labels on the purchase flow.
 - [ ] Run a final broken-link and missing-image check after merging to production.
 - [ ] Check page speed and Core Web Vitals on the production domain.
-- [ ] Proofread the highest-traffic English and Japanese pages, including prices, support email, and external emergency-information links.
+- [x] Proofread the highest-traffic English and Japanese pages, including prices, support email, and external emergency-information links.
 
 ## Immediately after launch
 
