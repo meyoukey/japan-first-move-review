@@ -6,3 +6,16 @@
 @import url("./styles-05-page-refinements.css?v=breadcrumbs-1");
 @import url("./styles-06-custom-food-card.css");
 @import url("./styles-07-mobile-export.css?v=image-preview-scroll-1");
+
+:is(
+  a[href],
+  button,
+  input,
+  select,
+  textarea,
+  summary,
+  [tabindex]:not([tabindex="-1"])
+):focus-visible {
+  outline: 2px solid #a65d74;
+  outline-offset: 3px;
+}
