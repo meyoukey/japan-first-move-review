@@ -122,6 +122,18 @@ const pages = [
       "Not sure where to pay in Japan? Learn whether to pay at the register, at your seat, with a tray, by card, or in cash, and why you should not tip.",
   },
   {
+    path: "/guides/oshibori",
+    title: "Why Did They Give Me a Tiny Wet Towel? | Japan First Move",
+    description:
+      "A small wet towel called an oshibori often arrives before your meal in Japan. Learn what it is for, how to use it, and why it may be warm or cold.",
+  },
+  {
+    path: "/guides/cook-at-table",
+    title: "Why Am I Cooking My Own Dinner at a Restaurant? | Japan First Move",
+    description:
+      "At some yakiniku, shabu-shabu, sukiyaki, and okonomiyaki restaurants in Japan, cooking is part of the meal. Learn how to tell when it is your turn.",
+  },
+  {
     path: "/guides/onsen-sento",
     title: "What to Do First at an Onsen or Sento | Japan First Move",
     description:
@@ -174,6 +186,30 @@ const pages = [
     title: "How to Use Coin Lockers in Japan | Japan First Move",
     description:
       "Coin lockers in Japan can use keys, coins, IC cards, or touch screens. Learn what to do first, how to pay, and how to find your locker again.",
+  },
+  {
+    path: "/guides/japanese-taxi",
+    title: "Why Is an Available Taxi Showing a Red Sign? | Japan First Move",
+    description:
+      "In a Japanese taxi, a red sign can mean available and the rear door may open automatically. Learn how to spot a free taxi and let the driver handle the door.",
+  },
+  {
+    path: "/guides/luggage-forwarding",
+    title: "Why Is Your Suitcase Traveling Without You? | Japan First Move",
+    description:
+      "Luggage delivery services in Japan can send a suitcase from one hotel to another. Learn what to confirm before your bag begins its own journey.",
+  },
+  {
+    path: "/guides/ticket-gate-error",
+    title: "Why Did the Ticket Gate Say No? | Japan First Move",
+    description:
+      "If a Japanese ticket gate closes after you tap an IC card, the cause may be balance, card interference, or an incomplete journey record. Learn what to check first.",
+  },
+  {
+    path: "/guides/escalator-sides",
+    title: "Tokyo Left, Osaka Right—So Where Should You Stand? | Japan First Move",
+    description:
+      "People have traditionally stood on different sides of escalators in Tokyo and Osaka. Learn why local habits vary and why current safety guidance says to stand still.",
   },
   {
     path: "/guides/shrine",

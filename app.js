@@ -303,6 +303,114 @@ const guides = [
       "Payment in Japan is often quiet and structured. The tray helps make the exchange clear and polite.",
   },
   {
+    slug: "oshibori",
+    title: "Why Did They Give Me a Tiny Wet Towel?",
+    categoryCardTitle: "Use an oshibori",
+    categoryCardDescription: "A tiny wet towel arrives before the food.",
+    category: "food",
+    meta: "A small wet towel called an oshibori often arrives before your meal in Japan. Learn what it is for, how to use it, and why it may be warm or cold.",
+    intro: [
+      "Before your food arrives, the restaurant gives you a small rolled-up towel. It may be warm. It may be cold. It may arrive in a plastic wrapper or on a little tray.",
+      "This is not the first course. It is an oshibori, and its official mission is to make your hands feel like they have also checked into the restaurant.",
+    ],
+    firstMove: "Use the oshibori to wipe your hands, then fold or roll it and place it beside you.",
+    steps: [
+      "Open the wrapper or unfold the towel.",
+      "Wipe your hands before eating.",
+      "Fold or roll it again after use.",
+      "Place it beside your plate or back on its tray.",
+    ],
+    staff: [
+      {
+        japanese: "おしぼり",
+        romaji: "Oshibori",
+        means: "A wet hand towel.",
+        move: "Use it for your hands before eating.",
+      },
+      {
+        japanese: "温かいおしぼり",
+        romaji: "Atatakai oshibori",
+        means: "A warm oshibori.",
+        move: "Enjoy the tiny hand sauna.",
+      },
+      {
+        japanese: "冷たいおしぼり",
+        romaji: "Tsumetai oshibori",
+        means: "A cold oshibori.",
+        move: "On a hot day, this may be the best thing on the table—and the food has not even arrived yet.",
+      },
+    ],
+    stuck:
+      "A cloth oshibori may arrive on a tray. A disposable one may look like a small white packet. Its main job is simple: clean your hands. After that, leave it folded beside you.",
+    note:
+      "An oshibori is practical, but its temperature can also be part of the welcome. Warm towels feel comforting in winter. Cold towels feel refreshing in summer. It is a tiny piece of seasonal hospitality—delivered before you have ordered anything.",
+  },
+  {
+    slug: "cook-at-table",
+    title: "Why Am I Cooking My Own Dinner at a Restaurant?",
+    categoryCardTitle: "Cook at the table",
+    categoryCardDescription: "Sometimes dinner promotes you to chef.",
+    category: "food",
+    meta: "At some yakiniku, shabu-shabu, sukiyaki, and okonomiyaki restaurants in Japan, cooking is part of the meal. Learn how to tell when it is your turn.",
+    intro: [
+      "You order dinner. The restaurant brings raw ingredients, metal tongs, and a hot grill. Congratulations. You have been promoted to chef without an interview.",
+      "At yakiniku, shabu-shabu, sukiyaki, and some okonomiyaki restaurants, cooking can be part of the meal. But the system changes from place to place.",
+    ],
+    firstMove: "Pause for a moment and check whether staff starts cooking or leaves the ingredients with you.",
+    steps: [
+      "Look for a grill, hot plate, or pot built into the table.",
+      "Watch what staff does after placing the ingredients down.",
+      "If they begin cooking, let them demonstrate.",
+      "If they leave the tools with you, it may be your turn.",
+      "Use the provided tongs for raw ingredients.",
+      "Ask before eating if you are unsure whether something is ready.",
+    ],
+    sayShow: [
+      {
+        use: "Use when you are unsure who cooks the food.",
+        romaji: "Kore wa jibun de yakimasu ka?",
+        japanese: "これは自分で焼きますか？",
+        english: "Do I cook this myself?",
+      },
+      {
+        use: "Use when you want to check if the food is ready.",
+        romaji: "Mou taberaremasu ka?",
+        japanese: "もう食べられますか？",
+        english: "Can I eat this now?",
+      },
+      {
+        use: "Use when you want staff to demonstrate.",
+        romaji: "Yarikata o oshiete kudasai.",
+        japanese: "やり方を教えてください。",
+        english: "Please show me how to do it.",
+      },
+    ],
+    staff: [
+      {
+        japanese: "こちらで焼きます。",
+        romaji: "Kochira de yakimasu.",
+        means: "We will cook it for you.",
+        move: "Relax. You have been returned to customer status.",
+      },
+      {
+        japanese: "ご自分で焼いてください。",
+        romaji: "Gojibun de yaite kudasai.",
+        means: "Please cook it yourself.",
+        move: "Use the grill and tools provided.",
+      },
+      {
+        japanese: "よく焼いてください。",
+        romaji: "Yoku yaite kudasai.",
+        means: "Please cook it thoroughly.",
+        move: "Give the food more time on the grill.",
+      },
+    ],
+    stuck:
+      "Ask staff before improvising. They would usually prefer to demonstrate the system before your okonomiyaki becomes abstract art.",
+    note:
+      "At these restaurants, cooking is not unfinished service. It is part of the experience. The table becomes a small shared kitchen, and the meal gives everyone something to do while they talk. You did not accidentally enter the staff area. The staff area came to you.",
+  },
+  {
     slug: "onsen-sento",
     title: "What to Do First at an Onsen or Sento",
     categoryCardTitle: "Use an onsen or sento",
@@ -970,6 +1078,262 @@ const guides = [
       "Search your photos first. Look for the locker number, nearby signs, exit name, shop sign, or floor map in the background. If you still cannot find it, show your locker key, receipt, or photo to staff nearby.",
     note:
       "The hard part is not always locking your bag. It is finding the same locker area again later.",
+  },
+  {
+    slug: "japanese-taxi",
+    title: "Why Is an Available Taxi Showing a Red Sign?",
+    categoryCardTitle: "Take a taxi",
+    categoryCardDescription: "A red sign can mean available—and the rear door opens itself.",
+    category: "move",
+    meta: "In a Japanese taxi, a red sign can mean available and the rear door may open automatically. Learn how to spot a free taxi and let the driver handle the door.",
+    intro: [
+      "A taxi approaches with a red sign glowing in the window. Red usually means stop, closed, occupied, or something has gone wrong.",
+      "In a Japanese taxi, it may mean exactly what you want: this taxi is available. Then the taxi stops and the rear door opens by itself. The sign is backwards. The door appears haunted. Everything is working normally.",
+    ],
+    firstMove: "Look for the characters 空車, often shown in red, then stand slightly back and let the driver open the rear door.",
+    steps: [
+      "Look at the illuminated sign in the front window.",
+      "Find 空車, meaning the taxi is available.",
+      "Raise your hand or wait at the taxi stand.",
+      "Stand clear when the taxi stops.",
+      "Let the driver open and close the rear door.",
+      "Show your destination on a map or in Japanese.",
+    ],
+    sayShow: [
+      {
+        use: "Show the destination on your phone while saying this.",
+        romaji: "Koko made onegaishimasu.",
+        japanese: "ここまでお願いします。",
+        english: "To here, please.",
+      },
+      {
+        use: "Use when you want to check the payment method.",
+        romaji: "Kaado wa tsukaemasu ka?",
+        japanese: "カードは使えますか？",
+        english: "Can I pay by card?",
+      },
+      {
+        use: "Use when you want to get out at the current spot.",
+        romaji: "Koko de daijoubu desu.",
+        japanese: "ここで大丈夫です。",
+        english: "Here is fine.",
+      },
+    ],
+    staff: [
+      {
+        japanese: "空車",
+        romaji: "Kuusha",
+        means: "Available.",
+        move: "This taxi can usually pick up passengers.",
+      },
+      {
+        japanese: "迎車",
+        romaji: "Geisha",
+        means: "Reserved or on the way to collect someone.",
+        move: "This taxi is already spoken for.",
+      },
+      {
+        japanese: "賃走",
+        romaji: "Chinsou",
+        means: "Occupied and running on the meter.",
+        move: "Another passenger got there first.",
+      },
+    ],
+    stuck:
+      "Check the characters instead of relying only on the color, as displays can vary. When the taxi stops, give the rear door some space. The driver controls it from the front. If you grab the door at the same moment, you and the taxi may begin a very polite argument.",
+    note:
+      "Japanese taxis remove two small decisions from the passenger: Is this taxi free? Read 空車. Should I open the door? No—the driver already has it. The strange part lasts about five seconds. After that, it feels wonderfully convenient.",
+  },
+  {
+    slug: "luggage-forwarding",
+    title: "Why Is Your Suitcase Traveling Without You?",
+    categoryCardTitle: "Send luggage ahead",
+    categoryCardDescription: "Let your suitcase travel to the next hotel without you.",
+    category: "move",
+    meta: "Luggage delivery services in Japan can send a suitcase from one hotel to another. Learn what to confirm before your bag begins its own journey.",
+    intro: [
+      "You leave Tokyo for Kyoto. Your suitcase leaves too—but not with you.",
+      "While you ride the train with a small bag, your suitcase follows its own itinerary and arrives at the next hotel separately. It may travel more quietly, take up less platform space, and complain about fewer stairs.",
+    ],
+    firstMove: "Before your travel day, ask your hotel whether it can send your suitcase to your next accommodation.",
+    steps: [
+      "Ask the front desk whether luggage delivery is available.",
+      "Show the name, address, and reservation details of your next hotel.",
+      "Confirm when the suitcase will arrive.",
+      "Keep your passport, valuables, medicine, and overnight essentials with you.",
+      "Complete the delivery form and keep the receipt or tracking number.",
+      "Travel with a smaller bag until you meet your suitcase again.",
+    ],
+    sayShow: [
+      {
+        use: "Use at the front desk before your travel day.",
+        romaji: "Nimotsu o tsugi no hoteru ni okuremasu ka?",
+        japanese: "荷物を次のホテルに送れますか？",
+        english: "Can I send my luggage to my next hotel?",
+      },
+      {
+        use: "Use when you need to confirm the delivery date.",
+        romaji: "Itsu todokimasu ka?",
+        japanese: "いつ届きますか？",
+        english: "When will it arrive?",
+      },
+      {
+        use: "Show the destination address while saying this.",
+        romaji: "Kono juusho ni onegaishimasu.",
+        japanese: "この住所にお願いします。",
+        english: "To this address, please.",
+      },
+    ],
+    staff: [
+      {
+        japanese: "宅配便 / 宅急便",
+        romaji: "Takuhaibin / Takkyubin",
+        means: "Luggage or parcel delivery service.",
+        move: "Ask whether the service can deliver to your next accommodation.",
+      },
+      {
+        japanese: "伝票",
+        romaji: "Denpyou",
+        means: "Delivery form.",
+        move: "Add the destination, sender details, and requested arrival date with staff assistance.",
+      },
+      {
+        japanese: "元払い",
+        romaji: "Motobarai",
+        means: "Paid by the sender.",
+        move: "Pay the delivery fee when sending the suitcase.",
+      },
+      {
+        japanese: "翌日",
+        romaji: "Yokujitsu",
+        means: "The following day.",
+        move: "Prepare a small overnight bag in case your suitcase arrives tomorrow.",
+      },
+    ],
+    stuck:
+      "Show staff the next hotel’s reservation page rather than typing the address from memory. Delivery times, accepted items, and available destinations vary. Confirm the arrival date before letting your suitcase begin its independent journey.",
+    note:
+      "Luggage delivery turns travel into a small act of trust. Your suitcase disappears behind a hotel desk. Later, it reappears in another city as though it has learned teleportation. It has not. Japan’s delivery network is simply doing the difficult part of the trip for you.",
+  },
+  {
+    slug: "ticket-gate-error",
+    title: "Why Did the Ticket Gate Say No?",
+    categoryCardTitle: "Fix an IC card gate error",
+    categoryCardDescription: "The gate said no. It probably isn’t personal.",
+    category: "move",
+    meta: "If a Japanese ticket gate closes after you tap an IC card, the cause may be balance, card interference, or an incomplete journey record. Learn what to check first.",
+    intro: [
+      "You tap your IC card. Instead of the friendly beep you expected, the ticket gate closes in front of you.",
+      "For one dramatic second, it feels as if Japan’s entire railway system has reviewed your application and rejected it. It has not. The gate may need more balance, a cleaner tap, or help completing the record of your journey.",
+    ],
+    firstMove: "Step back, move to the side, and check the message on the gate display.",
+    steps: [
+      "Move out of the next passenger’s path.",
+      "Check the display for a message or remaining balance.",
+      "Remove other IC cards from the wallet and touch one card firmly.",
+      "If the balance is low, add money at a charge or fare-adjustment machine.",
+      "If the card still fails, show it at the staffed gate.",
+    ],
+    sayShow: [
+      {
+        use: "Use at the staffed gate while showing the card.",
+        romaji: "Kaado ga tsukaemasen.",
+        japanese: "カードが使えません。",
+        english: "My card isn’t working.",
+      },
+      {
+        use: "Use when you need the next step.",
+        romaji: "Dousureba ii desu ka?",
+        japanese: "どうすればいいですか？",
+        english: "What should I do?",
+      },
+      {
+        use: "Use when you want to check the balance.",
+        romaji: "Zandaka ga tarimasen ka?",
+        japanese: "残高が足りませんか？",
+        english: "Is the balance insufficient?",
+      },
+    ],
+    staff: [
+      {
+        japanese: "残額不足",
+        romaji: "Zangaku fusoku",
+        means: "Insufficient balance.",
+        move: "Add money to the card.",
+      },
+      {
+        japanese: "精算",
+        romaji: "Seisan",
+        means: "Fare adjustment.",
+        move: "Look for a fare-adjustment machine or ask staff.",
+      },
+      {
+        japanese: "係員にお知らせください",
+        romaji: "Kakariin ni oshirase kudasai",
+        means: "Please contact a station attendant.",
+        move: "Take the card to the staffed gate.",
+      },
+      {
+        japanese: "入場記録",
+        romaji: "Nyuujou kiroku",
+        means: "Entry record.",
+        move: "Staff may need to check or correct where your journey began.",
+      },
+    ],
+    stuck:
+      "Hand the card to station staff. The IC card stores information about your journey, so the problem is not always the balance. A previous entry or exit may not have recorded correctly, or another card in your wallet may have interfered with the reader. The gate often remembers more about your trip than you do.",
+    note:
+      "An automatic ticket gate is doing several jobs in a fraction of a second. It reads the card, checks the journey record, calculates the fare, updates the balance, and decides whether to open—all while a line of commuters approaches at walking speed. The closed gate is not judging you. It is doing very fast bookkeeping.",
+  },
+  {
+    slug: "escalator-sides",
+    title: "Tokyo Left, Osaka Right—So Where Should You Stand?",
+    categoryCardTitle: "Use an escalator",
+    categoryCardDescription: "Tokyo leans left, Osaka right—and safety guidance says stand.",
+    category: "move",
+    meta: "People have traditionally stood on different sides of escalators in Tokyo and Osaka. Learn why local habits vary and why current safety guidance says to stand still.",
+    intro: [
+      "Japan can run a train to the minute, guide you through a station with colored lines, and give a toilet more buttons than an elevator.",
+      "But ask an escalator which side people stand on, and regional negotiations begin. In Tokyo, people have traditionally stood on the left. In Osaka, people have traditionally stood on the right. Then you reach another city and discover that the escalator has declined to join either team.",
+    ],
+    firstMove: "Treat left and right as local habits, not national laws. Check the signs, step on safely, and stand still while holding the handrail.",
+    steps: [
+      "Look for signs or arrows near the escalator.",
+      "Step onto whichever side is safe and open.",
+      "Stand still and hold the handrail.",
+      "Leave enough space for the person in front of you.",
+      "Use an elevator if you have large luggage or need more room.",
+    ],
+    staff: [
+      {
+        japanese: "歩かず立ち止まろう",
+        romaji: "Arukazu tachidomarou",
+        means: "Stand still instead of walking.",
+        move: "Stay in place while the escalator moves you.",
+      },
+      {
+        japanese: "手すりにつかまってください",
+        romaji: "Tesuri ni tsukamatte kudasai",
+        means: "Please hold the handrail.",
+        move: "Hold the moving handrail beside you.",
+      },
+      {
+        japanese: "二列でご利用ください",
+        romaji: "Niretsu de goriyou kudasai",
+        means: "Please use the escalator in two lines.",
+        move: "Both sides may be intended for standing.",
+      },
+      {
+        japanese: "エレベーター",
+        romaji: "Erebeetaa",
+        means: "Elevator.",
+        move: "Choose it when traveling with a large suitcase or when you need more room.",
+      },
+    ],
+    stuck:
+      "Look at the signs before trying to decode the crowd. You may still see everyone standing on one side, but the official safety message increasingly asks passengers to stand still rather than preserve a walking lane. This is not an exam where Tokyo answers “left” and Osaka answers “right.” The safest answer may simply be: stand.",
+    note:
+      "The Tokyo-left and Osaka-right difference is one of Japan’s most famous regional habits, and no single origin story settles every argument. The newer twist is that transport operators in both regions are trying to move beyond the left-versus-right debate. After years of disagreeing about the correct side, Tokyo and Osaka may finally have found common ground: stop walking on the escalator.",
   },
   {
     slug: "shrine",
@@ -2644,6 +3008,16 @@ const foodFirstMoveCards = [
     cardDescription: "Check where and how to pay.",
   },
   {
+    ...guideMap.oshibori,
+    cardTitle: "Oshibori",
+    cardDescription: "Use the small wet towel that arrives before your meal.",
+  },
+  {
+    ...guideMap["cook-at-table"],
+    cardTitle: "Cook at the table",
+    cardDescription: "Check whether dinner has promoted you to chef.",
+  },
+  {
     slug: "food-cards",
     category: "food",
     cardTitle: "Explain food needs",
@@ -3192,7 +3566,17 @@ function foodPhraseCard(card) {
 
 function renderMoveCategory() {
   const category = categoryMap.move;
-  const moveGuideOrder = ["find-right-platform", "find-right-exit", "charge-ic-card", "local-bus", "coin-lockers"];
+  const moveGuideOrder = [
+    "find-right-platform",
+    "find-right-exit",
+    "ticket-gate-error",
+    "charge-ic-card",
+    "local-bus",
+    "japanese-taxi",
+    "escalator-sides",
+    "coin-lockers",
+    "luggage-forwarding",
+  ];
   const categoryGuides = guides
     .filter((guide) => guide.category === "move")
     .sort((a, b) => {
