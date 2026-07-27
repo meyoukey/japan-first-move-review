@@ -81,6 +81,9 @@ assets/*
 !assets/section-icons/**
 !assets/ui/
 !assets/ui/**
+!assets/vendor/
+assets/vendor/*
+!assets/vendor/html2canvas.min.js
 !assets/japanese-motifs.png
 !favicon.ico
 
