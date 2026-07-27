@@ -5,6 +5,7 @@ const root = path.resolve(__dirname, "..");
 const siteUrl = "https://japanfirstmove.com";
 const ogImage = `${siteUrl}/assets/ogp/ogp-japan-first-move.png`;
 const ogImageAlt = "Japan First Move - Simple first-step guides for traveling in Japan.";
+const temporaryReviewNoindexEnabled = true;
 
 const pages = [
   {
@@ -133,6 +134,18 @@ const pages = [
       "When Japan travel days get tiring, find a place to sit, cool down, and recover without blocking shops, paths, or entrances.",
   },
   {
+    path: "/guides/japanese-toilet-buttons",
+    title: "Go Ahead—Press the Buttons on a Japanese Toilet | Japan First Move",
+    description:
+      "Japanese toilets are famous for heated seats, water jets, privacy sounds, and rows of buttons. Learn the two controls to find first, then enjoy trying the rest.",
+  },
+  {
+    path: "/guides/ryokan-futon",
+    title: "Why Did a Futon Appear While You Were at Dinner? | Japan First Move",
+    description:
+      "A traditional ryokan room may have no bed when you arrive, then change while you are at dinner. Learn how meals, baths, yukata, and futon preparation fit together.",
+  },
+  {
     path: "/guides/local-bus",
     title: "How to Ride a Local Bus in Japan | Japan First Move",
     description:
@@ -173,6 +186,18 @@ const pages = [
     title: "Photo Manners in Japan | Japan First Move",
     description:
       "Before taking photos in Japan, check signs, ask when unsure, avoid photographing people without permission, and stop quickly if staff says no.",
+  },
+  {
+    path: "/guides/irasshaimase",
+    title: "You Don’t Have to Answer “Irasshaimase” | Japan First Move",
+    description:
+      "When shop staff in Japan call out irasshaimase, they are welcoming you—not waiting for an answer. Learn when to keep browsing and when a real conversation begins.",
+  },
+  {
+    path: "/guides/sumimasen",
+    title: "Why Does “Sumimasen” Mean So Many Things? | Japan First Move",
+    description:
+      "Sumimasen can mean sorry, excuse me, or even carry a feeling of thanks. Learn why this useful Japanese word changes with the situation.",
   },
   {
     path: "/guides/pharmacy",
@@ -274,20 +299,24 @@ function headMarkup(page) {
   const pageOgImageWidth = page.ogImageWidth ?? 1200;
   const pageOgImageHeight = page.ogImageHeight ?? 630;
   const pageOgType = escapeHtml(page.ogType ?? "website");
+  const shouldNoindex = page.keepNoindex || temporaryReviewNoindexEnabled;
   const robotsComment =
     page.noindexComment ??
     (page.keepNoindex
       ? "Keep this legal page out of search results."
       : "Temporary review setting: remove before public launch");
+  const robotsMarkup = shouldNoindex
+    ? `    <!-- ${robotsComment} -->
+    <meta name="robots" content="noindex, nofollow" />
+`
+    : "";
   return `  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${title}</title>
     <meta name="description" content="${description}" />
     <link rel="canonical" href="${escapedCanonical}" />
-    <!-- ${robotsComment} -->
-    <meta name="robots" content="noindex, nofollow" />
-
+${robotsMarkup}
     <!-- Open Graph -->
     <meta property="og:site_name" content="Japan First Move" />
     <meta property="og:title" content="${title}" />

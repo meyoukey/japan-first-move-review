@@ -26,7 +26,7 @@ Planned production launch: July 31, 2026
 - [x] If address and telephone number remain omitted, confirm they can actually be supplied without delay when requested before purchase.
 - [x] Confirm `support@japanfirstmove.com` forwards incoming mail successfully and that replies can be sent from the designated Gmail inbox with the Japan First Move Support signature.
 - [x] Confirm Cloudflare Email Routing’s SPF record and a DMARC monitoring record (`p=none`) are published. DKIM will be required only if outbound mail is later sent from `@japanfirstmove.com`.
-- [ ] Review the Terms, Privacy Policy, Legal Notice, Disclaimer, refund wording, price, currency, and product-delivery description one final time.
+- [x] Review the Terms, Privacy Policy, Legal Notice, Disclaimer, refund wording, price, currency, and product-delivery description one final time.
 - [ ] At production launch, update every legal page’s “Last updated” date to **July 31, 2026 / 2026年7月31日** after the final wording is approved.
 
 ## Search visibility and domain
@@ -64,7 +64,7 @@ Planned production launch: July 31, 2026
 ## Final device and content check
 
 - [ ] Test the complete flow on iPhone Safari, Android Chrome, and a desktop browser.
-- [ ] Test language switching, navigation, payment, card generation, download/save, and share.
+- [ ] Test navigation, payment, card generation, download/save, and share.
 - [ ] Test keyboard navigation, visible focus, readable contrast, text zoom, and screen-reader labels on the purchase flow.
 - [ ] Run a final broken-link and missing-image check after merging to production.
 - [ ] Check page speed and Core Web Vitals on the production domain.

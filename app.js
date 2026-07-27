@@ -452,6 +452,145 @@ const guides = [
       "In Japan, it is usually best to sit only where seating is clearly provided. If a spot looks like an entrance, walkway, or private step, keep moving and look for a clearer rest area.",
   },
   {
+    slug: "japanese-toilet-buttons",
+    title: "Go Ahead—Press the Buttons on a Japanese Toilet",
+    categoryCardTitle: "Try a Japanese toilet",
+    categoryCardDescription: "Find Stop and Call first—then try the buttons.",
+    category: "relax",
+    meta: "Japanese toilets are famous for heated seats, water jets, privacy sounds, and rows of buttons. Learn the two controls to find first, then enjoy trying the rest.",
+    intro: [
+      "Japanese toilets are famous for having more buttons than some elevators: heated seats, water jets, adjustable pressure, adjustable position, privacy sounds, and automatic flushing.",
+      "You could ignore all of it and use the toilet normally. But where is the fun in that? Most of the buttons are there to make the experience more comfortable. Once you know two important controls, you can sit down and start experimenting.",
+    ],
+    firstMove: "Find 止 and 呼出 first. One stops the adventure. The other calls a real person. After that, try the buttons.",
+    steps: [
+      "Sit down before testing the wash controls.",
+      "Find 止, the stop button.",
+      "Find 呼出, the assistance-call button.",
+      "Leave 呼出 for situations where you actually need help.",
+      "Try おしり, ビデ, the pressure controls, or the sound button.",
+      "If anything surprises you, press 止.",
+    ],
+    staff: [
+      {
+        japanese: "止",
+        romaji: "Tome",
+        means: "Stop.",
+        move: "Remember this one first. It stops the washing function.",
+      },
+      {
+        japanese: "おしり",
+        romaji: "Oshiri",
+        means: "Rear wash.",
+        move: "Press it while seated and meet the feature Japanese toilets are famous for.",
+      },
+      {
+        japanese: "ビデ",
+        romaji: "Bide",
+        means: "Bidet wash.",
+        move: "This provides a gentler front wash.",
+      },
+      {
+        japanese: "弱 / 強",
+        romaji: "Jaku / Kyou",
+        means: "Weaker / Stronger.",
+        move: "Adjust the water pressure. Starting with 弱 makes the surprise slightly less dramatic.",
+      },
+      {
+        japanese: "前 / 後",
+        romaji: "Mae / Ushiro",
+        means: "Forward / Back.",
+        move: "Adjust the position of the water jet.",
+      },
+      {
+        japanese: "音 / 流水音",
+        romaji: "Oto / Ryuusui-on",
+        means: "Sound / Flushing-water sound.",
+        move: "Press it for a little extra privacy. It plays water sounds but does not necessarily flush the toilet.",
+      },
+      {
+        japanese: "流す",
+        romaji: "Nagasu",
+        means: "Flush.",
+        move: "This is the actual flush control. It may also be a lever or wall sensor.",
+      },
+      {
+        japanese: "呼出",
+        romaji: "Yobidashi",
+        means: "Call for assistance.",
+        move: "This may alert staff or call for help. Save it for when you really need assistance.",
+      },
+    ],
+    stuck:
+      "Press 止. That is the universal escape button for the wash functions. If nothing happens when you press a wash button, sit properly on the seat; many toilets use a seat sensor. If you hear flushing sounds but the toilet has not actually flushed, you may have activated the privacy sound. Look for a separate 流す button, lever, or sensor.",
+    note:
+      "The privacy-sound feature is often associated with the name Otohime, or “Sound Princess.” It was developed because some people repeatedly flushed real water to cover bathroom sounds. Playing a recording provided the same privacy while using less water. A Japanese toilet may be the only travel experience where getting sprayed unexpectedly still counts as cultural discovery.",
+  },
+  {
+    slug: "ryokan-futon",
+    title: "Why Did a Futon Appear While You Were at Dinner?",
+    categoryCardTitle: "Stay at a ryokan",
+    categoryCardDescription: "Your room may turn into a bedroom while you eat.",
+    category: "relax",
+    meta: "A traditional ryokan room may have no bed when you arrive, then change while you are at dinner. Learn how meals, baths, yukata, and futon preparation fit together.",
+    intro: [
+      "When you first enter a ryokan room, you may wonder where the bed is. There is tatami flooring, a low table, tea, and perhaps a lovely view—but no bed.",
+      "Then you leave for dinner and return to find futons waiting on the floor. Your room has changed genres while you were eating.",
+    ],
+    firstMove: "At check-in, confirm the meal and bath times. The room—and the futon—will usually follow the ryokan’s schedule.",
+    steps: [
+      "Confirm when and where dinner is served.",
+      "Check the bathing hours.",
+      "Look in the room for a yukata and towels.",
+      "While you are at dinner, staff may prepare the futon.",
+      "Remember that every ryokan has its own routine.",
+    ],
+    sayShow: [
+      {
+        use: "Use when you want to confirm the dinner time.",
+        romaji: "Yuushoku wa nanji desu ka?",
+        japanese: "夕食は何時ですか？",
+        english: "What time is dinner?",
+      },
+      {
+        use: "Use when you want to check the bathing hours.",
+        romaji: "Ofuro wa nanji made desu ka?",
+        japanese: "お風呂は何時までですか？",
+        english: "Until what time is the bath open?",
+      },
+      {
+        use: "Use when the room system is unclear.",
+        romaji: "Futon wa jibun de shikimasu ka?",
+        japanese: "布団は自分で敷きますか？",
+        english: "Do I lay out the futon myself?",
+      },
+    ],
+    staff: [
+      {
+        japanese: "お食事の間にお布団を敷きます。",
+        romaji: "Oshokuji no aida ni ofuton o shikimasu.",
+        means: "We will prepare your futon while you are having dinner.",
+        move: "Leave the room normally and enjoy your meal.",
+      },
+      {
+        japanese: "浴衣はお部屋にあります。",
+        romaji: "Yukata wa oheya ni arimasu.",
+        means: "The yukata is in your room.",
+        move: "Check the closet, drawer, or basket.",
+      },
+      {
+        japanese: "夕食は六時からです。",
+        romaji: "Yuushoku wa rokuji kara desu.",
+        means: "Dinner starts at six.",
+        move: "Arrive at the dining room or be ready in your room at that time.",
+      },
+    ],
+    stuck:
+      "Ryokan routines vary. Meals may be served in your room or in a dining area, and some places ask guests to prepare their own futons. Ask at check-in. This is not a test of whether you secretly understand traditional Japanese hospitality.",
+    note:
+      "A traditional tatami room is not permanently a bedroom. During the day it can be a sitting room. At dinner it may become a private dining room. At night, the table moves and the futons come out. The bed did not arrive late—the room simply was not finished becoming a bedroom yet.",
+  },
+  {
     slug: "local-bus",
     title: "How to Ride a Local Bus in Japan",
     categoryCardTitle: "Ride a local bus",
@@ -976,6 +1115,138 @@ const guides = [
       "If you are not sure, ask staff or skip the photo. If someone corrects you, stop right away and lower your camera.",
     note:
       "Photo rules can change by room, object, or ceremony. A nearby sign matters more than what other people are doing.",
+  },
+  {
+    slug: "irasshaimase",
+    title: "You Don’t Have to Answer “Irasshaimase”",
+    categoryCardTitle: "Hear “irasshaimase”",
+    categoryCardDescription: "The shop greeting sounds like a question. It isn’t.",
+    category: "culture",
+    meta: "When shop staff in Japan call out irasshaimase, they are welcoming you—not waiting for an answer. Learn when to keep browsing and when a real conversation begins.",
+    intro: [
+      "You walk into a shop in Japan. Suddenly, someone calls out, “Irasshaimase!” Then another staff member says it. Then someone at the back says it too.",
+      "You have not activated a side quest. Nobody is waiting for your answer.",
+    ],
+    firstMove: "Keep walking into the shop and look around. A small smile or nod is optional; a spoken reply is not required.",
+    steps: [
+      "Enter the shop normally.",
+      "Treat “irasshaimase” as a welcome, not a question.",
+      "Look around at your own pace.",
+      "Respond when a staff member speaks to you directly.",
+    ],
+    sayShow: [
+      {
+        use: "Use if staff asks whether you need help.",
+        romaji: "Mite iru dake desu.",
+        japanese: "見ているだけです。",
+        english: "I’m just looking.",
+      },
+      {
+        use: "Point to the item while saying this.",
+        romaji: "Kore o kudasai.",
+        japanese: "これをください。",
+        english: "This one, please.",
+      },
+      {
+        use: "Use when staff helps you or completes your purchase.",
+        romaji: "Arigatou gozaimasu.",
+        japanese: "ありがとうございます。",
+        english: "Thank you.",
+      },
+    ],
+    staff: [
+      {
+        japanese: "いらっしゃいませ。",
+        romaji: "Irasshaimase.",
+        means: "Welcome.",
+        move: "Enter and look around. No formal reply is expected.",
+      },
+      {
+        japanese: "何かお探しですか？",
+        romaji: "Nanika osagashi desu ka?",
+        means: "Are you looking for something?",
+        move: "Show the item, photo, or name—or say you are just looking.",
+      },
+      {
+        japanese: "ごゆっくりご覧ください。",
+        romaji: "Go-yukkuri goran kudasai.",
+        means: "Please take your time looking around.",
+        move: "Continue browsing. The conversation is finished for now.",
+      },
+    ],
+    stuck:
+      "If you cannot tell whether staff is speaking to you personally, look for eye contact or a direct question. “Irasshaimase” may float across the whole shop. A question usually lands on one customer.",
+    note:
+      "In English, a greeting often creates a tiny obligation: someone says hello, so you say hello back. “Irasshaimase” welcomes you without giving you homework. You may enter, hear it, say nothing, and continue peacefully toward the snacks.",
+  },
+  {
+    slug: "sumimasen",
+    title: "Why Does “Sumimasen” Mean So Many Things?",
+    categoryCardTitle: "Use “sumimasen”",
+    categoryCardDescription: "“Sorry,” “excuse me,” and sometimes even “thank you.”",
+    category: "culture",
+    meta: "Sumimasen can mean sorry, excuse me, or even carry a feeling of thanks. Learn why this useful Japanese word changes with the situation.",
+    intro: [
+      "In Japan, one word seems to follow you everywhere. Someone brushes past you: “Sumimasen.” You call a waiter: “Sumimasen.” A stranger helps with your suitcase: somehow, “sumimasen” appears again.",
+      "Is it “sorry,” “excuse me,” or “thank you”? Conveniently, it can be all three.",
+    ],
+    firstMove: "When you need someone’s attention, begin with “sumimasen.” The situation will usually explain the rest.",
+    steps: [
+      "Say “sumimasen” to get someone’s attention.",
+      "Add your question or request.",
+      "Use it for a small apology, such as bumping into someone.",
+      "After someone helps you, add “arigatou gozaimasu” for a clear thank-you.",
+    ],
+    sayShow: [
+      {
+        use: "Use it to get attention or acknowledge a small inconvenience.",
+        romaji: "Sumimasen.",
+        japanese: "すみません。",
+        english: "Excuse me, or sorry.",
+      },
+      {
+        use: "Show a name, photo, or map while asking.",
+        romaji: "Sumimasen, kore wa doko desu ka?",
+        japanese: "すみません、これはどこですか？",
+        english: "Excuse me, where is this?",
+      },
+      {
+        use: "Use when you did not understand what someone said.",
+        romaji: "Sumimasen, mou ichido onegaishimasu.",
+        japanese: "すみません、もう一度お願いします。",
+        english: "Sorry, one more time, please.",
+      },
+      {
+        use: "Use when someone goes out of their way to help.",
+        romaji: "Sumimasen. Arigatou gozaimasu.",
+        japanese: "すみません。ありがとうございます。",
+        english: "Sorry for the trouble. Thank you.",
+      },
+    ],
+    staff: [
+      {
+        japanese: "すみません、通ります。",
+        romaji: "Sumimasen, toorimasu.",
+        means: "Excuse me, I’m coming through.",
+        move: "Make a little space if needed.",
+      },
+      {
+        japanese: "お待たせしてすみません。",
+        romaji: "Omatase shite sumimasen.",
+        means: "Sorry to keep you waiting.",
+        move: "Staff is acknowledging the wait. No special response is required.",
+      },
+      {
+        japanese: "すみません、ちょっと……",
+        romaji: "Sumimasen, chotto…",
+        means: "Sorry, that may be difficult…",
+        move: "The unfinished sentence may be a soft way of saying the request is not possible.",
+      },
+    ],
+    stuck:
+      "Do not worry about choosing the perfect English translation. The person, place, and timing do most of the work. At a counter it may mean “excuse me.” After a mistake it sounds like “sorry.” After someone helps, it can carry a feeling close to “thank you for the trouble.”",
+    note:
+      "“Sumimasen” is less like one English word and more like a small social cushion. It acknowledges that you have entered someone else’s space, attention, or effort. That is why the same word can open a question, soften an apology, and finish an act of kindness.",
   },
   {
     slug: "pharmacy",
@@ -5359,6 +5630,8 @@ function renderGuide(slug) {
 
   document.title = `${guide.title} | Japan First Move`;
   const introIcon = guideIntroIconMarkup(guide);
+  const hasDontSection = Array.isArray(guide.dont) && guide.dont.length > 0;
+  const hasSayShowSection = Array.isArray(guide.sayShow) && guide.sayShow.length > 0;
   app.innerHTML = `
     <div class="page-shell guide-page layout-container category-${guide.category} guide-${guide.slug}">
       <header class="guide-page-header content-container">
@@ -5383,26 +5656,35 @@ function renderGuide(slug) {
             <ol>${guide.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}</ol>
             ${guide.tip ? `<div class="guide-tip"><strong>Tip</strong><p>${escapeHtml(guide.tip)}</p></div>` : ""}
           </section>
-          <section class="article-section dont-section content-container" id="dont">
-            ${guideSectionHeading("Don’t Do This")}
-            <div class="dont-list">${guide.dont
-              .map(
-                (item) => `<div class="dont-item"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.body)}</p></div>`,
-              )
-              .join("")}</div>
-          </section>
-          <section class="article-section communication-section say-show-section content-container" id="say-show">
-            <div class="communication-heading">
-              <img class="communication-heading-icon" src="/assets/section-icons/icon-say-or-show-this.png" alt="" loading="lazy" decoding="async">
-              <div class="communication-heading-copy">
-                ${guideSectionHeading("Say or show this")}
-                <p class="section-intro">Use these phrases to speak or point when you need help.</p>
-              </div>
-            </div>
-            <div class="phrase-grid">
-              ${guide.sayShow.map(phraseCard).join("")}
-            </div>
-          </section>
+          ${
+            hasDontSection
+              ? `<section class="article-section dont-section content-container" id="dont">
+                  ${guideSectionHeading("Don’t Do This")}
+                  <div class="dont-list">${guide.dont
+                    .map(
+                      (item) =>
+                        `<div class="dont-item"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.body)}</p></div>`,
+                    )
+                    .join("")}</div>
+                </section>`
+              : ""
+          }
+          ${
+            hasSayShowSection
+              ? `<section class="article-section communication-section say-show-section content-container" id="say-show">
+                  <div class="communication-heading">
+                    <img class="communication-heading-icon" src="/assets/section-icons/icon-say-or-show-this.png" alt="" loading="lazy" decoding="async">
+                    <div class="communication-heading-copy">
+                      ${guideSectionHeading("Say or show this")}
+                      <p class="section-intro">Use these phrases to speak or point when you need help.</p>
+                    </div>
+                  </div>
+                  <div class="phrase-grid">
+                    ${guide.sayShow.map(phraseCard).join("")}
+                  </div>
+                </section>`
+              : ""
+          }
           <section class="article-section communication-section staff-section content-container" id="staff">
             <div class="communication-heading">
               <img class="communication-heading-icon" src="/assets/section-icons/icon-if-you-see-or-hear-this.png" alt="" loading="lazy" decoding="async">
@@ -5442,8 +5724,8 @@ function renderGuide(slug) {
           <nav class="toc" aria-label="Guide sections">
             <button type="button" data-scroll-to="first-move">First Move</button>
             <button type="button" data-scroll-to="steps">Quick steps</button>
-            <button type="button" data-scroll-to="dont">Don’t Do This</button>
-            <button type="button" data-scroll-to="say-show">Say or Show This</button>
+            ${hasDontSection ? '<button type="button" data-scroll-to="dont">Don’t Do This</button>' : ""}
+            ${hasSayShowSection ? '<button type="button" data-scroll-to="say-show">Say or Show This</button>' : ""}
             <button type="button" data-scroll-to="staff">If You See or Hear This</button>
             <button type="button" data-scroll-to="stuck">If You’re Stuck</button>
           </nav>

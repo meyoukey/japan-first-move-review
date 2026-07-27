@@ -15,6 +15,14 @@ Check Cloudflare and Stripe:
 3. At the end of the launch day.
 4. The next morning.
 
+## Before the production deployment
+
+Record the deployment that is currently working:
+
+- Last known-good commit:
+- Cloudflare production deployment URL or ID:
+- Verified at (JST):
+
 ## If the payment page does not open
 
 Check Cloudflare first.
@@ -69,6 +77,16 @@ Consider restoring the last known-good production deployment when:
 - Production Function errors repeat after configuration has been checked.
 
 Do not change Stripe keys or payment settings blindly. First confirm whether the failure is in Cloudflare, Stripe, or the current deployment.
+
+To restore the recorded deployment:
+
+1. Open **Workers & Pages** in the Cloudflare Dashboard.
+2. Select the Japan First Move Pages project, then open **Deployments**.
+3. In **All deployments**, open the actions menu for the recorded production deployment.
+4. Select **Rollback to this deployment** and confirm.
+5. Verify the production site and payment flow again.
+
+Only a successful production deployment can be used as a rollback target. Do not select a preview deployment.
 
 ## Launch check result
 
