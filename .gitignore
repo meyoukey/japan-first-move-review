@@ -75,6 +75,10 @@ assets/*
 !assets/icons/**
 !assets/favicon/
 !assets/favicon/**
+!assets/fonts/
+assets/fonts/*
+!assets/fonts/bricolage-grotesque-latin.woff2
+!assets/fonts/OFL-Bricolage-Grotesque.txt
 !assets/ogp/
 !assets/ogp/**
 !assets/section-icons/

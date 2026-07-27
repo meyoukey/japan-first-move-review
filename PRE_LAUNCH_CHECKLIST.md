@@ -56,7 +56,7 @@ Planned production launch: July 31, 2026
 ## Security, privacy, and reliability
 
 - [ ] Add and verify production security headers, including a practical Content Security Policy, clickjacking protection, and Permissions Policy.
-- [ ] Self-host the Google font and `html2canvas`, or document and secure the external dependencies appropriately.
+- [x] Self-host the Google font and `html2canvas`, or document and secure the external dependencies appropriately.
 - [ ] Confirm no secret keys, test keys, personal data, or Stripe session IDs appear in Git, page source, browser storage longer than required, or analytics reports.
 - [x] Confirm API errors show a useful customer-facing message and do not expose internal details.
 - [ ] Confirm Cloudflare deployment and Stripe failures can be identified from logs, and document who will check them after launch.
