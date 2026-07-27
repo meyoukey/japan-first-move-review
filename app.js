@@ -4727,7 +4727,7 @@ function customFoodCardStepThreeMarkup() {
         <header class="custom-purchase-review-header">
           <div>
             <h3>Custom Food Card</h3>
-            <p>Digital product · One-time purchase</p>
+            <p>1 Custom Food Card · One-time purchase</p>
           </div>
         </header>
         <div class="custom-purchase-review-items">
@@ -4737,7 +4737,7 @@ function customFoodCardStepThreeMarkup() {
           </div>
           <div class="custom-purchase-review-item">
             <span>What you get</span>
-            <p>Create a clear Japanese food communication card with simple replies staff can point to. Show it on your device, save it as an image, or share it.</p>
+            <p>Available immediately after payment. Create one Japanese food communication card to show, save, or share.</p>
           </div>
           <div class="custom-purchase-review-item">
             <span>Refunds and cancellations</span>
@@ -4766,7 +4766,7 @@ function customFoodCardStepThreeMarkup() {
         <button class="button secondary" type="button" data-custom-back>Back</button>
         <button class="button primary" type="button" data-custom-create ${canProceedToPayment ? "" : "disabled"}>${checkoutButtonText}</button>
       </div>
-      <p class="custom-terms-copy">Payment is processed securely through Stripe.</p>
+      <p class="custom-terms-copy">One-time payment is charged securely through Stripe.</p>
       ${customFoodCardState.checkoutMessage ? `<p class="custom-checkout-status" role="status" aria-live="polite">${escapeHtml(customFoodCardState.checkoutMessage)}</p>` : ""}
       ${customFoodCardState.checkoutError ? `<div class="custom-selection-error" role="alert">${escapeHtml(customFoodCardState.checkoutError)}</div>` : ""}
     </div>
