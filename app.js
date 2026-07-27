@@ -1232,7 +1232,7 @@ const guides = [
     note:
       "Hotel, station, and facility staff may not provide medical advice, but they can often help you contact someone who can.",
     safetyNote:
-      "This guide is for general travel help only. If symptoms feel serious or urgent, ask nearby staff or emergency services for help right away.",
+      "Serious or urgent? Ask for help or call 119.",
   },
   {
     slug: "lost-something",
@@ -3096,7 +3096,7 @@ function renderHelpCategory() {
 
       <section class="help-alert" aria-label="Urgent help note">
         <strong>If it feels urgent, get help right away.</strong>
-        <p>Ask staff, your hotel, travel insurance, or emergency services.</p>
+        <p>Emergency: Police 110 · Fire/Ambulance 119 · <a href="https://www.japan.travel/en/plan/hotline/" target="_blank" rel="noopener noreferrer">JNTO visitor help</a></p>
       </section>
 
       <section class="help-section" aria-labelledby="help-guides-title">
