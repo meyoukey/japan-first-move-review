@@ -16,6 +16,6 @@
   summary,
   [tabindex]:not([tabindex="-1"])
 ):focus-visible {
-  outline: 2px solid #a65d74;
+  outline: 2px solid #6f7e8c;
   outline-offset: 3px;
 }
