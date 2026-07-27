@@ -134,6 +134,30 @@ const pages = [
       "At some yakiniku, shabu-shabu, sukiyaki, and okonomiyaki restaurants in Japan, cooking is part of the meal. Learn how to tell when it is your turn.",
   },
   {
+    path: "/guides/three-step-onigiri",
+    title: "Why Does an Onigiri Need Three Steps to Open? | Japan First Move",
+    description:
+      "Why do some Japanese onigiri wrappers have three numbered steps? Learn how the package keeps the seaweed crisp and how to open it.",
+  },
+  {
+    path: "/guides/empty-coffee-cup",
+    title: "Why Did the Cashier Give Me an Empty Coffee Cup? | Japan First Move",
+    description:
+      "Why did a Japanese convenience store give you an empty coffee cup? Match the cup with the self-service machine and finish making your drink.",
+  },
+  {
+    path: "/guides/konbini-egg-sandwich",
+    title: "Why Is Everyone Talking About the Konbini Egg Sandwich? | Japan First Move",
+    description:
+      "Why is the Japanese convenience-store egg sandwich so popular? Find the classic version, recognize the label, and try the konbini favorite.",
+  },
+  {
+    path: "/guides/hot-snacks",
+    title: "Why Is the Best Snack Hiding Behind the Register? | Japan First Move",
+    description:
+      "How do you order hot snacks from behind the register at a Japanese convenience store? Point, use one simple phrase, and enjoy fried chicken, croquettes, or steamed buns.",
+  },
+  {
     path: "/guides/onsen-sento",
     title: "What to Do First at an Onsen or Sento | Japan First Move",
     description:

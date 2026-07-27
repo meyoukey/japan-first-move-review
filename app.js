@@ -411,6 +411,285 @@ const guides = [
       "At these restaurants, cooking is not unfinished service. It is part of the experience. The table becomes a small shared kitchen, and the meal gives everyone something to do while they talk. You did not accidentally enter the staff area. The staff area came to you.",
   },
   {
+    slug: "three-step-onigiri",
+    title: "Why Does an Onigiri Need Three Steps to Open?",
+    categoryCardTitle: "Three-Step Onigiri",
+    categoryCardDescription: "Open a rice ball without losing the seaweed—or your confidence.",
+    category: "food",
+    meta: "Why do some Japanese onigiri wrappers have three numbered steps? Learn how the package keeps the seaweed crisp and how to open it.",
+    intro: [
+      "You bought one of Japan’s simplest foods: rice, filling, and seaweed. So why does the wrapper look like a three-stage escape puzzle?",
+      "The numbers keep the rice and seaweed apart until the last possible moment, so the seaweed stays crisp.",
+    ],
+    firstMove: "Find the numbers on the wrapper and follow them in order: 1, 2, then 3.",
+    steps: [
+      "Pull tab 1 down and around.",
+      "Slide out sides 2 and 3.",
+      "Fold the seaweed around the rice.",
+    ],
+    tip: "Packaging varies, so follow the arrows printed on the onigiri in front of you.",
+    staff: [
+      {
+        japanese: "1・2・3",
+        romaji: "Ichi, ni, san",
+        means: "The order for opening the wrapper.",
+        move: "Start with 1, even if tab 3 looks more interesting.",
+      },
+      {
+        japanese: "こちらからお開けください",
+        romaji: "Kochira kara oake kudasai",
+        means: "Open from here.",
+        move: "Look for the arrow beside it.",
+      },
+      {
+        japanese: "のり",
+        romaji: "Nori",
+        means: "Seaweed.",
+        move: "The wrapper may be keeping it separate from the rice.",
+      },
+      {
+        japanese: "鮭",
+        romaji: "Sake",
+        means: "Salmon.",
+        move: "A classic onigiri filling.",
+      },
+      {
+        japanese: "ツナマヨ",
+        romaji: "Tsuna mayo",
+        means: "Tuna mayonnaise.",
+        move: "One of the easiest fillings to recognize.",
+      },
+      {
+        japanese: "梅",
+        romaji: "Ume",
+        means: "Pickled plum.",
+        move: "Small, sour, salty, and much more dramatic than it looks.",
+      },
+    ],
+    stuck:
+      "Put the onigiri down and look for the printed numbers again. If the wrapper tears, simply wrap the seaweed around the rice yourself. It may no longer look engineered, but it will still taste like lunch.",
+    note:
+      "The wrapper solves a very specific problem: rice is moist, but many people want the seaweed crisp. Instead of choosing one texture, the package lets you combine them at the final moment. It is less like opening a snack and more like completing a tiny food project.",
+  },
+  {
+    slug: "empty-coffee-cup",
+    title: "Why Did the Cashier Give Me an Empty Coffee Cup?",
+    categoryCardTitle: "Empty Coffee Cup",
+    categoryCardDescription: "Turn the empty cup into convenience-store coffee.",
+    category: "food",
+    meta: "Why did a Japanese convenience store give you an empty coffee cup? Match the cup with the self-service machine and finish making your drink.",
+    intro: [
+      "You ordered coffee. You paid for coffee. The cashier handed you an empty cup.",
+      "This may feel like the shortest café scam in history, but the coffee is usually waiting at a self-service machine nearby.",
+    ],
+    firstMove: "Check the drink type and size on your cup, then find the matching option on the coffee machine.",
+    steps: [
+      "Match the cup’s type and size with the machine.",
+      "Place the cup under the nozzle and press the matching option.",
+      "Add a lid, sugar, or milk.",
+    ],
+    tip:
+      "For iced coffee, some stores have cups filled with ice in a freezer. The exact system varies, so let the cup and machine labels guide you.",
+    sayShow: [
+      {
+        use: "Use while pointing to a machine option.",
+        romaji: "Kono botan de ii desu ka?",
+        japanese: "このボタンでいいですか？",
+        english: "Is this the right button?",
+      },
+      {
+        use: "Use at the register.",
+        romaji: "Hotto koohii o hitotsu onegaishimasu.",
+        japanese: "ホットコーヒーを一つお願いします。",
+        english: "One hot coffee, please.",
+      },
+      {
+        use: "Use when you have the cup but cannot find the coffee.",
+        romaji: "Koohii mashin wa doko desu ka?",
+        japanese: "コーヒーマシンはどこですか？",
+        english: "Where is the coffee machine?",
+      },
+    ],
+    staff: [
+      {
+        japanese: "ホット",
+        romaji: "Hotto",
+        means: "Hot.",
+        move: "Match this with a hot-drink cup.",
+      },
+      {
+        japanese: "アイス",
+        romaji: "Aisu",
+        means: "Iced.",
+        move: "Look for a cup containing ice.",
+      },
+      {
+        japanese: "レギュラー / R",
+        romaji: "Regyuraa",
+        means: "Regular size.",
+        move: "Match the letter or size shown on your cup.",
+      },
+      {
+        japanese: "ラージ / L",
+        romaji: "Raaji",
+        means: "Large size.",
+        move: "Check that your cup is also marked L.",
+      },
+      {
+        japanese: "カフェラテ",
+        romaji: "Kafe rate",
+        means: "Café latte.",
+        move: "Check that this is the drink you ordered.",
+      },
+      {
+        japanese: "濃いめ",
+        romaji: "Koime",
+        means: "Stronger.",
+        move: "Choose this if you want a stronger taste.",
+      },
+    ],
+    stuck:
+      "Compare the words or symbols on the cup with the machine screen. If it is still unclear, show the cup to the cashier and point to the machine. Convenience-store coffee sometimes comes with two-step authentication: first the cashier, then the coffee machine.",
+    note:
+      "The cashier handles the purchase, the machine handles the brewing, and you perform the final step. The empty cup is not a mistake. It is an invitation to finish making your own coffee.",
+  },
+  {
+    slug: "konbini-egg-sandwich",
+    title: "Why Is Everyone Talking About the Konbini Egg Sandwich?",
+    categoryCardTitle: "Konbini Egg Sandwich",
+    categoryCardDescription: "Meet the quiet sandwich with the very loud fan club.",
+    category: "food",
+    meta: "Why is the Japanese convenience-store egg sandwich so popular? Find the classic version, recognize the label, and try the konbini favorite.",
+    intro: [
+      "You came to Japan expecting sushi, ramen, and perhaps a beautifully arranged traditional meal. Then someone tells you to visit a convenience store and buy a pale sandwich made with eggs.",
+      "The egg sandwich may be one of the quietest-looking foods in the store, but its fan club is surprisingly loud.",
+    ],
+    firstMove: "Look for たまごサンド in the refrigerated sandwich section and start with the classic version.",
+    steps: [
+      "Find たまごサンド in the refrigerated case.",
+      "Start with the classic creamy version.",
+      "Try another store’s version later—for research.",
+    ],
+    staff: [
+      {
+        japanese: "たまごサンド",
+        romaji: "Tamago sando",
+        means: "Egg sandwich.",
+        move: "This is the classic name to look for.",
+      },
+      {
+        japanese: "たまご",
+        romaji: "Tamago",
+        means: "Egg.",
+        move: "Useful when scanning the sandwich labels.",
+      },
+      {
+        japanese: "厚焼き玉子",
+        romaji: "Atsuyaki tamago",
+        means: "Thick Japanese omelet.",
+        move: "Expect a firmer, more omelet-like filling.",
+      },
+      {
+        japanese: "だし巻き",
+        romaji: "Dashimaki",
+        means: "Rolled omelet made with dashi.",
+        move: "It may be softer and more savory than a typical egg sandwich.",
+      },
+      {
+        japanese: "消費期限",
+        romaji: "Shoohi kigen",
+        means: "Use-by date.",
+        move: "Check this when buying refrigerated food.",
+      },
+    ],
+    stuck:
+      "Stock varies by store and time of day. If the egg sandwiches are gone, try another convenience store or return later. Opening a second branch of your egg-sandwich investigation is a perfectly valid travel decision.",
+    note:
+      "The egg sandwich shows how seriously Japanese convenience stores can take an ordinary food. There is no dramatic presentation or complicated eating method. The surprise is how much attention can fit between two very soft slices of bread.",
+  },
+  {
+    slug: "hot-snacks",
+    title: "Why Is the Best Snack Hiding Behind the Register?",
+    categoryCardTitle: "Hot Snacks",
+    categoryCardDescription: "Order fried chicken, croquettes, or steamed buns from the warm case.",
+    category: "food",
+    meta: "How do you order hot snacks from behind the register at a Japanese convenience store? Point, use one simple phrase, and enjoy fried chicken, croquettes, or steamed buns.",
+    intro: [
+      "You have already chosen your drink and snacks when you notice fried chicken, croquettes, and steamed buns sitting in a warm display beside the cashier.",
+      "They look close enough to choose but just far enough away to create a new question: How do I get one of those?",
+    ],
+    firstMove: "Point to the item in the heated display and say, “Kore o hitotsu kudasai.”",
+    steps: [
+      "Choose something from the heated display.",
+      "Point and say, “Kore o hitotsu kudasai.”",
+      "Let the cashier bag it, then enjoy.",
+    ],
+    tip:
+      "The selection changes by store, time, and season. An empty space may simply mean that today’s popular snack was faster than you.",
+    sayShow: [
+      {
+        use: "Point to the item while saying it.",
+        romaji: "Kore o hitotsu kudasai.",
+        japanese: "これを一つください。",
+        english: "One of these, please.",
+      },
+      {
+        use: "Use when the item is easy to identify.",
+        romaji: "Furaido chikin o hitotsu onegaishimasu.",
+        japanese: "フライドチキンを一つお願いします。",
+        english: "One fried chicken, please.",
+      },
+      {
+        use: "Use when you cannot see one in the case.",
+        romaji: "Nikuman wa arimasu ka?",
+        japanese: "肉まんはありますか？",
+        english: "Do you have nikuman?",
+      },
+      {
+        use: "Use when one hot snack has somehow become two.",
+        romaji: "Futatsu kudasai.",
+        japanese: "二つください。",
+        english: "Two, please.",
+      },
+    ],
+    staff: [
+      {
+        japanese: "フライドチキン",
+        romaji: "Furaido chikin",
+        means: "Fried chicken.",
+        move: "A classic convenience-store hot snack.",
+      },
+      {
+        japanese: "からあげ",
+        romaji: "Karaage",
+        means: "Japanese fried chicken.",
+        move: "Usually smaller pieces rather than one large fillet.",
+      },
+      {
+        japanese: "肉まん",
+        romaji: "Nikuman",
+        means: "Steamed bun with a savory meat filling.",
+        move: "Especially tempting on a cold day.",
+      },
+      {
+        japanese: "コロッケ",
+        romaji: "Korokke",
+        means: "Croquette.",
+        move: "Usually crispy outside and soft inside.",
+      },
+      {
+        japanese: "売り切れ",
+        romaji: "Urikire",
+        means: "Sold out.",
+        move: "Choose another snack and begin a new favorite.",
+      },
+    ],
+    stuck:
+      "Point through the display and hold up one finger. You do not need to know the product’s full Japanese name. At the hot-snack counter, pointing is not a backup plan. It is fully supported ordering technology.",
+    note:
+      "The hot display turns a convenience store into a tiny kitchen. You can walk in for a bottle of water and leave with hot fried chicken or a steamed bun you had not planned to meet. That is part of the danger—and the charm—of the Japanese konbini.",
+  },
+  {
     slug: "onsen-sento",
     title: "What to Do First at an Onsen or Sento",
     categoryCardTitle: "Use an onsen or sento",
@@ -3016,6 +3295,26 @@ const foodFirstMoveCards = [
     ...guideMap["cook-at-table"],
     cardTitle: "Cook at the table",
     cardDescription: "Check whether dinner has promoted you to chef.",
+  },
+  {
+    ...guideMap["three-step-onigiri"],
+    cardTitle: "Three-Step Onigiri",
+    cardDescription: "Open a rice ball without losing the seaweed—or your confidence.",
+  },
+  {
+    ...guideMap["empty-coffee-cup"],
+    cardTitle: "Empty Coffee Cup",
+    cardDescription: "Turn the empty cup into convenience-store coffee.",
+  },
+  {
+    ...guideMap["konbini-egg-sandwich"],
+    cardTitle: "Konbini Egg Sandwich",
+    cardDescription: "Meet the quiet sandwich with the very loud fan club.",
+  },
+  {
+    ...guideMap["hot-snacks"],
+    cardTitle: "Hot Snacks",
+    cardDescription: "Order something warm from behind the register.",
   },
   {
     slug: "food-cards",
