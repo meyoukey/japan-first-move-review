@@ -2185,8 +2185,10 @@ const customFoodCardPriceText = "One-time purchase: USD $7.99";
 const customFoodCardDraftStorageKey = "jfmCustomFoodCardDraft";
 const customFoodCardCheckoutStorageKey = "jfmCustomFoodCardCheckoutDraft";
 const customFoodCardCheckoutCancelledReturnStorageKey = "jfmCustomFoodCardCheckoutCancelledReturn";
+const customFoodCardCheckoutVerifiedReturnStorageKey = "jfmCustomFoodCardCheckoutVerifiedReturn";
 const customFoodCardPurchaseTrackedStoragePrefix = "jfmCustomFoodCardPurchaseTracked:";
 const customFoodCardCheckoutReturnSessionStorageKey = "jfmCheckoutReturnSessionId";
+let customFoodCardVerifiedReturnRendered = false;
 
 const movePhraseCards = [
   {
@@ -3899,6 +3901,28 @@ function customFoodCardConsumeCheckoutCancelledReturn() {
   }
 }
 
+function customFoodCardMarkCheckoutVerifiedReturn(purchaseAttemptId) {
+  if (typeof purchaseAttemptId !== "string" || !purchaseAttemptId) {
+    return false;
+  }
+  try {
+    window.sessionStorage.setItem(customFoodCardCheckoutVerifiedReturnStorageKey, purchaseAttemptId);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function customFoodCardConsumeCheckoutVerifiedReturn() {
+  try {
+    const purchaseAttemptId = window.sessionStorage.getItem(customFoodCardCheckoutVerifiedReturnStorageKey) || "";
+    window.sessionStorage.removeItem(customFoodCardCheckoutVerifiedReturnStorageKey);
+    return purchaseAttemptId;
+  } catch {
+    return "";
+  }
+}
+
 function customFoodCardRestoreCheckoutSnapshot(snapshot) {
   if (!snapshot || typeof snapshot !== "object") {
     return false;
@@ -4005,6 +4029,44 @@ function startCustomFoodCardCancelled({ returnToPreCheckoutPage = false } = {}) 
   renderCustomFoodCard();
 }
 
+function customFoodCardShowVerifiedCard(draft) {
+  if (!draft) {
+    return false;
+  }
+  resetCustomFoodCardState();
+  if (!customFoodCardRestoreCheckoutSnapshot(draft.snapshot)) {
+    return false;
+  }
+
+  customFoodCardClearDraft();
+  customFoodCardClearCheckoutDraft();
+  customFoodCardClearCheckoutReturnSessionId();
+  customFoodCardSetCheckoutFeedback("verified");
+  customFoodCardState.step = 4;
+  renderCustomFoodCard();
+  window.scrollTo(0, 0);
+  return true;
+}
+
+function customFoodCardShowVerifiedReturn() {
+  const isCustomFoodCardBuilder = window.location.pathname.replace(/\/+$/, "") === "/food-card/custom";
+  if (!isCustomFoodCardBuilder) {
+    return false;
+  }
+
+  const verifiedPurchaseAttemptId = customFoodCardConsumeCheckoutVerifiedReturn();
+  const checkoutDraft = customFoodCardLoadCheckoutDraft();
+  if (
+    !verifiedPurchaseAttemptId
+    || checkoutDraft?.purchaseAttemptId !== verifiedPurchaseAttemptId
+  ) {
+    return false;
+  }
+
+  window.history.pushState({}, "", "/food-card/custom/");
+  return customFoodCardShowVerifiedCard(checkoutDraft);
+}
+
 async function startCustomFoodCardSuccess() {
   resetCustomFoodCardState();
   const sessionId = customFoodCardCheckoutReturnSessionId();
@@ -4028,13 +4090,16 @@ async function startCustomFoodCardSuccess() {
       throw new Error(result.error || "Payment could not be verified.");
     }
     customFoodCardTrackPurchase(draft.purchaseAttemptId);
-    customFoodCardClearDraft();
-    customFoodCardClearCheckoutDraft();
-    customFoodCardClearCheckoutReturnSessionId();
-    customFoodCardSetCheckoutFeedback("verified");
-    customFoodCardState.step = 4;
-    renderCustomFoodCard();
-    window.scrollTo(0, 0);
+    if (
+      window.history.length > 2
+      && customFoodCardMarkCheckoutVerifiedReturn(draft.purchaseAttemptId)
+    ) {
+      customFoodCardClearDraft();
+      customFoodCardClearCheckoutReturnSessionId();
+      window.history.go(-2);
+      return;
+    }
+    customFoodCardShowVerifiedCard(draft);
   } catch (error) {
     customFoodCardState.step = 3;
     customFoodCardSetCheckoutFeedback(
@@ -7055,10 +7120,24 @@ function router({ restoreCustomFoodCardDraft = false } = {}) {
 }
 
 window.addEventListener("popstate", () => {
+  if (customFoodCardVerifiedReturnRendered) {
+    customFoodCardVerifiedReturnRendered = false;
+    return;
+  }
+  if (customFoodCardShowVerifiedReturn()) {
+    return;
+  }
   router({ restoreCustomFoodCardDraft: false });
 });
 window.addEventListener("pageshow", () => {
   if (!customFoodCardConsumeCheckoutCancelledReturn()) {
+    if (customFoodCardShowVerifiedReturn()) {
+      customFoodCardVerifiedReturnRendered = true;
+      window.setTimeout(() => {
+        customFoodCardVerifiedReturnRendered = false;
+      }, 0);
+      return;
+    }
     const isCustomFoodCardBuilder = window.location.pathname.replace(/\/+$/, "") === "/food-card/custom";
     if (isCustomFoodCardBuilder && customFoodCardState.checkoutStatus === "preparing") {
       customFoodCardResetPendingCheckoutReturn();
