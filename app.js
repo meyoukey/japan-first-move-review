@@ -3278,6 +3278,27 @@ const categoryGuideIconBySlug = {
 
 const categoryMap = Object.fromEntries(categories.map((category) => [category.id, category]));
 const guideMap = Object.fromEntries(guides.map((guide) => [guide.slug, guide]));
+const convenienceStoreGuideSlugs = new Set([
+  "three-step-onigiri",
+  "empty-coffee-cup",
+  "konbini-egg-sandwich",
+  "hot-snacks",
+]);
+
+function convenienceStoreGuideLabelMarkup(guide) {
+  if (!guide || !convenienceStoreGuideSlugs.has(guide.slug)) return "";
+
+  return `
+    <span class="convenience-store-label">
+      <svg class="convenience-store-label-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+        <path d="M3.2 7.8h13.6V17H3.2z" fill="currentColor" opacity="0.22"></path>
+        <path d="M2.5 7.8 4.3 3h11.4l1.8 4.8M3.2 7.8h13.6V17H3.2zM7.3 17v-5.1h5.4V17M2.5 7.8h15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M4.1 7.8v1.1a1.6 1.6 0 0 0 3.2 0V7.8m0 0v1.1a1.6 1.6 0 0 0 3.2 0V7.8m0 0v1.1a1.6 1.6 0 0 0 3.2 0V7.8m0 0v1.1a1.6 1.6 0 0 0 3.2 0V7.8" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+      </svg>
+      <span>Convenience store</span>
+    </span>
+  `;
+}
 
 const foodFirstMoveCards = [
   {
@@ -3551,10 +3572,15 @@ function foodGuideCard(guide) {
   const href = guide.href ?? `/guides/${guide.slug}`;
   const title = guide.cardTitle ?? guide.title;
   const description = guide.cardDescription ?? guide.firstMove;
+  const convenienceStoreLabel = convenienceStoreGuideLabelMarkup(guide);
+  const convenienceStoreClass = convenienceStoreLabel ? " is-convenience-store-guide" : "";
   return `
-    <a class="guide-card food-guide-card category-${guide.category} guide-${guide.slug}" href="${href}">
+    <a class="guide-card food-guide-card category-${guide.category} guide-${guide.slug}${convenienceStoreClass}" href="${href}">
       <span class="food-guide-card-icon" aria-hidden="true">${iconMarkup}</span>
-      <h3>${escapeHtml(title)}</h3>
+      <span class="food-guide-card-heading">
+        ${convenienceStoreLabel}
+        <h3>${escapeHtml(title)}</h3>
+      </span>
       <div class="food-guide-card-first-move">
         <p>${escapeHtml(description)}</p>
       </div>
@@ -6329,13 +6355,16 @@ function renderGuide(slug) {
   const introIcon = guideIntroIconMarkup(guide);
   const hasDontSection = Array.isArray(guide.dont) && guide.dont.length > 0;
   const hasSayShowSection = Array.isArray(guide.sayShow) && guide.sayShow.length > 0;
+  const convenienceStoreLabel = convenienceStoreGuideLabelMarkup(guide);
+  const convenienceStoreClass = convenienceStoreLabel ? " is-convenience-store-guide" : "";
   app.innerHTML = `
-    <div class="page-shell guide-page layout-container category-${guide.category} guide-${guide.slug}">
+    <div class="page-shell guide-page layout-container category-${guide.category} guide-${guide.slug}${convenienceStoreClass}">
       <header class="guide-page-header content-container">
         <nav class="crumbs" aria-label="Breadcrumb">
           <a href="/">Home</a><span>/</span>
           <a href="${categoryHref(guide.category)}">${escapeHtml(categoryName(guide.category))}</a>
         </nav>
+        ${convenienceStoreLabel}
         <h1>${escapeHtml(guide.title)}</h1>
         <div class="guide-intro-card">
           ${introIcon}

@@ -404,7 +404,7 @@ ${robotsMarkup}
 
     <!-- Analytics consent must load before any analytics-dependent code. -->
     <script src="/analytics-consent.js?v=basic-consent-3"></script>
-    <link rel="stylesheet" href="/styles.css?v=css-modules-22" />
+    <link rel="stylesheet" href="/styles.css?v=css-modules-26" />
   </head>`;
 }
 
