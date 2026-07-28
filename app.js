@@ -3351,14 +3351,16 @@ const foodFirstMoveCards = [
     cardTitle: "Hot Snacks",
     cardDescription: "Order something warm from behind the register.",
   },
-  {
-    slug: "food-cards",
-    category: "food",
-    cardTitle: "Explain food needs",
-    cardDescription: "Show allergies, dietary needs, or ingredients to check before ordering.",
-    href: "/food-cards",
-  },
 ];
+
+const foodNeedsFeaturedCard = {
+  slug: "food-cards",
+  category: "food",
+  title: "Explain food needs",
+  description: "Show allergies, dietary needs, or ingredients to check.",
+  href: "/food-cards",
+};
+
 const foodCardMap = Object.fromEntries(foodCards.map((card) => [card.id, card]));
 const app = document.querySelector("#app");
 const siteHeader = document.querySelector(".site-header");
@@ -3583,6 +3585,21 @@ function foodGuideCard(guide) {
       </span>
       <div class="food-guide-card-first-move">
         <p>${escapeHtml(description)}</p>
+      </div>
+    </a>
+  `;
+}
+
+function foodNeedsFeaturedCardMarkup() {
+  return `
+    <a class="food-needs-featured-card" href="${foodNeedsFeaturedCard.href}" ${trackAttr("food_needs_featured_open")}>
+      <span class="food-needs-featured-card-icon" aria-hidden="true">
+        ${foodGuideIconMarkup(foodNeedsFeaturedCard)}
+      </span>
+      <div class="food-needs-featured-card-copy">
+        <span class="food-needs-featured-card-kicker">Food support</span>
+        <h3>${escapeHtml(foodNeedsFeaturedCard.title)}</h3>
+        <p>${escapeHtml(foodNeedsFeaturedCard.description)}</p>
       </div>
     </a>
   `;
@@ -3874,6 +3891,7 @@ function renderFoodCategory() {
           </div>
           <p>Choose what you need before ordering or during a meal.</p>
         </div>
+        ${foodNeedsFeaturedCardMarkup()}
         <div class="guide-grid">
           ${foodFirstMoveCards.map(foodGuideCard).join("")}
         </div>

@@ -711,6 +711,94 @@ body:has(#app) .site-footer .site-footer-note {
   }
 }
 
+/* Food landing: keep the food-needs tool visible before the growing guide list. */
+.food-page #food-first-moves .food-needs-featured-card {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem 1.1rem;
+  border: 0;
+  border-radius: var(--jfm-card-radius);
+  background: var(--color-card-bg);
+  box-shadow: var(--jfm-card-shadow);
+}
+
+.food-page #food-first-moves .food-needs-featured-card:hover,
+.food-page #food-first-moves .food-needs-featured-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(31, 41, 51, 0.08);
+}
+
+.food-page #food-first-moves .food-needs-featured-card-icon {
+  display: block;
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.food-page #food-first-moves .food-needs-featured-card-icon .food-guide-card-icon-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.food-page #food-first-moves .food-needs-featured-card-copy {
+  min-width: 0;
+}
+
+.food-page #food-first-moves .food-needs-featured-card-kicker {
+  display: block;
+  margin-bottom: 0.18rem;
+  color: #b94b6f;
+  font-size: 0.74rem;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.food-page #food-first-moves .food-needs-featured-card h3 {
+  margin: 0;
+  color: var(--color-text-main);
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.food-page #food-first-moves .food-needs-featured-card p {
+  margin: 0.35rem 0 0;
+  color: var(--color-text-sub);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.38;
+}
+
+@media (max-width: 760px) {
+  .food-page #food-first-moves .food-needs-featured-card {
+    grid-template-columns: 3.8rem minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.9rem;
+  }
+
+  .food-page #food-first-moves .food-needs-featured-card-icon {
+    width: 3.8rem;
+    height: 3.8rem;
+  }
+
+  .food-page #food-first-moves .food-needs-featured-card-kicker {
+    font-size: 0.68rem;
+  }
+
+  .food-page #food-first-moves .food-needs-featured-card h3 {
+    font-size: 1.08rem;
+  }
+
+  .food-page #food-first-moves .food-needs-featured-card p {
+    font-size: 0.84rem;
+    line-height: 1.35;
+  }
+}
+
 /* Food landing: guide links use icons; phrase cards stay reference-only. */
 .food-page .food-guide-card {
   overflow: hidden;
