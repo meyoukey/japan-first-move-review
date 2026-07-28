@@ -879,21 +879,21 @@ body:has(#app) .site-footer .site-footer-note {
 .convenience-store-label {
   display: inline-flex;
   align-items: center;
-  gap: 0.38rem;
+  gap: 0.28rem;
   width: fit-content;
-  padding: 0.26rem 0.58rem;
+  padding: 0.18rem 0.42rem;
   color: #1264b5;
   background: #d9e7f5;
   border-radius: 999px;
-  font-size: 0.72rem;
+  font-size: 0.64rem;
   font-weight: 750;
   line-height: 1.2;
   white-space: nowrap;
 }
 
 .convenience-store-label-icon {
-  width: 1rem;
-  height: 1rem;
+  width: 0.82rem;
+  height: 0.82rem;
   flex: 0 0 auto;
 }
 
@@ -930,8 +930,8 @@ body:has(#app) .site-footer .site-footer-note {
 
 @media (max-width: 760px) {
   .convenience-store-label {
-    padding: 0.23rem 0.5rem;
-    font-size: 0.68rem;
+    padding: 0.16rem 0.38rem;
+    font-size: 0.62rem;
   }
 
   .food-page .food-guide-card-heading {
