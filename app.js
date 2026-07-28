@@ -315,10 +315,8 @@ const guides = [
     ],
     firstMove: "Use the oshibori to wipe your hands, then fold or roll it and place it beside you.",
     steps: [
-      "Open the wrapper or unfold the towel.",
       "Wipe your hands before eating.",
-      "Fold or roll it again after use.",
-      "Place it beside your plate or back on its tray.",
+      "Fold the towel and leave it beside your plate.",
     ],
     staff: [
       {
@@ -358,12 +356,9 @@ const guides = [
     ],
     firstMove: "Pause for a moment and check whether staff starts cooking or leaves the ingredients with you.",
     steps: [
-      "Look for a grill, hot plate, or pot built into the table.",
-      "Watch what staff does after placing the ingredients down.",
-      "If they begin cooking, let them demonstrate.",
-      "If they leave the tools with you, it may be your turn.",
-      "Use the provided tongs for raw ingredients.",
-      "Ask before eating if you are unsure whether something is ready.",
+      "Watch whether staff starts cooking or leaves the tools with you.",
+      "If it is your turn, use the provided tongs for raw ingredients.",
+      "Ask staff if you are unsure whether something is ready.",
     ],
     sayShow: [
       {
@@ -484,9 +479,8 @@ const guides = [
     ],
     firstMove: "Check the drink type and size on your cup, then find the matching option on the coffee machine.",
     steps: [
-      "Match the cup’s type and size with the machine.",
-      "Place the cup under the nozzle and press the matching option.",
-      "Add a lid, sugar, or milk.",
+      "Put the cup under the nozzle.",
+      "Press the option that matches the drink and size printed on the cup.",
     ],
     tip:
       "For iced coffee, some stores have cups filled with ice in a freezer. The exact system varies, so let the cup and machine labels guide you.",
@@ -568,7 +562,6 @@ const guides = [
     steps: [
       "Find たまごサンド in the refrigerated case.",
       "Start with the classic creamy version.",
-      "Try another store’s version later—for research.",
     ],
     staff: [
       {
@@ -620,9 +613,8 @@ const guides = [
     ],
     firstMove: "Point to the item in the heated display and say, “Kore o hitotsu kudasai.”",
     steps: [
-      "Choose something from the heated display.",
-      "Point and say, “Kore o hitotsu kudasai.”",
-      "Let the cashier bag it, then enjoy.",
+      "Point to the item you want.",
+      "Say, “Kore o hitotsu kudasai.”",
     ],
     tip:
       "The selection changes by store, time, and season. An empty space may simply mean that today’s popular snack was faster than you.",
@@ -851,12 +843,8 @@ const guides = [
     ],
     firstMove: "Find 止 and 呼出 first. One stops the adventure. The other calls a real person. After that, try the buttons.",
     steps: [
-      "Sit down before testing the wash controls.",
-      "Find 止, the stop button.",
-      "Find 呼出, the assistance-call button.",
-      "Leave 呼出 for situations where you actually need help.",
-      "Try おしり, ビデ, the pressure controls, or the sound button.",
-      "If anything surprises you, press 止.",
+      "Find 止. Leave 呼出 for situations where you really need help.",
+      "Sit down, try the other buttons, and press 止 to stop.",
     ],
     staff: [
       {
@@ -926,11 +914,8 @@ const guides = [
     ],
     firstMove: "At check-in, confirm the meal and bath times. The room—and the futon—will usually follow the ryokan’s schedule.",
     steps: [
-      "Confirm when and where dinner is served.",
-      "Check the bathing hours.",
-      "Look in the room for a yukata and towels.",
-      "While you are at dinner, staff may prepare the futon.",
-      "Remember that every ryokan has its own routine.",
+      "Confirm the meal and bath times at check-in.",
+      "If the room has no bed yet, do nothing—staff may prepare the futon while you are at dinner.",
     ],
     sayShow: [
       {
@@ -1371,11 +1356,8 @@ const guides = [
     ],
     firstMove: "Look for the characters 空車, often shown in red, then stand slightly back and let the driver open the rear door.",
     steps: [
-      "Look at the illuminated sign in the front window.",
-      "Find 空車, meaning the taxi is available.",
-      "Raise your hand or wait at the taxi stand.",
-      "Stand clear when the taxi stops.",
-      "Let the driver open and close the rear door.",
+      "Look for 空車, then raise your hand or wait at a taxi stand.",
+      "Stand back and let the driver handle the rear door.",
       "Show your destination on a map or in Japanese.",
     ],
     sayShow: [
@@ -1436,12 +1418,10 @@ const guides = [
     ],
     firstMove: "Before your travel day, ask your hotel whether it can send your suitcase to your next accommodation.",
     steps: [
-      "Ask the front desk whether luggage delivery is available.",
-      "Show the name, address, and reservation details of your next hotel.",
-      "Confirm when the suitcase will arrive.",
+      "Ask the front desk if delivery is available and when the suitcase will arrive.",
+      "Show your next accommodation’s name, address, and reservation details.",
       "Keep your passport, valuables, medicine, and overnight essentials with you.",
-      "Complete the delivery form and keep the receipt or tracking number.",
-      "Travel with a smaller bag until you meet your suitcase again.",
+      "Keep the receipt or tracking number.",
     ],
     sayShow: [
       {
@@ -1507,11 +1487,9 @@ const guides = [
     ],
     firstMove: "Step back, move to the side, and check the message on the gate display.",
     steps: [
-      "Move out of the next passenger’s path.",
-      "Check the display for a message or remaining balance.",
-      "Remove other IC cards from the wallet and touch one card firmly.",
-      "If the balance is low, add money at a charge or fare-adjustment machine.",
-      "If the card still fails, show it at the staffed gate.",
+      "Move aside and read the gate display.",
+      "If the balance is low, charge the card. If you have multiple cards, try one by itself.",
+      "If it still fails, use the staffed gate.",
     ],
     sayShow: [
       {
@@ -1577,11 +1555,8 @@ const guides = [
     ],
     firstMove: "Treat left and right as local habits, not national laws. Check the signs, step on safely, and stand still while holding the handrail.",
     steps: [
-      "Look for signs or arrows near the escalator.",
-      "Step onto whichever side is safe and open.",
-      "Stand still and hold the handrail.",
-      "Leave enough space for the person in front of you.",
-      "Use an elevator if you have large luggage or need more room.",
+      "Follow the signs or local flow, then stand still and hold the handrail.",
+      "Use an elevator if you have large luggage.",
     ],
     staff: [
       {
@@ -1772,10 +1747,8 @@ const guides = [
     ],
     firstMove: "Keep walking into the shop and look around. A small smile or nod is optional; a spoken reply is not required.",
     steps: [
-      "Enter the shop normally.",
-      "Treat “irasshaimase” as a welcome, not a question.",
-      "Look around at your own pace.",
-      "Respond when a staff member speaks to you directly.",
+      "Enter normally. You do not need to reply.",
+      "Respond only when staff speaks to you directly.",
     ],
     sayShow: [
       {
@@ -1835,10 +1808,9 @@ const guides = [
     ],
     firstMove: "When you need someone’s attention, begin with “sumimasen.” The situation will usually explain the rest.",
     steps: [
-      "Say “sumimasen” to get someone’s attention.",
-      "Add your question or request.",
-      "Use it for a small apology, such as bumping into someone.",
-      "After someone helps you, add “arigatou gozaimasu” for a clear thank-you.",
+      "To get attention: “Sumimasen” + your request.",
+      "For a small apology: “Sumimasen.”",
+      "After someone helps you, add “Arigatou gozaimasu.”",
     ],
     sayShow: [
       {
