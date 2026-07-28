@@ -3245,7 +3245,7 @@ const foodGuideIconBySlug = {
   "how-to-pay": { src: "/assets/icons/action/icon-action-pay-correctly.png" },
   oshibori: { src: "/assets/icons/guides/oshibori.png" },
   "cook-at-table": { src: "/assets/icons/guides/cook-at-table.png" },
-  "three-step-onigiri": { src: "/assets/icons/guides/three-step-onigiri.png" },
+  "three-step-onigiri": { src: "/assets/icons/guides/three-step-onigiri-white.png" },
   "empty-coffee-cup": { src: "/assets/icons/guides/empty-coffee-cup.png" },
   "konbini-egg-sandwich": { src: "/assets/icons/guides/konbini-egg-sandwich.png" },
   "hot-snacks": { src: "/assets/icons/guides/hot-snacks.png" },
