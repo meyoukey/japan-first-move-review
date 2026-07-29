@@ -298,7 +298,7 @@ const pages = [
     path: "/food-cards/vegetarian",
     title: "Vegetarian Food Card | Japan First Move",
     description:
-      "A Japanese-English sample food card for explaining vegetarian needs and avoiding meat, seafood, and fish-based broth in Japan.",
+      "A Japanese-English sample food card for explaining vegetarian needs and avoiding meat, seafood, and animal-based dashi in Japan.",
   },
   {
     path: "/food-cards/vegan",

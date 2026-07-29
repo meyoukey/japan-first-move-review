@@ -2356,8 +2356,8 @@ const foodCards = [
     label: "Vegetarian",
     englishText: "I do not eat meat or seafood. Could you please check fish broth, meat broth, and hidden ingredients?",
     japaneseText: "肉と魚介類を食べません。だし、肉エキス、魚介エキスなどが入っていないか確認していただけますか？対応が難しい場合は、無理に提供しなくて大丈夫です。",
-    summary: "For avoiding meat, seafood, and fish-based broth.",
-    note: "Use when: you avoid meat, seafood, and fish-based dashi.",
+    summary: "For avoiding meat, seafood, and animal-based dashi.",
+    note: "Use when: you avoid meat, seafood, and animal-based dashi.",
     access: "free",
   },
   {
@@ -4428,7 +4428,7 @@ function foodCardCustomSampleConfig(card) {
       ingredients: [
         { labelJa: "肉類全般", labelEn: "All meat" },
         { labelJa: "魚介類全般", labelEn: "All seafood" },
-        { labelJa: "魚のだし", labelEn: "Fish-based dashi" },
+        { labelJa: "動物性のだし", labelEn: "Animal-based dashi" },
       ],
     },
     vegan: {
