@@ -2242,7 +2242,7 @@ const placeChoices = [
     href: "/food#convenience-store-guides",
     category: "food",
     description: "Food & drinks",
-    iconSrc: "/assets/icons/guides/convenience-store.png",
+    iconSrc: "/assets/icons/guides/convenience-store.png?v=2",
     largeIcon: true,
   },
   {
