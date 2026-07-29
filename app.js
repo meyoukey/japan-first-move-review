@@ -3341,6 +3341,72 @@ const app = document.querySelector("#app");
 const siteHeader = document.querySelector(".site-header");
 const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
 const mobileSiteMenu = document.querySelector(".mobile-site-menu");
+let currentRouteVisitId = 0;
+let customFoodCardViewTrackedVisitId = 0;
+let customFoodCardStartHandled = false;
+let customFoodCardEntryPoint = "";
+
+function analyticsTrack(eventName, parameters = {}) {
+  return window.jfmAnalytics?.track?.(eventName, parameters) === true;
+}
+
+function customFoodCardResolvedEntryPoint() {
+  if (customFoodCardEntryPoint) {
+    return customFoodCardEntryPoint;
+  }
+  const source = window.jfmAnalytics?.getAttribution?.().utm_source || "";
+  return source ? `utm_${source}` : "direct_or_external";
+}
+
+function trackDataAttributeClick(event) {
+  const trackedElement = event.target.closest?.("[data-track]");
+  const trackId = trackedElement?.dataset.track || "";
+  if (!trackId) {
+    return;
+  }
+
+  const link = trackedElement.closest?.("a");
+  let linkPath = "";
+  if (link?.getAttribute("href")) {
+    const url = new URL(link.getAttribute("href"), window.location.href);
+    if (url.origin === window.location.origin) {
+      linkPath = url.pathname;
+      if (url.pathname.replace(/\/+$/, "") === "/food-card/custom") {
+        customFoodCardEntryPoint = trackId;
+      }
+    }
+  }
+
+  analyticsTrack("tracked_click", {
+    track_id: trackId,
+    page_path: window.location.pathname,
+    ...(linkPath ? { link_path: linkPath } : {}),
+  });
+}
+
+function trackCurrentRoute() {
+  window.jfmAnalytics?.captureAttribution?.();
+  window.jfmAnalytics?.trackPageView?.();
+
+  const pathname = window.location.pathname.replace(/\/+$/, "");
+  const params = new URLSearchParams(window.location.search);
+  const isBuilderView = pathname === "/food-card/custom"
+    && !params.has("checkout")
+    && customFoodCardState.step < 4;
+  if (
+    isBuilderView
+    && customFoodCardViewTrackedVisitId !== currentRouteVisitId
+    && analyticsTrack("food_card_view", {
+      item_id: "custom-food-card",
+      item_name: "Custom Food Card",
+      entry_point: customFoodCardResolvedEntryPoint(),
+    })
+  ) {
+    customFoodCardViewTrackedVisitId = currentRouteVisitId;
+  }
+}
+
+window.addEventListener("jfm:analytics-ready", trackCurrentRoute);
 
 function setMobileMenuOpen(isOpen) {
   if (!mobileMenuToggle || !mobileSiteMenu) {
@@ -3372,10 +3438,18 @@ mobileSiteMenu?.addEventListener("click", (event) => {
 });
 
 document.addEventListener("click", (event) => {
+  trackDataAttributeClick(event);
   const link = event.target.closest?.("a");
   if (link && shouldHandleAppLink(event, link)) {
+    const destinationUrl = new URL(link.getAttribute("href"), window.location.href);
+    const destinationPath = destinationUrl.pathname.replace(/\/+$/, "");
+    if (destinationPath === "/food-card/custom" && !link.closest("[data-track]")) {
+      customFoodCardEntryPoint = "site_navigation";
+    } else if (destinationPath !== "/food-card/custom") {
+      customFoodCardEntryPoint = "";
+    }
     event.preventDefault();
-    navigateToUrl(new URL(link.getAttribute("href"), window.location.href));
+    navigateToUrl(destinationUrl);
     return;
   }
 
@@ -4607,6 +4681,7 @@ function customFoodCardNormalizeCancelledRoute() {
 }
 
 function startCustomFoodCard({ restoreDraft = false } = {}) {
+  customFoodCardStartHandled = false;
   resetCustomFoodCardState();
   customFoodCardEnsureBuilderRoute();
   if (restoreDraft) {
@@ -4739,6 +4814,7 @@ function customFoodCardRestoreDraft(draft) {
     customFoodCardState.step = 2;
   }
 
+  customFoodCardStartHandled = true;
   return true;
 }
 
@@ -4801,8 +4877,15 @@ function customFoodCardClearCheckoutReturnSessionId() {
   }
 }
 
-function customFoodCardTrackPurchase(transactionId) {
-  if (!transactionId || typeof window.gtag !== "function") {
+function customFoodCardTrackPurchase(transactionId, amountTotal, currency) {
+  const normalizedCurrency = typeof currency === "string" ? currency.toUpperCase() : "";
+  if (
+    !transactionId
+    || !Number.isInteger(amountTotal)
+    || amountTotal < 0
+    || !/^[A-Z]{3}$/.test(normalizedCurrency)
+    || !window.jfmAnalytics?.isGranted?.()
+  ) {
     return;
   }
 
@@ -4815,19 +4898,22 @@ function customFoodCardTrackPurchase(transactionId) {
     // Continue without client-side deduplication if storage is unavailable.
   }
 
-  window.gtag("event", "purchase", {
+  const tracked = analyticsTrack("purchase", {
     transaction_id: transactionId,
-    value: 7.99,
-    currency: "USD",
+    value: amountTotal / 100,
+    currency: normalizedCurrency,
     items: [
       {
         item_id: "custom-food-card",
         item_name: "Custom Food Card",
-        price: 7.99,
+        price: amountTotal / 100,
         quantity: 1,
       },
     ],
   });
+  if (!tracked) {
+    return;
+  }
 
   try {
     window.localStorage.setItem(trackedStorageKey, "1");
@@ -4846,12 +4932,12 @@ function customFoodCardTrackBeginCheckout(destinationUrl) {
     window.location.assign(destinationUrl);
   };
 
-  if (typeof window.gtag !== "function") {
+  if (!window.jfmAnalytics?.isGranted?.()) {
     continueToCheckout();
     return;
   }
 
-  window.gtag("event", "begin_checkout", {
+  const tracked = analyticsTrack("begin_checkout", {
     value: 7.99,
     currency: "USD",
     event_callback: continueToCheckout,
@@ -4865,26 +4951,30 @@ function customFoodCardTrackBeginCheckout(destinationUrl) {
       },
     ],
   });
+  if (!tracked) {
+    continueToCheckout();
+    return;
+  }
   window.setTimeout(continueToCheckout, 1600);
 }
 
-function customFoodCardTrackSave() {
-  if (typeof window.gtag !== "function") {
-    return;
-  }
+function customFoodCardTrackStart() {
+  analyticsTrack("food_card_start", {
+    item_id: "custom-food-card",
+    item_name: "Custom Food Card",
+    entry_point: customFoodCardResolvedEntryPoint(),
+  });
+}
 
-  window.gtag("event", "food_card_save", {
+function customFoodCardTrackSave() {
+  analyticsTrack("food_card_save", {
     item_id: "custom-food-card",
     item_name: "Custom Food Card",
   });
 }
 
 function customFoodCardTrackShare() {
-  if (typeof window.gtag !== "function") {
-    return;
-  }
-
-  window.gtag("event", "food_card_share", {
+  analyticsTrack("food_card_share", {
     item_id: "custom-food-card",
     item_name: "Custom Food Card",
   });
@@ -4983,6 +5073,7 @@ function customFoodCardRestoreCheckoutSnapshot(snapshot) {
   }
   customFoodCardState.safetyAgreed = Boolean(snapshot.safetyAgreed);
   customFoodCardState.purchaseReviewAgreed = Boolean(snapshot.purchaseReviewAgreed);
+  customFoodCardStartHandled = true;
   return Boolean(customFoodCardState.cardType);
 }
 
@@ -5021,6 +5112,7 @@ async function customFoodCardBeginCheckout() {
   renderCustomFoodCard();
 
   try {
+    const attribution = window.jfmAnalytics?.getAttribution?.() || {};
     const response = await fetch("/api/create-checkout-session", {
       method: "POST",
       headers: {
@@ -5028,6 +5120,7 @@ async function customFoodCardBeginCheckout() {
       },
       body: JSON.stringify({
         purchase_attempt_id: purchaseAttemptId,
+        ...(Object.keys(attribution).length ? { attribution } : {}),
       }),
     });
     const result = await response.json().catch(() => ({}));
@@ -5151,7 +5244,7 @@ async function startCustomFoodCardSuccess() {
     if (!response.ok || !result.paid || !result.price_ok || !referenceMatches) {
       throw new Error(result.error || "Payment could not be verified.");
     }
-    customFoodCardTrackPurchase(draft.purchaseAttemptId);
+    customFoodCardTrackPurchase(draft.purchaseAttemptId, result.amount_total, result.currency);
     if (
       window.history.length > 2
       && customFoodCardMarkCheckoutVerifiedReturn(draft.purchaseAttemptId)
@@ -6143,6 +6236,13 @@ function wireCustomFoodCardEvents() {
     button.addEventListener("click", () => {
       const ingredientId = button.dataset.customIngredientId;
       const isSelected = customFoodCardState.selectedIngredientIds.includes(ingredientId);
+      const isFirstSelection = !customFoodCardStartHandled
+        && !isSelected
+        && customFoodCardState.selectedIngredientIds.length === 0;
+      if (isFirstSelection) {
+        customFoodCardStartHandled = true;
+        customFoodCardTrackStart();
+      }
       if (isSelected) {
         customFoodCardState.selectedIngredientIds = customFoodCardState.selectedIngredientIds.filter((id) => id !== ingredientId);
         customFoodCardState.error = "";
@@ -6264,6 +6364,8 @@ function wireCustomFoodCardEvents() {
   document.querySelector("[data-custom-restart]")?.addEventListener("click", () => {
     customFoodCardClearDraft();
     customFoodCardClearCheckoutDraft();
+    customFoodCardStartHandled = false;
+    customFoodCardEntryPoint = "create_another_card";
     resetCustomFoodCardState();
     renderCustomFoodCard();
     window.scrollTo(0, 0);
@@ -7376,6 +7478,7 @@ const privacyEnglishSections = [
       { type: "p", text: "Japan First Move may use Google Analytics or similar analytics tools to understand how users use the website and to improve the service." },
       { type: "p", text: "These tools may use cookies or similar technologies to collect information such as pages viewed, access time, device information, browser information, approximate location, and usage patterns." },
       { type: "p", text: "Analytics is disabled until you select “Accept cookies” in the cookie notice. You can decline analytics or change your choice later through “Cookie Settings” in the footer. Declining optional analytics cookies does not prevent you from using the website or purchasing Custom Food Card." },
+      { type: "p", text: "If you accept analytics cookies, limited campaign information such as source, medium, campaign, and link placement may be associated with a checkout reference to measure campaign performance. Selected ingredients, card purpose, allergy or dietary details, and generated card content are not included in this campaign information." },
     ],
   },
   {
@@ -7501,6 +7604,7 @@ const privacyJapaneseSections = [
       { type: "p", text: "Japan First Moveは、ウェブサイトの利用状況を把握し、サービスを改善するために、Google Analyticsその他類似のアクセス解析ツールを利用する場合があります。" },
       { type: "p", text: "これらのツールは、Cookieその他類似の技術を使用して、閲覧ページ、アクセス日時、端末情報、ブラウザ情報、おおよその位置情報、利用傾向などの情報を取得する場合があります。" },
       { type: "p", text: "アクセス解析は、Cookie通知で「Accept cookies」を選択するまで無効です。利用者はアクセス解析を拒否でき、フッターの「Cookie Settings」から後で選択を変更できます。任意のアクセス解析Cookieを拒否しても、ウェブサイトの利用またはCustom Food Cardの購入には影響しません。" },
+      { type: "p", text: "利用者がアクセス解析Cookieに同意した場合、キャンペーン効果を測定するため、参照元、メディア、キャンペーン、リンク掲載場所などの限定的なキャンペーン情報を決済参照情報に関連付ける場合があります。このキャンペーン情報には、選択した食材、カードの目的、アレルギーまたは食事上の事情、生成したカード内容は含まれません。" },
     ],
   },
   {
@@ -8162,6 +8266,7 @@ function updateNavState(parts) {
 }
 
 function router({ restoreCustomFoodCardDraft = false } = {}) {
+  currentRouteVisitId += 1;
   closeMobileMenu();
   document.body.classList.remove("is-custom-show-mode");
   document.body.classList.remove("is-custom-sample-mode");
@@ -8220,6 +8325,7 @@ function router({ restoreCustomFoodCardDraft = false } = {}) {
   wireFoodCardStickyCta();
   updateNavState(parts);
   scrollToRouteTarget();
+  trackCurrentRoute();
 }
 
 window.addEventListener("popstate", () => {

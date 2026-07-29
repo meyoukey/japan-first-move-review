@@ -17,6 +17,7 @@ Planned production launch: July 31, 2026
 - [ ] Complete one small real-payment test on `https://japanfirstmove.com`, then refund it, and confirm both actions in the Stripe Dashboard.
 - [ ] Confirm the payment succeeds and the Custom Food Card is displayed.
 - [ ] Confirm the Stripe `session_id` is removed from the visible URL.
+- [ ] Confirm consented Instagram and TikTok test purchases include only the expected `jfm_utm_*` Checkout Session metadata, while an untagged or analytics-declined purchase has no campaign metadata.
 - [ ] Confirm the production success page cannot be indexed by search engines.
 - [x] Test a declined payment and a cancelled checkout, and confirm neither produces a card or a `purchase` event.
 
@@ -47,9 +48,15 @@ Planned production launch: July 31, 2026
 - [ ] Confirm the production site shows the compact cookie notice with **Decline** and **Accept cookies**.
 - [ ] Confirm GA4 does not load before consent, loads after acceptance, and can be disabled later through **Cookie Settings**.
 - [ ] Confirm these events on the production domain:
+  - [ ] `food_card_view` appears once when the builder is viewed.
+  - [ ] `food_card_start` appears once when the first ingredient is selected.
   - [ ] `begin_checkout` appears in GA4 Realtime.
   - [ ] `purchase` appears once in GA4 Realtime.
   - [ ] `food_card_save` and `food_card_share` appear when used.
+  - [ ] `tracked_click` includes the expected `track_id`.
+- [ ] Register `track_id` and `entry_point` as event-scoped custom dimensions, then create the open funnel `food_card_view` → `food_card_start` → `begin_checkout` → `purchase`.
+- [ ] Confirm `/fc/ig` and `/fc/tt` redirect to the builder with the expected source, medium, campaign, and content values.
+- [ ] Confirm the funnel can be broken down by **Session manual source / medium** and filtered to the `food_card` manual campaign.
 - [ ] Confirm `stripe.com` remains in GA4’s unwanted-referrals list.
 - [ ] Confirm the GA4 stream URL is `https://japanfirstmove.com`, timezone is Japan, currency is USD, and event-data retention is 14 months.
 

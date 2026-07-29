@@ -49,6 +49,12 @@ export async function onRequestGet({ request, env }) {
       status: session.status || "",
       payment_status: session.payment_status || "",
       client_reference_id: session.client_reference_id || "",
+      amount_total: Number.isInteger(session.amount_total) && session.amount_total >= 0
+        ? session.amount_total
+        : null,
+      currency: typeof session.currency === "string" && /^[a-zA-Z]{3}$/.test(session.currency)
+        ? session.currency.toUpperCase()
+        : "",
     });
   } catch {
     return jsonResponse({ error: "Payment could not be verified." }, 502);

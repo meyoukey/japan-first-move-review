@@ -403,7 +403,7 @@ ${robotsMarkup}
     <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon/site-icon-512.png" />
 
     <!-- Analytics consent must load before any analytics-dependent code. -->
-    <script src="/analytics-consent.js?v=basic-consent-3"></script>
+    <script src="/analytics-consent.js?v=food-card-funnel-2"></script>
     <link rel="stylesheet" href="/styles.css?v=css-modules-29" />
   </head>`;
 }
