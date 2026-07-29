@@ -2237,10 +2237,12 @@ const placeChoices = [
     largeIcon: true,
   },
   {
-    label: "Ticket machine",
-    slug: "ticket-machine-no-english",
-    description: "No English option",
-    iconSrc: "/assets/icons/place/icon-place-ticket-machine.png",
+    label: "Convenience store",
+    slug: "convenience-store",
+    href: "/food#convenience-store-guides",
+    category: "food",
+    description: "Food & drinks",
+    iconSrc: "/assets/icons/guides/convenience-store.png",
     largeIcon: true,
   },
   {
@@ -3305,6 +3307,7 @@ const foodFirstMoveCards = [
   },
   {
     ...guideMap["three-step-onigiri"],
+    anchorId: "convenience-store-guides",
     cardTitle: "Three-Step Onigiri",
     cardDescription: "Open a rice ball without losing the seaweed—or your confidence.",
   },
@@ -3463,8 +3466,8 @@ function shouldHandleAppLink(event, link) {
 function navigateToUrl(url) {
   const nextRoutePath = routePathFromUrl(url);
   const currentRoutePath = routePathFromUrl(window.location);
-  const nextHistoryPath = `${url.pathname}${url.search}`;
-  const currentHistoryPath = `${window.location.pathname}${window.location.search}`;
+  const nextHistoryPath = `${url.pathname}${url.search}${url.hash}`;
+  const currentHistoryPath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
   if (nextRoutePath !== currentRoutePath || nextHistoryPath !== currentHistoryPath) {
     window.history.pushState({}, "", nextHistoryPath);
   }
@@ -3546,10 +3549,11 @@ function foodGuideCard(guide) {
   const href = guide.href ?? `/guides/${guide.slug}`;
   const title = guide.cardTitle ?? guide.title;
   const description = guide.cardDescription ?? guide.firstMove;
+  const anchorAttribute = guide.anchorId ? ` id="${escapeHtml(guide.anchorId)}"` : "";
   const convenienceStoreLabel = convenienceStoreGuideLabelMarkup(guide);
   const convenienceStoreClass = convenienceStoreLabel ? " is-convenience-store-guide" : "";
   return `
-    <a class="guide-card food-guide-card category-${guide.category} guide-${guide.slug}${convenienceStoreClass}" href="${href}">
+    <a${anchorAttribute} class="guide-card food-guide-card category-${guide.category} guide-${guide.slug}${convenienceStoreClass}" href="${href}">
       <span class="food-guide-card-icon" aria-hidden="true">${iconMarkup}</span>
       <span class="food-guide-card-heading">
         ${convenienceStoreLabel}
@@ -8054,6 +8058,33 @@ function wireScrollButtons() {
   });
 }
 
+function scrollToRouteTarget() {
+  const targetId = window.location.hash.slice(1);
+  if (!targetId) {
+    window.scrollTo(0, 0);
+    return;
+  }
+
+  let decodedTargetId = targetId;
+  try {
+    decodedTargetId = decodeURIComponent(targetId);
+  } catch {
+    // Keep the original hash when it is not valid URI-encoded text.
+  }
+
+  const target = document.getElementById(decodedTargetId);
+  if (!target) {
+    window.scrollTo(0, 0);
+    return;
+  }
+
+  window.requestAnimationFrame(() => {
+    const headerHeight = siteHeader?.getBoundingClientRect().height ?? 0;
+    const targetTop = target.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo(0, Math.max(0, targetTop - headerHeight - 16));
+  });
+}
+
 let foodCardStickyCtaCleanup = null;
 
 function wireFoodCardStickyCta() {
@@ -8188,7 +8219,7 @@ function router({ restoreCustomFoodCardDraft = false } = {}) {
   wireScrollButtons();
   wireFoodCardStickyCta();
   updateNavState(parts);
-  window.scrollTo(0, 0);
+  scrollToRouteTarget();
 }
 
 window.addEventListener("popstate", () => {
