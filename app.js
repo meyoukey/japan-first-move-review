@@ -5177,8 +5177,8 @@ function customFoodCardShowVerifiedCard(draft) {
   return true;
 }
 
-function customFoodCardFinalizeVerifiedReturn() {
-  const checkoutDraft = customFoodCardVerifiedReturnDraft();
+function customFoodCardFinalizeVerifiedReturn(verifiedCheckoutDraft = null) {
+  const checkoutDraft = verifiedCheckoutDraft || customFoodCardVerifiedReturnDraft();
   const historyState = window.history.state && typeof window.history.state === "object"
     ? window.history.state
     : {};
@@ -5201,7 +5201,8 @@ function customFoodCardFinalizeVerifiedReturn() {
       "/food-card/custom/",
     );
   } catch {
-    return false;
+    // Payment has already been verified. Card delivery must not depend on
+    // browser history support or back-forward cache behavior.
   }
 
   return customFoodCardShowVerifiedCard(checkoutDraft);
@@ -5245,16 +5246,9 @@ async function startCustomFoodCardSuccess() {
       throw new Error(result.error || "Payment could not be verified.");
     }
     customFoodCardTrackPurchase(draft.purchaseAttemptId, result.amount_total, result.currency);
-    if (
-      window.history.length > 2
-      && customFoodCardMarkCheckoutVerifiedReturn(draft.purchaseAttemptId)
-    ) {
-      customFoodCardClearDraft();
-      customFoodCardClearCheckoutReturnSessionId();
-      window.history.go(-2);
-      return;
+    if (!customFoodCardFinalizeVerifiedReturn(draft)) {
+      throw new Error("Payment was verified, but the card could not be displayed.");
     }
-    customFoodCardShowVerifiedCard(draft);
   } catch (error) {
     customFoodCardState.step = 3;
     customFoodCardSetCheckoutFeedback(
