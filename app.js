@@ -6886,7 +6886,7 @@ function disclaimerPageMarkup() {
     ${disclaimerLanguageMarkup({
       title: "Disclaimer",
       titleId: "disclaimer-english-title",
-      updated: "Last updated: July 16, 2026",
+      updated: "Last updated: July 31, 2026",
       intro: disclaimerEnglishIntro,
       sections: disclaimerEnglishSections,
     })}
@@ -6894,7 +6894,7 @@ function disclaimerPageMarkup() {
       title: "免責事項",
       titleId: "disclaimer-japanese-title",
       lang: "ja",
-      updated: "最終更新日：2026年7月16日",
+      updated: "最終更新日：2026年7月31日",
       intro: disclaimerJapaneseIntro,
       sections: disclaimerJapaneseSections,
     })}
@@ -6903,7 +6903,7 @@ function disclaimerPageMarkup() {
 
 const termsOfUseEnglishText = `Terms of Use
 
-Last updated: July 16, 2026
+Last updated: July 31, 2026
 
 These Terms of Use apply to your use of Japan First Move, including the website, guides, phrases, sample cards, Custom Food Card, and any related digital content, tools, or features.
 
@@ -7109,7 +7109,7 @@ support@japanfirstmove.com`;
 
 const termsOfUseJapaneseText = `利用規約
 
-最終更新日：2026年7月16日
+最終更新日：2026年7月31日
 
 本利用規約は、Japan First Moveのウェブサイト、ガイド、フレーズ、サンプルカード、Custom Food Card、その他関連するデジタルコンテンツ、ツール、機能の利用に適用されます。
 
@@ -7721,7 +7721,7 @@ function privacyPageMarkup() {
     ${privacyLanguageMarkup({
       title: "Privacy Policy",
       titleId: "privacy-english-title",
-      updated: "Last updated: July 16, 2026",
+      updated: "Last updated: July 31, 2026",
       intro: privacyEnglishIntro,
       sections: privacyEnglishSections,
     })}
@@ -7729,7 +7729,7 @@ function privacyPageMarkup() {
       title: "プライバシーポリシー",
       titleId: "privacy-japanese-title",
       lang: "ja",
-      updated: "最終更新日：2026年7月16日",
+      updated: "最終更新日：2026年7月31日",
       intro: privacyJapaneseIntro,
       sections: privacyJapaneseSections,
     })}
@@ -7965,7 +7965,7 @@ function renderLegalNoticePage() {
         ${legalNoticeLanguageMarkup({
           title: "Legal Notice under Japan’s Act on Specified Commercial Transactions",
           titleId: "legal-notice-english-title",
-          updated: "Last updated: July 16, 2026",
+          updated: "Last updated: July 31, 2026",
           intro: "This page provides information required under Japan’s Act on Specified Commercial Transactions for the paid Custom Food Card service provided by Japan First Move.",
           sections: legalNoticeEnglishSections,
         })}
@@ -7973,7 +7973,7 @@ function renderLegalNoticePage() {
           title: "特定商取引法に基づく表記",
           titleId: "legal-notice-japanese-title",
           lang: "ja",
-          updated: "最終更新日：2026年7月16日",
+          updated: "最終更新日：2026年7月31日",
           intro: "本ページは、Japan First Moveが提供する有料サービス「Custom Food Card」について、特定商取引法に基づき必要な事項を表示するものです。",
           sections: legalNoticeJapaneseSections,
         })}

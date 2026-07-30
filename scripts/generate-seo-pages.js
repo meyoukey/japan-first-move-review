@@ -5,7 +5,7 @@ const root = path.resolve(__dirname, "..");
 const siteUrl = "https://japanfirstmove.com";
 const ogImage = `${siteUrl}/assets/ogp/ogp-japan-first-move.png`;
 const ogImageAlt = "Japan First Move - Simple first-step guides for traveling in Japan.";
-const temporaryReviewNoindexEnabled = true;
+const temporaryReviewNoindexEnabled = false;
 
 const pages = [
   {
