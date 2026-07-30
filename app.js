@@ -4225,12 +4225,12 @@ function renderFoodCardsPage() {
         <p class="lead">More than a translation card. Show allergies, dietary needs, or ingredients to check—and make it easier for restaurant staff to understand and respond.</p>
         <figure class="food-card-article-hero">
           <picture>
-            <source media="(max-width: 640px)" srcset="/assets/guides/food-allergy-card-japan-sp.png">
+            <source media="(max-width: 640px)" srcset="/assets/guides/food-cards-overview-sp.png">
             <img
-              src="/assets/guides/food-allergy-card-japan.png"
+              src="/assets/guides/food-cards-overview.png"
               width="1200"
               height="405"
-              alt="Restaurant staff checking ingredients around a smartphone displaying a Japanese food allergy card."
+              alt="Miniature travelers watching wheat, egg, seafood, and chicken rise from a smartphone."
               fetchpriority="high"
               decoding="async"
             >
