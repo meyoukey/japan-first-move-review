@@ -130,17 +130,9 @@
   cursor: pointer;
 }
 
-.custom-choice-card:focus-visible,
 .custom-choice-card.is-selected {
   border-color: #c85b7d;
   background: #fff7f9;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .custom-choice-card:not(:disabled):hover {
-    border-color: #c85b7d;
-    background: #fff7f9;
-  }
 }
 
 .custom-choice-card strong {
