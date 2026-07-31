@@ -100,6 +100,7 @@ sozai/hero/*
 !sozai/hero/hero-mobile-onsen.png
 !sozai/hero/hero-mobile-ramen.png
 !sozai/hero/hero-mobile-torii.png
+!sozai/hero/hero-mobile-*-v2.webp
 !sozai/hero/logo.png
 
 **/.DS_Store
