@@ -3764,7 +3764,7 @@ function renderHome() {
           <p class="lead">Simple first moves for real-life Japan moments.</p>
           <div class="hero-visual" aria-hidden="true">
             <img class="hero-visual-img hero-visual-img-1" src="/sozai/hero/hero-mobile-ramen-v2.webp" alt="" width="1080" height="1200" decoding="async" fetchpriority="high" />
-            <img class="hero-visual-img hero-visual-img-2" src="/sozai/hero/hero-mobile-izakaya-v2.webp" alt="" width="1080" height="1200" decoding="async" fetchpriority="low" />
+            <img class="hero-visual-img hero-visual-img-2" src="/sozai/hero/hero-mobile-izakaya-v3.webp" alt="" width="1080" height="1200" decoding="async" fetchpriority="low" />
             <img class="hero-visual-img hero-visual-img-3" src="/sozai/hero/hero-mobile-onsen-v2.webp" alt="" width="1080" height="1200" decoding="async" fetchpriority="low" />
             <img class="hero-visual-img hero-visual-img-4" src="/sozai/hero/hero-mobile-torii-v2.webp" alt="" width="1080" height="1200" decoding="async" fetchpriority="low" />
           </div>
