@@ -5,6 +5,12 @@ const root = path.resolve(__dirname, "..");
 const siteUrl = "https://japanfirstmove.com";
 const ogImage = `${siteUrl}/assets/ogp/ogp-japan-first-move.png`;
 const ogImageAlt = "Japan First Move - Simple first-step guides for traveling in Japan.";
+const customFoodCardOgImage = `${siteUrl}/assets/ogp/ogp-custom-food-card.png`;
+const customFoodCardOgImageAlt =
+  "Custom Food Card for Japan — a traveler showing a Japanese food card to restaurant staff.";
+const foodCardsOgImage = `${siteUrl}/assets/ogp/ogp-food-allergy-card-japan.png`;
+const foodCardsOgImageAlt =
+  "Food Allergy Card for Japan — a Japanese food card shown on a phone while restaurant staff check ingredients.";
 const temporaryReviewNoindexEnabled = false;
 
 const pages = [
@@ -44,17 +50,23 @@ const pages = [
     title: "Food Cards for Japan | Japan First Move",
     description:
       "Show allergies, dietary needs, and ingredients to check in Japanese with sample food cards for restaurants in Japan.",
+    ogImage: foodCardsOgImage,
+    ogImageAlt: foodCardsOgImageAlt,
   },
   {
     path: "/food-card/custom/",
     title: "Custom Food Card for Japan | Japan First Move",
     description:
       "Create a clear Japanese food card for allergies, dietary needs, preferences, or ingredients you want restaurant staff to check.",
+    ogImage: customFoodCardOgImage,
+    ogImageAlt: customFoodCardOgImageAlt,
   },
   {
     path: "/food-card/custom/success/",
     title: "Custom Food Card Payment | Japan First Move",
     description: "Verify your Custom Food Card payment and display your completed card.",
+    ogImage: customFoodCardOgImage,
+    ogImageAlt: customFoodCardOgImageAlt,
     keepNoindex: true,
     noindexComment: "Keep this payment return page out of search results.",
   },
@@ -64,8 +76,8 @@ const pages = [
     description:
       "Learn when and how to show a food allergy or dietary restriction card at restaurants in Japan, including dashi, broth, and other ingredients to check.",
     ogType: "article",
-    ogImage: `${siteUrl}/assets/ogp/ogp-food-allergy-card-japan.png`,
-    ogImageAlt: "Food Allergy Card for Japan — a Japanese food card shown on a phone while restaurant staff check ingredients.",
+    ogImage: foodCardsOgImage,
+    ogImageAlt: foodCardsOgImageAlt,
   },
   {
     path: "/faq",
@@ -288,45 +300,61 @@ const pages = [
     title: "Severe Allergy Food Card | Japan First Move",
     description:
       "A Japanese-English sample food card for communicating a severe allergy or cross-contact risk at restaurants in Japan.",
+    ogImage: foodCardsOgImage,
+    ogImageAlt: foodCardsOgImageAlt,
   },
   {
     path: "/food-cards/basic-food-allergy",
     title: "Basic Food Allergy Card | Japan First Move",
     description: "A Japanese-English sample food card for asking restaurant staff in Japan to check ingredients for an allergy.",
+    ogImage: foodCardsOgImage,
+    ogImageAlt: foodCardsOgImageAlt,
   },
   {
     path: "/food-cards/vegetarian",
     title: "Vegetarian Food Card | Japan First Move",
     description:
       "A Japanese-English sample food card for explaining vegetarian needs and avoiding meat, seafood, and animal-based dashi in Japan.",
+    ogImage: foodCardsOgImage,
+    ogImageAlt: foodCardsOgImageAlt,
   },
   {
     path: "/food-cards/vegan",
     title: "Vegan Food Card | Japan First Move",
     description:
       "A Japanese-English sample food card for avoiding meat, seafood, eggs, dairy, and animal-based dashi in Japan.",
+    ogImage: foodCardsOgImage,
+    ogImageAlt: foodCardsOgImageAlt,
   },
   {
     path: "/food-cards/no-pork",
     title: "No Pork Food Card | Japan First Move",
     description: "A Japanese-English sample food card for avoiding pork, ham, lard, pork broth, and related ingredients in Japan.",
+    ogImage: foodCardsOgImage,
+    ogImageAlt: foodCardsOgImageAlt,
   },
   {
     path: "/food-cards/no-alcohol",
     title: "No Alcohol Food Card | Japan First Move",
     description:
       "A Japanese-English sample food card for avoiding alcohol in drinks, sauces, seasonings, and cooking at restaurants in Japan.",
+    ogImage: foodCardsOgImage,
+    ogImageAlt: foodCardsOgImageAlt,
   },
   {
     path: "/food-cards/ask-dashi",
     title: "Ask About Dashi Food Card | Japan First Move",
     description: "A Japanese-English sample food card for checking whether a dish contains animal-based broth or dashi in Japan.",
+    ogImage: foodCardsOgImage,
+    ogImageAlt: foodCardsOgImageAlt,
   },
   {
     path: "/food-cards/shared-oil-tools",
     title: "Shared Oil or Tools Food Card | Japan First Move",
     description:
       "A Japanese-English sample food card for asking about shared oil, pans, cooking tools, and cross-contact risk in Japan.",
+    ogImage: foodCardsOgImage,
+    ogImageAlt: foodCardsOgImageAlt,
   },
 ];
 
