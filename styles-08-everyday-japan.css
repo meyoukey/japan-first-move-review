@@ -148,54 +148,32 @@
 }
 
 .everyday-hub-header {
-  position: relative;
-  padding: clamp(1.4rem, 5vw, 3.5rem) clamp(1.2rem, 5vw, 3rem);
-  overflow: hidden;
+  padding: clamp(1.1rem, 3vw, 2.2rem) 0 clamp(0.8rem, 2vw, 1.4rem);
   color: var(--everyday-ink);
-  background: var(--everyday-cream);
-}
-
-.everyday-hub-header::after {
-  content: "EVERYDAY";
-  position: absolute;
-  right: -0.03em;
-  bottom: -0.2em;
-  color: rgba(47, 104, 93, 0.07);
-  font-family: "Bricolage Grotesque", Avenir, sans-serif;
-  font-size: clamp(4rem, 13vw, 8.5rem);
-  font-weight: 800;
-  letter-spacing: -0.08em;
-  line-height: 0.8;
-  pointer-events: none;
-}
-
-.everyday-hub-header > * {
-  position: relative;
-  z-index: 1;
 }
 
 .everyday-hub-header .crumbs {
-  margin-bottom: clamp(2.5rem, 7vw, 5rem);
+  margin-bottom: clamp(1.8rem, 4vw, 3rem);
 }
 
 .everyday-hub-header h1 {
-  max-width: 10ch;
+  max-width: none;
   margin: 0;
-  font-size: clamp(3.2rem, 9vw, 6.8rem);
-  line-height: 1;
-  letter-spacing: -0.035em;
+  font-size: clamp(2.8rem, 5vw, 4.35rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
 }
 
 .everyday-hub-header .lead {
-  max-width: 38rem;
-  margin: 1.25rem 0 0;
+  max-width: 700px;
+  margin: 1rem 0 0;
   color: #4f5d59;
   font-size: clamp(1.05rem, 2.2vw, 1.3rem);
 }
 
 .everyday-hub-intro {
   max-width: 700px;
-  margin: clamp(2.5rem, 6vw, 5rem) auto;
+  margin: clamp(2.5rem, 6vw, 5rem) 0;
 }
 
 .everyday-hub-intro h2,
@@ -223,9 +201,13 @@
   align-items: start;
   padding: clamp(1.3rem, 4vw, 2.5rem);
   border: 1px solid rgba(47, 104, 93, 0.18);
-  border-left: 0.55rem solid var(--everyday-green);
+  border-top: 0.4rem solid var(--everyday-rose);
   background: #fff;
   box-shadow: 0 16px 35px rgba(36, 58, 54, 0.1);
+}
+
+.everyday-story-card .everyday-feature-label {
+  color: var(--everyday-rose);
 }
 
 .everyday-story-number {

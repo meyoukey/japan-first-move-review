@@ -3852,7 +3852,6 @@ function renderEverydayJapanHub() {
     <div class="page-shell everyday-hub-page layout-container">
       <header class="everyday-hub-header">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Everyday Japan</span></nav>
-        <p class="everyday-kicker">Guides to daily life</p>
         <h1>Everyday Japan</h1>
         <p class="lead">Understand the ordinary places, food, and routines that make a trip to Japan more interesting.</p>
       </header>
