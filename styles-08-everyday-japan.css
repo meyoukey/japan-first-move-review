@@ -35,8 +35,6 @@
   grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1.1fr);
   gap: clamp(1rem, 2.5vw, 1.5rem);
   padding: clamp(1.1rem, 2.5vw, 1.5rem);
-  border: 1px solid rgba(185, 127, 143, 0.28);
-  border-top: 0.35rem solid var(--everyday-rose);
   background: #fff;
 }
 
@@ -89,7 +87,6 @@
   justify-content: center;
   gap: 0.4rem;
   padding: clamp(1rem, 2.5vw, 1.25rem);
-  border: 1px solid rgba(185, 127, 143, 0.22);
   color: var(--everyday-ink);
   background: var(--everyday-rose-soft);
 }
