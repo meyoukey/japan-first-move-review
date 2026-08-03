@@ -261,7 +261,7 @@ body:has(.everyday-article-page)::after {
   position: absolute;
   right: 0;
   bottom: 0.02em;
-  color: rgba(47, 104, 93, 0.08);
+  color: rgba(185, 127, 143, 0.09);
   font-family: "Bricolage Grotesque", Avenir, sans-serif;
   font-size: clamp(7rem, 22vw, 14rem);
   font-weight: 800;
@@ -290,14 +290,23 @@ body:has(.everyday-article-page)::after {
 .everyday-article-header .lead {
   max-width: 43rem;
   margin: 1.3rem 0 0;
-  color: #52615d;
+  color: var(--color-text-sub);
   font-size: clamp(1.05rem, 2.3vw, 1.35rem);
 }
 
+.everyday-article-page .everyday-kicker {
+  color: var(--everyday-rose);
+}
+
+.everyday-article-page h1,
+.everyday-article-page h2 {
+  color: var(--color-text-main);
+}
+
 .everyday-prose {
-  max-width: 720px;
-  padding: 0;
-  background: transparent;
+  max-width: var(--content-max);
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 7.5vw, 5rem);
+  background: #fff;
   box-shadow: none;
 }
 
@@ -314,7 +323,7 @@ body:has(.everyday-article-page)::after {
 
 .everyday-prose .everyday-opening {
   margin-top: 0;
-  color: var(--everyday-ink);
+  color: var(--color-text-main);
   font-family: "Bricolage Grotesque", Avenir, sans-serif;
   font-size: clamp(1.45rem, 3.2vw, 2.1rem);
   font-weight: 700;
@@ -335,11 +344,16 @@ body:has(.everyday-article-page)::after {
 }
 
 .everyday-prose a {
-  color: var(--everyday-green);
+  color: var(--everyday-rose);
   font-weight: 750;
   text-decoration: underline;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.16em;
+}
+
+.everyday-prose a:hover,
+.everyday-prose a:focus-visible {
+  color: #a86f7f;
 }
 
 .everyday-prose blockquote {
@@ -350,7 +364,7 @@ body:has(.everyday-article-page)::after {
 
 .everyday-prose blockquote p {
   margin: 0;
-  color: var(--everyday-ink);
+  color: var(--color-text-main);
   font-family: "Bricolage Grotesque", Avenir, sans-serif;
   font-size: clamp(1.2rem, 2.7vw, 1.6rem);
   font-weight: 650;
@@ -387,8 +401,8 @@ body:has(.everyday-article-page)::after {
 }
 
 .everyday-notice-section {
-  border-top: 0.4rem solid var(--everyday-sage);
-  background: var(--everyday-sage-soft);
+  border-top: 0.4rem solid #857b90;
+  background: #f1eef3;
 }
 
 .everyday-observation > .everyday-observation-label,
@@ -398,17 +412,25 @@ body:has(.everyday-article-page)::after {
   line-height: 1.2;
 }
 
+.everyday-prose .everyday-observation-label {
+  color: var(--everyday-rose);
+}
+
+.everyday-try-section > .everyday-observation-label {
+  color: var(--everyday-blue);
+}
+
 .everyday-caution {
   margin-top: 1.5rem !important;
   padding: 1rem;
-  border: 1px solid rgba(47, 104, 93, 0.18);
-  background: var(--everyday-soft);
+  border: 1px solid #d8d2da;
+  background: #f3f1f4;
   font-size: 0.94rem !important;
 }
 
 .everyday-closing {
   margin-top: 1.4rem !important;
-  color: var(--everyday-green) !important;
+  color: var(--everyday-rose) !important;
   font-family: "Bricolage Grotesque", Avenir, sans-serif;
   font-size: clamp(1.35rem, 3vw, 1.8rem) !important;
   font-weight: 750;
@@ -419,6 +441,15 @@ body:has(.everyday-article-page)::after {
   width: min(calc(100% - var(--content-gutter)), var(--content-max));
   margin-right: auto;
   margin-left: auto;
+}
+
+.everyday-article-page .everyday-related {
+  color: var(--color-text-main);
+  background: var(--everyday-rose-soft);
+}
+
+.everyday-article-page .everyday-related p {
+  color: var(--color-text-sub);
 }
 
 .everyday-related h2 {
@@ -434,12 +465,13 @@ body:has(.everyday-article-page)::after {
 }
 
 .everyday-related-links a {
-  color: var(--everyday-green);
+  color: var(--everyday-rose);
   font-weight: 800;
 }
 
 .everyday-related-links a:hover,
 .everyday-related-links a:focus-visible {
+  color: #a86f7f;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
@@ -469,7 +501,8 @@ body:has(.everyday-article-page)::after {
 
   .everyday-prose {
     width: min(calc(100% - var(--content-gutter-mobile)), 720px);
-    padding: 0;
+    max-width: var(--content-max);
+    padding: 1.5rem 1.25rem;
     box-shadow: none;
   }
 
