@@ -3888,18 +3888,24 @@ function renderEverydayJapanHub() {
         </div>
         <div class="everyday-story-list">
           <a class="everyday-story-card" href="/everyday-japan/japanese-supermarkets">
-            <span class="everyday-story-number" aria-hidden="true">01</span>
-            <div>
-              <span class="everyday-feature-label">Food &amp; daily life</span>
+            <img class="everyday-story-image" src="/assets/everyday-japan/japanese-supermarkets-hero-mobile.jpg" alt="" width="1280" height="960" decoding="async" />
+            <div class="everyday-story-copy">
+              <div class="everyday-story-meta">
+                <span class="everyday-story-number" aria-hidden="true">01</span>
+                <span class="everyday-feature-label">Food &amp; daily life</span>
+              </div>
               <h3>What Japanese Supermarkets Are Really Like</h3>
               <p>See how fresh seafood, prepared meals, tea, seasonal shelves, and unfamiliar ingredients reveal the rhythm of ordinary life.</p>
               <span class="everyday-text-link">Read the story <span aria-hidden="true">→</span></span>
             </div>
           </a>
           <a class="everyday-story-card" href="/everyday-japan/japanese-seasonings">
-            <span class="everyday-story-number" aria-hidden="true">02</span>
-            <div>
-              <span class="everyday-feature-label">Food &amp; daily life</span>
+            <img class="everyday-story-image" src="/assets/everyday-japan/japanese-seasonings-hero-mobile.jpg" alt="" width="1280" height="960" decoding="async" />
+            <div class="everyday-story-copy">
+              <div class="everyday-story-meta">
+                <span class="everyday-story-number" aria-hidden="true">02</span>
+                <span class="everyday-feature-label">Food &amp; daily life</span>
+              </div>
               <h3>Everyday Japanese Seasonings Explained</h3>
               <p>Meet dashi, ponzu, mentsuyu, mirin, miso, and the everyday flavors that make Japanese home cooking easier.</p>
               <span class="everyday-text-link">Read the story <span aria-hidden="true">→</span></span>
@@ -3914,7 +3920,7 @@ function renderEverydayJapanHub() {
           <h2 id="everyday-first-move-title">Go back to First Moves</h2>
           <p>Find quick help for restaurants, convenience stores, transport, onsen, and other real-life moments.</p>
         </div>
-        <a class="button secondary" href="/">Find your first move</a>
+        <a class="everyday-text-link everyday-first-move-link" href="/">Find your first move <span aria-hidden="true">→</span></a>
       </aside>
     </div>
   `;

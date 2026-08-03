@@ -172,16 +172,40 @@
 }
 
 .everyday-hub-page {
+  --everyday-rose: #c38e9c;
+  --everyday-rose-soft: #fdf6f8;
   padding-block: clamp(1.5rem, 4vw, 3.5rem) clamp(3rem, 7vw, 6rem);
 }
 
+body:has(.everyday-hub-page),
+body:has(.everyday-hub-page) main {
+  background-color: #f2f1f2 !important;
+  background-image: none !important;
+}
+
+body:has(.everyday-hub-page)::after {
+  display: none;
+  content: none;
+}
+
+.everyday-hub-page h1,
+.everyday-hub-page h2,
+.everyday-hub-page h3 {
+  color: var(--color-text-main);
+}
+
+.everyday-hub-page .everyday-kicker,
+.everyday-hub-page .everyday-text-link {
+  color: var(--everyday-rose);
+}
+
 .everyday-hub-header {
-  padding: clamp(1.1rem, 3vw, 2.2rem) 0 clamp(0.8rem, 2vw, 1.4rem);
-  color: var(--everyday-ink);
+  padding: clamp(1.1rem, 3vw, 2.2rem) 0 clamp(0.6rem, 1.5vw, 1rem);
+  color: var(--color-text-main);
 }
 
 .everyday-hub-header .crumbs {
-  margin-bottom: clamp(1.8rem, 4vw, 3rem);
+  margin-bottom: clamp(1.6rem, 3.5vw, 2.6rem);
 }
 
 .everyday-hub-header h1 {
@@ -201,14 +225,14 @@
 
 .everyday-hub-intro {
   max-width: 700px;
-  margin: clamp(2.5rem, 6vw, 5rem) 0;
+  margin: clamp(1.8rem, 4vw, 3.2rem) 0;
 }
 
 .everyday-hub-intro h2,
 .everyday-stories-section h2,
 .everyday-first-move-bridge h2 {
   margin: 0 0 0.8rem;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
   line-height: 1.1;
   letter-spacing: -0.025em;
 }
@@ -219,7 +243,7 @@
 }
 
 .everyday-stories-section {
-  margin-top: clamp(2.5rem, 6vw, 5rem);
+  margin-top: clamp(2rem, 5vw, 4rem);
 }
 
 .everyday-story-list {
@@ -229,14 +253,32 @@
 
 .everyday-story-card {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: clamp(1rem, 4vw, 2.5rem);
-  align-items: start;
-  padding: clamp(1.3rem, 4vw, 2.5rem);
-  border: 1px solid rgba(47, 104, 93, 0.18);
-  border-top: 0.4rem solid var(--everyday-rose);
-  background: #fff;
-  box-shadow: 0 16px 35px rgba(36, 58, 54, 0.1);
+  grid-template-columns: clamp(12rem, 26vw, 14rem) minmax(0, 1fr);
+  gap: clamp(1.1rem, 3vw, 1.8rem);
+  align-items: center;
+  padding: clamp(1rem, 2.5vw, 1.35rem);
+  color: var(--color-text-main);
+  background: var(--everyday-rose-soft);
+}
+
+.everyday-story-card:hover,
+.everyday-story-card:focus-visible {
+  background: #f3e6ea;
+}
+
+.everyday-story-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.everyday-story-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.7rem;
+  align-items: center;
 }
 
 .everyday-story-card .everyday-feature-label {
@@ -244,27 +286,27 @@
 }
 
 .everyday-story-number {
-  color: rgba(47, 104, 93, 0.24);
+  color: var(--everyday-rose);
   font-family: "Bricolage Grotesque", Avenir, sans-serif;
-  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-size: 0.78rem;
   font-weight: 800;
-  line-height: 0.8;
-  letter-spacing: -0.08em;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
 }
 
 .everyday-story-card h3 {
-  max-width: 24ch;
-  margin: 0.45rem 0 0.7rem;
-  color: var(--everyday-ink);
+  max-width: 26ch;
+  margin: 0.5rem 0 0.65rem;
+  color: var(--color-text-main);
   font-family: "Bricolage Grotesque", Avenir, sans-serif;
-  font-size: clamp(1.7rem, 4vw, 2.7rem);
+  font-size: clamp(1.55rem, 3.2vw, 2.15rem);
   line-height: 1.1;
   letter-spacing: -0.025em;
 }
 
 .everyday-story-card p {
   max-width: 42rem;
-  margin: 0 0 1rem;
+  margin: 0 0 0.85rem;
   color: #5b6562;
 }
 
@@ -285,6 +327,24 @@
   max-width: 38rem;
   margin: 0;
   color: #52615d;
+}
+
+.everyday-hub-page .everyday-first-move-bridge {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-text-main);
+  background: #fff;
+}
+
+.everyday-hub-page .everyday-first-move-bridge h2 {
+  color: var(--color-text-main);
+}
+
+.everyday-hub-page .everyday-first-move-bridge p:not(.everyday-kicker) {
+  color: var(--color-text-sub);
+}
+
+.everyday-first-move-link {
+  justify-self: end;
 }
 
 .everyday-article-page {
@@ -578,8 +638,8 @@ body:has(.everyday-article-page)::after {
     grid-template-columns: 1fr;
   }
 
-  .everyday-story-number {
-    font-size: 3rem;
+  .everyday-first-move-link {
+    justify-self: start;
   }
 
   .everyday-article-header .crumbs {
