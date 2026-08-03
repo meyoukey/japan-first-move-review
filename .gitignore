@@ -39,6 +39,10 @@ functions/food-card/*
 !culture/index.html
 !help/
 !help/index.html
+!everyday-japan/
+!everyday-japan/index.html
+!everyday-japan/*/
+!everyday-japan/*/index.html
 !faq/
 !faq/index.html
 !terms/

@@ -46,6 +46,19 @@ const pages = [
     description: "First-step guides for medicine, lost items, ticket machines, feeling sick, and asking for help in Japan.",
   },
   {
+    path: "/everyday-japan",
+    title: "Everyday Japan | Japan First Move",
+    description:
+      "Understand everyday life in Japan through supermarkets, meals, ingredients, seasonal food, and the small details of daily routines.",
+  },
+  {
+    path: "/everyday-japan/japanese-supermarkets",
+    title: "What Japanese Supermarkets Are Really Like | Japan First Move",
+    description:
+      "See what Japanese supermarkets reveal about everyday meals, fresh seafood, prepared food, tea, seasonal products, and local life.",
+    ogType: "article",
+  },
+  {
     path: "/food-cards",
     title: "Food Cards for Japan | Japan First Move",
     description:
@@ -398,13 +411,16 @@ function headMarkup(page) {
     <meta name="robots" content="noindex, nofollow" />
 `
     : "";
+  const homepagePreloadMarkup = page.path === "/"
+    ? `    <link rel="preload" as="image" href="/sozai/hero/hero-mobile-ramen-v2.webp" type="image/webp" fetchpriority="high" />\n`
+    : "";
   return `  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${title}</title>
     <meta name="description" content="${description}" />
     <link rel="canonical" href="${escapedCanonical}" />
-${robotsMarkup}
+${homepagePreloadMarkup}${robotsMarkup}
     <!-- Open Graph -->
     <meta property="og:site_name" content="Japan First Move" />
     <meta property="og:title" content="${title}" />
@@ -432,7 +448,7 @@ ${robotsMarkup}
 
     <!-- Analytics consent must load before any analytics-dependent code. -->
     <script src="/analytics-consent.js?v=food-card-funnel-2"></script>
-    <link rel="stylesheet" href="/styles.css?v=css-modules-29" />
+    <link rel="stylesheet" href="/styles.css?v=everyday-japan-1" />
   </head>`;
 }
 
