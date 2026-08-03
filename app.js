@@ -3816,17 +3816,32 @@ function renderHome() {
 
       <section class="section everyday-home-section layout-container" aria-labelledby="everyday-home-title">
         <div class="everyday-home-panel">
-          <div class="everyday-home-copy">
-            <p class="everyday-kicker">Everyday Japan</p>
-            <h2 id="everyday-home-title">Understand the Japan around you</h2>
-            <p>Look beyond the next step and discover what supermarkets, meals, ingredients, and ordinary routines reveal about daily life.</p>
-            <a class="everyday-text-link" href="/everyday-japan">Explore Everyday Japan <span aria-hidden="true">→</span></a>
+          <div class="everyday-home-heading">
+            <div class="everyday-home-copy">
+              <p class="everyday-kicker">Everyday Japan</p>
+              <h2 id="everyday-home-title">Understand the Japan around you</h2>
+              <p>Look beyond the next step and discover what supermarkets, meals, ingredients, and ordinary routines reveal about daily life.</p>
+            </div>
+            <a class="everyday-home-all-link" href="/everyday-japan">View all stories <span aria-hidden="true">→</span></a>
           </div>
-          <a class="everyday-feature-card" href="/everyday-japan/japanese-supermarkets">
-            <span class="everyday-feature-label">New story</span>
-            <strong>What Japanese Supermarkets Are Really Like</strong>
-            <span>Fresh seafood, prepared meals, tea aisles, and small discoveries worth taking home.</span>
-          </a>
+          <div class="everyday-home-story-grid">
+            <a class="everyday-home-story" href="/everyday-japan/japanese-supermarkets">
+              <span class="everyday-home-story-number" aria-hidden="true">01</span>
+              <span class="everyday-home-story-copy">
+                <strong>What Japanese Supermarkets Are Really Like</strong>
+                <span>Fresh seafood, prepared meals, tea aisles, and small discoveries worth taking home.</span>
+              </span>
+              <span class="everyday-home-story-arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="everyday-home-story" href="/everyday-japan/japanese-seasonings">
+              <span class="everyday-home-story-number" aria-hidden="true">02</span>
+              <span class="everyday-home-story-copy">
+                <strong>Everyday Japanese Seasonings Explained</strong>
+                <span>Dashi, ponzu, mentsuyu, mirin, miso, and other everyday flavors.</span>
+              </span>
+              <span class="everyday-home-story-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
       </section>
 
