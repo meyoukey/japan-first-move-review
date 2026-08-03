@@ -274,7 +274,19 @@
 
 .everyday-article-page {
   padding-bottom: clamp(3rem, 7vw, 6rem);
-  background: var(--paper);
+  background: #f2f1f2;
+}
+
+body:has(.everyday-article-page),
+body:has(.everyday-article-page) main,
+body:has(.everyday-article-page) .everyday-article-page {
+  background-color: #f2f1f2 !important;
+  background-image: none !important;
+}
+
+body:has(.everyday-article-page)::after {
+  display: none;
+  content: none;
 }
 
 .everyday-article-header {
