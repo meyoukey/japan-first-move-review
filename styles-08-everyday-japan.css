@@ -75,21 +75,17 @@
   font-size: 0.95rem;
 }
 
-.everyday-home-all-link {
-  display: inline-flex;
+.everyday-home-heading .everyday-home-all-link {
   flex: 0 0 auto;
-  gap: 0.4rem;
-  align-items: center;
-  padding: 0.65rem 0.85rem;
   color: var(--everyday-rose);
-  background: var(--everyday-rose-soft);
   font-size: 0.88rem;
-  font-weight: 800;
 }
 
-.everyday-home-all-link:hover,
-.everyday-home-all-link:focus-visible {
-  background: #f3e6ea;
+.everyday-home-heading .everyday-home-all-link:hover,
+.everyday-home-heading .everyday-home-all-link:focus-visible {
+  color: #a86f7f;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .everyday-text-link {
@@ -114,9 +110,9 @@
 
 .everyday-home-story {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: clamp(5.5rem, 9vw, 7rem) minmax(0, 1fr) auto;
   gap: 0.75rem;
-  align-items: start;
+  align-items: center;
   padding: clamp(0.9rem, 2vw, 1.1rem);
   color: var(--color-text-main);
   background: var(--everyday-rose-soft);
@@ -127,7 +123,17 @@
   background: #f3e6ea;
 }
 
+.everyday-home-story-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
 .everyday-home-story-number {
+  display: block;
+  margin-bottom: 0.3rem;
   color: var(--everyday-rose);
   font-family: "Bricolage Grotesque", Avenir, sans-serif;
   font-size: 0.78rem;
@@ -144,7 +150,7 @@
   letter-spacing: -0.015em;
 }
 
-.everyday-home-story-copy > span {
+.everyday-home-story-summary {
   display: block;
   margin-top: 0.35rem;
   color: #5b6562;
@@ -561,6 +567,11 @@ body:has(.everyday-article-page)::after {
 
   .everyday-home-story-grid {
     grid-template-columns: 1fr;
+  }
+
+  .everyday-home-story {
+    grid-template-columns: 5.25rem minmax(0, 1fr) auto;
+    gap: 0.65rem;
   }
 
   .everyday-story-card {
