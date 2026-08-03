@@ -72,6 +72,8 @@ functions/food-card/*
 assets/*
 !assets/brand/
 !assets/brand/**
+!assets/everyday-japan/
+!assets/everyday-japan/**
 !assets/food-card/
 !assets/food-card/**
 !assets/guides/

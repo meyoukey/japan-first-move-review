@@ -173,6 +173,11 @@
   margin-top: clamp(2.5rem, 6vw, 5rem);
 }
 
+.everyday-story-list {
+  display: grid;
+  gap: clamp(1.2rem, 3vw, 2rem);
+}
+
 .everyday-story-card {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -255,11 +260,11 @@ body:has(.everyday-article-page)::after {
 .everyday-article-header {
   position: relative;
   padding-top: clamp(1.5rem, 4vw, 3rem);
-  padding-bottom: clamp(2.5rem, 7vw, 5.5rem);
+  padding-bottom: clamp(1.5rem, 4vw, 3rem);
 }
 
 .everyday-article-header::after {
-  content: "01";
+  content: attr(data-story-number);
   position: absolute;
   right: 0;
   bottom: 0.02em;
@@ -306,6 +311,18 @@ body:has(.everyday-article-page)::after {
   color: var(--color-text-main);
 }
 
+.everyday-article-hero {
+  display: block;
+  width: min(calc(100% - var(--content-gutter)), var(--content-max));
+  margin: 0 auto clamp(1.5rem, 4vw, 3rem);
+}
+
+.everyday-article-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .everyday-prose {
   max-width: var(--content-max);
   padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 7.5vw, 5rem);
@@ -344,6 +361,15 @@ body:has(.everyday-article-page)::after {
   font-size: clamp(1.8rem, 4vw, 2.7rem);
   line-height: 1.12;
   letter-spacing: -0.025em;
+}
+
+.everyday-prose h3 {
+  margin: clamp(2rem, 5vw, 3rem) 0 0.65rem;
+  color: var(--color-text-main);
+  font-family: "Bricolage Grotesque", Avenir, sans-serif;
+  font-size: clamp(1.3rem, 2.8vw, 1.7rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
 }
 
 .everyday-prose a {
@@ -507,6 +533,10 @@ body:has(.everyday-article-page)::after {
     max-width: var(--content-max);
     padding: 1.5rem 1.25rem;
     box-shadow: none;
+  }
+
+  .everyday-article-hero {
+    width: min(calc(100% - var(--content-gutter-mobile)), var(--content-max));
   }
 
   .everyday-observation,
