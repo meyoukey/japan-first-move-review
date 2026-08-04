@@ -650,7 +650,7 @@ ${homepagePreloadMarkup}${robotsMarkup}
 
     <!-- Analytics consent must load before any analytics-dependent code. -->
     <script src="/analytics-consent.js?v=food-card-funnel-2"></script>
-    <link rel="stylesheet" href="/styles.css?v=about-1" />
+    <link rel="stylesheet" href="/styles.css?v=mobile-everyday-cards-2" />
   </head>`;
 }
 

@@ -75,14 +75,14 @@
   font-size: 0.95rem;
 }
 
-.everyday-home-all-link {
+.everyday-text-link.everyday-home-all-link {
   flex: 0 0 auto;
   color: var(--everyday-rose);
   font-size: 0.88rem;
 }
 
-.everyday-home-all-link:hover,
-.everyday-home-all-link:focus-visible {
+.everyday-text-link.everyday-home-all-link:hover,
+.everyday-text-link.everyday-home-all-link:focus-visible {
   color: #a86f7f;
   text-decoration: underline;
   text-underline-offset: 0.2em;
@@ -722,7 +722,7 @@ body:has(.everyday-article-page)::after {
   }
 }
 
-@media (min-width: 721px) and (max-width: 1020px) {
+@media (min-width: 721px) and (max-width: 899px) {
   .everyday-home-story-grid {
     grid-template-columns: 1fr;
   }
