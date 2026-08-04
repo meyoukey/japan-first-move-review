@@ -78,6 +78,18 @@ const pages = [
     ogImageHeight: 533,
   },
   {
+    path: "/everyday-japan/why-people-walk-so-much-in-japan",
+    title: "Why People Walk So Much in Japan | Japan First Move",
+    description:
+      "Discover why walking is part of daily life in Japan, from train stations and neighborhood errands to station exits and rental bicycles.",
+    ogType: "article",
+    ogImage: `${siteUrl}/assets/everyday-japan/why-people-walk-japan-hero.jpg`,
+    ogImageAlt:
+      "Paper-crafted pedestrians walking through a Japanese neighborhood toward a railway station, with shared bicycles nearby.",
+    ogImageWidth: 1280,
+    ogImageHeight: 533,
+  },
+  {
     path: "/about",
     title: "About Japan First Move | Japan First Move",
     description:

@@ -3837,27 +3837,27 @@ function renderHome() {
               </span>
               <span class="everyday-home-story-arrow" aria-hidden="true">→</span>
             </a>
-            <a class="everyday-home-story" href="/everyday-japan/japanese-seasonings">
-              <picture class="everyday-home-story-picture">
-                <source media="(max-width: 1020px)" srcset="/assets/everyday-japan/japanese-seasonings-hero-mobile.jpg" width="1280" height="960" />
-                <img class="everyday-home-story-image" src="/assets/everyday-japan/japanese-seasonings-hero.jpg" alt="" width="1280" height="533" loading="lazy" decoding="async" />
-              </picture>
-              <span class="everyday-home-story-copy">
-                <span class="everyday-home-story-number" aria-hidden="true">02</span>
-                <strong>Everyday Japanese Seasonings Explained</strong>
-                <span class="everyday-home-story-summary">Dashi, ponzu, mentsuyu, mirin, miso, and other everyday flavors.</span>
-              </span>
-              <span class="everyday-home-story-arrow" aria-hidden="true">→</span>
-            </a>
             <a class="everyday-home-story" href="/everyday-japan/everyday-sounds">
               <picture class="everyday-home-story-picture">
                 <source media="(max-width: 1020px)" srcset="/assets/everyday-japan/everyday-sounds-hero-mobile.jpg" width="1280" height="960" />
                 <img class="everyday-home-story-image" src="/assets/everyday-japan/everyday-sounds-hero.jpg" alt="" width="1280" height="533" loading="lazy" decoding="async" />
               </picture>
               <span class="everyday-home-story-copy">
-                <span class="everyday-home-story-number" aria-hidden="true">03</span>
+                <span class="everyday-home-story-number" aria-hidden="true">02</span>
                 <strong>Why Japan Has So Many Everyday Sounds</strong>
                 <span class="everyday-home-story-summary">Chimes, chirping crosswalks, station melodies, and the sounds that quietly guide daily life.</span>
+              </span>
+              <span class="everyday-home-story-arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="everyday-home-story" href="/everyday-japan/why-people-walk-so-much-in-japan">
+              <picture class="everyday-home-story-picture">
+                <source media="(max-width: 1020px)" srcset="/assets/everyday-japan/why-people-walk-japan-hero-mobile.jpg" width="1280" height="960" />
+                <img class="everyday-home-story-image" src="/assets/everyday-japan/why-people-walk-japan-hero.jpg" alt="" width="1280" height="533" loading="lazy" decoding="async" />
+              </picture>
+              <span class="everyday-home-story-copy">
+                <span class="everyday-home-story-number" aria-hidden="true">03</span>
+                <strong>Why People Walk So Much in Japan</strong>
+                <span class="everyday-home-story-summary">Stations, neighborhood errands, and the everyday routes that quietly add thousands of steps.</span>
               </span>
               <span class="everyday-home-story-arrow" aria-hidden="true">→</span>
             </a>
@@ -3938,6 +3938,18 @@ function renderEverydayJapanHub() {
               </div>
               <h3>Why Japan Has So Many Everyday Sounds</h3>
               <p>Notice the chimes, chirping crosswalks, station melodies, and neighborhood announcements that quietly guide daily life.</p>
+              <span class="everyday-text-link">Read the story <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+          <a class="everyday-story-card" href="/everyday-japan/why-people-walk-so-much-in-japan">
+            <img class="everyday-story-image" src="/assets/everyday-japan/why-people-walk-japan-hero-mobile.jpg" alt="" width="1280" height="960" decoding="async" />
+            <div class="everyday-story-copy">
+              <div class="everyday-story-meta">
+                <span class="everyday-story-number" aria-hidden="true">04</span>
+                <span class="everyday-feature-label">Walking &amp; daily life</span>
+              </div>
+              <h3>Why People Walk So Much in Japan</h3>
+              <p>See how stations, neighborhood errands, and ordinary city routes make walking a natural part of everyday life.</p>
               <span class="everyday-text-link">Read the story <span aria-hidden="true">→</span></span>
             </div>
           </a>
@@ -4440,6 +4452,108 @@ function renderEverydaySoundsArticle() {
           <a href="/everyday-japan/japanese-supermarkets">What Japanese supermarkets are really like <span aria-hidden="true">→</span></a>
           <a href="/everyday-japan/japanese-seasonings">Everyday Japanese seasonings explained <span aria-hidden="true">→</span></a>
           <a href="/guides/irasshaimase">What “irasshaimase” means <span aria-hidden="true">→</span></a>
+        </div>
+      </aside>
+    </div>
+  `;
+}
+
+function renderWhyPeopleWalkArticle() {
+  document.title = "Why People Walk So Much in Japan | Japan First Move";
+
+  app.innerHTML = `
+    <div class="page-shell everyday-article-page">
+      <header class="everyday-article-header layout-container" data-story-number="04">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>/</span>
+          <a href="/everyday-japan">Everyday Japan</a><span>/</span>
+          <span>Walking in Japan</span>
+        </nav>
+        <p class="everyday-kicker">Walking &amp; daily life</p>
+        <h1>Why People Walk So Much in Japan</h1>
+        <p class="lead">Stations, neighborhood errands, and the small routes that turn an ordinary day in Japan into more walking than expected.</p>
+      </header>
+
+      <picture class="everyday-article-hero">
+        <source media="(max-width: 720px)" srcset="/assets/everyday-japan/why-people-walk-japan-hero-mobile.jpg" width="1280" height="960" />
+        <img src="/assets/everyday-japan/why-people-walk-japan-hero.jpg" alt="Paper-crafted pedestrians walking through a Japanese neighborhood toward a railway station, with shared bicycles nearby." width="1280" height="533" fetchpriority="high" decoding="async" />
+      </picture>
+
+      <article class="everyday-prose content-container">
+        <p class="everyday-opening">You may notice it in your legs before you notice it anywhere else.</p>
+        <p>A day in Japan can quietly turn into 15,000 steps. You walk to the station, through the station, between platforms, out of the wrong exit, back to the right exit, and then another ten minutes to wherever you were actually going.</p>
+        <p>It can feel like a lot—especially if you thought taking the train meant you would not be walking much.</p>
+        <p>But in many Japanese cities, walking is not a separate activity. It is simply how daily life connects.</p>
+
+        <section>
+          <h2>The train does not replace walking</h2>
+          <p>Japan’s railway network makes it possible to travel long distances without a car. But trains only take you part of the way.</p>
+          <p>People still walk from home to the station, change platforms, climb stairs, pass through underground passages, and continue from the final station to work, school, shops, or restaurants.</p>
+          <p>A station that looks like one point on a map can feel like a small town once you are inside it. Some transfers take much longer than expected, and the nearest exit is not always near your destination.</p>
+          <p>The train ride might be ten minutes. The walking around it can easily take longer.</p>
+        </section>
+
+        <section>
+          <h2>Everyday errands often happen on foot</h2>
+          <p>In walkable neighborhoods, daily necessities are often scattered along familiar routes.</p>
+          <p>A convenience store near the station. A supermarket on the way home. A pharmacy around the corner. A small restaurant beneath the railway tracks.</p>
+          <p>Instead of driving to one large shopping area, people may pick things up while moving through the neighborhood. Walking becomes part of buying dinner, meeting a friend, going to work, or taking a child to school.</p>
+          <p>It does not always feel like exercise. It is just built into the day.</p>
+        </section>
+
+        <section>
+          <h2>Stations make you walk more than you expect</h2>
+          <p>For travelers, stations are probably responsible for many of the surprise steps.</p>
+          <p>Large stations can have multiple train companies, underground shopping streets, long transfer corridors, and exits that lead to completely different parts of the neighborhood.</p>
+          <p>Choosing the wrong exit may add another ten minutes. Following a sign for your train may involve stairs, escalators, and a long passage before you even reach the platform.</p>
+          <p>This is normal. Even people who live in Japan can get confused in an unfamiliar station.</p>
+        </section>
+
+        <section class="everyday-observation">
+          <p class="everyday-observation-label">Look between the destinations</p>
+          <h2>Walking changes what you notice</h2>
+          <p>There is another reason walking matters: it slows Japan down enough to see it.</p>
+          <p>From a train window, a neighborhood passes in seconds. On foot, you notice the bicycles outside an apartment, the tiny garden beside a house, the evening queue at a bakery, and the sound of children heading home from school.</p>
+          <p>You begin to understand how close together ordinary life can be. Homes, train lines, supermarkets, shrines, vending machines, and small businesses often share the same few streets.</p>
+          <p>These are not famous sights. But they may become some of the clearest memories of your trip.</p>
+        </section>
+
+        <section>
+          <h2>Not everywhere in Japan is highly walkable</h2>
+          <p>Japan is not one continuous pedestrian-friendly city.</p>
+          <p>In rural areas and some suburbs, cars are essential. Shops may be far apart, buses may be infrequent, and the nearest station may not be within easy walking distance.</p>
+          <p>The image of Japan as a place where everyone walks mainly comes from dense cities and neighborhoods built around railway stations.</p>
+          <p>Where you stay makes a big difference.</p>
+        </section>
+
+        <section class="everyday-try-section">
+          <p class="everyday-observation-label">Save your feet</p>
+          <h2>A few things travelers learn quickly</h2>
+          <p>Comfortable shoes matter more than stylish ones.</p>
+          <p>Distances inside stations do not always appear clearly on maps. Rain, summer heat, luggage, and crowded platforms can make a short route feel much longer.</p>
+          <p>It also helps to check the station exit before arriving. Exit numbers are not a minor detail—they can save you from walking around an enormous block.</p>
+          <p>If your destination is a little too far to walk, a rental bicycle can be a useful middle option. Bike-sharing is available in many cities, but check the parking areas and local cycling rules before setting off.</p>
+          <p>And if you have a full day planned, leave some energy for the walk back to your hotel. Japan has a habit of adding one last staircase when you thought you were finished.</p>
+        </section>
+
+        <section class="everyday-notice-section">
+          <h2>Walking becomes part of the memory</h2>
+          <p>At first, all the walking may feel tiring. A few days later, you may start to enjoy the rhythm of it: stopping at a convenience store, following the railway line, finding a quieter street, or recognizing the route back to your hotel without checking your phone.</p>
+          <p>Walking is not just how you move between places in Japan.</p>
+          <p class="everyday-closing">It is often how you begin to understand the places in between.</p>
+        </section>
+      </article>
+
+      <aside class="everyday-related layout-container" aria-labelledby="everyday-related-title">
+        <div>
+          <p class="everyday-kicker">Keep exploring</p>
+          <h2 id="everyday-related-title">See more of everyday Japan</h2>
+          <p>Notice the ordinary places, sounds, and food that reveal how daily life works.</p>
+        </div>
+        <div class="everyday-related-links">
+          <a href="/everyday-japan/everyday-sounds">Why Japan has so many everyday sounds <span aria-hidden="true">→</span></a>
+          <a href="/everyday-japan/japanese-supermarkets">What Japanese supermarkets are really like <span aria-hidden="true">→</span></a>
+          <a href="/guides/find-right-exit">How to find the right station exit <span aria-hidden="true">→</span></a>
         </div>
       </aside>
     </div>
@@ -9020,6 +9134,8 @@ function router({ restoreCustomFoodCardDraft = false } = {}) {
       renderJapaneseSeasoningsArticle();
     } else if (route[1] === "everyday-sounds") {
       renderEverydaySoundsArticle();
+    } else if (route[1] === "why-people-walk-so-much-in-japan") {
+      renderWhyPeopleWalkArticle();
     } else if (!route[1]) {
       renderEverydayJapanHub();
     } else {
