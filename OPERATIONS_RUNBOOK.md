@@ -4,6 +4,25 @@
 
 Use this page when checking the site after launch or investigating a payment problem.
 
+## Content publishing and prerendering
+
+After changing an article, page copy, navigation, metadata, or the page generator, run:
+
+```sh
+npm run build
+```
+
+This command first regenerates the route-specific HTML shells, then opens every indexable content page locally and saves its rendered `<main>` content into the corresponding HTML file. The source copy remains in `app.js`; generated HTML must not be edited by hand.
+
+The build excludes the stateful Custom Food Card builder and noindex pages. If any page is incomplete, missing its H1, produces a rendering error, or fails the static mobile check, the command restores the HTML files to their pre-build state and exits with an error.
+
+After a successful build:
+
+1. Review the changed HTML files in Git.
+2. Commit and push to `preview-stripe-test`.
+3. Check the preview site on desktop and mobile.
+4. Merge into `main` only after the preview is approved.
+
 ## Owner and timing
 
 Owner: Site operator (project owner)

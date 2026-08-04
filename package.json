@@ -1,0 +1,12 @@
+{
+  "name": "japan-first-move",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-site.js",
+    "generate:seo": "node scripts/generate-seo-pages.js",
+    "prerender": "node scripts/prerender-pages.js"
+  },
+  "devDependencies": {
+    "playwright-core": "1.62.0"
+  }
+}

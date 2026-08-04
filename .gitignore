@@ -8,6 +8,7 @@
 !analytics-consent.js
 !PRE_LAUNCH_CHECKLIST.md
 !OPERATIONS_RUNBOOK.md
+!package.json
 !styles.css
 !styles-*.css
 !_headers
@@ -18,6 +19,8 @@
 !scripts/
 scripts/*
 !scripts/generate-seo-pages.js
+!scripts/prerender-pages.js
+!scripts/build-site.js
 
 !functions/
 functions/*

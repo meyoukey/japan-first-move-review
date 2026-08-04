@@ -647,13 +647,22 @@ if (!bodyMatch) {
   throw new Error("Could not find body markup in index.html");
 }
 
+const emptyAppMarkup = '<main id="app" tabindex="-1"></main>';
+const bodyTemplate = bodyMatch[0].replace(
+  /<main\b(?=[^>]*\bid="app")[^>]*>[\s\S]*?<\/main>/,
+  emptyAppMarkup,
+);
+if (bodyTemplate === bodyMatch[0] && !bodyMatch[0].includes(emptyAppMarkup)) {
+  throw new Error("Could not reset the app container before generating page shells");
+}
+
 for (const page of pages) {
   const filePath = pageOutputPath(page.path);
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   const html = `<!doctype html>
 <html lang="en">
 ${headMarkup(page)}
-${bodyMatch[0]}
+${bodyTemplate}
 </html>
 `;
   fs.writeFileSync(filePath, html);
