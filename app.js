@@ -3826,7 +3826,10 @@ function renderHome() {
           </div>
           <div class="everyday-home-story-grid">
             <a class="everyday-home-story" href="/everyday-japan/japanese-supermarkets">
-              <img class="everyday-home-story-image" src="/assets/everyday-japan/japanese-supermarkets-hero-mobile.jpg" alt="" width="1280" height="960" loading="lazy" decoding="async" />
+              <picture class="everyday-home-story-picture">
+                <source media="(max-width: 1020px)" srcset="/assets/everyday-japan/japanese-supermarkets-hero-mobile.jpg" width="1280" height="960" />
+                <img class="everyday-home-story-image" src="/assets/everyday-japan/japanese-supermarkets-hero.jpg" alt="" width="1280" height="533" loading="lazy" decoding="async" />
+              </picture>
               <span class="everyday-home-story-copy">
                 <span class="everyday-home-story-number" aria-hidden="true">01</span>
                 <strong>What Japanese Supermarkets Are Really Like</strong>
@@ -3835,7 +3838,10 @@ function renderHome() {
               <span class="everyday-home-story-arrow" aria-hidden="true">→</span>
             </a>
             <a class="everyday-home-story" href="/everyday-japan/japanese-seasonings">
-              <img class="everyday-home-story-image" src="/assets/everyday-japan/japanese-seasonings-hero-mobile.jpg" alt="" width="1280" height="960" loading="lazy" decoding="async" />
+              <picture class="everyday-home-story-picture">
+                <source media="(max-width: 1020px)" srcset="/assets/everyday-japan/japanese-seasonings-hero-mobile.jpg" width="1280" height="960" />
+                <img class="everyday-home-story-image" src="/assets/everyday-japan/japanese-seasonings-hero.jpg" alt="" width="1280" height="533" loading="lazy" decoding="async" />
+              </picture>
               <span class="everyday-home-story-copy">
                 <span class="everyday-home-story-number" aria-hidden="true">02</span>
                 <strong>Everyday Japanese Seasonings Explained</strong>
@@ -3844,7 +3850,10 @@ function renderHome() {
               <span class="everyday-home-story-arrow" aria-hidden="true">→</span>
             </a>
             <a class="everyday-home-story" href="/everyday-japan/everyday-sounds">
-              <img class="everyday-home-story-image" src="/assets/everyday-japan/everyday-sounds-hero-mobile.jpg" alt="" width="1280" height="960" loading="lazy" decoding="async" />
+              <picture class="everyday-home-story-picture">
+                <source media="(max-width: 1020px)" srcset="/assets/everyday-japan/everyday-sounds-hero-mobile.jpg" width="1280" height="960" />
+                <img class="everyday-home-story-image" src="/assets/everyday-japan/everyday-sounds-hero.jpg" alt="" width="1280" height="533" loading="lazy" decoding="async" />
+              </picture>
               <span class="everyday-home-story-copy">
                 <span class="everyday-home-story-number" aria-hidden="true">03</span>
                 <strong>Why Japan Has So Many Everyday Sounds</strong>

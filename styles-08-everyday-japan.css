@@ -111,11 +111,12 @@
 .everyday-home-story {
   position: relative;
   display: grid;
-  grid-template-columns: clamp(4.25rem, 5vw, 4.5rem) minmax(0, 1fr);
-  gap: 0.75rem;
-  align-items: center;
-  padding: clamp(0.9rem, 2vw, 1.1rem);
-  padding-right: 1.75rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 0;
+  align-items: start;
+  overflow: hidden;
+  padding: 0 0 clamp(1rem, 2vw, 1.2rem);
   color: var(--color-text-main);
   background: var(--everyday-rose-soft);
 }
@@ -125,12 +126,22 @@
   background: #f3e6ea;
 }
 
+.everyday-home-story-picture {
+  display: block;
+  width: 100%;
+}
+
 .everyday-home-story-image {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1280 / 533;
   object-fit: cover;
+}
+
+.everyday-home-story-copy {
+  display: block;
+  padding: clamp(0.9rem, 2vw, 1.1rem) clamp(1.8rem, 3vw, 2.2rem) 0 clamp(0.9rem, 2vw, 1.1rem);
 }
 
 .everyday-home-story-number {
@@ -162,9 +173,8 @@
 
 .everyday-home-story-arrow {
   position: absolute;
-  right: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 1rem;
+  bottom: 1rem;
   color: var(--everyday-rose);
   font-weight: 800;
 }
@@ -637,8 +647,18 @@ body:has(.everyday-article-page)::after {
 
   .everyday-home-story {
     grid-template-columns: 5.25rem minmax(0, 1fr) auto;
+    grid-template-rows: auto;
     gap: 0.65rem;
-    padding-right: clamp(0.9rem, 2vw, 1.1rem);
+    align-items: center;
+    padding: clamp(0.9rem, 2vw, 1.1rem);
+  }
+
+  .everyday-home-story-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .everyday-home-story-copy {
+    padding: 0;
   }
 
   .everyday-home-story-arrow {
@@ -685,5 +705,28 @@ body:has(.everyday-article-page)::after {
 @media (min-width: 721px) and (max-width: 1020px) {
   .everyday-home-story-grid {
     grid-template-columns: 1fr;
+  }
+
+  .everyday-home-story {
+    grid-template-columns: 7rem minmax(0, 1fr);
+    grid-template-rows: auto;
+    gap: 0.85rem;
+    align-items: center;
+    padding: 1rem 2.2rem 1rem 1rem;
+  }
+
+  .everyday-home-story-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .everyday-home-story-copy {
+    padding: 0;
+  }
+
+  .everyday-home-story-arrow {
+    right: 0.8rem;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
