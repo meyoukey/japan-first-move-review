@@ -3820,7 +3820,7 @@ function renderHome() {
             <div class="everyday-home-copy">
               <p class="everyday-kicker">Everyday Japan</p>
               <h2 id="everyday-home-title">Understand the Japan around you</h2>
-              <p>Look beyond the next step and discover what supermarkets, meals, ingredients, and ordinary routines reveal about daily life.</p>
+              <p>Look beyond the next step and discover what ordinary places, sounds, food, and routines reveal about daily life.</p>
             </div>
             <a class="everyday-text-link everyday-home-all-link" href="/everyday-japan">View all stories <span aria-hidden="true">→</span></a>
           </div>
@@ -3840,6 +3840,15 @@ function renderHome() {
                 <span class="everyday-home-story-number" aria-hidden="true">02</span>
                 <strong>Everyday Japanese Seasonings Explained</strong>
                 <span class="everyday-home-story-summary">Dashi, ponzu, mentsuyu, mirin, miso, and other everyday flavors.</span>
+              </span>
+              <span class="everyday-home-story-arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="everyday-home-story" href="/everyday-japan/everyday-sounds">
+              <img class="everyday-home-story-image" src="/assets/everyday-japan/everyday-sounds-hero-mobile.jpg" alt="" width="1280" height="960" loading="lazy" decoding="async" />
+              <span class="everyday-home-story-copy">
+                <span class="everyday-home-story-number" aria-hidden="true">03</span>
+                <strong>Why Japan Has So Many Everyday Sounds</strong>
+                <span class="everyday-home-story-summary">Chimes, chirping crosswalks, station melodies, and the sounds that quietly guide daily life.</span>
               </span>
               <span class="everyday-home-story-arrow" aria-hidden="true">→</span>
             </a>
@@ -3870,12 +3879,12 @@ function renderEverydayJapanHub() {
       <header class="everyday-hub-header">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Everyday Japan</span></nav>
         <h1>Everyday Japan</h1>
-        <p class="lead">Understand the ordinary places, food, and routines that make a trip to Japan more interesting.</p>
+        <p class="lead">Understand the ordinary places, sounds, food, and routines that make a trip to Japan more interesting.</p>
       </header>
 
       <section class="everyday-hub-intro" aria-labelledby="everyday-hub-intro-title">
         <h2 id="everyday-hub-intro-title">Not just what to do—what you are seeing</h2>
-        <p>First Move guides help when you need an answer now. Everyday Japan stories slow down and look at the reason a place, meal, or habit feels different.</p>
+        <p>First Move guides help when you need an answer now. Everyday Japan stories slow down and look at the reason a place, sound, meal, or habit feels different.</p>
         <p>You do not need to understand everything before you enjoy it. Meeting something unfamiliar is one of the best parts of travel.</p>
       </section>
 
@@ -3908,6 +3917,18 @@ function renderEverydayJapanHub() {
               </div>
               <h3>Everyday Japanese Seasonings Explained</h3>
               <p>Meet dashi, ponzu, mentsuyu, mirin, miso, and the everyday flavors that make Japanese home cooking easier.</p>
+              <span class="everyday-text-link">Read the story <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+          <a class="everyday-story-card" href="/everyday-japan/everyday-sounds">
+            <img class="everyday-story-image" src="/assets/everyday-japan/everyday-sounds-hero-mobile.jpg" alt="" width="1280" height="960" decoding="async" />
+            <div class="everyday-story-copy">
+              <div class="everyday-story-meta">
+                <span class="everyday-story-number" aria-hidden="true">03</span>
+                <span class="everyday-feature-label">Sounds &amp; daily life</span>
+              </div>
+              <h3>Why Japan Has So Many Everyday Sounds</h3>
+              <p>Notice the chimes, chirping crosswalks, station melodies, and neighborhood announcements that quietly guide daily life.</p>
               <span class="everyday-text-link">Read the story <span aria-hidden="true">→</span></span>
             </div>
           </a>
@@ -4108,6 +4129,7 @@ function renderJapaneseSupermarketsArticle() {
           <p>Use a quick guide when you need to act now.</p>
         </div>
         <div class="everyday-related-links">
+          <a href="/everyday-japan/everyday-sounds">Why Japan has so many everyday sounds <span aria-hidden="true">→</span></a>
           <a href="/food#convenience-store-guides">Explore convenience-store guides <span aria-hidden="true">→</span></a>
           <a href="/guides/how-to-pay">How to pay at shops in Japan <span aria-hidden="true">→</span></a>
           <a href="/guides/three-step-onigiri">How to open a three-step onigiri <span aria-hidden="true">→</span></a>
@@ -4274,8 +4296,141 @@ function renderJapaneseSeasoningsArticle() {
         </div>
         <div class="everyday-related-links">
           <a href="/everyday-japan/japanese-supermarkets">What Japanese supermarkets are really like <span aria-hidden="true">→</span></a>
+          <a href="/everyday-japan/everyday-sounds">Why Japan has so many everyday sounds <span aria-hidden="true">→</span></a>
           <a href="/food#convenience-store-guides">Explore convenience-store guides <span aria-hidden="true">→</span></a>
           <a href="/food-cards/ask-dashi">Ask whether food contains dashi <span aria-hidden="true">→</span></a>
+        </div>
+      </aside>
+    </div>
+  `;
+}
+
+function renderEverydaySoundsArticle() {
+  document.title = "Why Japan Has So Many Everyday Sounds | Japan First Move";
+
+  app.innerHTML = `
+    <div class="page-shell everyday-article-page">
+      <header class="everyday-article-header layout-container" data-story-number="03">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>/</span>
+          <a href="/everyday-japan">Everyday Japan</a><span>/</span>
+          <span>Everyday sounds</span>
+        </nav>
+        <p class="everyday-kicker">Sounds &amp; daily life</p>
+        <h1>Why Japan Has So Many Everyday Sounds</h1>
+        <p class="lead">Convenience-store chimes, chirping crosswalks, station melodies, neighborhood announcements, and the sounds that quietly guide daily life.</p>
+      </header>
+
+      <picture class="everyday-article-hero">
+        <source media="(max-width: 720px)" srcset="/assets/everyday-japan/everyday-sounds-hero-mobile.jpg" width="1280" height="960" />
+        <img src="/assets/everyday-japan/everyday-sounds-hero.jpg" alt="A paper-crafted Japanese street with a convenience store, crossing signal, train, and neighborhood loudspeaker." width="1280" height="533" fetchpriority="high" decoding="async" />
+      </picture>
+
+      <article class="everyday-prose content-container">
+        <p class="everyday-opening">Some memories of Japan return as images. Others come back as sound.</p>
+        <p>A familiar door chime, a chirping crosswalk, or a melody drifting across a neighborhood at five in the afternoon.</p>
+        <p>You may barely notice them during your trip. Months later, one sound can bring the whole place back.</p>
+
+        <section>
+          <h2>Japan is not as quiet as it first seems</h2>
+          <p>Japan is often described as quiet. Trains are orderly, people rarely talk loudly on public transport, and residential streets can feel surprisingly calm.</p>
+          <p>But everyday Japan is full of sound.</p>
+          <p>Doors announce that someone has entered. Crosswalks chirp. Stations play short melodies. Supermarkets repeat cheerful promotions. In some neighborhoods, music drifts from outdoor speakers in the late afternoon.</p>
+          <p>Many of these sounds are not there simply for atmosphere. They guide people, give warnings, mark time, and make busy places easier to navigate.</p>
+          <p>Once you start noticing them, Japan develops its own soundtrack.</p>
+        </section>
+
+        <section>
+          <h2>The sound that tells you a door has opened</h2>
+          <p>Walk into a convenience store and you may hear a short electronic chime before you have even looked around.</p>
+          <p>For customers, it becomes part of the experience: the automatic doors slide open, the air conditioning hits, and the shelves of drinks, rice balls, and snacks appear.</p>
+          <p>For the staff, the sound has a practical purpose. It lets them know that someone has entered, even when they are stocking shelves or working behind the counter.</p>
+          <p>Not every store uses the same sound, but some melodies become so familiar that people instantly associate them with a quick stop at a convenience store.</p>
+          <p>During a trip, you might hear that chime several times a day without thinking about it. Later, it can bring back a very specific feeling: stepping inside late at night to buy a drink, breakfast for the next morning, or a snack you had never seen before.</p>
+        </section>
+
+        <section>
+          <h2>Why crosswalks chirp</h2>
+          <p>The “piyo-piyo” sound at some Japanese crossings may seem playful, but it is doing an important job.</p>
+          <p><a href="https://www.npa.go.jp/bureau/traffic/seibi2/annzen-shisetu/hyoushiki-shingouki/onkyou.html" target="_blank" rel="noopener noreferrer">Acoustic traffic signals</a> help pedestrians—especially people with visual impairments—know when it is safe to cross. Japan commonly uses bird-like sounds, including chirping and cuckoo calls.</p>
+          <p>At some crossings, the sounds alternate from opposite sides of the road. This helps indicate the direction of the crossing rather than simply announcing that the light is green.</p>
+          <p>The result is a sound that is both functional and strangely memorable.</p>
+          <p>After a few days in Japan, you may stop consciously hearing it. Your feet simply learn that the chirping belongs to the moment when everyone starts moving.</p>
+        </section>
+
+        <section>
+          <h2>Every station has its own rhythm</h2>
+          <p>Japanese stations are full of small audio signals.</p>
+          <p>There are ticket gate beeps, platform announcements, warning sounds, train doors closing, and short melodies before departure. Together, they create a rhythm that regular passengers understand almost automatically.</p>
+          <p>Departure melodies can also give stations a little personality. Some are connected to local places, famous songs, or something the area is known for. Others are simply short tunes designed to be clear without feeling too harsh.</p>
+          <p>For a visitor, the information can feel overwhelming at first—especially when several announcements and melodies overlap.</p>
+          <p>But after taking the same route a few times, the sounds begin to feel useful. You recognize the melody before your train leaves. You hear the warning tone and know to step back. A station that once felt confusing starts to feel familiar.</p>
+        </section>
+
+        <section>
+          <h2>Shopping has a soundtrack</h2>
+          <p>Convenience stores are not the only shops with their own sounds.</p>
+          <p>Walk into a Japanese supermarket or drugstore and you may hear something different from every direction.</p>
+          <p>There are announcements for the day's recommendations, short promotions playing near particular shelves, staff calling out offers, and electronic beeps as products pass through the checkout.</p>
+          <p>The same melody may repeat until it is still in your head after you leave the store.</p>
+          <p>Even if you cannot understand every word, the energy alone makes it clear that something is being recommended.</p>
+          <p>The products may look calmly and carefully arranged, but listen closely and the store can be surprisingly lively.</p>
+          <p>Shopping in Japan is an experience made not only from what you see, but also from the sounds that follow you through the aisles.</p>
+        </section>
+
+        <section class="everyday-observation">
+          <p class="everyday-observation-label">A sound that marks the day</p>
+          <h2>When the whole neighborhood hears the time</h2>
+          <p>In some parts of Japan, a melody, chime, or siren plays through outdoor speakers in the late afternoon.</p>
+          <p>Visitors often call it the “five o'clock chime,” although the time, song, and purpose vary by municipality. Some areas change the broadcast time with the season and sunset.</p>
+          <p>For local children, it can be a signal that it is time to head home. For adults, it may simply mark the end of the afternoon.</p>
+          <p>The speakers are also part of municipal <a href="https://www.fdma.go.jp/about/organization/post-18.html" target="_blank" rel="noopener noreferrer">disaster-prevention systems</a>. Regular broadcasts can help confirm that the equipment is working and ready for emergency announcements.</p>
+          <p>If you hear the melody while walking through a residential neighborhood, the effect can be oddly cinematic. The streets are quiet, the light is beginning to change, and a tune floats above the rooftops.</p>
+          <p>Nobody stops to listen. It is simply part of the day.</p>
+          <p>That ordinariness is what makes it special.</p>
+        </section>
+
+        <section>
+          <h2>Sounds that mark the season</h2>
+          <p>Not every familiar Japanese sound comes from a speaker.</p>
+          <p>Summer has cicadas, sometimes so loud that they seem to fill the entire street. Wind chimes ring outside windows and shops. Festival music travels through neighborhoods.</p>
+          <p>In winter, streets can feel much quieter, making temple bells, crossing signals, and distant train sounds stand out more clearly.</p>
+          <p>These sounds do not appear everywhere in exactly the same way. Japan's soundtrack changes with the city, the neighborhood, the weather, and the season of your visit.</p>
+          <p>That means your memory of Japan may sound different from someone else's.</p>
+        </section>
+
+        <section>
+          <h2>The sounds are doing a job</h2>
+          <p>It is easy to describe these sounds as charming, but they are not always gentle.</p>
+          <p>Stations can be noisy. Shops sometimes play several announcements at once. After a long day, the constant voices, beeps, and melodies may feel tiring—especially when you are still trying to understand what everything means.</p>
+          <p>But most of the sounds are there for a reason.</p>
+          <p>They tell staff that someone has entered. They help pedestrians cross safely. They keep passengers aware of departing trains. They share local information and make public systems easier to follow.</p>
+          <p>Japan has many unspoken rules, but it also has plenty of audible guidance.</p>
+          <p>The city is quietly telling you what is happening next.</p>
+        </section>
+
+        <section class="everyday-notice-section">
+          <h2>Once you notice them, Japan sounds different</h2>
+          <p>At first, these sounds may feel like background noise.</p>
+          <p>Then you begin to recognize them.</p>
+          <p>The door chime means a cold drink and a few minutes under bright convenience-store lights. The crosswalk chirp means moving with the crowd. A station melody means your train is about to leave. An evening broadcast means the day is slowly winding down.</p>
+          <p>When you return home, you may find that these ordinary sounds stay with you longer than expected.</p>
+          <p>One day, you hear something similar in a video, a shop, or a station. For a moment, you are back on a Japanese street—carrying a supermarket bag, waiting at a crossing, or walking to your hotel as the evening melody plays somewhere in the distance.</p>
+          <p>You may not miss the announcement itself.</p>
+          <p class="everyday-closing">You may miss the ordinary moment that was happening around it.</p>
+        </section>
+      </article>
+
+      <aside class="everyday-related layout-container" aria-labelledby="everyday-related-title">
+        <div>
+          <p class="everyday-kicker">Keep exploring</p>
+          <h2 id="everyday-related-title">See more of everyday Japan</h2>
+          <p>Notice the ordinary places and details that reveal how daily life works.</p>
+        </div>
+        <div class="everyday-related-links">
+          <a href="/everyday-japan/japanese-supermarkets">What Japanese supermarkets are really like <span aria-hidden="true">→</span></a>
+          <a href="/everyday-japan/japanese-seasonings">Everyday Japanese seasonings explained <span aria-hidden="true">→</span></a>
+          <a href="/guides/irasshaimase">What “irasshaimase” means <span aria-hidden="true">→</span></a>
         </div>
       </aside>
     </div>
@@ -8776,6 +8931,8 @@ function router({ restoreCustomFoodCardDraft = false } = {}) {
       renderJapaneseSupermarketsArticle();
     } else if (route[1] === "japanese-seasonings") {
       renderJapaneseSeasoningsArticle();
+    } else if (route[1] === "everyday-sounds") {
+      renderEverydaySoundsArticle();
     } else if (!route[1]) {
       renderEverydayJapanHub();
     } else {
