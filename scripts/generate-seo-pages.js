@@ -3,8 +3,9 @@ const path = require("path");
 
 const root = path.resolve(__dirname, "..");
 const siteUrl = "https://japanfirstmove.com";
-const ogImage = `${siteUrl}/assets/ogp/ogp-japan-first-move.png`;
-const ogImageAlt = "Japan First Move - Simple first-step guides for traveling in Japan.";
+const ogImage = `${siteUrl}/assets/ogp/ogp-japan-first-move-v2.png`;
+const ogImageAlt =
+  "Japan First Move — Less Guessing. More Japan. Practical help when you need it and a closer look at everyday Japan.";
 const customFoodCardOgImage = `${siteUrl}/assets/ogp/ogp-custom-food-card.png`;
 const customFoodCardOgImageAlt =
   "Custom Food Card for Japan — a traveler showing a Japanese food card to restaurant staff.";
