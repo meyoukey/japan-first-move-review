@@ -59,6 +59,31 @@ const pages = [
     ogType: "article",
   },
   {
+    path: "/everyday-japan/japanese-seasonings",
+    title: "Everyday Japanese Seasonings Explained | Japan First Move",
+    description:
+      "Learn what dashi, ponzu, mentsuyu, mirin, miso, and other everyday Japanese seasonings are, plus easy flavors to try and take home.",
+    ogType: "article",
+  },
+  {
+    path: "/everyday-japan/everyday-sounds",
+    title: "Why Japan Has So Many Everyday Sounds | Japan First Move",
+    description:
+      "Discover the everyday sounds of Japan, from convenience-store chimes and chirping crosswalks to station melodies and neighborhood announcements.",
+    ogType: "article",
+    ogImage: `${siteUrl}/assets/everyday-japan/everyday-sounds-hero.jpg`,
+    ogImageAlt:
+      "A paper-crafted Japanese street with a convenience store, crossing signal, train, and neighborhood loudspeaker.",
+    ogImageWidth: 1280,
+    ogImageHeight: 533,
+  },
+  {
+    path: "/about",
+    title: "About Japan First Move | Japan First Move",
+    description:
+      "Learn why Japan First Move was created and how its practical guides help travelers navigate unfamiliar moments and connect with everyday Japan.",
+  },
+  {
     path: "/food-cards",
     title: "Food Cards for Japan | Japan First Move",
     description:
@@ -448,7 +473,7 @@ ${homepagePreloadMarkup}${robotsMarkup}
 
     <!-- Analytics consent must load before any analytics-dependent code. -->
     <script src="/analytics-consent.js?v=food-card-funnel-2"></script>
-    <link rel="stylesheet" href="/styles.css?v=everyday-japan-3" />
+    <link rel="stylesheet" href="/styles.css?v=about-1" />
   </head>`;
 }
 

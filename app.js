@@ -8683,6 +8683,66 @@ const faqCategories = [
   { id: "using", title: "Using the guide" },
 ];
 
+function renderAboutPage() {
+  const title = "About Japan First Move";
+  document.title = `${title} | Japan First Move`;
+  app.innerHTML = `
+    <div class="page-shell about-page layout-container">
+      <header class="about-page-header content-container">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>About</span></nav>
+        <h1>${title}</h1>
+        <p class="lead">Japan gets easier—and more interesting—once you know what to do first and what to notice next.</p>
+        <p>Japan First Move helps travelers take the first step in unfamiliar situations, then look a little closer at the everyday life happening around them.</p>
+      </header>
+
+      <div class="about-page-content content-container">
+        <section aria-labelledby="about-why">
+          <h2 id="about-why">Why I started Japan First Move</h2>
+          <p>I have been seeing more international visitors even in the area where I live. It makes me happy to see people enjoying Japan.</p>
+          <p>At the same time, there are situations in Japan that can confuse even Japanese people. Whenever I notice one, I find myself thinking: if this feels unclear to us, it must be even more confusing for someone visiting from another country.</p>
+          <p>Another important moment came when I went out to eat with a friend who had dietary restrictions. Japanese food can include plenty of vegetables and dishes that appear light or simple, but choosing from a menu was much harder than I had expected.</p>
+          <p>Ingredients such as dashi, broth, sauces, and seasonings are not always obvious. For vegetarians and people with other dietary needs, finding something suitable can require more explanation than the menu provides.</p>
+          <p>Those experiences became the starting point for Japan First Move.</p>
+        </section>
+
+        <section aria-labelledby="about-conversation">
+          <h2 id="about-conversation">A guide should help start a conversation</h2>
+          <p>Japan First Move is not meant to replace every interaction with a guide, a card, or a translation.</p>
+          <p>Showing a phrase can solve an immediate problem, but I hope it can also become the beginning of a small conversation. Understanding each other—even just a little—is often more valuable than simply getting the correct answer.</p>
+          <p>Sometimes visitors want to ask but do not know how. Sometimes Japanese people want to help or talk but cannot find the words either.</p>
+          <p>A simple phrase, gesture, or card can give both people the opening they need. If that small first move helps everyone feel a little more comfortable, then the guide has done what I hoped it would do.</p>
+        </section>
+
+        <section aria-labelledby="about-explore">
+          <h2 id="about-explore">Two ways to explore Japan</h2>
+          <p><strong>First Moves</strong> give you quick, practical help when you need to know what to do next.</p>
+          <p><a href="/everyday-japan"><strong>Everyday Japan</strong></a> looks beyond the immediate problem and explores supermarkets, food, sounds, routines, and other ordinary parts of life in Japan.</p>
+          <p>One helps you move forward. The other helps you understand what is happening around you.</p>
+        </section>
+
+        <section aria-labelledby="about-articles">
+          <h2 id="about-articles">How the articles are made</h2>
+          <p>Articles combine practical research with firsthand observations of everyday life in Japan.</p>
+          <p>Official sources are used when rules, safety, public services, or other important details need to be confirmed. Information may also be updated when services, customs, or local procedures change.</p>
+          <p>Japan is not exactly the same everywhere. Experiences can vary by region, shop, facility, season, and person. Personal observations are included as a perspective—not as a rule that applies to everyone.</p>
+        </section>
+
+        <section aria-labelledby="about-independent">
+          <h2 id="about-independent">An independent guide</h2>
+          <p>Japan First Move is independently created and edited. It is not affiliated with transport operators, restaurants, shops, government services, or tourism organizations unless clearly stated.</p>
+          <p>The site is designed as a practical travel companion, not an official information service. For important decisions, always check current local information and ask staff when needed.</p>
+        </section>
+
+        <section class="about-contact" aria-labelledby="about-contact">
+          <h2 id="about-contact">Questions or corrections?</h2>
+          <p>If you notice something that may have changed, or think an explanation could be clearer, please contact:</p>
+          <p>${supportEmailLinkMarkup()}</p>
+        </section>
+      </div>
+    </div>
+  `;
+}
+
 function renderFaqPage() {
   const title = "FAQ";
   document.title = `${title} | Japan First Move`;
@@ -8947,6 +9007,8 @@ function router({ restoreCustomFoodCardDraft = false } = {}) {
     renderLegalNoticePage();
   } else if (route[0] === "privacy") {
     renderPrivacyPage();
+  } else if (route[0] === "about") {
+    renderAboutPage();
   } else if (route[0] === "faq") {
     renderFaqPage();
   } else if (route[0] === "everyday-japan") {
