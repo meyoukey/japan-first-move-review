@@ -6809,20 +6809,22 @@ function renderCustomFoodCard() {
         <p class="lead">Create a clear Japanese food card that helps restaurant staff understand your needs and respond.</p>
         <p class="custom-price-note">${customFoodCardPriceText}</p>
       </header>
-      <section class="custom-food-card-intro content-container" aria-labelledby="custom-food-card-intro-title">
-        <figure class="custom-food-card-intro-visual">
-          <img
-            src="/assets/guides/food-allergy-card-japan.png"
-            alt="Restaurant staff checking ingredients around a smartphone displaying a Japanese food card."
-            width="1200"
-            height="405"
-          />
-        </figure>
-        <div class="custom-food-card-intro-copy">
-          <h2 id="custom-food-card-intro-title">Create it on your phone</h2>
-          <p>Build your card in the browser, save it as an image, and keep it ready to show restaurant staff. No app or account needed.</p>
-        </div>
-      </section>
+      ${customFoodCardState.step === 1 ? `
+        <section class="custom-food-card-intro content-container" aria-labelledby="custom-food-card-intro-title">
+          <figure class="custom-food-card-intro-visual">
+            <img
+              src="/assets/guides/food-allergy-card-japan.png"
+              alt="Restaurant staff checking ingredients around a smartphone displaying a Japanese food card."
+              width="1200"
+              height="405"
+            />
+          </figure>
+          <div class="custom-food-card-intro-copy">
+            <h2 id="custom-food-card-intro-title">Create it on your phone</h2>
+            <p>Build your card in the browser, save it as an image, and keep it ready to show restaurant staff. No app or account needed.</p>
+          </div>
+        </section>
+      ` : ""}
       <section class="custom-food-card-workspace card-container" aria-label="Custom Food Card builder">
         <div class="custom-step-progress" aria-label="Step ${customFoodCardState.step} of 4">
           <span>Step ${customFoodCardState.step} of 4</span>
