@@ -408,6 +408,169 @@ function canonicalUrl(pagePath) {
   return `${siteUrl}${pagePath === "/" ? "/" : pagePath}`;
 }
 
+const guideSectionBySlug = {
+  "food-allergy-card-japan": { name: "Food", path: "/food" },
+  "ramen-shop": { name: "Food", path: "/food" },
+  izakaya: { name: "Food", path: "/food" },
+  "restaurant-full": { name: "Food", path: "/food" },
+  "how-to-pay": { name: "Food", path: "/food" },
+  oshibori: { name: "Food", path: "/food" },
+  "cook-at-table": { name: "Food", path: "/food" },
+  "three-step-onigiri": { name: "Food", path: "/food" },
+  "empty-coffee-cup": { name: "Food", path: "/food" },
+  "konbini-egg-sandwich": { name: "Food", path: "/food" },
+  "hot-snacks": { name: "Food", path: "/food" },
+  "onsen-sento": { name: "Relax", path: "/relax" },
+  "short-break": { name: "Relax", path: "/relax" },
+  "japanese-toilet-buttons": { name: "Relax", path: "/relax" },
+  "ryokan-futon": { name: "Relax", path: "/relax" },
+  "local-bus": { name: "Move", path: "/move" },
+  "find-right-platform": { name: "Move", path: "/move" },
+  "find-right-exit": { name: "Move", path: "/move" },
+  "charge-ic-card": { name: "Move", path: "/move" },
+  "coin-lockers": { name: "Move", path: "/move" },
+  "japanese-taxi": { name: "Move", path: "/move" },
+  "luggage-forwarding": { name: "Move", path: "/move" },
+  "ticket-gate-error": { name: "Move", path: "/move" },
+  "escalator-sides": { name: "Move", path: "/move" },
+  shrine: { name: "Culture", path: "/culture" },
+  "photo-manners": { name: "Culture", path: "/culture" },
+  irasshaimase: { name: "Culture", path: "/culture" },
+  sumimasen: { name: "Culture", path: "/culture" },
+  pharmacy: { name: "Get Help", path: "/help" },
+  "ticket-machine-no-english": { name: "Get Help", path: "/help" },
+  "feeling-sick": { name: "Get Help", path: "/help" },
+  "lost-something": { name: "Get Help", path: "/help" },
+};
+
+function titleWithoutSiteName(page) {
+  return page.title.replace(/\s*\|\s*Japan First Move.*$/, "").trim();
+}
+
+function isArticlePage(page) {
+  return (
+    page.path.startsWith("/guides/") ||
+    (page.path.startsWith("/everyday-japan/") && page.path !== "/everyday-japan/")
+  );
+}
+
+function breadcrumbParents(page) {
+  if (page.path.startsWith("/everyday-japan/")) {
+    return [{ name: "Everyday Japan", path: "/everyday-japan" }];
+  }
+
+  if (page.path.startsWith("/food-cards/")) {
+    return [{ name: "Food cards", path: "/food-cards" }];
+  }
+
+  if (page.path === "/food-card/custom/") {
+    return [{ name: "Food cards", path: "/food-cards" }];
+  }
+
+  if (page.path.startsWith("/guides/")) {
+    const slug = page.path.split("/").filter(Boolean).at(-1);
+    const section = guideSectionBySlug[slug];
+    return section ? [section] : [];
+  }
+
+  return [];
+}
+
+function breadcrumbStructuredData(page) {
+  const trail = [
+    { name: "Home", path: "/" },
+    ...breadcrumbParents(page),
+    { name: titleWithoutSiteName(page), path: page.path },
+  ];
+
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: trail.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: canonicalUrl(item.path),
+    })),
+  };
+}
+
+function organizationStructuredData() {
+  return {
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    name: "Japan First Move",
+    url: `${siteUrl}/`,
+    logo: `${siteUrl}/assets/favicon/site-icon-512.png`,
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "support@japanfirstmove.com",
+      contactType: "customer support",
+    },
+  };
+}
+
+function articleStructuredData(page) {
+  const author = {
+    "@type": "Organization",
+    name: "Japan First Move",
+    url: `${siteUrl}/about`,
+  };
+
+  return {
+    "@type": "Article",
+    headline: titleWithoutSiteName(page),
+    description: page.description,
+    image: page.ogImage ?? ogImage,
+    mainEntityOfPage: canonicalUrl(page.path),
+    inLanguage: "en",
+    author,
+    publisher: {
+      "@type": "Organization",
+      name: "Japan First Move",
+      url: `${siteUrl}/`,
+      logo: `${siteUrl}/assets/favicon/site-icon-512.png`,
+    },
+  };
+}
+
+function structuredDataMarkup(page) {
+  if (page.keepNoindex) {
+    return "";
+  }
+
+  const graph = [];
+
+  if (page.path === "/") {
+    graph.push(organizationStructuredData());
+    graph.push({
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      name: "Japan First Move",
+      url: `${siteUrl}/`,
+      publisher: { "@id": `${siteUrl}/#organization` },
+    });
+  } else {
+    graph.push(breadcrumbStructuredData(page));
+  }
+
+  if (page.path === "/about") {
+    graph.push(organizationStructuredData());
+  }
+
+  if (isArticlePage(page)) {
+    graph.push(articleStructuredData(page));
+  }
+
+  const json = JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2).replaceAll(
+    "<",
+    "\\u003c",
+  );
+  return `
+    <script type="application/ld+json">
+${json}
+    </script>`;
+}
+
 function pageOutputPath(pagePath) {
   if (pagePath === "/") {
     return path.join(root, "index.html");
@@ -424,7 +587,7 @@ function headMarkup(page) {
   const pageOgImageAlt = escapeHtml(page.ogImageAlt ?? ogImageAlt);
   const pageOgImageWidth = page.ogImageWidth ?? 1200;
   const pageOgImageHeight = page.ogImageHeight ?? 630;
-  const pageOgType = escapeHtml(page.ogType ?? "website");
+  const pageOgType = escapeHtml(page.ogType ?? (isArticlePage(page) ? "article" : "website"));
   const shouldNoindex = page.keepNoindex || temporaryReviewNoindexEnabled;
   const robotsComment =
     page.noindexComment ??
@@ -445,6 +608,7 @@ function headMarkup(page) {
     <title>${title}</title>
     <meta name="description" content="${description}" />
     <link rel="canonical" href="${escapedCanonical}" />
+${structuredDataMarkup(page)}
 ${homepagePreloadMarkup}${robotsMarkup}
     <!-- Open Graph -->
     <meta property="og:site_name" content="Japan First Move" />
