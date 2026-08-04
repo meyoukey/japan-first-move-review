@@ -75,17 +75,21 @@
   font-size: 0.95rem;
 }
 
-.everyday-home-heading .everyday-home-all-link {
+.everyday-home-all-link {
   flex: 0 0 auto;
   color: var(--everyday-rose);
   font-size: 0.88rem;
 }
 
-.everyday-home-heading .everyday-home-all-link:hover,
-.everyday-home-heading .everyday-home-all-link:focus-visible {
+.everyday-home-all-link:hover,
+.everyday-home-all-link:focus-visible {
   color: #a86f7f;
   text-decoration: underline;
   text-underline-offset: 0.2em;
+}
+
+.everyday-text-link.everyday-home-all-link--mobile {
+  display: none;
 }
 
 .everyday-text-link {
@@ -637,32 +641,48 @@ body:has(.everyday-article-page)::after {
   }
 
   .everyday-home-heading {
-    flex-direction: column;
-    align-items: flex-start;
+    display: block;
+  }
+
+  .everyday-home-panel {
+    gap: 0.9rem;
+  }
+
+  .everyday-home-all-link--desktop {
+    display: none;
+  }
+
+  .everyday-text-link.everyday-home-all-link--mobile {
+    display: inline-flex;
+    justify-self: start;
+    margin-top: 0.1rem;
   }
 
   .everyday-home-story-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .everyday-home-story {
-    grid-template-columns: 5.25rem minmax(0, 1fr) auto;
-    grid-template-rows: auto;
-    gap: 0.65rem;
-    align-items: center;
-    padding: clamp(0.9rem, 2vw, 1.1rem);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 0;
+    align-items: start;
+    padding: 0 0 1rem;
   }
 
   .everyday-home-story-image {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1280 / 533;
   }
 
   .everyday-home-story-copy {
-    padding: 0;
+    padding: 0.9rem 2.8rem 0 1rem;
   }
 
   .everyday-home-story-arrow {
-    position: static;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
     transform: none;
   }
 

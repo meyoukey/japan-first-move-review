@@ -3822,12 +3822,12 @@ function renderHome() {
               <h2 id="everyday-home-title">Understand the Japan around you</h2>
               <p>Look beyond the next step and discover what ordinary places, sounds, food, and routines reveal about daily life.</p>
             </div>
-            <a class="everyday-text-link everyday-home-all-link" href="/everyday-japan">View all stories <span aria-hidden="true">→</span></a>
+            <a class="everyday-text-link everyday-home-all-link everyday-home-all-link--desktop" href="/everyday-japan">View all stories <span aria-hidden="true">→</span></a>
           </div>
           <div class="everyday-home-story-grid">
             <a class="everyday-home-story" href="/everyday-japan/japanese-supermarkets">
               <picture class="everyday-home-story-picture">
-                <source media="(max-width: 1020px)" srcset="/assets/everyday-japan/japanese-supermarkets-hero-mobile.jpg" width="1280" height="960" />
+                <source media="(min-width: 721px) and (max-width: 1020px)" srcset="/assets/everyday-japan/japanese-supermarkets-hero-mobile.jpg" width="1280" height="960" />
                 <img class="everyday-home-story-image" src="/assets/everyday-japan/japanese-supermarkets-hero.jpg" alt="" width="1280" height="533" loading="lazy" decoding="async" />
               </picture>
               <span class="everyday-home-story-copy">
@@ -3839,7 +3839,7 @@ function renderHome() {
             </a>
             <a class="everyday-home-story" href="/everyday-japan/everyday-sounds">
               <picture class="everyday-home-story-picture">
-                <source media="(max-width: 1020px)" srcset="/assets/everyday-japan/everyday-sounds-hero-mobile.jpg" width="1280" height="960" />
+                <source media="(min-width: 721px) and (max-width: 1020px)" srcset="/assets/everyday-japan/everyday-sounds-hero-mobile.jpg" width="1280" height="960" />
                 <img class="everyday-home-story-image" src="/assets/everyday-japan/everyday-sounds-hero.jpg" alt="" width="1280" height="533" loading="lazy" decoding="async" />
               </picture>
               <span class="everyday-home-story-copy">
@@ -3851,7 +3851,7 @@ function renderHome() {
             </a>
             <a class="everyday-home-story" href="/everyday-japan/why-people-walk-so-much-in-japan">
               <picture class="everyday-home-story-picture">
-                <source media="(max-width: 1020px)" srcset="/assets/everyday-japan/why-people-walk-japan-hero-mobile.jpg" width="1280" height="960" />
+                <source media="(min-width: 721px) and (max-width: 1020px)" srcset="/assets/everyday-japan/why-people-walk-japan-hero-mobile.jpg" width="1280" height="960" />
                 <img class="everyday-home-story-image" src="/assets/everyday-japan/why-people-walk-japan-hero.jpg" alt="" width="1280" height="533" loading="lazy" decoding="async" />
               </picture>
               <span class="everyday-home-story-copy">
@@ -3862,6 +3862,7 @@ function renderHome() {
               <span class="everyday-home-story-arrow" aria-hidden="true">→</span>
             </a>
           </div>
+          <a class="everyday-text-link everyday-home-all-link everyday-home-all-link--mobile" href="/everyday-japan">View all stories <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
