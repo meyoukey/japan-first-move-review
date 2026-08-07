@@ -2335,6 +2335,8 @@ const foodCards = [
   {
     id: "severe-allergy",
     title: "Severe allergy",
+    pageTitle: "Japanese Peanut Allergy Card for Japan",
+    pageHeading: "Japanese peanut allergy card",
     label: "Severe",
     englishText: "I have a severe peanut allergy. Even a small amount or cross-contact may be dangerous.",
     japaneseText: "重度の食物アレルギーがあります。アレルギーのあるもの：落花生（ピーナッツ）。少量の混入や調理器具の共有でも危険です。対応が難しい場合は、無理に提供しなくて大丈夫です。",
@@ -2355,6 +2357,8 @@ const foodCards = [
   {
     id: "vegetarian",
     title: "Vegetarian",
+    pageTitle: "Japanese Vegetarian Card for Japan",
+    pageHeading: "Japanese vegetarian card",
     label: "Vegetarian",
     englishText: "I do not eat meat or seafood. Could you please check fish broth, meat broth, and hidden ingredients?",
     japaneseText: "肉と魚介類を食べません。だし、肉エキス、魚介エキスなどが入っていないか確認していただけますか？対応が難しい場合は、無理に提供しなくて大丈夫です。",
@@ -2365,6 +2369,8 @@ const foodCards = [
   {
     id: "vegan",
     title: "Vegan",
+    pageTitle: "Japanese Vegan Card for Japan",
+    pageHeading: "Japanese vegan card",
     label: "Vegan",
     englishText: "I do not eat meat, seafood, eggs, dairy, or animal-based dashi. Could you please check dashi and hidden ingredients?",
     japaneseText: "肉、魚介類、卵、乳製品、動物性のだしを食べません。だしや調味料に動物性のものが入っていないか確認していただけますか？対応が難しい場合は、無理に提供しなくて大丈夫です。",
@@ -2375,6 +2381,8 @@ const foodCards = [
   {
     id: "no-pork",
     title: "No pork",
+    pageTitle: "Japanese No-Pork Food Card for Japan",
+    pageHeading: "Japanese no-pork food card",
     label: "No pork",
     englishText: "I do not eat pork. Could you please check pork, pork broth, lard, and pork extract?",
     japaneseText: "豚肉を食べません。豚肉、豚骨スープ、ラード、ポークエキスが入っていないか確認していただけますか？対応が難しい場合は、無理に提供しなくて大丈夫です。",
@@ -2385,6 +2393,8 @@ const foodCards = [
   {
     id: "no-alcohol",
     title: "No alcohol",
+    pageTitle: "Japanese No-Alcohol Food Card for Japan",
+    pageHeading: "Japanese no-alcohol food card",
     label: "No alcohol",
     englishText: "I cannot consume alcohol. Could you please check cooking sake, mirin, and alcohol-based ingredients?",
     japaneseText: "アルコールを摂取できません。料理酒、みりん、アルコールを含む調味料が使われていないか確認していただけますか？対応が難しい場合は、無理に提供しなくて大丈夫です。",
@@ -4967,7 +4977,7 @@ function foodCardsPromo() {
 }
 
 function renderFoodCardsPage() {
-  document.title = "Show Your Food Needs in Japanese | Japan First Move";
+  document.title = "Japanese Food Allergy Cards for Japan | Japan First Move";
   app.innerHTML = `
     <div class="page-shell food-card-page layout-container">
       <header class="guide-page-header content-container">
@@ -4976,8 +4986,8 @@ function renderFoodCardsPage() {
           <a href="/food">Food</a><span>/</span>
           <span>Food cards</span>
         </nav>
-        <h1>Show your food needs in Japanese</h1>
-        <p class="lead">More than a translation card. Show allergies, dietary needs, or ingredients to check—and make it easier for restaurant staff to understand and respond.</p>
+        <h1>Japanese food allergy and dietary cards for Japan</h1>
+        <p class="lead">Use Japanese-English sample cards for food allergies and dietary restrictions in Japan, or create a custom card with the specific ingredients you need restaurant staff to check.</p>
         <figure class="food-card-article-hero">
           <picture>
             <source media="(max-width: 640px)" srcset="/assets/guides/food-cards-overview-sp.png">
@@ -5323,7 +5333,7 @@ function renderFoodCardDetail(cardId) {
   }
 
   const sampleConfig = foodCardCustomSampleConfig(card);
-  document.title = `${card.title} | Japan First Move`;
+  document.title = `${card.pageTitle ?? card.title} | Japan First Move`;
   app.innerHTML = `
     <div class="page-shell food-detail-page layout-container">
       <header class="guide-page-header content-container">
@@ -5333,7 +5343,7 @@ function renderFoodCardDetail(cardId) {
           <a href="/food-cards">Food cards</a><span>/</span>
           <span>${escapeHtml(card.title)}</span>
         </nav>
-        <h1>${escapeHtml(card.title)}</h1>
+        <h1>${escapeHtml(card.pageHeading ?? card.title)}</h1>
         <p class="lead">${escapeHtml(card.note)}</p>
       </header>
 

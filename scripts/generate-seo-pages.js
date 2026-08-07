@@ -98,9 +98,9 @@ const pages = [
   },
   {
     path: "/food-cards",
-    title: "Food Cards for Japan | Japan First Move",
+    title: "Japanese Food Allergy Cards for Japan | Japan First Move",
     description:
-      "Show allergies, dietary needs, and ingredients to check in Japanese with sample food cards for restaurants in Japan.",
+      "Use Japanese-English food allergy and dietary restriction cards in Japan, or create a custom card with ingredients for restaurant staff to check.",
     ogImage: foodCardsOgImage,
     ogImageAlt: foodCardsOgImageAlt,
   },
@@ -348,9 +348,9 @@ const pages = [
   },
   {
     path: "/food-cards/severe-allergy",
-    title: "Severe Allergy Food Card | Japan First Move",
+    title: "Japanese Peanut Allergy Card for Japan | Japan First Move",
     description:
-      "A Japanese-English sample food card for communicating a severe allergy or cross-contact risk at restaurants in Japan.",
+      "A Japanese-English peanut allergy card for communicating severe allergy and cross-contact risk at restaurants in Japan.",
     ogImage: foodCardsOgImage,
     ogImageAlt: foodCardsOgImageAlt,
   },
@@ -363,7 +363,7 @@ const pages = [
   },
   {
     path: "/food-cards/vegetarian",
-    title: "Vegetarian Food Card | Japan First Move",
+    title: "Japanese Vegetarian Card for Japan | Japan First Move",
     description:
       "A Japanese-English sample food card for explaining vegetarian needs and avoiding meat, seafood, and animal-based dashi in Japan.",
     ogImage: foodCardsOgImage,
@@ -371,7 +371,7 @@ const pages = [
   },
   {
     path: "/food-cards/vegan",
-    title: "Vegan Food Card | Japan First Move",
+    title: "Japanese Vegan Card for Japan | Japan First Move",
     description:
       "A Japanese-English sample food card for avoiding meat, seafood, eggs, dairy, and animal-based dashi in Japan.",
     ogImage: foodCardsOgImage,
@@ -379,14 +379,14 @@ const pages = [
   },
   {
     path: "/food-cards/no-pork",
-    title: "No Pork Food Card | Japan First Move",
+    title: "Japanese No-Pork Food Card for Japan | Japan First Move",
     description: "A Japanese-English sample food card for avoiding pork, ham, lard, pork broth, and related ingredients in Japan.",
     ogImage: foodCardsOgImage,
     ogImageAlt: foodCardsOgImageAlt,
   },
   {
     path: "/food-cards/no-alcohol",
-    title: "No Alcohol Food Card | Japan First Move",
+    title: "Japanese No-Alcohol Food Card for Japan | Japan First Move",
     description:
       "A Japanese-English sample food card for avoiding alcohol in drinks, sauces, seasonings, and cooking at restaurants in Japan.",
     ogImage: foodCardsOgImage,
