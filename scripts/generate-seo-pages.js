@@ -418,7 +418,25 @@ function escapeHtml(value) {
 }
 
 function canonicalUrl(pagePath) {
-  return `${siteUrl}${pagePath === "/" ? "/" : pagePath}`;
+  if (pagePath === "/") {
+    return `${siteUrl}/`;
+  }
+  return `${siteUrl}${pagePath.endsWith("/") ? pagePath : `${pagePath}/`}`;
+}
+
+function normalizeInternalPageHrefs(markup) {
+  return markup.replace(/href="(\/(?!\/)[^"#?]*)([?#][^"]*)?"/g, (match, pathname, suffix = "") => {
+    const lastSegment = pathname.split("/").filter(Boolean).at(-1) || "";
+    const isFile = lastSegment.includes(".");
+    const isRedirectShortcut = pathname === "/fc" || pathname.startsWith("/fc/");
+    const isApiRoute = pathname === "/api" || pathname.startsWith("/api/");
+
+    if (pathname === "/" || pathname.endsWith("/") || isFile || isRedirectShortcut || isApiRoute) {
+      return match;
+    }
+
+    return `href="${pathname}/${suffix}"`;
+  });
 }
 
 const guideSectionBySlug = {
@@ -526,7 +544,7 @@ function articleStructuredData(page) {
   const author = {
     "@type": "Organization",
     name: "Japan First Move",
-    url: `${siteUrl}/about`,
+    url: `${siteUrl}/about/`,
   };
 
   return {
@@ -661,13 +679,14 @@ if (!bodyMatch) {
 }
 
 const emptyAppMarkup = '<main id="app" tabindex="-1"></main>';
-const bodyTemplate = bodyMatch[0].replace(
+const resetBodyTemplate = bodyMatch[0].replace(
   /<main\b(?=[^>]*\bid="app")[^>]*>[\s\S]*?<\/main>/,
   emptyAppMarkup,
 );
-if (bodyTemplate === bodyMatch[0] && !bodyMatch[0].includes(emptyAppMarkup)) {
+if (resetBodyTemplate === bodyMatch[0] && !bodyMatch[0].includes(emptyAppMarkup)) {
   throw new Error("Could not reset the app container before generating page shells");
 }
+const bodyTemplate = normalizeInternalPageHrefs(resetBodyTemplate);
 
 for (const page of pages) {
   const filePath = pageOutputPath(page.path);

@@ -3496,6 +3496,28 @@ function categoryHref(id) {
   return `/${id}`;
 }
 
+function normalizeInternalPageLinks() {
+  document.querySelectorAll('a[href^="/"]').forEach((link) => {
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("//")) {
+      return;
+    }
+
+    const url = new URL(href, window.location.origin);
+    const pathname = url.pathname;
+    const lastSegment = pathname.split("/").filter(Boolean).at(-1) || "";
+    const isFile = lastSegment.includes(".");
+    const isRedirectShortcut = pathname === "/fc" || pathname.startsWith("/fc/");
+    const isApiRoute = pathname === "/api" || pathname.startsWith("/api/");
+
+    if (pathname === "/" || pathname.endsWith("/") || isFile || isRedirectShortcut || isApiRoute) {
+      return;
+    }
+
+    link.setAttribute("href", `${pathname}/${url.search}${url.hash}`);
+  });
+}
+
 function routePathFromUrl(url) {
   const pathname = url.pathname.replace(/\/+$/, "") || "/";
   return `${pathname}${url.search}`;
@@ -9152,6 +9174,7 @@ function router({ restoreCustomFoodCardDraft = false } = {}) {
     renderCategory(route[0]);
   }
 
+  normalizeInternalPageLinks();
   wireScrollButtons();
   wireFoodCardStickyCta();
   updateNavState(parts);
