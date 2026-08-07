@@ -3765,6 +3765,7 @@ function categoryExplorerSection(currentCategoryId) {
 }
 
 function renderHome() {
+  document.title = "Japan First Move | Simple first-step guides for traveling in Japan";
   app.innerHTML = `
     <div class="page-shell home-page">
       <section class="hero poster-hero layout-container">
