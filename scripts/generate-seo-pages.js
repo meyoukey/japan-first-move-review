@@ -668,7 +668,7 @@ ${homepagePreloadMarkup}${robotsMarkup}
 
     <!-- Analytics consent must load before any analytics-dependent code. -->
     <script src="/analytics-consent.js?v=food-card-funnel-2"></script>
-    <link rel="stylesheet" href="/styles.css?v=seasoning-tool-1" />
+    <link rel="stylesheet" href="/styles.css?v=seasoning-tool-2" />
   </head>`;
 }
 
