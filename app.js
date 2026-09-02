@@ -4223,6 +4223,86 @@ function renderJapaneseSeasoningsArticle() {
         <p>The broth from the noodles you had for lunch. The citrusy sauce served with tofu. The slightly sweet, glossy flavor of something in a bento. Many of the tastes you encounter during your trip are sitting here in ordinary bottles and little tubes.</p>
         <p>You do not need to understand everything on the shelf. Start with a few seasonings you are likely to see again and again.</p>
 
+        <section class="seasoning-choice-tool" aria-labelledby="seasoning-choice-title">
+          <p class="everyday-observation-label">Quick tool</p>
+          <h2 id="seasoning-choice-title">Which seasoning should I buy?</h2>
+          <p class="seasoning-choice-intro">Choose what you want to do. Open one answer for a simple first pick and the label detail worth checking.</p>
+
+          <div class="seasoning-choice-list">
+            <details class="seasoning-choice" name="seasoning-choice" data-seasoning-result="hotel" data-seasoning-recommendation="ponzu">
+              <summary>
+                <span>Eat in my hotel—no kitchen</span>
+                <span class="seasoning-choice-arrow" aria-hidden="true">→</span>
+              </summary>
+              <div class="seasoning-choice-result">
+                <p class="seasoning-choice-result-label">Best first pick</p>
+                <h3>Ponzu <span lang="ja">ポン酢</span></h3>
+                <p>It is ready to pour and works with chilled tofu, salad, prepared chicken, fish, or vegetables. A small bottle can make several no-cook supermarket meals feel less repetitive.</p>
+                <p><strong>Look for:</strong> <span lang="ja">ポン酢</span> or <span lang="ja">ぽん酢</span>.</p>
+                <p><strong>Check:</strong> Ingredients often include soy and wheat, and the bottle may need refrigeration after opening.</p>
+              </div>
+            </details>
+
+            <details class="seasoning-choice" name="seasoning-choice" data-seasoning-result="noodles" data-seasoning-recommendation="mentsuyu">
+              <summary>
+                <span>Make or eat noodles</span>
+                <span class="seasoning-choice-arrow" aria-hidden="true">→</span>
+              </summary>
+              <div class="seasoning-choice-result">
+                <p class="seasoning-choice-result-label">Best first pick</p>
+                <h3>Mentsuyu <span lang="ja">めんつゆ</span></h3>
+                <p>It is made for soba, udon, and somen, and it can also season rice bowls, soups, and simple cooked dishes.</p>
+                <p><strong>Look for:</strong> <span lang="ja">めんつゆ</span> or <span lang="ja">つゆ</span>.</p>
+                <p><strong>Check:</strong> <span lang="ja">ストレート</span> means ready to use. <span lang="ja">2倍濃縮</span>, <span lang="ja">3倍濃縮</span>, or <span lang="ja">4倍濃縮</span> means it must be diluted according to the label.</p>
+              </div>
+            </details>
+
+            <details class="seasoning-choice" name="seasoning-choice" data-seasoning-result="cooking" data-seasoning-recommendation="dashi-packets">
+              <summary>
+                <span>Cook something Japanese</span>
+                <span class="seasoning-choice-arrow" aria-hidden="true">→</span>
+              </summary>
+              <div class="seasoning-choice-result">
+                <p class="seasoning-choice-result-label">Best first pick</p>
+                <h3>Dashi packets <span lang="ja">だしパック</span></h3>
+                <p>They give soups, noodles, and simmered vegetables a useful Japanese flavor base without requiring you to measure several ingredients.</p>
+                <p><strong>Look for:</strong> Tea-bag-style packets labeled <span lang="ja">だしパック</span>.</p>
+                <p><strong>Check:</strong> Most need to simmer in water. Ingredients vary and may include bonito, sardines, kombu, shiitake, soy, or wheat.</p>
+              </div>
+            </details>
+
+            <details class="seasoning-choice" name="seasoning-choice" data-seasoning-result="rice" data-seasoning-recommendation="furikake">
+              <summary>
+                <span>Add flavor to rice or onigiri</span>
+                <span class="seasoning-choice-arrow" aria-hidden="true">→</span>
+              </summary>
+              <div class="seasoning-choice-result">
+                <p class="seasoning-choice-result-label">Best first pick</p>
+                <h3>Furikake <span lang="ja">ふりかけ</span></h3>
+                <p>Sprinkle it directly over plain rice. Small packets are easy to try, and the flavors range from seaweed and sesame to egg, salmon, shiso, and bonito.</p>
+                <p><strong>Look for:</strong> <span lang="ja">ふりかけ</span>, often near rice, seaweed, or ochazuke packets.</p>
+                <p><strong>Check:</strong> Ingredients can include fish, seafood, egg, sesame, soy, wheat, or dairy.</p>
+              </div>
+            </details>
+
+            <details class="seasoning-choice" name="seasoning-choice" data-seasoning-result="souvenir" data-seasoning-recommendation="shichimi">
+              <summary>
+                <span>Take home a small food souvenir</span>
+                <span class="seasoning-choice-arrow" aria-hidden="true">→</span>
+              </summary>
+              <div class="seasoning-choice-result">
+                <p class="seasoning-choice-result-label">Best first pick</p>
+                <h3>Shichimi togarashi <span lang="ja">七味唐辛子</span></h3>
+                <p>It is small, dry, and easy to use at home. Add a little to noodles, soup, grilled food, or rice for heat, citrus, and aroma.</p>
+                <p><strong>Look for:</strong> <span lang="ja">七味</span> or <span lang="ja">七味唐辛子</span>.</p>
+                <p><strong>Check:</strong> Blends vary, may contain sesame, and can be hotter than expected. Check customs rules for your destination before packing food.</p>
+              </div>
+            </details>
+          </div>
+
+          <p class="seasoning-choice-note"><strong>This is a quick starting point.</strong> Always check the package for ingredients, allergens, storage instructions, and exact preparation directions.</p>
+        </section>
+
         <section>
           <h2>Dashi is a flavor you have probably already tasted</h2>
           <p>Dashi can be difficult to describe if you do not already know what you are looking for.</p>
@@ -9010,6 +9090,22 @@ function wireScrollButtons() {
   });
 }
 
+function wireSeasoningDecisionTool() {
+  document.querySelectorAll("[data-seasoning-result]").forEach((choice) => {
+    choice.addEventListener("toggle", () => {
+      if (!choice.open) {
+        return;
+      }
+
+      analyticsTrack("seasoning_tool_result", {
+        choice_id: choice.dataset.seasoningResult || "",
+        recommendation_id: choice.dataset.seasoningRecommendation || "",
+        page_path: window.location.pathname,
+      });
+    });
+  });
+}
+
 function scrollToRouteTarget() {
   const targetId = window.location.hash.slice(1);
   if (!targetId) {
@@ -9187,6 +9283,7 @@ function router({ restoreCustomFoodCardDraft = false } = {}) {
 
   normalizeInternalPageLinks();
   wireScrollButtons();
+  wireSeasoningDecisionTool();
   wireFoodCardStickyCta();
   updateNavState(parts);
   scrollToRouteTarget();
