@@ -540,6 +540,126 @@ body:has(.everyday-article-page)::after {
   color: var(--everyday-rose);
 }
 
+.everyday-prose .seasoning-choice-tool {
+  margin-top: clamp(2.4rem, 6vw, 4rem);
+  padding: clamp(1.4rem, 4vw, 2.4rem);
+  border-top: 0.4rem solid var(--everyday-rose);
+  background: var(--everyday-rose-soft);
+}
+
+.everyday-prose .seasoning-choice-tool > .everyday-observation-label {
+  margin: 0 0 0.55rem;
+  color: var(--everyday-rose);
+  font-size: 0.72rem;
+  line-height: 1.2;
+}
+
+.everyday-prose .seasoning-choice-tool > h2 {
+  max-width: none;
+  margin-bottom: 0.7rem;
+}
+
+.seasoning-choice-intro {
+  max-width: 42rem;
+}
+
+.seasoning-choice-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.seasoning-choice {
+  overflow: clip;
+  border: 1px solid #ded5d9;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.seasoning-choice summary {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 3.75rem;
+  padding: 0.9rem 1rem;
+  color: var(--color-text-main);
+  cursor: pointer;
+  font-family: "Bricolage Grotesque", Avenir, sans-serif;
+  font-size: 1.02rem;
+  font-weight: 750;
+  line-height: 1.25;
+  list-style: none;
+}
+
+.seasoning-choice summary::-webkit-details-marker {
+  display: none;
+}
+
+.seasoning-choice summary:hover {
+  background: #fffafb;
+}
+
+.seasoning-choice summary:focus-visible {
+  outline: 2px solid #a86f7f;
+  outline-offset: -3px;
+}
+
+.seasoning-choice-arrow {
+  flex: 0 0 auto;
+  color: var(--everyday-rose);
+  font-size: 1.35rem;
+  transition: transform 160ms ease;
+}
+
+.seasoning-choice[open] summary {
+  border-bottom: 1px solid #eadfe3;
+  background: #fffafb;
+}
+
+.seasoning-choice[open] .seasoning-choice-arrow {
+  transform: rotate(90deg);
+}
+
+.seasoning-choice-result {
+  padding: 1.1rem 1rem 1.2rem;
+}
+
+.everyday-prose .seasoning-choice-result-label {
+  margin: 0 0 0.25rem;
+  color: var(--everyday-rose);
+  font-family: "Bricolage Grotesque", Avenir, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.everyday-prose .seasoning-choice-result h3 {
+  margin: 0 0 0.8rem;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+}
+
+.seasoning-choice-result h3 span {
+  margin-left: 0.25rem;
+  color: var(--color-text-sub);
+  font-size: 0.82em;
+  font-weight: 650;
+}
+
+.seasoning-choice-result p {
+  margin: 0.55rem 0;
+}
+
+.everyday-prose .seasoning-choice-note {
+  margin: 1.25rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid #ded5d9;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
 .everyday-observation,
 .everyday-try-section,
 .everyday-notice-section {
@@ -715,6 +835,21 @@ body:has(.everyday-article-page)::after {
     margin-right: 0;
     margin-left: 0;
     padding: 1.25rem;
+  }
+
+  .everyday-prose .seasoning-choice-tool {
+    margin-top: 2.5rem;
+    padding: 1.25rem;
+  }
+
+  .seasoning-choice summary {
+    min-height: 3.5rem;
+    padding: 0.85rem 0.9rem;
+    font-size: 0.98rem;
+  }
+
+  .seasoning-choice-result {
+    padding: 1rem 0.9rem 1.1rem;
   }
 
   .everyday-related {
