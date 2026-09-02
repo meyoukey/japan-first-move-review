@@ -633,6 +633,9 @@ function headMarkup(page) {
   const homepagePreloadMarkup = page.path === "/"
     ? `    <link rel="preload" as="image" href="/sozai/hero/hero-mobile-ramen-v2.webp" type="image/webp" fetchpriority="high" />\n`
     : "";
+  const stylesheetVersion = page.path === "/everyday-japan/japanese-seasonings"
+    ? "seasoning-tool-3"
+    : "seasoning-tool-2";
   return `  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -668,7 +671,7 @@ ${homepagePreloadMarkup}${robotsMarkup}
 
     <!-- Analytics consent must load before any analytics-dependent code. -->
     <script src="/analytics-consent.js?v=food-card-funnel-2"></script>
-    <link rel="stylesheet" href="/styles.css?v=seasoning-tool-2" />
+    <link rel="stylesheet" href="/styles.css?v=${stylesheetVersion}" />
   </head>`;
 }
 

@@ -4237,54 +4237,25 @@ function renderJapaneseSeasoningsArticle() {
               <div class="seasoning-choice-result">
                 <p class="seasoning-choice-result-label">Four easy hotel picks</p>
                 <h3>Choose by what you are eating</h3>
-                <div class="seasoning-recommendation-grid seasoning-recommendation-grid--photos">
-                  <article class="seasoning-recommendation-card">
-                    <figure class="seasoning-recommendation-photo">
-                      <img src="/assets/everyday-japan/seasonings/ponzu.jpg" alt="Bottles of ponzu displayed on a Japanese supermarket shelf." width="960" height="720" loading="lazy" decoding="async" />
-                      <figcaption>Example appearance—packaging varies.</figcaption>
-                    </figure>
-                    <p class="seasoning-recommendation-badge">Easiest start</p>
-                    <h4>Ponzu <span lang="ja">ポン酢</span></h4>
-                    <p><strong>Good with:</strong> Chilled tofu, salad, prepared chicken, fish, or vegetables.</p>
-                    <p><strong>How much:</strong> Pour a little, taste, then add more.</p>
-                    <p><strong>Look for:</strong> <span lang="ja">ポン酢</span> or <span lang="ja">ぽん酢</span>.</p>
-                  </article>
-
-                  <article class="seasoning-recommendation-card">
-                    <figure class="seasoning-recommendation-photo">
-                      <img src="/assets/everyday-japan/seasonings/yuzu-kosho.jpg" alt="Green yuzu kosho paste in a small glass jar." width="960" height="720" loading="lazy" decoding="async" />
-                      <figcaption>Example appearance—also sold in small tubes.</figcaption>
-                    </figure>
-                    <h4>Yuzu kosho <span lang="ja">柚子胡椒</span></h4>
-                    <p><strong>Good with:</strong> Prepared chicken or fish, oden, ramen, soup, or hot-pot dishes.</p>
-                    <p><strong>How much:</strong> Start with a rice-grain-sized amount. It is salty and spicy.</p>
-                    <p><strong>Look for:</strong> <span lang="ja">柚子こしょう</span> or <span lang="ja">柚子胡椒</span>.</p>
-                  </article>
-
-                  <article class="seasoning-recommendation-card">
-                    <figure class="seasoning-recommendation-photo">
-                      <img src="/assets/everyday-japan/seasonings/furikake.jpg" alt="Colorful packets of furikake hanging on a shop display in Japan." width="960" height="720" loading="lazy" decoding="async" />
-                      <figcaption>Example packets—flavors and allergens vary.</figcaption>
-                    </figure>
-                    <h4>Furikake <span lang="ja">ふりかけ</span></h4>
-                    <p><strong>Good with:</strong> Plain rice or a simple onigiri.</p>
-                    <p><strong>How much:</strong> Sprinkle directly over rice.</p>
-                    <p><strong>Look for:</strong> <span lang="ja">ふりかけ</span>, often near rice or seaweed.</p>
-                  </article>
-
-                  <article class="seasoning-recommendation-card">
-                    <figure class="seasoning-recommendation-photo">
-                      <img src="/assets/everyday-japan/seasonings/sesame-dressing.jpg" alt="A bowl of brown sesame dressing with visible sesame seeds." width="960" height="640" loading="lazy" decoding="async" />
-                      <figcaption>Example texture—the bottle design varies.</figcaption>
-                    </figure>
-                    <h4>Sesame dressing <span lang="ja">ごまドレッシング</span></h4>
-                    <p><strong>Good with:</strong> Salad, chilled tofu, cold noodles, vegetables, or prepared meat.</p>
-                    <p><strong>How much:</strong> Use it like a regular salad dressing.</p>
-                    <p><strong>Look for:</strong> <span lang="ja">ごま</span> or <span lang="ja">胡麻</span>.</p>
-                  </article>
-                </div>
+                <ul class="seasoning-shortlist">
+                  <li>
+                    <strong>Ponzu <span lang="ja">ポン酢</span> <small>Easiest start</small></strong>
+                    <span>For chilled tofu, salad, chicken, fish, or vegetables. Pour a little and taste.</span>
+                  </li>
+                  <li>
+                    <strong>Yuzu kosho <span lang="ja">柚子胡椒</span></strong>
+                    <span>For prepared chicken, fish, oden, ramen, or soup. Start with a rice-grain-sized amount.</span>
+                  </li>
+                  <li>
+                    <strong>Furikake <span lang="ja">ふりかけ</span></strong>
+                    <span>Sprinkle directly over plain rice or a simple onigiri.</span>
+                  </li>
+                  <li>
+                    <strong>Sesame dressing <span lang="ja">ごまドレッシング</span></strong>
+                    <span>Use with salad, chilled tofu, cold noodles, vegetables, or prepared meat.</span>
+                  </li>
+                </ul>
                 <p class="seasoning-choice-check"><strong>Check before buying:</strong> Ingredients may include soy, wheat, sesame, fish, egg, or dairy. Opened bottles and tubes may need refrigeration.</p>
-                <p class="seasoning-photo-credits">Photos: <a href="https://commons.wikimedia.org/wiki/File:Kubara-Honke-1.jpg" target="_blank" rel="noopener noreferrer">ponzu</a> (CC0), <a href="https://commons.wikimedia.org/wiki/File:Yuzukosyou.jpg" target="_blank" rel="noopener noreferrer">yuzu kosho by NJT</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>), <a href="https://commons.wikimedia.org/wiki/File:Mishima_Furikake.jpg" target="_blank" rel="noopener noreferrer">furikake</a> (CC0), and <a href="https://commons.wikimedia.org/wiki/File:Sesame_dressing_(42275156165).jpg" target="_blank" rel="noopener noreferrer">sesame dressing by Joey Doll</a> (<a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a>). Images have been resized and are cropped in the cards.</p>
               </div>
             </details>
 
@@ -4295,25 +4266,12 @@ function renderJapaneseSeasoningsArticle() {
               </summary>
               <div class="seasoning-choice-result">
                 <p class="seasoning-choice-result-label">Choose by noodle style</p>
-                <div class="seasoning-recommendation-grid">
-                  <article class="seasoning-recommendation-card">
-                    <p class="seasoning-recommendation-badge">Easiest start</p>
-                    <h4>Mentsuyu <span lang="ja">めんつゆ</span></h4>
-                    <p>Use for soba, udon, or somen. <span lang="ja">ストレート</span> is ready to use; <span lang="ja">2倍濃縮</span> and higher must be diluted as directed.</p>
-                  </article>
-                  <article class="seasoning-recommendation-card">
-                    <h4>Shichimi <span lang="ja">七味唐辛子</span></h4>
-                    <p>Shake a little over hot noodle soup when you want heat and aroma.</p>
-                  </article>
-                  <article class="seasoning-recommendation-card">
-                    <h4>Yuzu kosho <span lang="ja">柚子胡椒</span></h4>
-                    <p>Stir a tiny amount into ramen or udon broth for citrus, salt, and chili heat.</p>
-                  </article>
-                  <article class="seasoning-recommendation-card">
-                    <h4>Sesame dressing <span lang="ja">ごまドレッシング</span></h4>
-                    <p>Try it with cold noodles and salad-style toppings. Start with a small amount.</p>
-                  </article>
-                </div>
+                <ul class="seasoning-shortlist">
+                  <li><strong>Mentsuyu <span lang="ja">めんつゆ</span> <small>Easiest start</small></strong><span>For soba, udon, or somen. Check whether it is straight or concentrated.</span></li>
+                  <li><strong>Shichimi <span lang="ja">七味唐辛子</span></strong><span>Shake a little over hot noodle soup for heat and aroma.</span></li>
+                  <li><strong>Yuzu kosho <span lang="ja">柚子胡椒</span></strong><span>Stir a tiny amount into ramen or udon broth.</span></li>
+                  <li><strong>Sesame dressing <span lang="ja">ごまドレッシング</span></strong><span>Try it with cold noodles and salad-style toppings.</span></li>
+                </ul>
               </div>
             </details>
 
@@ -4324,25 +4282,12 @@ function renderJapaneseSeasoningsArticle() {
               </summary>
               <div class="seasoning-choice-result">
                 <p class="seasoning-choice-result-label">A compact starter set</p>
-                <div class="seasoning-recommendation-grid">
-                  <article class="seasoning-recommendation-card">
-                    <p class="seasoning-recommendation-badge">Easiest start</p>
-                    <h4>Dashi packets <span lang="ja">だしパック</span></h4>
-                    <p>A simple base for soup, noodles, and simmered vegetables. Most packets need to simmer in water.</p>
-                  </article>
-                  <article class="seasoning-recommendation-card">
-                    <h4>Soy sauce <span lang="ja">醤油</span></h4>
-                    <p>Adds saltiness and depth. A small bottle is enough for simple hotel-apartment cooking.</p>
-                  </article>
-                  <article class="seasoning-recommendation-card">
-                    <h4>Mirin <span lang="ja">みりん</span></h4>
-                    <p>Adds gentle sweetness and shine to cooked dishes. Check the label if alcohol matters to you.</p>
-                  </article>
-                  <article class="seasoning-recommendation-card">
-                    <h4>Miso <span lang="ja">味噌</span></h4>
-                    <p>Use for soup, sauces, or vegetables. A small pack is more practical than a large tub.</p>
-                  </article>
-                </div>
+                <ul class="seasoning-shortlist">
+                  <li><strong>Dashi packets <span lang="ja">だしパック</span> <small>Easiest start</small></strong><span>A simple base for soup, noodles, and simmered vegetables.</span></li>
+                  <li><strong>Soy sauce <span lang="ja">醤油</span></strong><span>Adds saltiness and depth; a small bottle is enough.</span></li>
+                  <li><strong>Mirin <span lang="ja">みりん</span></strong><span>Adds gentle sweetness and shine to cooked dishes.</span></li>
+                  <li><strong>Miso <span lang="ja">味噌</span></strong><span>Use for soup, sauces, or vegetables; choose a small pack.</span></li>
+                </ul>
                 <p class="seasoning-choice-check"><strong>Check:</strong> Dashi and miso ingredients vary and may include fish, soy, wheat, or other allergens.</p>
               </div>
             </details>
@@ -4354,21 +4299,11 @@ function renderJapaneseSeasoningsArticle() {
               </summary>
               <div class="seasoning-choice-result">
                 <p class="seasoning-choice-result-label">Three different directions</p>
-                <div class="seasoning-recommendation-grid seasoning-recommendation-grid--three">
-                  <article class="seasoning-recommendation-card">
-                    <p class="seasoning-recommendation-badge">Easiest start</p>
-                    <h4>Furikake <span lang="ja">ふりかけ</span></h4>
-                    <p>Sprinkle directly over plain rice. Flavors include seaweed, sesame, egg, salmon, shiso, and bonito.</p>
-                  </article>
-                  <article class="seasoning-recommendation-card">
-                    <h4>Shichimi <span lang="ja">七味唐辛子</span></h4>
-                    <p>Add a small shake to a rice bowl when you want dry heat and citrusy aroma.</p>
-                  </article>
-                  <article class="seasoning-recommendation-card">
-                    <h4>Yuzu kosho <span lang="ja">柚子胡椒</span></h4>
-                    <p>Use a tiny amount with chicken, fish, or vegetables served over rice—not as a full-rice seasoning.</p>
-                  </article>
-                </div>
+                <ul class="seasoning-shortlist seasoning-shortlist--three">
+                  <li><strong>Furikake <span lang="ja">ふりかけ</span> <small>Easiest start</small></strong><span>Sprinkle directly over plain rice; flavors and allergens vary.</span></li>
+                  <li><strong>Shichimi <span lang="ja">七味唐辛子</span></strong><span>Add one light shake when you want dry heat and citrusy aroma.</span></li>
+                  <li><strong>Yuzu kosho <span lang="ja">柚子胡椒</span></strong><span>Use a tiny amount with chicken, fish, or vegetables served over rice.</span></li>
+                </ul>
                 <p class="seasoning-choice-check"><strong>Check:</strong> Furikake can include fish, seafood, egg, sesame, soy, wheat, or dairy.</p>
               </div>
             </details>
@@ -4380,25 +4315,12 @@ function renderJapaneseSeasoningsArticle() {
               </summary>
               <div class="seasoning-choice-result">
                 <p class="seasoning-choice-result-label">Small and easier to pack</p>
-                <div class="seasoning-recommendation-grid">
-                  <article class="seasoning-recommendation-card">
-                    <p class="seasoning-recommendation-badge">Easiest start</p>
-                    <h4>Shichimi <span lang="ja">七味唐辛子</span></h4>
-                    <p>Small, dry, and useful with noodles, soup, grilled food, or rice.</p>
-                  </article>
-                  <article class="seasoning-recommendation-card">
-                    <h4>Furikake <span lang="ja">ふりかけ</span></h4>
-                    <p>Light packets, many regional flavors, and easy to use over rice at home.</p>
-                  </article>
-                  <article class="seasoning-recommendation-card">
-                    <h4>Yuzu kosho <span lang="ja">柚子胡椒</span></h4>
-                    <p>A small tube delivers a distinctly Japanese citrus-and-chili flavor. Keep liquid rules in mind for carry-on luggage.</p>
-                  </article>
-                  <article class="seasoning-recommendation-card">
-                    <h4>Dashi packets <span lang="ja">だしパック</span></h4>
-                    <p>Dry and lightweight, with several soup or noodle servings in one pack.</p>
-                  </article>
-                </div>
+                <ul class="seasoning-shortlist">
+                  <li><strong>Shichimi <span lang="ja">七味唐辛子</span> <small>Easiest start</small></strong><span>Small, dry, and useful with noodles, soup, grilled food, or rice.</span></li>
+                  <li><strong>Furikake <span lang="ja">ふりかけ</span></strong><span>Light packets with many regional flavors; sprinkle over rice.</span></li>
+                  <li><strong>Yuzu kosho <span lang="ja">柚子胡椒</span></strong><span>A small tube of citrus-and-chili flavor; mind carry-on liquid rules.</span></li>
+                  <li><strong>Dashi packets <span lang="ja">だしパック</span></strong><span>Dry, lightweight, and enough for several soups or noodle meals.</span></li>
+                </ul>
                 <p class="seasoning-choice-check"><strong>Before packing food:</strong> Check ingredients, storage instructions, airline liquid rules, and the customs rules for your destination.</p>
               </div>
             </details>
@@ -4420,6 +4342,28 @@ function renderJapaneseSeasoningsArticle() {
         <section>
           <h2>There is more than soy sauce next to the soy sauce</h2>
           <p>Soy sauce is easy to recognize. The bottles standing beside it may look very similar, but some of them are even easier to use while traveling.</p>
+
+          <div class="seasoning-product-guide" aria-label="Real package examples for ponzu, mentsuyu, and shirodashi">
+            <div class="seasoning-product-guide-heading">
+              <p class="seasoning-product-guide-label">What to look for in the store</p>
+              <p>These are real package examples. Brands and designs vary, so match the large Japanese words first.</p>
+            </div>
+            <div class="seasoning-product-strip">
+              <figure class="seasoning-product-example">
+                <div class="seasoning-product-image"><img src="/assets/everyday-japan/seasonings/ponzu-example.jpg" alt="Mizkan Ajipon ponzu bottle with the large Japanese text 味ぽん." width="413" height="1200" loading="lazy" decoding="async" /></div>
+                <figcaption><strong>Ponzu</strong><span lang="ja">ポン酢・味ぽん</span></figcaption>
+              </figure>
+              <figure class="seasoning-product-example">
+                <div class="seasoning-product-image"><img src="/assets/everyday-japan/seasonings/mentsuyu-example.jpg" alt="Kikkoman concentrated mentsuyu bottle with the large Japanese text 本つゆ." width="901" height="1200" loading="lazy" decoding="async" /></div>
+                <figcaption><strong>Mentsuyu</strong><span lang="ja">めんつゆ・本つゆ</span></figcaption>
+              </figure>
+              <figure class="seasoning-product-example">
+                <div class="seasoning-product-image"><img src="/assets/everyday-japan/seasonings/shirodashi-example.jpg" alt="Yamaki shirodashi bottle with the large Japanese text 割烹白だし." width="495" height="1200" loading="lazy" decoding="async" /></div>
+                <figcaption><strong>Shirodashi</strong><span lang="ja">白だし</span></figcaption>
+              </figure>
+            </div>
+            <p class="seasoning-product-source">Package photos: <a href="https://world.openfoodfacts.org/product/0000049685183" target="_blank" rel="noopener noreferrer">ponzu</a>, <a href="https://world.openfoodfacts.org/product/4901515363887" target="_blank" rel="noopener noreferrer">mentsuyu</a>, and <a href="https://world.openfoodfacts.org/product/4903065241004" target="_blank" rel="noopener noreferrer">shirodashi</a> via Open Food Facts (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>); resized for display.</p>
+          </div>
 
           <h3>Ponzu</h3>
           <p>Ponzu is a refreshing, citrusy, soy-based sauce.</p>
@@ -4444,6 +4388,25 @@ function renderJapaneseSeasoningsArticle() {
           <h2>Mirin and cooking sake are similar-looking bottles with different jobs</h2>
           <p>Mirin and cooking sake are usually placed close together, often in very similar bottles.</p>
           <p>At first, it is not obvious why a kitchen would need both.</p>
+
+          <div class="seasoning-product-guide" aria-label="Real package examples for mirin and cooking sake">
+            <div class="seasoning-product-guide-heading">
+              <p class="seasoning-product-guide-label">What to look for in the store</p>
+              <p>The clearest clue is the large product name, not the bottle color.</p>
+            </div>
+            <div class="seasoning-product-strip seasoning-product-strip--two">
+              <figure class="seasoning-product-example">
+                <div class="seasoning-product-image"><img src="/assets/everyday-japan/seasonings/mirin-example.jpg" alt="Hinode hon mirin bottle with the large Japanese text 本みりん." width="900" height="1200" loading="lazy" decoding="async" /></div>
+                <figcaption><strong>Mirin</strong><span lang="ja">本みりん・みりん</span></figcaption>
+              </figure>
+              <figure class="seasoning-product-example">
+                <div class="seasoning-product-image"><img src="/assets/everyday-japan/seasonings/cooking-sake-example.jpg" alt="Hakutsuru cooking sake carton with the large Japanese text 料理の日本酒." width="525" height="1200" loading="lazy" decoding="async" /></div>
+                <figcaption><strong>Cooking sake</strong><span lang="ja">料理酒・料理の清酒</span></figcaption>
+              </figure>
+            </div>
+            <p class="seasoning-product-source">Package photos: <a href="https://world.openfoodfacts.org/product/4901309015855" target="_blank" rel="noopener noreferrer">mirin</a> and <a href="https://world.openfoodfacts.org/product/4902650053893" target="_blank" rel="noopener noreferrer">cooking sake</a> via Open Food Facts (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>); resized for display.</p>
+          </div>
+
           <p>Mirin brings gentle sweetness and a glossy finish. It is part of what gives teriyaki-style dishes their slightly sweet flavor and shine.</p>
           <p>Cooking sake has a different role. It adds sake flavor and is often used with meat or fish to soften strong aromas.</p>
           <p>If you are not planning to cook during your trip, you probably do not need to buy either one. Still, knowing the difference makes Japanese recipes—and the supermarket shelf—a little easier to understand.</p>
@@ -4453,6 +4416,21 @@ function renderJapaneseSeasoningsArticle() {
         <section>
           <h2>Even Japanese shoppers sometimes pause in front of the miso</h2>
           <p>Choosing miso is not always as simple as finding one package with the word <em>miso</em> on it.</p>
+
+          <div class="seasoning-product-guide seasoning-product-guide--single" aria-label="Real package example for miso">
+            <div class="seasoning-product-guide-heading">
+              <p class="seasoning-product-guide-label">What to look for in the store</p>
+              <p>Miso is often sold in a wide plastic tub. Look for the large character <span lang="ja">味噌</span>.</p>
+            </div>
+            <div class="seasoning-product-strip seasoning-product-strip--single">
+              <figure class="seasoning-product-example">
+                <div class="seasoning-product-image"><img src="/assets/everyday-japan/seasonings/miso-example.jpg" alt="Marukome miso tub showing the Japanese product name 料亭の味." width="1200" height="1001" loading="lazy" decoding="async" /></div>
+                <figcaption><strong>Miso</strong><span lang="ja">味噌・みそ</span></figcaption>
+              </figure>
+            </div>
+            <p class="seasoning-product-source">Package photo: <a href="https://world.openfoodfacts.org/product/0898216001597" target="_blank" rel="noopener noreferrer">miso</a> via Open Food Facts (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>); resized for display.</p>
+          </div>
+
           <p>There are pale varieties, red varieties, and plenty in between. Labels may mention rice, barley, soybeans, or a blend. Different regions also have their own familiar styles.</p>
           <p>Paler miso is often milder or sweeter, while darker miso may have a deeper and saltier flavor. But these are only general clues. Every product is a little different.</p>
           <p>There is no single correct choice.</p>
@@ -4464,6 +4442,32 @@ function renderJapaneseSeasoningsArticle() {
           <p class="everyday-observation-label">Small but interesting</p>
           <h2>Small seasonings worth trying</h2>
           <p>Not every interesting seasoning comes in a large bottle. Some of the easiest things to try—and take home—are found in small tubes, packets, and jars.</p>
+
+          <div class="seasoning-product-guide" aria-label="Real package examples for small Japanese seasonings">
+            <div class="seasoning-product-guide-heading">
+              <p class="seasoning-product-guide-label">What to look for in the store</p>
+              <p>These four look very different on the shelf. Use the Japanese words below as your visual shortcut.</p>
+            </div>
+            <div class="seasoning-product-strip seasoning-product-strip--four">
+              <figure class="seasoning-product-example">
+                <div class="seasoning-product-image"><img src="/assets/everyday-japan/seasonings/yuzu-kosho-example.jpg" alt="S&amp;B yuzu kosho tube box with the large Japanese text 柚子こしょう." width="403" height="1200" loading="lazy" decoding="async" /></div>
+                <figcaption><strong>Yuzu kosho</strong><span lang="ja">柚子こしょう</span></figcaption>
+              </figure>
+              <figure class="seasoning-product-example">
+                <div class="seasoning-product-image"><img src="/assets/everyday-japan/seasonings/furikake-example.jpg" alt="Marumiya Noritama furikake packet with the large Japanese text のりたま." width="840" height="1200" loading="lazy" decoding="async" /></div>
+                <figcaption><strong>Furikake</strong><span lang="ja">ふりかけ・のりたま</span></figcaption>
+              </figure>
+              <figure class="seasoning-product-example">
+                <div class="seasoning-product-image"><img src="/assets/everyday-japan/seasonings/shichimi-example.jpg" alt="S&amp;B shichimi spice bottle with the large Japanese text 七味唐からし." width="450" height="1200" loading="lazy" decoding="async" /></div>
+                <figcaption><strong>Shichimi</strong><span lang="ja">七味唐辛子</span></figcaption>
+              </figure>
+              <figure class="seasoning-product-example">
+                <div class="seasoning-product-image"><img src="/assets/everyday-japan/seasonings/sesame-dressing-example.jpg" alt="Kewpie deep-roasted sesame dressing bottle with the large Japanese text 深煎りごまドレッシング." width="595" height="1200" loading="lazy" decoding="async" /></div>
+                <figcaption><strong>Sesame dressing</strong><span lang="ja">ごまドレッシング</span></figcaption>
+              </figure>
+            </div>
+            <p class="seasoning-product-source">Package photos: <a href="https://world.openfoodfacts.org/product/4901002087067" target="_blank" rel="noopener noreferrer">yuzu kosho</a>, <a href="https://world.openfoodfacts.org/product/4902820108019" target="_blank" rel="noopener noreferrer">furikake</a>, <a href="https://world.openfoodfacts.org/product/0000049567779" target="_blank" rel="noopener noreferrer">shichimi</a>, and <a href="https://world.openfoodfacts.org/product/4901577073557" target="_blank" rel="noopener noreferrer">sesame dressing</a> via Open Food Facts (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>); resized for display.</p>
+          </div>
 
           <h3>Yuzu kosho</h3>
           <p>Yuzu kosho is a concentrated paste made with yuzu peel, chili, and salt.</p>
