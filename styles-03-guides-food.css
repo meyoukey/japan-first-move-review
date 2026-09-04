@@ -2745,7 +2745,7 @@ body:has(.guide-page) .site-footer p {
 }
 
 .food-card-guide-choice-actions .button.secondary {
-  border-color: #d9a8b5;
+  border: 2px solid #a95b74;
   color: #914762;
   background: #fff;
 }
