@@ -25,6 +25,9 @@
 }
 
 .custom-food-card-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  align-items: stretch;
   margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
   overflow: hidden;
   border: 1px solid #eadfe3;
@@ -40,7 +43,9 @@
 .custom-food-card-intro-visual img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% center;
 }
 
 .custom-food-card-intro-copy {
@@ -112,19 +117,8 @@
 }
 
 .custom-food-card-start-link {
-  color: #8e3b58;
   font-size: 0.9rem;
   font-weight: 800;
-  text-decoration: underline;
-  text-decoration-color: rgba(142, 59, 88, 0.35);
-  text-underline-offset: 0.18em;
-}
-
-.custom-food-card-explainer {
-  margin-top: clamp(1.5rem, 4vw, 2.5rem);
-  overflow: hidden;
-  border-radius: 20px;
-  background: #fff;
 }
 
 .custom-food-card-workspace {
@@ -1311,6 +1305,7 @@
   }
 
   .custom-food-card-intro {
+    grid-template-columns: 1fr;
     border-radius: 16px;
   }
 
@@ -1320,10 +1315,6 @@
 
   .custom-food-card-intro-actions .button {
     width: 100%;
-  }
-
-  .custom-food-card-explainer {
-    border-radius: 16px;
   }
 
   .custom-food-card-intro-visual img {

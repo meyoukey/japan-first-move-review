@@ -7162,9 +7162,18 @@ function renderCustomFoodCard() {
             </ul>
             <div class="custom-food-card-intro-actions">
               <button class="button secondary" type="button" data-custom-open-sample>View sample card</button>
-              <a class="custom-food-card-start-link" href="#custom-food-card-builder">Start with ingredients</a>
+              <a class="button primary custom-food-card-start-link" href="#custom-food-card-builder">Choose ingredients</a>
             </div>
           </div>
+          <figure class="custom-food-card-intro-visual">
+            <img
+              src="/assets/guides/food-allergy-card-japan.png"
+              alt="Restaurant staff checking ingredients around a smartphone displaying a Japanese food card."
+              width="1200"
+              height="405"
+              decoding="async"
+            />
+          </figure>
         </section>
       ` : ""}
       <section class="custom-food-card-workspace card-container" id="custom-food-card-builder" aria-label="Custom Food Card builder">
@@ -7174,24 +7183,6 @@ function renderCustomFoodCard() {
         </div>
         ${customFoodCardStepMarkup()}
       </section>
-      ${customFoodCardState.step === 1 ? `
-        <section class="custom-food-card-explainer content-container" aria-labelledby="custom-food-card-explainer-title">
-          <figure class="custom-food-card-intro-visual">
-            <img
-              src="/assets/guides/food-allergy-card-japan.png"
-              alt="Restaurant staff checking ingredients around a smartphone displaying a Japanese food card."
-              width="1200"
-              height="405"
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
-          <div class="custom-food-card-intro-copy">
-            <h2 id="custom-food-card-explainer-title">Create it on your phone</h2>
-            <p>Build your card in the browser, save it as an image after purchase, and keep it ready to show restaurant staff.</p>
-          </div>
-        </section>
-      ` : ""}
     </div>
     ${customFoodCardSampleModalMarkup()}
     ${customFoodCardShowModeMarkup()}
