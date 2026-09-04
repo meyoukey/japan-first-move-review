@@ -12,7 +12,7 @@ try {
 
 const root = path.resolve(__dirname, "..");
 const siteOrigin = "https://japanfirstmove.com";
-const excludedPaths = new Set(["/food-card/custom", "/food-card/custom/"]);
+const excludedPaths = new Set();
 const appContainerPattern = /<main\b(?=[^>]*\bid="app")[^>]*>[\s\S]*?<\/main>/g;
 
 function commandPath(command) {

@@ -106,9 +106,9 @@ const pages = [
   },
   {
     path: "/food-card/custom/",
-    title: "Custom Food Card for Japan | Japan First Move",
+    title: "Custom Japanese Food Allergy Card | Japan First Move",
     description:
-      "Create a clear Japanese food card for allergies, dietary needs, preferences, or ingredients you want restaurant staff to check.",
+      "Create a Japanese-English food card for allergies, dietary restrictions, religious needs, or ingredients restaurant staff should check. No app or account needed.",
     ogImage: customFoodCardOgImage,
     ogImageAlt: customFoodCardOgImageAlt,
   },

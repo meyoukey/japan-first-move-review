@@ -7129,7 +7129,7 @@ function customFoodCardShowModeMarkup() {
 }
 
 function renderCustomFoodCard() {
-  document.title = "Custom Food Card | Japan First Move";
+  document.title = "Custom Japanese Food Allergy Card | Japan First Move";
   customFoodCardSaveDraft();
   const imagePreviewMode = Boolean(customFoodCardState.imagePreviewUrl);
   document.body.classList.toggle("is-custom-show-mode", customFoodCardState.showMode);
@@ -7145,33 +7145,53 @@ function renderCustomFoodCard() {
           <a href="/food-cards">Food cards</a><span>/</span>
           <span>Custom Food Card</span>
         </nav>
-        <h1>Custom Food Card</h1>
-        <p class="lead">Create a clear Japanese food card that helps restaurant staff understand your needs and respond.</p>
+        <h1>Create a Japanese Food Card</h1>
+        <p class="lead">Choose specific ingredients and show restaurant staff a clear Japanese card they can respond to.</p>
         <p class="custom-price-note">${customFoodCardPriceText}</p>
       </header>
       ${customFoodCardState.step === 1 ? `
         <section class="custom-food-card-intro content-container" aria-labelledby="custom-food-card-intro-title">
-          <figure class="custom-food-card-intro-visual">
-            <img
-              src="/assets/guides/food-allergy-card-japan.png"
-              alt="Restaurant staff checking ingredients around a smartphone displaying a Japanese food card."
-              width="1200"
-              height="405"
-            />
-          </figure>
           <div class="custom-food-card-intro-copy">
-            <h2 id="custom-food-card-intro-title">Create it on your phone</h2>
-            <p>Build your card in the browser, save it as an image, and keep it ready to show restaurant staff. No app or account needed.</p>
+            <span class="custom-food-card-intro-kicker">Before you start</span>
+            <h2 id="custom-food-card-intro-title">See exactly what restaurant staff will read</h2>
+            <p>Preview the Japanese card format first, then choose the ingredients and message that fit your situation.</p>
+            <ul class="custom-food-card-intro-benefits">
+              <li>Japan-specific ingredients, including dashi and seasonings</li>
+              <li>No app or account needed</li>
+              <li>Clear replies staff can point to</li>
+            </ul>
+            <div class="custom-food-card-intro-actions">
+              <button class="button secondary" type="button" data-custom-open-sample>View sample card</button>
+              <a class="custom-food-card-start-link" href="#custom-food-card-builder">Start with ingredients</a>
+            </div>
           </div>
         </section>
       ` : ""}
-      <section class="custom-food-card-workspace card-container" aria-label="Custom Food Card builder">
+      <section class="custom-food-card-workspace card-container" id="custom-food-card-builder" aria-label="Custom Food Card builder">
         <div class="custom-step-progress" aria-label="Step ${customFoodCardState.step} of 4">
           <span>Step ${customFoodCardState.step} of 4</span>
           <div aria-hidden="true"><i style="width: ${customFoodCardState.step * 25}%"></i></div>
         </div>
         ${customFoodCardStepMarkup()}
       </section>
+      ${customFoodCardState.step === 1 ? `
+        <section class="custom-food-card-explainer content-container" aria-labelledby="custom-food-card-explainer-title">
+          <figure class="custom-food-card-intro-visual">
+            <img
+              src="/assets/guides/food-allergy-card-japan.png"
+              alt="Restaurant staff checking ingredients around a smartphone displaying a Japanese food card."
+              width="1200"
+              height="405"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <div class="custom-food-card-intro-copy">
+            <h2 id="custom-food-card-explainer-title">Create it on your phone</h2>
+            <p>Build your card in the browser, save it as an image after purchase, and keep it ready to show restaurant staff.</p>
+          </div>
+        </section>
+      ` : ""}
     </div>
     ${customFoodCardSampleModalMarkup()}
     ${customFoodCardShowModeMarkup()}
