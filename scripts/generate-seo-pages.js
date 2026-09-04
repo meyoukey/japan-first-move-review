@@ -23,8 +23,9 @@ const pages = [
   },
   {
     path: "/food",
-    title: "Food in Japan | Japan First Move",
-    description: "Learn first moves for ordering, paying, waiting, and explaining food needs while traveling in Japan.",
+    title: "Food in Japan: Ordering, Allergies & Restaurant Help | Japan First Move",
+    description:
+      "Practical guides for ordering food in Japan, explaining allergies and dietary restrictions, checking ingredients, and paying at restaurants and shops.",
   },
   {
     path: "/move",
@@ -98,7 +99,7 @@ const pages = [
   },
   {
     path: "/food-cards",
-    title: "Japanese Food Allergy Cards for Japan | Japan First Move",
+    title: "Free Japanese Food Allergy Cards for Japan | Japan First Move",
     description:
       "Use Japanese-English food allergy and dietary restriction cards in Japan, or create a custom card with ingredients for restaurant staff to check.",
     ogImage: foodCardsOgImage,
@@ -123,7 +124,7 @@ const pages = [
   },
   {
     path: "/guides/food-allergy-card-japan",
-    title: "Food Allergy Card for Japan: How to Use It | Japan First Move",
+    title: "How to Use a Food Allergy Card in Japan | Japan First Move",
     description:
       "Learn when and how to show a food allergy or dietary restriction card at restaurants in Japan, including dashi, broth, and other ingredients to check.",
     ogType: "article",

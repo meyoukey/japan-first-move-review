@@ -4887,15 +4887,14 @@ function renderCategory(categoryId) {
 }
 
 function renderFoodCategory() {
-  const category = categoryMap.food;
-  document.title = "Food in Japan | Japan First Move";
+  document.title = "Food in Japan: Ordering, Allergies & Restaurant Help | Japan First Move";
 
   app.innerHTML = `
     <div class="page-shell food-page layout-container">
       <header class="category-page-header">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Food</span></nav>
         <h1>Food in Japan</h1>
-        <p class="lead">${escapeHtml(category.description)}</p>
+        <p class="lead">Practical help for ordering at restaurants in Japan, explaining food allergies or dietary restrictions, checking ingredients, and paying for your meal.</p>
       </header>
 
       <section class="food-section" id="food-first-moves" aria-labelledby="food-guides-title">
@@ -5176,7 +5175,7 @@ function foodCardsPromo() {
 }
 
 function renderFoodCardsPage() {
-  document.title = "Japanese Food Allergy Cards for Japan | Japan First Move";
+  document.title = "Free Japanese Food Allergy Cards for Japan | Japan First Move";
   app.innerHTML = `
     <div class="page-shell food-card-page layout-container">
       <header class="guide-page-header content-container">
@@ -5212,7 +5211,7 @@ function renderFoodCardsPage() {
       <section class="section food-samples content-container" aria-labelledby="food-samples-title">
         <div class="section-header">
           <div>
-            <h2 id="food-samples-title">Popular sample cards</h2>
+            <h2 id="food-samples-title">Free sample food cards</h2>
           </div>
           <p>Choose a sample card to view it.</p>
         </div>
@@ -5231,7 +5230,7 @@ function renderFoodCardsPage() {
 }
 
 function renderFoodAllergyCardGuide() {
-  document.title = "Food Allergy Card for Japan: How to Use It | Japan First Move";
+  document.title = "How to Use a Food Allergy Card in Japan | Japan First Move";
   app.innerHTML = `
     <article class="page-shell guide-page category-food food-card-article-page layout-container">
       <header class="guide-page-header food-card-article-header content-container">
