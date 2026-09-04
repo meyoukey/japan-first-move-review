@@ -2346,12 +2346,14 @@ const foodCards = [
   },
   {
     id: "basic-food-allergy",
-    title: "Basic food allergy",
+    title: "Egg allergy",
+    pageTitle: "Japanese Egg Allergy Card for Japan",
+    pageHeading: "Japanese egg allergy card",
     label: "Allergy",
-    englishText: "I have a food allergy. Could you please check whether this contains the ingredient listed on the card?",
-    japaneseText: "食物アレルギーがあります。避ける必要がある食材が入っていないか確認していただけますか？対応が難しい場合は、無理に提供しなくて大丈夫です。",
-    summary: "For asking staff to check ingredients for an allergy.",
-    note: "Use when: you need staff to check ingredients carefully.",
+    englishText: "I have an egg allergy. I cannot eat eggs or foods containing egg. Could you please check the ingredients and preparation?",
+    japaneseText: "卵アレルギーがあります。卵（鶏卵）と卵を含む食品は食べられません。食材と調理方法を確認していただけますか？対応が難しい場合は、無理に提供しなくて大丈夫です。",
+    summary: "For avoiding egg and foods containing egg.",
+    note: "Use when: you have an egg allergy and need staff to check ingredients.",
     access: "free",
   },
   {
@@ -5514,7 +5516,7 @@ function foodCardCustomSampleConfig(card) {
     "basic-food-allergy": {
       type: "cannotEat",
       reason: "allergy",
-      ingredients: [{ labelJa: "避ける必要がある食材", labelEn: "Ingredient to avoid" }],
+      ingredients: [{ labelJa: "卵（鶏卵）", labelEn: "Egg" }],
     },
     vegetarian: {
       type: "doNotEat",

@@ -357,8 +357,8 @@ const pages = [
   },
   {
     path: "/food-cards/basic-food-allergy",
-    title: "Basic Food Allergy Card | Japan First Move",
-    description: "A Japanese-English sample food card for asking restaurant staff in Japan to check ingredients for an allergy.",
+    title: "Japanese Egg Allergy Card for Japan | Japan First Move",
+    description: "A Japanese-English egg allergy card for asking restaurant staff in Japan to check ingredients and preparation.",
     ogImage: foodCardsOgImage,
     ogImageAlt: foodCardsOgImageAlt,
   },
