@@ -2424,7 +2424,14 @@ const foodCards = [
   },
 ];
 
-const popularFoodCardIds = ["severe-allergy", "vegetarian", "ask-dashi"];
+const popularFoodCardIds = [
+  "severe-allergy",
+  "basic-food-allergy",
+  "vegetarian",
+  "vegan",
+  "no-pork",
+  "ask-dashi",
+];
 const popularFoodCards = popularFoodCardIds.map((id) => foodCards.find((card) => card.id === id)).filter(Boolean);
 
 const foodCardDisclaimer = {
@@ -5476,6 +5483,28 @@ function foodCardGuideLinkMarkup(cardId) {
   `;
 }
 
+function foodCardRelatedCardLinkMarkup(cardId) {
+  const relatedCards = {
+    "severe-allergy": {
+      href: "/food-cards/shared-oil-tools",
+      label: "Need to ask about shared oil or cooking tools?",
+    },
+    "no-pork": {
+      href: "/food-cards/no-alcohol",
+      label: "Need a separate card for avoiding alcohol?",
+    },
+  };
+  const relatedCard = relatedCards[cardId];
+  if (!relatedCard) {
+    return "";
+  }
+  return `
+    <aside class="food-detail-guide-link" aria-label="Related food card">
+      <a class="article-inline-link" href="${relatedCard.href}" ${trackAttr(`food_card_detail_related_${cardId}`)}>${escapeHtml(relatedCard.label)} →</a>
+    </aside>
+  `;
+}
+
 function foodCardCustomSampleConfig(card) {
   const configs = {
     "severe-allergy": {
@@ -5598,6 +5627,7 @@ function renderFoodCardDetail(cardId) {
       </div>
 
       ${foodCardGuideLinkMarkup(card.id)}
+      ${foodCardRelatedCardLinkMarkup(card.id)}
 
       <section class="food-card-builder-panel food-detail-upgrade card-container" aria-labelledby="custom-card-title">
         <div>
