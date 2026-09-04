@@ -2739,7 +2739,27 @@ body:has(.guide-page) .site-footer p {
 .food-card-guide-choice-actions .button {
   width: 100%;
   justify-content: center;
+  border-radius: 999px;
+  box-shadow: none;
   text-align: center;
+}
+
+.food-card-guide-choice-actions .button.secondary {
+  border-color: #d9a8b5;
+  color: #914762;
+  background: #fff;
+}
+
+.food-card-guide-choice-actions .button.primary {
+  border-color: var(--color-food);
+  color: #fff;
+  background: var(--color-food);
+}
+
+.food-card-guide-choice-actions .button:hover,
+.food-card-guide-choice-actions .button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(72, 48, 57, 0.09);
 }
 
 .food-card-guide-choice-notes {
