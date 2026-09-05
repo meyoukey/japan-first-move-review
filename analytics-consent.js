@@ -106,6 +106,13 @@
 
   protectCheckoutSessionId();
 
+  // Keep local and preview visits out of the production analytics property.
+  // Checkout return handling above must still work in those environments.
+  const analyticsHosts = new Set(["japanfirstmove.com", "www.japanfirstmove.com"]);
+  if (!analyticsHosts.has(window.location.hostname)) {
+    return;
+  }
+
   queueGoogleTag("consent", "default", {
     analytics_storage: "denied",
     ad_storage: "denied",

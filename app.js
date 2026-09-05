@@ -5188,6 +5188,10 @@ function renderFoodCardsPage() {
         </nav>
         <h1>Japanese food allergy and dietary cards for Japan</h1>
         <p class="lead">Use Japanese-English sample cards for food allergies and dietary restrictions in Japan, or create a custom card with the specific ingredients you need restaurant staff to check.</p>
+        <div class="food-card-intro-actions" aria-label="Choose a food card">
+          <a class="button primary" href="/food-card/custom/" ${trackAttr("food_cards_intro_create")}>Create my card — USD $7.99</a>
+          <a class="button secondary" href="#food-samples-title" ${trackAttr("food_cards_intro_samples")}>View free sample cards</a>
+        </div>
         <figure class="food-card-article-hero">
           <picture>
             <source media="(max-width: 640px)" srcset="/assets/guides/food-cards-overview-sp.png">

@@ -502,7 +502,7 @@ h3 {
   padding: 0.72rem 1.3rem;
   font-weight: 900;
   cursor: pointer;
-  box-shadow: 0 10px 0 rgba(16, 40, 79, 0.12);
+  box-shadow: none;
   transition:
     transform 160ms ease,
     box-shadow 160ms ease;
@@ -510,19 +510,21 @@ h3 {
 
 .button:hover,
 .button:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 0 rgba(16, 40, 79, 0.12);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(72, 48, 57, 0.09);
 }
 
+/* Match the food allergy guide; do not restore the old red/yellow CTA pair. */
 .button.primary {
-  border-color: var(--navy);
+  border-color: var(--color-food, #e07d99);
   color: var(--white);
-  background: var(--red);
+  background: var(--color-food, #e07d99);
 }
 
 .button.secondary {
-  color: var(--navy);
-  background: var(--soft-sun);
+  border: 2px solid #a95b74;
+  color: #914762;
+  background: var(--white);
 }
 
 .choice-grid,
