@@ -2359,25 +2359,25 @@ const foodCards = [
   {
     id: "vegetarian",
     title: "Vegetarian",
-    pageTitle: "Japanese Vegetarian Card for Japan",
-    pageHeading: "Japanese vegetarian card",
+    pageTitle: "Free Japanese Vegetarian Card",
+    pageHeading: "Free Japanese vegetarian card",
     label: "Vegetarian",
     englishText: "I do not eat meat or seafood. Could you please check fish broth, meat broth, and hidden ingredients?",
     japaneseText: "肉と魚介類を食べません。だし、肉エキス、魚介エキスなどが入っていないか確認していただけますか？対応が難しい場合は、無理に提供しなくて大丈夫です。",
     summary: "For avoiding meat, seafood, and animal-based dashi.",
-    note: "Use when: you avoid meat, seafood, and animal-based dashi.",
+    note: "Show this free Japanese-English card before ordering to ask about meat, seafood, and animal-based dashi.",
     access: "free",
   },
   {
     id: "vegan",
     title: "Vegan",
-    pageTitle: "Japanese Vegan Card for Japan",
-    pageHeading: "Japanese vegan card",
+    pageTitle: "Free Japanese Vegan Card",
+    pageHeading: "Free Japanese vegan card",
     label: "Vegan",
     englishText: "I do not eat meat, seafood, eggs, dairy, or animal-based dashi. Could you please check dashi and hidden ingredients?",
     japaneseText: "肉、魚介類、卵、乳製品、動物性のだしを食べません。だしや調味料に動物性のものが入っていないか確認していただけますか？対応が難しい場合は、無理に提供しなくて大丈夫です。",
     summary: "For avoiding meat, seafood, eggs, dairy, and animal-based dashi.",
-    note: "Use when: you avoid all animal-derived ingredients.",
+    note: "Show this free Japanese-English card before ordering. It lists meat, seafood, eggs, dairy, and animal-based dashi for staff to check.",
     access: "free",
   },
   {
@@ -2407,11 +2407,13 @@ const foodCards = [
   {
     id: "ask-dashi",
     title: "Ask about dashi",
+    pageTitle: "Is Dashi Vegetarian? Japanese Dashi Card",
+    pageHeading: "Ask about dashi in Japanese",
     label: "Dashi",
     englishText: "Does this contain animal-based broth or dashi?",
     japaneseText: "これは動物性のだしが入っていますか？",
     summary: "For checking if a dish contains animal-based broth or dashi.",
-    note: "Use when: a dish may contain animal-based broth or dashi.",
+    note: "Dashi can contain fish or plant ingredients. Use this free Japanese-English card to ask whether a dish contains animal-based broth or dashi.",
     access: "free",
   },
   {
@@ -5568,6 +5570,70 @@ function foodCardCustomSampleConfig(card) {
   return configs[card.id] ?? configs["basic-food-allergy"];
 }
 
+function foodCardDetailReadingMarkup(cardId) {
+  const reading = {
+    vegetarian: `
+      <section aria-labelledby="vegetarian-card-covers">
+        <h2 id="vegetarian-card-covers">What does this vegetarian card say?</h2>
+        <p>The sample card says that you do not eat meat, seafood, or animal-based dashi. It asks restaurant staff to check and point to a reply. You can show the card on this page without buying a custom card.</p>
+        <p>Check that the listed ingredients match your own needs before using it. This vegetarian sample does not list eggs or dairy. If you avoid those too, use the <a href="/food-cards/vegan/" ${trackAttr("vegetarian_reading_vegan")}>free Japanese vegan card</a>.</p>
+      </section>
+      <section aria-labelledby="vegetarian-card-dashi">
+        <h2 id="vegetarian-card-dashi">Ask about fish stock and meat extracts</h2>
+        <p>A dish can contain fish stock or meat extracts even when no pieces of fish or meat are visible. Ask staff to check the broth, sauce, and seasonings as well as the main ingredients.</p>
+        <p>If you only need to ask about the stock, use the <a href="/food-cards/ask-dashi/" ${trackAttr("vegetarian_reading_dashi")}>dashi question card</a>. It helps you ask a specific question before choosing your meal.</p>
+      </section>
+      <section aria-labelledby="vegetarian-card-personalise">
+        <h2 id="vegetarian-card-personalise">When should I use a custom card?</h2>
+        <p>Use the free sample when its list matches what you want to explain. If your request includes different ingredients, a <a href="/food-card/custom/" ${trackAttr("vegetarian_reading_custom")}>custom card costs USD $7.99</a> and lets you choose your food needs and ingredients. Read your choices before purchasing.</p>
+      </section>
+    `,
+    vegan: `
+      <section aria-labelledby="vegan-card-covers">
+        <h2 id="vegan-card-covers">What is included on this vegan card?</h2>
+        <p>This free sample names meat, seafood, eggs, dairy, and animal-based dashi. It asks staff to check the food and point to a reply. You can open this page on your phone and show the card before ordering.</p>
+        <p>Read the ingredient list before using it. A ready-made card explains the items it names; it is not a complete list of every possible animal-derived ingredient.</p>
+      </section>
+      <section aria-labelledby="vegan-card-check">
+        <h2 id="vegan-card-check">Check the broth, sauces, and seasonings</h2>
+        <p>Ask about ingredients used in the whole dish, including its broth and sauces. A vegetable or tofu dish may still use fish-based dashi. Removing a visible topping does not tell you what was used in the stock.</p>
+        <p>The <a href="/food-cards/ask-dashi/" ${trackAttr("vegan_reading_dashi")}>Japanese dashi question card</a> is useful for a separate stock question. Give staff time to check, and wait for their reply before choosing the dish.</p>
+      </section>
+      <section aria-labelledby="vegan-card-choice">
+        <h2 id="vegan-card-choice">Vegan, vegetarian, or custom?</h2>
+        <p>The <a href="/food-cards/vegetarian/" ${trackAttr("vegan_reading_vegetarian")}>vegetarian sample</a> lists meat, seafood, and animal-based dashi. This vegan sample also lists eggs and dairy. Choose the one that matches your request.</p>
+        <p>If you need a different ingredient list, <a href="/food-card/custom/" ${trackAttr("vegan_reading_custom")}>create a custom card for USD $7.99</a>. Select the ingredients and wording that describe your needs, then review them before purchasing.</p>
+      </section>
+    `,
+    "ask-dashi": `
+      <section aria-labelledby="dashi-vegetarian-answer">
+        <h2 id="dashi-vegetarian-answer">Is dashi vegetarian or vegan?</h2>
+        <p>Some dashi is plant-based and some contains fish. Kombu (kelp) and dried shiitake mushrooms can be used for plant-based stock; bonito flakes and dried fish are also used to make dashi. Ingredients may be combined, so ask what is in the stock used for your dish.</p>
+        <p>The word “dashi” alone does not tell you whether it fits your diet. This card asks about animal-based dashi or broth; it does not confirm the ingredients for you.</p>
+      </section>
+      <section aria-labelledby="dashi-japanese-question">
+        <h2 id="dashi-japanese-question">How do I ask about dashi in Japanese?</h2>
+        <p>Show the card above and point to the dish you are considering. For a specific question about fish or meat ingredients, you can also show this sentence:</p>
+        <blockquote class="food-detail-reading-phrase">
+          <p lang="ja">このだしには魚や肉の成分が入っていますか？</p>
+          <p>Does this dashi contain any fish or meat ingredients?</p>
+        </blockquote>
+        <p>Ask before ordering so staff have time to check the recipe or a prepared stock's ingredients.</p>
+      </section>
+      <section aria-labelledby="dashi-staff-reply">
+        <h2 id="dashi-staff-reply">What should I do after asking?</h2>
+        <p>Let staff check and point to a reply on the card. If the stock contains something you avoid, ask about another dish. If staff cannot confirm, choose another dish or place. A reply about dashi covers that question only; other ingredients may need a separate check.</p>
+        <p>For a wider request, use the <a href="/food-cards/vegetarian/" ${trackAttr("dashi_reading_vegetarian")}>vegetarian card</a> or <a href="/food-cards/vegan/" ${trackAttr("dashi_reading_vegan")}>vegan card</a>. The <a href="/guides/food-allergy-card-japan/" ${trackAttr("dashi_reading_guide")}>food card guide</a> explains how to show your needs and wait for a clear answer.</p>
+      </section>
+    `,
+  };
+  if (!reading[cardId]) return "";
+  const source = cardId === "ask-dashi"
+    ? '<a href="https://www.maff.go.jp/j/shokusan/gaisyoku/pamphlet/pdf/34-39_english.pdf" target="_blank" rel="noopener noreferrer">MAFF — Washoku: dashi ingredients (PDF)</a>'
+    : '<a href="https://www.japan.travel/en/guide/vegetarian-guide/" target="_blank" rel="noopener noreferrer">JNTO — A Vegetarian and Vegan Guide to Japan</a>';
+  return `<div class="food-detail-reading content-container">${reading[cardId]}<p class="food-detail-reading-source">Further reading: ${source}</p></div>`;
+}
+
 function renderFoodCardDetail(cardId) {
   const card = foodCardMap[cardId];
   if (!card) {
@@ -5630,6 +5696,8 @@ function renderFoodCardDetail(cardId) {
 
         ${foodDisclaimer()}
       </div>
+
+      ${foodCardDetailReadingMarkup(card.id)}
 
       ${foodCardGuideLinkMarkup(card.id)}
       ${foodCardRelatedCardLinkMarkup(card.id)}

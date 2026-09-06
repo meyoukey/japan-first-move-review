@@ -364,17 +364,17 @@ const pages = [
   },
   {
     path: "/food-cards/vegetarian",
-    title: "Japanese Vegetarian Card for Japan | Japan First Move",
+    title: "Free Japanese Vegetarian Card | Japan First Move",
     description:
-      "A Japanese-English sample food card for explaining vegetarian needs and avoiding meat, seafood, and animal-based dashi in Japan.",
+      "Show a free Japanese vegetarian card at restaurants. Learn what it covers, how to ask about fish stock, and when to choose a vegan or custom card.",
     ogImage: foodCardsOgImage,
     ogImageAlt: foodCardsOgImageAlt,
   },
   {
     path: "/food-cards/vegan",
-    title: "Japanese Vegan Card for Japan | Japan First Move",
+    title: "Free Japanese Vegan Card | Japan First Move",
     description:
-      "A Japanese-English sample food card for avoiding meat, seafood, eggs, dairy, and animal-based dashi in Japan.",
+      "Use a free Japanese vegan card to explain your food needs. See the listed ingredients, what to ask about dashi and sauces, and how to choose a custom card.",
     ogImage: foodCardsOgImage,
     ogImageAlt: foodCardsOgImageAlt,
   },
@@ -395,8 +395,8 @@ const pages = [
   },
   {
     path: "/food-cards/ask-dashi",
-    title: "Ask About Dashi Food Card | Japan First Move",
-    description: "A Japanese-English sample food card for checking whether a dish contains animal-based broth or dashi in Japan.",
+    title: "Is Dashi Vegetarian? Japanese Dashi Card | Japan First Move",
+    description: "Learn why dashi is not always vegetarian or vegan. Show a free Japanese question card, ask about fish or meat stock, and understand the next step.",
     ogImage: foodCardsOgImage,
     ogImageAlt: foodCardsOgImageAlt,
   },
@@ -634,7 +634,7 @@ function headMarkup(page) {
   const homepagePreloadMarkup = page.path === "/"
     ? `    <link rel="preload" as="image" href="/sozai/hero/hero-mobile-ramen-v2.webp" type="image/webp" fetchpriority="high" />\n`
     : "";
-  const stylesheetVersion = "guide-button-tone-1";
+  const stylesheetVersion = "food-card-reading-1";
   return `  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

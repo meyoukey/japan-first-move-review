@@ -2583,6 +2583,53 @@ body:has(.guide-page) .site-footer p {
   font-size: 0.85rem;
 }
 
+/* Practical reading below the sample card, using the existing food-page tone. */
+.food-detail-page .food-detail-reading {
+  margin-top: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--color-text-main);
+}
+
+.food-detail-reading > section + section {
+  margin-top: 1.8rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-food-soft);
+}
+
+.food-detail-reading h2 {
+  margin: 0 0 0.8rem;
+  font-size: clamp(1.3rem, 3vw, 1.65rem);
+  line-height: 1.25;
+}
+
+.food-detail-reading p {
+  font-size: 1rem;
+  font-weight: 450;
+  line-height: 1.65;
+}
+
+.food-detail-reading a {
+  color: #914762;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.food-detail-reading-phrase {
+  margin: 1rem 0;
+  padding: 0.6rem 1rem;
+  border-left: 3px solid var(--color-food);
+  background: var(--color-card-bg);
+}
+
+.food-detail-reading-phrase p[lang="ja"] {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.food-detail-reading .food-detail-reading-source {
+  margin-top: 1.8rem;
+  font-size: 0.85rem;
+}
+
 /* Long-form food card guide. */
 .food-card-article-page {
   padding-bottom: clamp(3rem, 8vw, 5rem);
