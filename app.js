@@ -2334,12 +2334,12 @@ const homeQuickPhrases = [
 const foodCards = [
   {
     id: "severe-allergy",
-    title: "Severe allergy",
+    title: "Severe peanut allergy",
     pageTitle: "Japanese Peanut Allergy Card for Japan",
-    pageHeading: "Japanese peanut allergy card",
+    pageHeading: "Japanese card for severe peanut allergy",
     label: "Severe",
     englishText: "I have a severe peanut allergy. Even a small amount or cross-contact may be dangerous.",
-    japaneseText: "重度の食物アレルギーがあります。アレルギーのあるもの：落花生（ピーナッツ）。少量の混入や調理器具の共有でも危険です。対応が難しい場合は、無理に提供しなくて大丈夫です。",
+    japaneseText: "重度のピーナッツアレルギーがあります。アレルギーのあるもの：落花生（ピーナッツ）。少量の混入や調理器具の共有でも危険です。対応が難しい場合は、無理に提供しなくて大丈夫です。",
     summary: "For a severe peanut allergy or cross-contact risk.",
     note: "Use when: you have a severe peanut allergy and cross-contact may be unsafe.",
     access: "free",
@@ -5642,6 +5642,10 @@ function renderFoodCardDetail(cardId) {
   }
 
   const sampleConfig = foodCardCustomSampleConfig(card);
+  const sampleContent = customFoodCardLayoutContent(sampleConfig.type, sampleConfig.reason);
+  if (card.id === "severe-allergy") {
+    sampleContent.main = "重度のピーナッツアレルギーがあります。";
+  }
   document.title = `${card.pageTitle ?? card.title} | Japan First Move`;
   app.innerHTML = `
     <div class="page-shell food-detail-page layout-container">
@@ -5676,7 +5680,7 @@ function renderFoodCardDetail(cardId) {
 
       <div class="food-sample-detail-card card-container">
         ${customFoodCardLayoutMarkup(
-          customFoodCardLayoutContent(sampleConfig.type, sampleConfig.reason),
+          sampleContent,
           sampleConfig.ingredients,
           " food-sample-generated-card",
         )}
