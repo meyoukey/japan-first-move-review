@@ -634,6 +634,9 @@ function headMarkup(page) {
   const homepagePreloadMarkup = page.path === "/"
     ? `    <link rel="preload" as="image" href="/sozai/hero/hero-mobile-ramen-v2.webp" type="image/webp" fetchpriority="high" />\n`
     : "";
+  const pinterestVerificationMarkup = page.path === "/"
+    ? `    <meta name="p:domain_verify" content="51ca3695a63a7761223f0ec151d4f6c1" />\n`
+    : "";
   const stylesheetVersion = "food-card-reading-1";
   return `  <head>
     <meta charset="UTF-8" />
@@ -641,7 +644,7 @@ function headMarkup(page) {
     <title>${title}</title>
     <meta name="description" content="${description}" />
     <link rel="canonical" href="${escapedCanonical}" />
-${structuredDataMarkup(page)}
+${pinterestVerificationMarkup}${structuredDataMarkup(page)}
 ${homepagePreloadMarkup}${robotsMarkup}
     <!-- Open Graph -->
     <meta property="og:site_name" content="Japan First Move" />
