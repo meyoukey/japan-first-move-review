@@ -3741,9 +3741,9 @@ function foodCardCtaPanel({
         ? "food_cards_create"
         : "home_custom_food_card_create";
   const samplesTrack = isGuide ? "guide_food_card_samples" : isFoodCategory ? "food_sample_cards_view" : "home_custom_food_card_samples";
-  const heading = headingOverride || (isFoodCardsPage ? "Create your own card" : "Create a food card for Japan");
+  const heading = headingOverride || (isFoodCardsPage ? "Need a different combination?" : "Create a food card for Japan");
   const description = descriptionOverride || (isFoodCardsPage
-    ? "Choose the food needs and specific ingredients that matter to you. Your card keeps them easy to scan and gives restaurant staff clear replies they can point to."
+    ? "Need to avoid egg, dairy, and sesame together? Choose up to 5 ingredients and combine them on one Japanese-English card tailored to your needs."
     : context === "home"
       ? "Choose your food needs and specific ingredients, then show a clear Japanese card that helps restaurant staff understand and respond."
       : "Show allergies, dietary needs, or ingredients to check before ordering.");
@@ -3753,11 +3753,11 @@ function foodCardCtaPanel({
       <div class="food-card-cta-content">
         <h2${titleId}>${heading}</h2>
         <p>${description}</p>
-        <div class="food-card-benefits" aria-label="Food card benefits">
+        ${isFoodCardsPage ? "" : `<div class="food-card-benefits" aria-label="Food card benefits">
           <span>No app needed</span>
           <span>Save as image</span>
           <span>Point-to-reply answers</span>
-        </div>
+        </div>`}
         <div class="section-actions">
           <p class="price-line">${customFoodCardPriceText}</p>
           <a class="button primary" href="/food-card/custom/" ${trackAttr(createTrack)}>${escapeHtml(buttonLabel)}</a>
@@ -5221,7 +5221,7 @@ function renderFoodCardsPage() {
           <div>
             <h2 id="food-samples-title">Free sample food cards</h2>
           </div>
-          <p>Choose a sample card to view it.</p>
+          <p>These free cards have fixed wording and ingredients. Choose one that matches your needs, then open it to check the full message.</p>
         </div>
         <div class="food-card-grid">
           ${popularFoodCards.map(foodCard).join("")}
