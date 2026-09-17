@@ -3366,9 +3366,45 @@ let currentRouteVisitId = 0;
 let customFoodCardViewTrackedVisitId = 0;
 let customFoodCardStartHandled = false;
 let customFoodCardEntryPoint = "";
+let customFoodCardLastTrackedStep = "";
 
 function analyticsTrack(eventName, parameters = {}) {
   return window.jfmAnalytics?.track?.(eventName, parameters) === true;
+}
+
+// Diagnostics contain only fixed funnel labels, never card contents or error text.
+function customFoodCardTrackDiagnostic(eventName, parameters = {}) {
+  try {
+    return analyticsTrack(eventName, {
+      item_id: "custom-food-card",
+      ...parameters,
+    });
+  } catch {
+    // Optional measurement must never interrupt the builder or payment.
+    return false;
+  }
+}
+
+function customFoodCardTrackStep() {
+  const pathname = window.location.pathname.replace(/\/+$/, "");
+  if (pathname !== "/food-card/custom" && pathname !== "/food-card/custom/success") {
+    return;
+  }
+  const stepNames = ["", "selection", "options", "review", "card_ready"];
+  const step = customFoodCardState.step;
+  if (!Number.isInteger(step) || step < 1 || step > 4) {
+    return;
+  }
+  const stepKey = `${currentRouteVisitId}:${step}`;
+  if (customFoodCardLastTrackedStep === stepKey) {
+    return;
+  }
+  if (customFoodCardTrackDiagnostic("food_card_step_view", {
+    step_number: step,
+    step_name: stepNames[step],
+  })) {
+    customFoodCardLastTrackedStep = stepKey;
+  }
 }
 
 function customFoodCardResolvedEntryPoint() {
@@ -3408,6 +3444,7 @@ function trackDataAttributeClick(event) {
 function trackCurrentRoute() {
   window.jfmAnalytics?.captureAttribution?.();
   window.jfmAnalytics?.trackPageView?.();
+  customFoodCardTrackStep();
 
   const pathname = window.location.pathname.replace(/\/+$/, "");
   const params = new URLSearchParams(window.location.search);
@@ -5722,6 +5759,7 @@ function renderFoodCardDetail(cardId) {
 }
 
 function resetCustomFoodCardState() {
+  customFoodCardLastTrackedStep = "";
   if (customFoodCardState.imagePreviewUrl) {
     URL.revokeObjectURL(customFoodCardState.imagePreviewUrl);
   }
@@ -6189,11 +6227,15 @@ async function customFoodCardBeginCheckout() {
     return;
   }
 
+  customFoodCardTrackDiagnostic("food_card_checkout_click");
   const purchaseAttemptId = customFoodCardCheckoutAttemptId();
   customFoodCardEnsureBuilderRoute();
   customFoodCardClearCheckoutVerifiedReturn();
   customFoodCardSaveDraft();
   if (!customFoodCardSaveCheckoutDraft(purchaseAttemptId)) {
+    customFoodCardTrackDiagnostic("food_card_checkout_error", {
+      error_type: "storage_unavailable",
+    });
     customFoodCardSetCheckoutFeedback(
       "error",
       "",
@@ -6205,8 +6247,10 @@ async function customFoodCardBeginCheckout() {
   customFoodCardSetCheckoutFeedback("preparing", "Preparing secure payment...");
   renderCustomFoodCard();
 
+  let checkoutErrorType = "unexpected_error";
   try {
     const attribution = window.jfmAnalytics?.getAttribution?.() || {};
+    checkoutErrorType = "network_error";
     const response = await fetch("/api/create-checkout-session", {
       method: "POST",
       headers: {
@@ -6217,12 +6261,17 @@ async function customFoodCardBeginCheckout() {
         ...(Object.keys(attribution).length ? { attribution } : {}),
       }),
     });
+    checkoutErrorType = response.ok ? "invalid_response" : "checkout_service_error";
     const result = await response.json().catch(() => ({}));
     if (!response.ok || !result.url) {
       throw new Error(result.error || "Payment could not be started.");
     }
+    checkoutErrorType = "unexpected_error";
     customFoodCardTrackBeginCheckout(result.url);
   } catch (error) {
+    customFoodCardTrackDiagnostic("food_card_checkout_error", {
+      error_type: checkoutErrorType,
+    });
     customFoodCardSetCheckoutFeedback(
       "error",
       "",
@@ -7313,6 +7362,7 @@ function renderCustomFoodCard() {
     ${customFoodCardImagePreviewMarkup()}
   `;
   wireCustomFoodCardEvents();
+  customFoodCardTrackStep();
   if (customFoodCardState.sampleMode) {
     document.querySelector("[data-custom-close-sample]")?.focus();
   } else if (customFoodCardState.imagePreviewUrl) {
