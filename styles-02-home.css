@@ -3203,6 +3203,17 @@ body {
   mix-blend-mode: darken;
 }
 
+/* Align the izakaya scene with the other hero illustrations. */
+.home-page .hero-visual-img-2 {
+  translate: 0 32px;
+}
+
+@media (max-width: 620px) {
+  .home-page .hero-visual-img-2 {
+    translate: 0 24px;
+  }
+}
+
 .home-page > .hero,
 .poster-hero,
 .poster-cover,
