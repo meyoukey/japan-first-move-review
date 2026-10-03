@@ -3195,6 +3195,14 @@ body {
 }
 
 /* Keep the hero edge clean: no line, shadow, or old decorative pseudo-elements. */
+.home-page .poster-cover {
+  background-color: #f2f2f2;
+}
+
+.home-page .hero-visual {
+  mix-blend-mode: darken;
+}
+
 .home-page > .hero,
 .poster-hero,
 .poster-cover,

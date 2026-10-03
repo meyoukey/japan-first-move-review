@@ -113,6 +113,10 @@ sozai/hero/*
 !sozai/hero/hero-mobile-torii.png
 !sozai/hero/hero-mobile-*-v2.webp
 !sozai/hero/hero-mobile-izakaya-v3.webp
+!sozai/hero/hero-mobile-ramen-color-v1.webp
+!sozai/hero/hero-mobile-izakaya-color-v1.webp
+!sozai/hero/hero-mobile-onsen-color-v1.webp
+!sozai/hero/hero-mobile-torii-color-v1.webp
 !sozai/hero/logo.png
 
 **/.DS_Store

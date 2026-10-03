@@ -632,7 +632,7 @@ function headMarkup(page) {
 `
     : "";
   const homepagePreloadMarkup = page.path === "/"
-    ? `    <link rel="preload" as="image" href="/sozai/hero/hero-mobile-ramen-v2.webp" type="image/webp" fetchpriority="high" />\n`
+    ? `    <link rel="preload" as="image" href="/sozai/hero/hero-mobile-ramen-color-v1.webp" type="image/webp" fetchpriority="high" />\n`
     : "";
   const pinterestVerificationMarkup = page.path === "/"
     ? `    <meta name="p:domain_verify" content="51ca3695a63a7761223f0ec151d4f6c1" />\n`
