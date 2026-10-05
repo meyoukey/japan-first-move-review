@@ -3,15 +3,14 @@ const path = require("path");
 
 const root = path.resolve(__dirname, "..");
 const siteUrl = "https://japanfirstmove.com";
-const ogImage = `${siteUrl}/assets/ogp/ogp-japan-first-move-v2.png`;
+const ogImage = `${siteUrl}/assets/ogp/ogp-japan-first-move-v3.png`;
 const ogImageAlt =
-  "Japan First Move — Less Guessing. More Japan. Practical help when you need it and a closer look at everyday Japan.";
+  "Japan First Move — Practical help when you need it and a closer look at everyday Japan, with a paper-crafted ramen shop and travelers.";
 const customFoodCardOgImage = `${siteUrl}/assets/ogp/ogp-custom-food-card.png`;
 const customFoodCardOgImageAlt =
-  "Custom Food Card for Japan — a traveler showing a Japanese food card to restaurant staff.";
-const foodCardsOgImage = `${siteUrl}/assets/ogp/ogp-food-allergy-card-japan.png`;
-const foodCardsOgImageAlt =
-  "Food Allergy Card for Japan — a Japanese food card shown on a phone while restaurant staff check ingredients.";
+  "Food Allergy Card for Japan — a Japanese food card shown on a phone while restaurant staff check ingredients, for allergies and dietary restrictions.";
+const foodCardsOgImage = customFoodCardOgImage;
+const foodCardsOgImageAlt = customFoodCardOgImageAlt;
 const temporaryReviewNoindexEnabled = false;
 
 const pages = [
@@ -73,11 +72,6 @@ const pages = [
     description:
       "Discover the everyday sounds of Japan, from convenience-store chimes and chirping crosswalks to station melodies and neighborhood announcements.",
     ogType: "article",
-    ogImage: `${siteUrl}/assets/everyday-japan/everyday-sounds-hero.jpg`,
-    ogImageAlt:
-      "A paper-crafted Japanese street with a convenience store, crossing signal, train, and neighborhood loudspeaker.",
-    ogImageWidth: 1280,
-    ogImageHeight: 533,
   },
   {
     path: "/everyday-japan/why-people-walk-so-much-in-japan",
@@ -85,11 +79,6 @@ const pages = [
     description:
       "Discover why walking is part of daily life in Japan, from train stations and neighborhood errands to station exits and rental bicycles.",
     ogType: "article",
-    ogImage: `${siteUrl}/assets/everyday-japan/why-people-walk-japan-hero.jpg`,
-    ogImageAlt:
-      "Paper-crafted pedestrians walking through a Japanese neighborhood toward a railway station, with shared bicycles nearby.",
-    ogImageWidth: 1280,
-    ogImageHeight: 533,
   },
   {
     path: "/about",
